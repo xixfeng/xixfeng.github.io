@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">nginx | xixfeng</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "さくら荘そのhojun";
+  mashiro_option.author_name = "hojun";
+  mashiro_option.site_url = "https://sakura.hojun.cn";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://sakura.hojun.cn">
+          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/honjun" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="sina">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/sina.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="wangyiyun">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">hojun</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/client/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+                    客户端
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+          <header class="entry-header">
+            <h1 class="entry-title">nginx</h1>
+            <p class="entry-census">&nbsp;·&nbsp;2018-11-8&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
+
+            <hr>
+          </header>
+        
+        <div class="entry-content">
+          <h1 id="nginx基本应用"><a href="#nginx基本应用" class="headerlink" title="nginx基本应用"></a>nginx基本应用</h1><ol>
+<li><p>http服务器。提供http服务，可以做网页静态服务器。</p>
+<p>将自己已经注册的域名映射到静态文件夹</p>
+</li>
+<li><p>虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</p>
+<p>域名不同，端口相同。</p>
+<p>域名相同，端口不同。</p>
+<p><u>1和2是结合使用的</u></p>
+</li>
+<li><p>反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用nginx做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。</p>
+<p><img src="https://images2015.cnblogs.com/blog/799093/201609/799093-20160911100714388-1672984788.png" alt="img"></p>
+<p>通过Keepalived实现微服务</p>
+</li>
+</ol>
+<h1 id="nginx实现流服务器"><a href="#nginx实现流服务器" class="headerlink" title="nginx实现流服务器"></a>nginx实现流服务器</h1><p><a href="https://www.jianshu.com/p/06c2025edcd3" target="_blank" rel="noopener">主要参考这篇文章</a></p>
+<p><a href="https://blog.csdn.net/u013628152/article/details/48160225" target="_blank" rel="noopener">安装ffmpeg遇到的问题</a></p>
+<p>安装nginx的openssl模块时，总会报错，原因：<strong>nginx版本不对</strong></p>
+<p>nginx添加模块，必须要用模块的<strong>源文件</strong>，也必须要用nginx当初编译安装时候的<strong>源文件</strong></p>
+<p>编译安装nginx并添加模块</p>
+<pre><code>sudo ./configure --prefix=/www/myserver/nginx --with-pcre=/www/myserver/nginx-dependence/pcre-8.40 --with-zlib=/www/myserver/nginx-dependence/zlib-1.2.11 --with-openssl=/www/myserver/nginx-dependence/openssl-1.1.0  --with-http_ssl_module --add-module=/www/myserver/nginx-dependence/nginx-rtmp-module
+</code></pre><pre><code>worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+rtmp {                #RTMP服务
+    server {
+        listen 1935;  #//服务端口 
+    chunk_size 4096;   #//数据传输块的大小
+
+    application vod {#访问这个网址，nginx会自动跳到play这个位置
+        play /www/vide; #//视频文件存放位置。
+    }
+    }
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+    server {
+        listen       80;
+        server_name  localhost;
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+}
+</code></pre><p>#源码</p>
+<h2 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h2><p>指令：配置文件里键值对的键就是指令，比如listen</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>1)</p>
+<blockquote>
+<pre><code class="c">struct ngx_command_s {
+    ngx_str_t             name;
+    ngx_uint_t            type;
+    char               *(*set)(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
+    ngx_uint_t            conf;
+    ngx_uint_t            offset;
+    void                 *post;
+};
+</code></pre>
+<p>name：配置指令名称，如“proxy_pass”；<br>type：指令类型，可以将指令类型分为两类，1）说明指令可以出现的位置，比如配置文件（只能在配置文件最外层，不能出现在任何指令块内部），http指令块，或者events指令块，或者server指令块，或者location指令块；2）用于校验参数数目<br><img src="http://api.xixfeng.cn/mweb/15561845095427.jpg" alt><br>set：处理函数，当读取到该配置指令时，会执行此函数；</p>
+</blockquote>
+<p>2)</p>
+<blockquote>
+<pre><code class="c">typedef struct {
+    ngx_int_t   (*preconfiguration)(ngx_conf_t *cf);
+    ngx_int_t   (*postconfiguration)(ngx_conf_t *cf);
+    void       *(*create_main_conf)(ngx_conf_t *cf);
+    char       *(*init_main_conf)(ngx_conf_t *cf, void *conf);
+    void       *(*create_srv_conf)(ngx_conf_t *cf);
+    char       *(*merge_srv_conf)(ngx_conf_t *cf, void *prev, void *conf);
+    void       *(*create_loc_conf)(ngx_conf_t *cf);
+    char       *(*merge_loc_conf)(ngx_conf_t *cf, void *prev, void *conf);
+} ngx_http_module_t;
+</code></pre>
+<p>这个http_module和ngx_module_t有什么联系<br>ngx_module_t-&gt;ctx会指向ngx_http_module_t<br>3)<br>http上下文 http_ctx<br><code>`</code>c<br> // http_ctx<br> typedef struct {<br>    void        <strong>main_conf;<br>    void        </strong>srv_conf;<br>    void        **loc_conf;<br>} ngx_http_conf_ctx_t;</p>
+</blockquote>
+<p>4)</p>
+<blockquote>
+<p>ctx中的conf，一般是由我们自己创建的，模块感兴趣的参数结构体，比如说</p>
+<pre><code class="c"> typedef struct {
+    ngx_array_t                 charsets;       /* ngx_http_charset_t */
+    ngx_array_t                 tables;         /* ngx_http_charset_tables_t */
+    ngx_array_t                 recodes;        /* ngx_http_charset_recode_t */
+} ngx_http_charset_main_conf_t;
+ //要与整个配置文件的conf(下面👇）区分开
+</code></pre>
+</blockquote>
+<p> 5)</p>
+<blockquote>
+<p>指令属性结构体 存储每个指令的属性（上下文）</p>
+<pre><code class="c">struct ngx_conf_s {
+    char                 *name; //当前读取到的指令名称
+    ngx_array_t          *args; //当前读取到的指令参数
+    ngx_cycle_t          *cycle; //指向全局cycle
+    ngx_pool_t           *pool;  //内存池
+    ngx_conf_file_t      *conf_file; //配置文件
+    void                 *ctx;   //上下文
+    ngx_uint_t            module_type; //模块类型
+    ngx_uint_t            cmd_type;   //指令类型
+    ngx_conf_handler_pt   handler; //一般都是NULL，暂时不管
+};
+</code></pre>
+<p> 6)<br>nginx模块结构题</p>
+</blockquote>
+<pre><code class="c"> struct ngx_module_s {
+    ngx_uint_t            ctx_index; //用于给同类型的模块编号
+    ngx_uint_t            index;  //用于给所有模块编号
+    void                 *ctx;  //模块上下文；很重要；不同类型的模块通常指向不同类型的结构体，结构体通常包含若干函数指针
+    ngx_command_t        *commands; //指令数组
+    ngx_uint_t            type;  //模块类型编码
+}
+</code></pre>
+<blockquote>
+<p>type字段表示模块类型编码。ctx指向模块上下文结构体，且不同类型的模块通常指向不同类型的结构体，该结构体中通常会包含若干函数指针。<br><img src="http://api.xixfeng.cn/mweb/15562595886637.jpg" alt></p>
+</blockquote>
+<h2 id="常见变量"><a href="#常见变量" class="headerlink" title="常见变量"></a>常见变量</h2><p>cmcf: ngx_http_core_module_t的ngx_http_core_main_conf_t<br>cscf: ngx_http_core_srv_conf_t<br>clcf: ngx_http_core_loc_conf_t<br>cf: ngx_conf_t<br>ctx_index: 一个模块在全部http模块中的位置<br>http_ctx: http的总ctx，三个指针指向三个数组<br>ctx: 当前阶段的上下文<br>conf-&gt;ctx: 配置文件的上下文一般指向模块</p>
+<h2 id="重要函数"><a href="#重要函数" class="headerlink" title="重要函数"></a>重要函数</h2><pre><code>/*
+遍历所有模块的command，找到与这个对应的指令对应的command
+在解析配置文件时，遇到指令就会调用，比如http指令，server指令
+args：
+cf：指令结构体
+*/
+ngx_conf_handler(ngx_conf_t *cf, ngx_int_t last)
+</code></pre><h2 id="一些心得"><a href="#一些心得" class="headerlink" title="一些心得"></a>一些心得</h2><ul>
+<li>可以在一个大系统里面定义好一些状态参数，以便处理返回结果</li>
+<li>将配置存在上下文里</li>
+</ul>
+<h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><ul>
+<li>nginx http模块整个的基本解析是交给core模块的，core模块去统筹所有其他http模块</li>
+<li>我感觉更合理的做法应该是一开始只调用core的create_main然后逐步深入，而且一开始的时候也不用调用其他模块的create_srv和loc（这部分就暂定为无用吧）</li>
+<li>配置项本身也是一种指令，只是它的参数有点特别</li>
+</ul>
+<h2 id="nginx配置文件存储"><a href="#nginx配置文件存储" class="headerlink" title="nginx配置文件存储"></a>nginx配置文件存储</h2><p> <strong>上下文ctx</strong>中包含<strong>配置结构conf</strong>,</p>
+<p> 1）为什么要将一个配置限定在一个上下文中呢？因为我们要确定一个配置<strong>结构体（配置项比如listen）</strong>属于哪个配置块<br> 2）如何确定一个配置项在配置中的位置（在哪个server中，哪个location中）？根据上下文ctx的嵌套可以判断出配置项的位置，根据下面这种设计可以实现一个http嵌套server，server中嵌套location<br> <img src="http://api.xixfeng.cn/mweb/15561823502983.jpg" alt><br> 3）但是上面那种无法实现http中嵌套多个server，不🉑️，所以需要将上面http_ctx中的srv_ctx改成srv_ctx数组，用数组下标表示是第几个上下文，下标为0代表http块中的第一个server块<br> 4）但是为什么要做一个与main_conf同级的srv_conf和loc_conf呢？？？？？？</p>
+<p>##配置解析流程<br>解析配置的入口函数是ngx_conf_parse(ngx_conf_t cf, ngx_str_t filename)，其输入参数filename表示配置文件路径，如果为NULL表明此时解析的是指令块。<br>函数ngx_conf_parse逻辑比较简单，就是读取完整指令，并调用函数ngx_conf_handler处理指令。<br>函数ngx_conf_handler主要逻辑是，遍历类型为cf-&gt;module_type的模块，查找该模块指令数组中类型为cf-&gt;cmd_type的指令；如果没找到打印错误日志并返回错误；如果找到还需要校验指令参数等是否合法；最后才是调用set函数设置。<br>这些流程都比较简单，难点是如何根据ctx获取到该配置最终存储的位置。下面的代码需要结合上图来分析。配置肯定是存储在某个结构体的，所以需要通过ctx找到对应结构体。</p>
+<p>ngx_http_core_module负责了所有conf的创建和存储，也就是说是由他的ctx存储的是http_conf</p>
+<hr>
+<pre><code class="C">//ngx_http_core_module（nginx实现的http模块）中ctx结构体的函数
+/*什么也没做，只是生成了一个空的main_conf和srv_conf
+最神奇的是他创建了一个存放srv_conf的数组？？？？
+所以可能很多的create_main create_srv都只是做了一些限定，而不是去取值*/
+static void *
+ngx_http_core_create_main_conf(ngx_conf_t *cf)
+}
+
+//这个函数是core块解析遇到server块时调用的
+/*
+这个函数做的几件事情
+1.调用所有模块http模块的create_srv,loc,并存储在ctx中
+2.解析一个server块
+*/
+static char *
+ngx_http_core_server(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy)
+</code></pre>
+<h3 id="一个周期的初始化"><a href="#一个周期的初始化" class="headerlink" title="一个周期的初始化"></a>一个周期的初始化</h3><p>ngx_init_cycle作用：解析nginx配置、初始化CORE模块，接着是初始化文件句柄，初始化错误日志，初始化共享内存，然后是监听端口；cycle的意思就是周期，而ngx_init_cycle就代表着一个周期的初始化</p>
+<h4 id="配置文件的解析"><a href="#配置文件的解析" class="headerlink" title="配置文件的解析"></a>配置文件的解析</h4><p>在ngx_init_cycle中，配置文件的解析分为两个阶段：1.准备阶段 2.真正调用配置解析</p>
+<ol>
+<li><p>准备阶段</p>
+<p>1) 准备内存</p>
+<p>nginx根据以往的经验（old_cycle）预测这一次的配置需要分配多少内存。比如，我们可以看这段：</p>
+<pre><code class="C">if (old_cycle-&gt;shared_memory.part.nelts) {
+ n = old_cycle-&gt;shared_memory.part.nelts;
+ for (part = old_cycle-&gt;shared_memory.part.next; part; part = part-&gt;next)
+ {
+     n += part-&gt;nelts;
+ }
+} else {
+ n = 1;
+}
+if (ngx_list_init(&amp;cycle-&gt;shared_memory, pool, n, sizeof(ngx_shm_zone_t))
+ != NGX_OK)
+{
+ ngx_destroy_pool(pool);
+ return NULL;
+}
+</code></pre>
+<p>这段代码的意思是遍历old_cycle，统计上一次系统中分配了多少块共享内存，接着就按这个数据初始化当前cycle中共享内存的规模。</p>
+<p>2) 准备日志<br>nginx启动可能出错，出错就要记录到错误日志中。而错误日志本身也是配置的一部分，<strong>不解析完配置，nginx就无法知道日志放哪</strong>。所以nginx通过使用上一个周期的错误日志来记录解析配置时发生的错误，而在配置解析完成以后，nginx就用新的错误日志替换旧的错误日志。具体代码摘抄如下，以说明nginx解析配置时使用old_cycle的错误日志：</p>
+<pre><code class="c">log = old_cycle-&gt;log;
+pool-&gt;log = log;
+cycle-&gt;log = log;
+</code></pre>
+<p>3）准备数据结构<br>主要是两个数据结果，一个是ngx_cycle_t结构，一个是ngx_conf_t结构(放在nginx_cycle_t-&gt;conf_ctx。前者是一个周期的总结构体，<strong>保存着所有模块存储配置项的结构体的指针，它首先是一个数组，每个数组成员又是一个指针，这个指针指向另一个存储着指针的数组</strong>。具体代码如下：<br><code>`</code>c<br>//准备所有核心模块存储配置项的结构体<br>for (i = 0; ngx_modules[i]; i++) {//当ngx_modules[i]不为空的时候继续执行</p>
+<pre><code> if (ngx_modules[i]-&gt;type != NGX_CORE_MODULE) {
+     continue;
+ }
+
+ module = ngx_modules[i]-&gt;ctx;
+
+ if (module-&gt;create_conf) {//如果当前核心模块有create_conf函数
+     rv = module-&gt;create_conf(cycle);//返回的是模块定义的参数conf
+     if (rv == NULL) {
+         ngx_destroy_pool(pool);
+         return NULL;
+     }
+     cycle-&gt;conf_ctx[ngx_modules[i]-&gt;index] = rv;//因为需要存储这些模块的conf
+ }
+</code></pre><p> }</p>
+</li>
+</ol>
+<p>   //初始此cycle中的每个指令的上下文<br>   //conf存储每个指令的属性（上下文）<br>    conf.ctx = cycle-&gt;conf_ctx;//这个conf_ctx明明存放的是conf为什么要传递给ctx?<br>    conf.cycle = cycle;<br>    conf.pool = pool;<br>    conf.log = log;<br>    conf.module_type = NGX_CORE_MODULE;<br>    conf.cmd_type = NGX_MAIN_CONF;</p>
+<pre><code>2. 真正开始解析
+```c
+if (ngx_conf_param(&amp;conf) != NGX_CONF_OK) {
+    environ = senv;
+    ngx_destroy_cycle_pools(&amp;conf);
+    return NULL;
+}
+if (ngx_conf_parse(&amp;conf, &amp;cycle-&gt;conf_file) != NGX_CONF_OK) {
+    environ = senv;
+    ngx_destroy_cycle_pools(&amp;conf);
+    return NULL;
+}
+</code></pre><p>第一个if解析nginx命令行参数’-g’加入的配置。第二个if解析nginx配置文件。好的设计就体现在接口极度简化，模块之间的耦合非常低。这里只使用区区10行完成了配置的解析。</p>
+<h4 id="配置解析"><a href="#配置解析" class="headerlink" title="配置解析"></a>配置解析</h4><p>其实是解析并调用相应handler函数</p>
+<p>配置解析模块在ngx_conf_file.c中实现。模块提供的接口函数主要是ngx_conf_parse，另外，模块提供一个单独的接口ngx_conf_param，用来解析命令行传递的配置，当然，这个接口也是对ngx_conf_parse的包装。<br>ngx_conf_parse函数支持三种不同的解析环境：</p>
+<ol>
+<li>parse_file：解析配置文件；</li>
+<li>parse_block：解析块配置。块配置一定是由“{”和“}”包裹起来的；</li>
+<li>parse_param：解析命令行配置。命令行配置中不支持块指令。</li>
+</ol>
+<p><strong>配置解析</strong>一个递归的过程。nginx首先解析core模块的配置。core模块提供一些块指令，这些指令引入其他类型的模块，nginx遇到这些指令，就重新迭代解析过程，解析其他模块的配置。这些模块配置中又有一些块指令引入新的模块类型或者指令类型，nginx就会再次迭代，解析这些新的配置类型。比如，<strong>nginx遇到“events”指令</strong>，就重新调用ngx_conf_parse()解析event模块配置，解析完以后ngx_conf_parse()返回，nginx继续解析core模块指令，直到遇到“http”指令。nginx再次调用ngx_conf_parse()解析http模块配置的http级指令，当遇到“server”指令时，nginx又一次调用ngx_conf_parse()解析http模块配置的server级指令。<br>了解了nginx解析配置的流程，我们来看其中的关键函数ngx_conf_parse()。</p>
+<p>ngx_conf_parse()解析配置分成两个主要阶段，一个是词法分析，一个是指令解析。</p>
+<p>词法分析通过ngx_conf_read_token()函数完成。<strong>指令解析</strong>有两种方式，1) 是使用nginx内建的指令解析机制，2) 是使用第三方自定义指令解析机制。<strong>自定义指令解析可以参见下面的代码</strong>：</p>
+<pre><code class="c">if (cf-&gt;handler) {
+    rv = (*cf-&gt;handler)(cf, NULL, cf-&gt;handler_conf);
+    if (rv == NGX_CONF_OK) {
+        continue;
+    }
+
+    if (rv == NGX_CONF_ERROR) {
+        goto failed;
+    }
+
+    ngx_conf_log_error(NGX_LOG_EMERG, cf, 0, rv);
+
+    goto failed;
+}
+</code></pre>
+<p>nginx内建的指令解析机制分为四个步骤<br>1)  只有处理的模块的类型是NGX_CONF_MODULE或者是当前正在处理的模块类型，即嵌套块中子模块必须与母模块类型相同，才可能被执行</p>
+<pre><code class="c">   ngx_modules[i]-&gt;type != NGX_CONF_MODULE &amp;&amp; ngx_modules[i]-&gt;type != cf-&gt;module_type
+</code></pre>
+<p>2)  匹配指令名，判断指令用法是否正确。</p>
+<blockquote>
+<p>a. 指令的Context必须当前解析Context相符；</p>
+</blockquote>
+<blockquote>
+<p>!(cmd-&gt;type &amp; cf-&gt;cmd_type)</p>
+</blockquote>
+<blockquote>
+<p>b. 指令的Context必须当前解析Context相符；</p>
+</blockquote>
+<blockquote>
+<p>!(cmd-&gt;type &amp; cf-&gt;cmd_type)</p>
+</blockquote>
+<blockquote>
+<p>c. 非块指令必须以“;”结尾</p>
+</blockquote>
+<blockquote>
+<p>(cmd-&gt;type &amp; NGX_CONF_BLOCK) &amp;&amp; last != NGX_CONF_BLOCK_START</p>
+</blockquote>
+<blockquote>
+<p>d. 指令参数个数必须正确。注意指令参数有最大值NGX_CONF_MAX_ARGS，目前值为8。</p>
+</blockquote>
+<p>3)  取得指令工作的conf指针，就是模块定义的该模块感兴趣的配置参数结构体conf</p>
+<pre><code class="c">if (cmd-&gt;type &amp; NGX_DIRECT_CONF) {
+    conf = ((void **) cf-&gt;ctx)[ngx_modules[i]-&gt;index];
+
+} else if (cmd-&gt;type &amp; NGX_MAIN_CONF) {
+    conf = &amp;(((void **) cf-&gt;ctx)[ngx_modules[i]-&gt;index]);
+
+} else if (cf-&gt;ctx) {
+    confp = *(void **) ((char *) cf-&gt;ctx + cmd-&gt;conf);
+
+    if (confp) {
+        conf = confp[ngx_modules[i]-&gt;ctx_index];
+    }
+}
+</code></pre>
+<p>4)  执行指令解析回调函数<br>rv = cmd-&gt;set(cf, cmd, conf);//cf是指令的属性结构体，conf是模块定义的配置参数结构体</p>
+<h4 id="http指令块解析"><a href="#http指令块解析" class="headerlink" title="http指令块解析"></a>http指令块解析</h4><pre><code>ngx_http_module模块（核心模块）中定义了http指令结构，如下：
+
+{ ngx_string(&quot;http&quot;),
+  NGX_MAIN_CONF|NGX_CONF_BLOCK|NGX_CONF_NOARGS,
+  ngx_http_block,
+  0,
+  0,
+  NULL }
+</code></pre><p>当遇到http指令时，会执行ngx_http_block函数</p>
+<pre><code>    //从ngx_modules中载入所有的http模块，并且给他们按顺序排号（ctx_index，在http模块中的序号
+    ngx_modules[m]-&gt;ctx_index = ngx_http_max_module++;
+
+
+    //调用所有http模块的create，并存入main_conf,srv_conf,loc_conf
+    for (m = 0; ngx_modules[m]; m++) {
+        if (ngx_modules[m]-&gt;type != NGX_HTTP_MODULE) {
+            continue;
+        }
+
+        module = ngx_modules[m]-&gt;ctx;//里面的ctx一般指向http_module
+        mi = ngx_modules[m]-&gt;ctx_index;
+
+        if (module-&gt;create_main_conf) {
+            ctx-&gt;main_conf[mi] = module-&gt;create_main_conf(cf);
+            if (ctx-&gt;main_conf[mi] == NULL) {
+                return NGX_CONF_ERROR;
+            }
+        }
+    }
+
+
+    //调用所有http模块的preconfiguration
+    module-&gt;preconfiguration(cf)
+
+
+    //解析http{} block
+    cf-&gt;module_type = NGX_HTTP_MODULE;//设置好上下文的参数
+    cf-&gt;cmd_type = NGX_HTTP_MAIN_CONF;
+    rv = ngx_conf_parse(cf, NULL);
+
+
+    //遍历每个模块，执行init_main_conf函数，并把cmcf和每个模块合并
+    rv = module-&gt;init_main_conf(cf, ctx-&gt;main_conf[mi]);
+    rv = ngx_http_merge_servers(cf, cmcf, module, mi);//module是指的ngx_http_module_t
+</code></pre><p><img src="http://api.xixfeng.cn/mweb/15562457049503.jpg" alt></p>
+<h4 id="server块解析"><a href="#server块解析" class="headerlink" title="server块解析"></a>server块解析</h4><p>解析到server块时，ngx_conf_handler会调用ngx_http_core_module的ngx_http_core_server</p>
+<pre><code class="c">ngx_http_core_server(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy){
+    //创建srv_ctx配置上下文
+    ctx = ngx_pcalloc(cf-&gt;pool, sizeof(ngx_http_conf_ctx_t));
+
+    //cf-&gt;ctx为http_ctx配置上下文
+    http_ctx = cf-&gt;ctx;
+
+    //main_conf共用同一个（server块中不会有NGX_HTTP_MAIN_CONF类型的配置，所以其实是不需要main_conf的）
+    ctx-&gt;main_conf = http_ctx-&gt;main_conf;
+    ctx-&gt;srv_conf = ngx_pcalloc(cf-&gt;pool, sizeof(void *) * ngx_http_max_module);
+    ctx-&gt;loc_conf = ngx_pcalloc(cf-&gt;pool, sizeof(void *) * ngx_http_max_module);
+
+    //遍历所有http模块，调用其create_srv_conf方法和create_loc_conf创建相应配置结构
+    for (i = 0; ngx_modules[i]; i++) {
+        if (ngx_modules[i]-&gt;type != NGX_HTTP_MODULE) {
+            continue;
+        }
+
+        module = ngx_modules[i]-&gt;ctx;
+
+        if (module-&gt;create_srv_conf) {
+            mconf = module-&gt;create_srv_conf(cf);
+            ctx-&gt;srv_conf[ngx_modules[i]-&gt;ctx_index] = mconf;
+        }
+
+        if (module-&gt;create_loc_conf) {
+            mconf = module-&gt;create_loc_conf(cf);
+            ctx-&gt;loc_conf[ngx_modules[i]-&gt;ctx_index] = mconf;
+        }
+    }
+
+    //注意这里实现将srv_ctx上下文添加到http_ctx配置上下文；
+
+    //ngx_http_core_module模块是第一个http模块。获取其在此函数创建的srv_conf类型的配置结构ngx_http_core_srv_conf_t；将其ctx字段指向此函数创建的ctx
+    cscf = ctx-&gt;srv_conf[ngx_http_core_module.ctx_index];
+    cscf-&gt;ctx = ctx;
+
+
+    //main_conf是http_ctx上下文的数组；获取其创建的main_conf类型的配置结构ngx_http_core_main_conf_t；
+    //将此函数产生的srv_ctx配置的上下文结构ngx_http_core_srv_conf_t添加到http_ctx配置上下文的ngx_http_core_main_conf_t配置结构的servers数组
+    cmcf = ctx-&gt;main_conf[ngx_http_core_module.ctx_index];
+    cscfp = ngx_array_push(&amp;cmcf-&gt;servers);//返回数组尾部的地址
+    *cscfp = cscf;
+
+
+     //修改cf的配置上下文，模块类型，指令类型；原始cf暂存在pcf变量
+    pcf = *cf;
+    cf-&gt;ctx = ctx;
+    cf-&gt;cmd_type = NGX_HTTP_SRV_CONF;
+
+    //解析server块中的配置；注意此时配置上下文为srv_ctx
+    rv = ngx_conf_parse(cf, NULL);
+
+    //还原cf
+    *cf = pcf;
+
+</code></pre>
+<p><img src="http://api.xixfeng.cn/mweb/15562579381078.jpg" alt></p>
+<h4 id="location块的解析"><a href="#location块的解析" class="headerlink" title="location块的解析"></a>location块的解析</h4><p>解析到server块时，ngx_conf_handler会调用ngx_http_core_module的ngx_http_core_location</p>
+<pre><code class="C">static char * ngx_http_core_location(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy){
+    //创建loc_conf上下文
+    ctx = ngx_pcalloc(cf-&gt;pool, sizeof(ngx_http_conf_ctx_t));
+
+    //cf-&gt;ctx指向srv_conf上下文
+    pctx = cf-&gt;ctx;
+
+    //main_conf与srv_conf与srv_ctx上下文公用；
+    //（location块中不会有NGX_HTTP_MAIN_CONF和NGX_HTTP_SRV_CONF类型的配置，所以其实是不需要main_conf和srv_conf的）
+    ctx-&gt;main_conf = pctx-&gt;main_conf;
+    ctx-&gt;srv_conf = pctx-&gt;srv_conf;
+    ctx-&gt;loc_conf = ngx_pcalloc(cf-&gt;pool, sizeof(void *) * ngx_http_max_module);
+
+    //遍历所有http模块，调用其create_loc_conf方法创建相应配置结构
+    for (i = 0; ngx_modules[i]; i++) {
+        if (ngx_modules[i]-&gt;type != NGX_HTTP_MODULE) {
+            continue;
+        }
+
+        module = ngx_modules[i]-&gt;ctx;
+
+        if (module-&gt;create_loc_conf) {
+            ctx-&gt;loc_conf[ngx_modules[i]-&gt;ctx_index] = module-&gt;create_loc_conf(cf);
+        }
+    }
+
+    //使得我们在这个函数创建的ngx_http_core_loc_conf_t能指向这个函数创建的全部loc_conf
+    clcf = ctx-&gt;loc_conf[ngx_http_core_module.ctx_index];
+    clcf-&gt;loc_conf = ctx-&gt;loc_conf;
+
+    //获取http_ctx的ngx_http_core_loc_conf_t
+    pclcf = pctx-&gt;loc_conf[ngx_http_core_module.ctx_index];
+
+    //将此函数创建的clcf（包含全部的loc_conf)放入http_ctx的locations中
+    //locations是一个双向链表，链表结构也挺有意思的，有兴趣的读者可以研究下
+    if (ngx_http_add_location(cf, &amp;pclcf-&gt;locations, clcf) != NGX_OK) {
+
+    }
+
+}
+</code></pre>
+<p><img src="http://api.xixfeng.cn/mweb/15562579565982.jpg" alt></p>
+<h2 id="想看的函数"><a href="#想看的函数" class="headerlink" title="想看的函数"></a>想看的函数</h2><p>ngx_conf_parse</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre full previous">
+          
+            <a href="/2018/11/09/java实现抽象数据结构/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                java实现抽象数据结构</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href class="profile gravatar"><img src itemprop="image" alt height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Li Yang<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘そのhojun</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/client/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+            客户端
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="2660651585" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script></div>
+</body>
+</html>

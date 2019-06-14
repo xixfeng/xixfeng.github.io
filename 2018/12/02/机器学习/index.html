@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">机器学习 | xixfeng</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "さくら荘そのhojun";
+  mashiro_option.author_name = "hojun";
+  mashiro_option.site_url = "https://sakura.hojun.cn";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://sakura.hojun.cn">
+          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/honjun" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="sina">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/sina.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="wangyiyun">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style>
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name src width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">さくら荘その</span>
+            <span class="shironeko">hojun</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/client/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+                    客户端
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+          <header class="entry-header">
+            <h1 class="entry-title">机器学习</h1>
+            <p class="entry-census">&nbsp;·&nbsp;2018-12-2&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
+
+            <hr>
+          </header>
+        
+        <div class="entry-content">
+          <h1 id="机器学习定义"><a href="#机器学习定义" class="headerlink" title="机器学习定义"></a>机器学习定义</h1><p>definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE</p>
+<p>例如在象棋机器学习中，E就是下象棋的过程，T就是获得胜利，P就是下一次与人下棋时，胜利的概率</p>
+<p>邮件分类中，E就是我们把某一个邮件归结为辣鸡，T就是把邮件分类，P就是下一次遇到新邮件时，成功归类的概率</p>
+<h1 id="学习算法"><a href="#学习算法" class="headerlink" title="学习算法"></a>学习算法</h1><p>监督学习、无监督学习：有没有一个明确的值，比如新闻分类问题就没有的值，而判断是否有癌症就有明确的值</p>
+<p>分类问题：给特征值，分类，离散的</p>
+<p>回归问题：给特征值，预测数值，连续的</p>
+<p>偏斜类：结果的不同情况概率本身差距很大</p>
+<p><img src="http://api.xixfeng.cn/1544323151215.png" alt="1544323151215"></p>
+<p><strong>precision查准率  recall回调率 解决偏斜类问题</strong> </p>
+<p>查准率：预测正确成功的概率</p>
+<p>回调率：预测错误成功的概率</p>
+<p><img src="http://api.xixfeng.cn/1544323911985.png" alt="1544323911985"></p>
+<p>评估查准率和回调率</p>
+<h1 id="如何优化算法"><a href="#如何优化算法" class="headerlink" title="如何优化算法"></a>如何优化算法</h1><p><img src="http://api.xixfeng.cn/1544276143779.png" alt="1544276143779"></p>
+<p><strong>1.选择合适的模型</strong></p>
+<p>将数据6 2 2划分，一部分作为训练数据，一部分作为（交叉）验证数据 ，一部分作为测试数据</p>
+<p>使用交叉验证来得到最合适的模型，测试数据来得到他的错误率</p>
+<p><img src="http://api.xixfeng.cn/1544279648964.png" alt="1544279648964"></p>
+<p><strong>2.解决过拟合，欠拟合问题</strong></p>
+<p><img src="http://api.xixfeng.cn/1544281344537.png" alt="1544281344537"></p>
+<p><img src="http://api.xixfeng.cn/1544281286818.png" alt="1544281286818"></p>
+<p><strong>3.学习曲线</strong></p>
+<p>解决是否增加数据集的问题</p>
+<h1 id><a href="#" class="headerlink" title></a><img src="http://api.xixfeng.cn/1544282269239.png" alt="1544282269239"></h1><p>判断两条曲线之间距离是否过大</p>
+<p><strong>4.神经网络</strong></p>
+<p><img src="http://api.xixfeng.cn/1544282595643.png" alt="1544282595643"></p>
+<p><strong>5.PCA算法</strong></p>
+<p>将数据降维，更快的进行计算</p>
+<p>降维矩阵？可以根据这个矩阵降维，还原</p>
+<p><img src="http://api.xixfeng.cn/1544799346683.png" alt="1544799346683"></p>
+<h2 id="KNN算法"><a href="#KNN算法" class="headerlink" title="KNN算法"></a>KNN算法</h2><p>  根据特征值建立维度，通过未知物品在这个维度中与其他物品的“距离”来分类</p>
+<p><img src="http://api.xixfeng.cn/knn.png" alt="1543582875003"></p>
+<p>先分类，然后按照更群的距离对该对象进行归类</p>
+<p>步骤</p>
+<ol>
+<li><p>处理数据</p>
+</li>
+<li><p>数据向量化（处理到一个特征维度）</p>
+</li>
+<li><p>计算欧几里得距离（核心）</p>
+</li>
+<li><p>根据距离进行分类</p>
+<pre><code class="python">from numpy import *
+import operator
+from os import listdir
+#这个数据集的行列代表什么，数值代表什么？
+#这个数据集的每一行代表一个“物品”（不同两行可能代表相同“物品”） 每一列代表一个属性 其中的数值代表特征值
+#(个数，测试数据集，训练数据集，分类名称)
+def knn(k,testdata,traindata,labels):
+    #得到行数 tile是numpy里面的
+    traindatasize = traindata.shape[0]
+    #(需扩展的数组，（行扩展倍数，列扩展倍数）)
+    dif = tile(testdata,(traindata.size,1))-traindata
+    sqdif = dif**2
+    #将每一行相加
+    sumsqdif = sqdif.sum(axis=1)
+    dis = sumsqdif**0.5
+    #排序 得到下标序号
+    sortdis = dis.argsort()
+    count = {}
+    for i in range(0,k):
+        vote = labels[sortdis[i]]
+        count[vote] = count.get(vote,0)+1
+    sortcount = sorted(count.items(),key=operator.itemgetter(1),reverse=True)
+    return sortcount[0][0]
+
+#读取文件变为一维数组
+def datatoarray(fname):
+    arr = []
+    fh = open(fname)
+    for i in range(0,32):
+        thisline = fh.readline()
+        for j in range(0,32):
+            arr.append(int(thisline[j]))
+    return arr
+
+#取文件前缀，得到lables
+def seplabel(fname):
+    filestr = fname.split(&quot;.&quot;)[0]
+    label = int(filestr.split(&quot;_&quot;)[0])
+    return label
+
+#得到训练数组和标签数组
+def traindata():
+    labels=[]
+    trainfile = listdir(&quot;D:\项目\数据挖掘\数据\图片&quot;)
+    num = len(trainfile)
+    #长度1024（列），每一行存储一个文件
+    #用一个数组存储所有训练数据，行：文件总数，列：1024（32*32存储每一个像素点）
+    trainarr = zeros((num,1024))
+    for i in range(0,num):
+        thisfname = trainfile[i]
+        thislabel = seplabel(thisfname)
+        labels.append(thislabel)
+        trainarr[i,:] = datatoarray(&quot;traindata/&quot;+thisfname)#赋予二维数组一行数据
+        return trainarr,labels
+</code></pre>
+</li>
+</ol>
+<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p><img src="http://api.xixfeng.cn/regression.png" alt="1543763784883"></p>
+<p><strong>同步更新</strong></p>
+<p><img src="http://api.xixfeng.cn/regression1.png" alt="1543764331586"></p>
+<p>其中a为学习率，偏导积分项为该变量的<strong>“斜率”</strong>。</p>
+<p><img src="http://api.xixfeng.cn/regression2.png" alt="1543765659693"></p>
+<p>纠结点</p>
+<ol>
+<li><p>开始有点纠结这里的a代表横轴还是竖轴，但根本不用纠结。因为这里的a就只是一个<strong>控制下降快慢的参数</strong>不存在什么横竖</p>
+</li>
+<li><p><strong>为什么会出现导数？因为求偏导后的正负能帮我们移动参数到底端</strong></p>
+</li>
+<li><p>导数的大小并不影响</p>
+</li>
+<li><p>当a过小时，会导致算法速度太慢；当a过大时，会导致参数无法收敛，甚至发散</p>
+</li>
+<li><p>参数可能会局部收敛</p>
+</li>
+<li><p>这个导数求出来是函数变化最快的地方,即往这个方向走，函数值更容易下降？（但是我觉得更容易下降并没有什么意义）</p>
+</li>
+</ol>
+<p><strong>一些技巧</strong></p>
+<ol>
+<li><strong>特征收缩（feature Scaling）</strong></li>
+</ol>
+<p><img src="http://api.xixfeng.cn/feature.png" alt="1543799861659"></p>
+<p>特征收缩使得我们更快的到达收敛</p>
+<p>那么为什么特征量过大会导致我们算法时间变长呢？因为当特征值过大时，这个特征值需要改变很多才能改变因变量，导致函数拉长，收缩的“路径”变长</p>
+<ol>
+<li>每一项除以最大值，使范围为 -1到 1之间</li>
+<li>保证处理过后的特征值的平均值在0左右</li>
+</ol>
+<p>2.<strong>关于学习率 a的取值</strong></p>
+<p><img src="http://api.xixfeng.cn/feature1.png" alt="1543801153004"></p>
+<p>a太大容易出问题，a太小速度太慢</p>
+<p>3.减少特征值</p>
+<h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>根据代价函数来计算我们的假设函数与真正值之间的偏差</p>
+<h3 id="拟合问题"><a href="#拟合问题" class="headerlink" title="拟合问题"></a>拟合问题</h3><p>过拟合、欠拟合</p>
+<p><img src="http://api.xixfeng.cn/feature.png" alt="1543933779259"></p>
+<p><img src="http://api.xixfeng.cn/feature4.png" alt="1543933862360"></p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><ol>
+<li><p>减少特征量的数目</p>
+<p> 手动选择，模型选择算法</p>
+</li>
+<li><p>正则化</p>
+<p>不改变特征量数目，但是降低量级或者降低theta的值</p>
+<p>当我们有很多特征值，并且每个特征值对结果都有影响</p>
+</li>
+</ol>
+<h5 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h5><p>通过给想要降低的theta值添加“惩罚函数”，来降低影响较小的theta的值，使假设函数更加简单</p>
+<p><strong>为什么不用对theta0降值呢？</strong></p>
+<p>   <img src="http://api.xixfeng.cn/Regularization.png" alt="1543935135849"></p>
+<p><strong>问题，如何知道哪个参数对结果影响小呢？</strong>并不能知道，所以我们会给所有的参数都加上惩罚函数</p>
+<p> <img src="http://api.xixfeng.cn/Regularization1.png" alt="1543935541114"></p>
+<p>lambda两个目的</p>
+<ol>
+<li>使假设更好的拟合数据集</li>
+<li>使假设函数相对简单，避免出现过拟合</li>
+</ol>
+<p>lambda参数需要平衡这两个目标</p>
+<p>当lambad参数过大时，会使函数欠拟合，当过小时，会发生过度拟合的情况</p>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p><strong>y = a+bx</strong> 次数不大于1</p>
+<h4 id="方法一-梯度下降算法"><a href="#方法一-梯度下降算法" class="headerlink" title="方法一 梯度下降算法"></a>方法一 梯度下降算法</h4><p><strong>代价函数</strong>：通过求代价函数的最小值，帮我们得到最准确的参数的值。我们一般选择平方差作为代价函数。</p>
+<p><img src="http://api.xixfeng.cn/1543761058776.png" alt="1543761058776"></p>
+<p><img src="http://api.xixfeng.cn/1543761992763.png" alt="1543761992763"></p>
+<p><img src="http://api.xixfeng.cn/1543761975824.png" alt="1543761975824"></p>
+<p>​                                利用等高线来表示多维函数</p>
+<p><img src="http://api.xixfeng.cn/1543799545787.png" alt="1543799545787"></p>
+<p>特征值大于等于1时</p>
+<h5 id="加入正则化"><a href="#加入正则化" class="headerlink" title="加入正则化"></a>加入正则化</h5><p><strong>改变代价函数</strong>，更新梯度下降中的J</p>
+<p><img src="http://api.xixfeng.cn/1543936455505.png" alt="1543936455505"></p>
+<p><img src="http://api.xixfeng.cn/1543936506353.png" alt="1543936506353"></p>
+<p><strong>加入正则化后，梯度下降的速率并没有改变</strong></p>
+<h4 id="方法二-正规方程"><a href="#方法二-正规方程" class="headerlink" title="方法二 正规方程"></a>方法二 正规方程</h4><p>直接用正规方程，算出令代价函数最小的参数的值</p>
+<p><img src="http://api.xixfeng.cn/1543845949309.png" alt="1543845949309"></p>
+<p>​                                    X matrix</p>
+<p><img src="http://api.xixfeng.cn/1543845989686.png" alt="1543845989686"></p>
+<p>​                                         直接计算</p>
+<h5 id="加入正则化-1"><a href="#加入正则化-1" class="headerlink" title="加入正则化"></a>加入正则化</h5><p>记住，千万不要正则化X0，因为这个X0是我们人工加进去的，theta的取值和它无关，</p>
+<p>这里有一点很难受的地方，octave下标都是从1开始计算的</p>
+<p><img src="http://api.xixfeng.cn/1543936825031.png" alt="1543936825031"></p>
+<h3 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h3><p><strong>当特征值（包括人工组合featureMap的特征值）越多，参数越准确，但是可能会出现过拟合情况</strong></p>
+<p><img src="http://api.xixfeng.cn/1543801628739.png" alt="1543801628739"></p>
+<p>代价函数没变，梯度下降算法没变</p>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>逻辑回归和线性回归的区别就是</p>
+<ol>
+<li>可以得到概率</li>
+<li>没有选择均方差作为代价函数</li>
+<li>代价函数和假设函数间接相关</li>
+</ol>
+<p>功能：判断是非问题，例如判断邮件是否为垃圾邮件 </p>
+<p><img src="http://api.xixfeng.cn/1543894128910.png" alt="1543894128910"></p>
+<p>假设函数</p>
+<p><img src="http://api.xixfeng.cn/1543895250196.png" alt="1543895250196"></p>
+<p>选择合适的多项式</p>
+<p><img src="http://api.xixfeng.cn/1543896572458.png" alt="1543896572458"></p>
+<p><img src="http://api.xixfeng.cn/1543897707155.png" alt="1543897707155"></p>
+<p>代价函数，和线性回归代价函数不一样</p>
+<p><img src="http://api.xixfeng.cn/1543898067066.png" alt="1543898067066"></p>
+<p><img src="http://api.xixfeng.cn/1543899464984.png" alt="1543899464984"></p>
+<h5 id="加入正则化-2"><a href="#加入正则化-2" class="headerlink" title="加入正则化"></a>加入正则化</h5><p>改变代价</p>
+<p><img src="http://api.xixfeng.cn/1543938146499.png" alt="1543938146499"></p>
+<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>我们的神经网络，每一个神经节点传给下一层的都是0、1值</p>
+<p><strong>theta n = L(n+1) * Ln+1</strong> </p>
+<p><strong>a n = L(n) * Ln+1</strong> </p>
+<p><strong>z (n+1) = an <em> theta n’ = L(n) </em> L(n+1)</strong></p>
+<p><strong>an(n+1) = sigmoid(z(n+1))</strong></p>
+<p>不要所有的theta值都设置为0，</p>
+<p><img src="http://api.xixfeng.cn/1544262985947.png" alt="1544262985947"></p>
+<p><img src="http://api.xixfeng.cn/1544263006550.png" alt="1544263006550"></p>
+<p><img src="http://api.xixfeng.cn/1543982348485.png" alt="1543982348485"></p>
+<p>神经网络</p>
+<p><img src="http://api.xixfeng.cn/1543982802430.png" alt="1543982802430"></p>
+<p>第j层第i个神经元的激励函数</p>
+<p><img src="http://api.xixfeng.cn/1544264342931.png" alt="1544264342931"></p>
+<p><strong>代价函数，其中的 htheta代表最后一层的theta,k代表第几个输出3，我觉得这个代价函数有问题，因为没用运用隐藏层的theta（我理解有问题，注意看题目中的h代表什么），所以用一般的求偏导的算法很难算出梯度</strong></p>
+<p>注意我们需要每一层额外添加一个无影响的参数，详情参考作业1，因为我们的逻辑回归有一个没有x项的theta0</p>
+<p>且是计算玩过后添加，因为计算前我们相对于上一层是不需要添加的</p>
+<h3 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h3><p>反向传播算法就是神经网络的一个逆向计算，计算的D就是参数梯度。</p>
+<p>不要将所有theta设置为零或者相同的数，这会使得我们隐藏层“学习”不到东西，这与反向传播算法计算的梯度有关</p>
+<p><img src="http://api.xixfeng.cn/1544264961194.png" alt="1544264961194"></p>
+<p><img src="http://api.xixfeng.cn/1544256721314.png" alt="1544256721314"></p>
+<h4 id="梯度检验"><a href="#梯度检验" class="headerlink" title="梯度检验"></a>梯度检验</h4><p>梯度检验计算量十分大，没用必要不用开启</p>
+<p><img src="http://api.xixfeng.cn/1544258592724.png" alt="1544258592724"></p>
+<h3 id="Octave算法"><a href="#Octave算法" class="headerlink" title="Octave算法"></a>Octave算法</h3><p><img src="http://api.xixfeng.cn/1544257181522.png" alt="1544257181522"></p>
+<p><img src="http://api.xixfeng.cn/1544257391761.png" alt="1544257391761"></p>
+<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>参考作业ex3，在这个作业中，并没有使用神经网络，但是训练一个分类器，重点是利用逻辑回归判断，这个东西是本类还是不是本类</p>
+<h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>贝叶斯分类：</p>
+<pre><code class="python">import numpy as npy
+import operator
+class Bayes:
+    def __init__(self):
+        self.length = -1
+        self.labelcount = dict()
+        self.vectorcount = dict()
+    #(已知物体，这些物体的类别)
+    def fit(self,dataSet:list,labels:list):
+        if(len(dataSet)!=len(labels)):
+            return ValueError(&quot;输入的数据数和他们所属的类别数不一样&quot;)
+        self.length = len(dataSet[0])#特征数数量
+        labelnum = len(labels)
+        norlabels = set(labels)
+        for item in norlabels:
+            self.labelcount[item] = labels.count(item)/labelnum#计算每个类别的概率
+        #实现同时遍历两个列表
+        #将每个物体的特征数组存入对应的字典中
+        for vetor,label in zip(dataSet,labels):
+            if(label not in self.vectorcount):
+                self.vectorcount[label] = []
+            self.vectorcount[label].append(vetor)
+
+        #计算出每个特征量在不同类中的概率
+        #1.行相加2.每一个特征值除以总行数 （记住每个特征值相互独立）
+        for item in self.vectorcount:
+            tem = npy.array(self.vectorcount[item])
+            rowsum = tem.shape[0]#行数
+            temcount = tem.sum(axis=0)#0不同行相加 1不同列相加
+            self.vectorcount[item] = temcount/rowsum
+        print(&quot;训练完毕&quot;)
+        return self
+
+    def btest(self,testdata):
+        if(self.length == -1):
+            return ValueError(&quot;你还没有训练&quot;)
+        tem = npy.array([])
+        pdict = {}
+        for label in self.vectorcount:
+            temp = 1
+            thisdata = self.vectorcount[label]
+            thisp = self.labelcount[label]
+            for item in range(len(testdata)):
+                if testdata[item] == 1:temp = temp*thisdata[item]
+                else: temp = temp*(1-thisdata[item])
+            temp = temp * thisp
+            pdict[label] = temp
+        sortcount = sorted(pdict.items(),key=operator.itemgetter(1),reverse=True)
+        print(sortcount[0])
+        # for item in self.vectorcount:
+
+bayes = Bayes()
+dataSet = [[1,0],[1,0],[0,1],[0,1],[1,1]]
+labels = [&quot;学习好&quot;,&quot;学习好&quot;,&quot;运动好&quot;,&quot;运动好&quot;,&quot;学习好&quot;]
+bayes.fit(dataSet,labels)
+bayes.btest([1,0])
+</code></pre>
+<h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><p>求偏导相当于一元函数找变化率，（把这个图像映射为一元函数，因变量为f，自变量为x）</p>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>单位矩阵</p>
+<p>I <em> A = A</em> I = A<br>矩阵的逆</p>
+<h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>标准差</p>
+<p>标准差是方差的算术平方根</p>
+<h1 id="octave"><a href="#octave" class="headerlink" title="octave"></a>octave</h1><p>：这个符号有点东西</p>
+<ol>
+<li>用来表示范围省略</li>
+<li>1:3 代表取1到3 </li>
+<li>: 代表从开头取到结尾</li>
+</ol>
+<p>[1 3]代表取1和3 </p>
+<p>. 一般代表元素的运算</p>
+<p>octave的 p = zeros(1,m)和 p1 = zeros(m,1)是不一样的，如果p = p1有时候会出现问题</p>
+<p><strong>计算</strong></p>
+<pre><code class="octave">sqrt(10) 开平方
+exp(10) 以e为底，10为指数的幂运算 
+abs(10) 取绝对值
+floor(a) 向下取整
+ceil(a) 向上取整
+max(A,B) 返回一个由A B中最大元素组成的矩阵
+max(A,[],1)    1返回每一列最大值 2返回每一行的最大值
+max(A) 默认求每一列最大值
+sum(A,1) 计算每一列相加
+sum(A,2) 计算每一行相加
+
+</code></pre>
+<p><strong>矩阵相关</strong></p>
+<pre><code class="octave">disp(a)
+disp(sprintf(&#39;2 decimal: %0.2f&#39;,a))
+A = [1 2;3 4;5 6]    ;分割行
+ones(2,3)   生成2行三列全部为1的矩阵
+zeros(1,2)
+rand(1,3) 生成1行3列的随机矩阵
+randn(1,3) 随机生成满足高斯的矩阵 平均值为0 标准差为1 
+eye(3) 生成单位矩阵 
+help eye
+size (a) 返回a矩阵的size
+A(:,2)返回第二列所有数据
+A = [A,[1;2;3]] 给A增加一列
+A(:) 把A变成一个列向量
+A = [A B]组合A B两个矩阵
+A = [A;B]
+A &#39; 求A的转置
+find(A&lt;3) 返回索引
+A&lt;3 返回对应的bealoon值
+</code></pre>
+<p><strong>系统操作</strong></p>
+<pre><code class="octave">load name 加载文件
+who 显示所有变量
+clear x 删除变量
+save hello.dat x 将x变量保存在本地 保存为二进制
+save hello.txt v -ascll
+
+</code></pre>
+<p><strong>画图</strong></p>
+<pre><code class="octave">plot(x,y)
+hold() 
+title(&quot;my plot&quot;)
+print(&quot;myPlot.png&quot;)
+close
+subplot(2,2,1) 分图
+axis(p[0.5 1 1 2]) 限制坐标范围 
+imagesc(A),colorbar,colormap gray 绘制一个有颜色的图
+
+</code></pre>
+<p><strong>控制语句</strong></p>
+<pre><code class="octave">while i &lt;=5,
+    i = i+1;
+end;
+
+for i = 1:10,
+    disp(i);
+end;
+
+if i == 1,
+    disp(i);
+end;
+</code></pre>
+<p><strong>函数</strong></p>
+<pre><code class="octave">function y = squareThisNumber(x)
+y = x^2;
+
+function [y1,y2] = squareThisNumber(x)
+y1 = x^2;
+y2 = x^3; 
+
+addpath()  帮助找到我们自定义的function函数
+</code></pre>
+<p>fminunc</p>
+<p>这个函数会自动帮你调整学习    这个函数会自动帮你调整学习率，只需要弄好梯度和代价函数<br>tions = optimset(‘GradObj’, ‘on’, ‘MaxIter’, 400)<br>[theta,cost] = fminunc(@(t)(costFunction(t, X, y)), initial_theta, options);%这个是必须要加的，之前也没有定义的参数<br>%这个函数最开始会把initial_theta赋值给t，然后调用costfunction函数<br>%第一次调用完过后会使用我们的costFunction结果中的grad，将theta = theta - a*grad<br>%再把theta赋值给t，进行二轮计算<br>%！！！！！所以在fminunc里面需要返回Jvalue和grad（梯度）</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2018/12/27/线性数据结构与非线性数据结构/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                线性数据结构与非线性数据结构</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2018/11/28/数据挖掘/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                数据挖掘</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href class="profile gravatar"><img src itemprop="image" alt height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Li Yang<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class>
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">さくら荘そのhojun</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/client/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+            客户端
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer" data-id="2660651585" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="false" data-loop="all" data-order="random" data-preload="auto" data-volume="0.7" data-mutex="true" < div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script></div>
+</body>
+</html>

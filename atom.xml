@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>xixfeng</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://xixfeng.github.io/"/>
+  <updated>2019-06-14T01:23:20.281Z</updated>
+  <id>https://xixfeng.github.io/</id>
+  
+  <author>
+    <name>Li Yang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统</title>
+    <link href="https://xixfeng.github.io/2019/06/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://xixfeng.github.io/2019/06/13/操作系统/</id>
+    <published>2019-06-13T07:33:33.000Z</published>
+    <updated>2019-06-14T01:23:20.281Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;计算机组成&quot;&gt;&lt;a href=&quot;#计算机组成&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="操作系统" scheme="https://xixfeng.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性数据结构与非线性数据结构</title>
+    <link href="https://xixfeng.github.io/2018/12/27/%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>https://xixfeng.github.io/2018/12/27/线性数据结构与非线性数据结构/</id>
+    <published>2018-12-27T10:30:18.000Z</published>
+    <updated>2019-06-12T08:10:30.140Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;线性数据结构&quot;&gt;&lt;a href=&quot;#线性数据结构&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习</title>
+    <link href="https://xixfeng.github.io/2018/12/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://xixfeng.github.io/2018/12/02/机器学习/</id>
+    <published>2018-12-02T07:49:28.000Z</published>
+    <updated>2019-06-12T08:10:53.959Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;机器学习定义&quot;&gt;&lt;a href=&quot;#机器学习定义&quot; class=&quot;headerlink&quot; title=&quot;机器学习定义&quot;&gt;&lt;/a&gt;机器学习定义&lt;/h1&gt;&lt;p&gt;definete：A computer program is said to learn from
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据挖掘</title>
+    <link href="https://xixfeng.github.io/2018/11/28/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    <id>https://xixfeng.github.io/2018/11/28/数据挖掘/</id>
+    <published>2018-11-28T04:00:38.000Z</published>
+    <updated>2019-06-12T08:10:59.142Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;数据挖掘-机器学习-大数据之间的关系&quot;&gt;&lt;a href=&quot;#数据挖掘-机器学习-大数据之间的关系&quot; class=&quot;headerlink&quot; title=&quot;数据挖掘 机器学习 大数据之间的关系&quot;&gt;&lt;/a&gt;数据挖掘 机器学习
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据挖掘" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库</title>
+    <link href="https://xixfeng.github.io/2018/11/20/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>https://xixfeng.github.io/2018/11/20/数据库/</id>
+    <published>2018-11-20T15:42:08.000Z</published>
+    <updated>2019-06-12T08:11:04.173Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;数据库三大范式&quot;&gt;&lt;a href=&quot;#数据库三大范式&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据库" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java集合</title>
+    <link href="https://xixfeng.github.io/2018/11/20/java%E9%9B%86%E5%90%88/"/>
+    <id>https://xixfeng.github.io/2018/11/20/java集合/</id>
+    <published>2018-11-20T03:10:26.000Z</published>
+    <updated>2018-11-20T03:50:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
+    <id>https://xixfeng.github.io/2018/11/20/测试/</id>
+    <published>2018-11-20T02:37:47.000Z</published>
+    <updated>2019-06-12T08:10:44.892Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="测试" scheme="https://xixfeng.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github后端架构师技术图谱</title>
+    <link href="https://xixfeng.github.io/2018/11/17/github%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%B8%88%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1/"/>
+    <id>https://xixfeng.github.io/2018/11/17/github后端架构师技术图谱/</id>
+    <published>2018-11-17T04:06:28.000Z</published>
+    <updated>2019-06-12T08:11:40.912Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;压力测试&quot;&gt;&lt;a href=&quot;#压力测试&quot; class=&quot;headerlink&quot; title=&quot;压力测试&quot;&gt;&lt;/a&gt;压力测试&lt;/h1&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot知识</title>
+    <link href="https://xixfeng.github.io/2018/11/14/SpringBoot%D6%AA%CA%B6/"/>
+    <id>https://xixfeng.github.io/2018/11/14/SpringBoot֪ʶ/</id>
+    <published>2018-11-14T09:54:19.000Z</published>
+    <updated>2019-06-12T08:11:22.731Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;@RequestBody 注入http请求的请求体  //post时，为请求表单&lt;/p&gt;
+&lt;p&gt;   data参数是&lt;strong&gt;字符串类型&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;   type必须是post类型，get类型会报错&lt;/p&gt;
+&lt;p&gt;  
+        
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序简单学习</title>
+    <link href="https://xixfeng.github.io/2018/11/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://xixfeng.github.io/2018/11/11/微信小程序简单学习/</id>
+    <published>2018-11-11T10:04:52.000Z</published>
+    <updated>2019-06-12T08:11:15.133Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;和vue不一样，微信小程序获取页面data是this.data&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;input标签，数据交换，通过bindinput绑定一个监控函数，当input框内值改变时，便会调用这个函数&lt;/p&gt;
+&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="https://xixfeng.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>排序</title>
+    <link href="https://xixfeng.github.io/2018/11/10/%E6%8E%92%E5%BA%8F/"/>
+    <id>https://xixfeng.github.io/2018/11/10/排序/</id>
+    <published>2018-11-10T12:58:16.000Z</published>
+    <updated>2019-06-12T08:11:09.830Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
+&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java实现抽象数据结构</title>
+    <link href="https://xixfeng.github.io/2018/11/09/java%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>https://xixfeng.github.io/2018/11/09/java实现抽象数据结构/</id>
+    <published>2018-11-08T16:05:27.000Z</published>
+    <updated>2019-06-13T15:34:40.791Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;双链表&quot;&gt;&lt;a href=&quot;#双链表&quot; class=&quot;headerlink&quot; title=&quot;双链表&quot;&gt;&lt;/a&gt;双链表&lt;/h1&gt;&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx</title>
+    <link href="https://xixfeng.github.io/2018/11/08/nginx/"/>
+    <id>https://xixfeng.github.io/2018/11/08/nginx/</id>
+    <published>2018-11-08T10:11:32.000Z</published>
+    <updated>2019-06-13T15:34:20.730Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;nginx基本应用&quot;&gt;&lt;a href=&quot;#nginx基本应用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+</feed>
