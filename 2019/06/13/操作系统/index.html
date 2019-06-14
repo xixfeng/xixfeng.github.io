@@ -572,7 +572,33 @@ void semSignalB(binary_semaphore s){
 <li>最高响应比优先：最小归一化周转时间</li>
 <li>反馈法</li>
 </ul>
-<h1 id="输入、输出文件"><a href="#输入、输出文件" class="headerlink" title="输入、输出文件"></a>输入、输出文件</h1><h2 id="三种I-O技术"><a href="#三种I-O技术" class="headerlink" title="三种I/O技术"></a>三种I/O技术</h2><p>程序控制的I/O、中断控制的I/O、DMA</p>
+<h1 id="输入、输出文件"><a href="#输入、输出文件" class="headerlink" title="输入、输出文件"></a>输入、输出文件</h1><ul>
+<li>三种I/O技术<br>程序控制的I/O、中断控制的I/O、直接存储器访问(DMA)</li>
+</ul>
+<ul>
+<li>寻道时间：将磁头臂移动到指定磁道道时间</li>
+<li>旋转延迟：将磁盘待访问的区域移动到读/写磁头可以访问到的位置所需的时间</li>
+<li>传输时间：向磁盘读取/输入的时间，磁盘的旋转速度为3600-15000rpm，其中15000rpm相当于每4ms旋转一周</li>
+<li>平均时间：从头到中所需的时间<h2 id="磁盘调度策略"><a href="#磁盘调度策略" class="headerlink" title="磁盘调度策略"></a>磁盘调度策略</h2></li>
+<li>FIFO</li>
+<li>SSTF：可能使得某些请求一直处于饥饿状态</li>
+<li>SCAN：电梯算法，向固定方向移动，完成沿途的读取，到达末端后弹回</li>
+<li>C-SCAN：到达末端后弹回首端</li>
+</ul>
+<h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><ul>
+<li>域(field)：是最基本的文件结构</li>
+<li>记录(record)：一组域的集合，可视为应用程序的一个单元</li>
+<li>文件(file)：一组记录的集合</li>
+<li>数据库(database)：一组相关数据的集合</li>
+</ul>
+<h2 id="文件组织和访问"><a href="#文件组织和访问" class="headerlink" title="文件组织和访问"></a>文件组织和访问</h2><p>文件组织(file organization)是指文件中记录的逻辑结构</p>
+<ul>
+<li>堆：堆(pile)是最简单的文件组织结构，因而对记录的访问是通过穷举查找方式进行的</li>
+<li>顺序文件：关键域+顺序存储</li>
+<li>索引顺序文件：关键域+顺序存储+索引，这种方式能找到离目标文件最近的位置</li>
+<li>索引文件：每个域都能成为索引对象</li>
+<li>直接文件或散列文件：</li>
+</ul>
 
         </div>
         <!-- .entry-content -->
