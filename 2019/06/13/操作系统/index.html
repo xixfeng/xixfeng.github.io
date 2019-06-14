@@ -436,7 +436,7 @@
 <li>临界区：一段代码，在这段代码中进程将访问共享资源，当另外一个进程已在这段代码运行时，其他进程就不能在这段代码中运行</li>
 <li>死锁：两个或两个以上的进程都在等待其他进程昨晚某些事情而不能继续执行的情况</li>
 <li>活锁：两个或两个以上的进程为响应其他进程中的变化而持续改变自己的状态<strong>但不做有用功但清形</strong></li>
-<li><strong>互斥</strong>：当一个进程在临界区访问共享资源时，其他进程不能进入该区域</li>
+<li><strong>互斥</strong>(mutual exclusion)：当一个进程在临界区访问共享资源时，其他进程不能进入该区域</li>
 <li>竞争条件：多个线程或进程在读写一个共享数据时，结果依赖于他们执行的相对时间的情形</li>
 <li>饥饿：一个可运行的进程尽管能继续执行，但被调度程序无限期地忽视，而不能执行但情况</li>
 </ul>
@@ -532,21 +532,21 @@ void semSignalB(binary_semaphore s){
 <ul>
 <li>逻辑地址：是指与当前数据在内存中的物理地址无关的访问地址</li>
 </ul>
-<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><ul>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>页(page)</p>
+<ul>
 <li>页(page)：进程中的块</li>
 <li>页框(frame)：内存中的块</li>
-<li><p>页表(page table)：给出页对应的页框</p>
-<p><img src="http://api.xixfeng.cn/mweb/15604337097636.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
-<h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><p><img src="http://api.xixfeng.cn/mweb/15604337097636.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"><br>根据段号找到物理地址，再将物理地址与偏移量相加</p>
-<h1 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h1><ul>
+<li>页表(page table)：给出页对应的页框</li>
+<li>固定分区(fixed partitioning)：将系统内存分为大小固定的块,但是这些块大小可以相等，也可以不等(就是实现就把内存给划分好了)<br><img src="http://api.xixfeng.cn/mweb/15604337097636.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></li>
+</ul>
+<h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><p>段(segment)<br> <img src="http://api.xixfeng.cn/mweb/15604337097636.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"><br> 根据段号找到物理地址，再将物理地址与偏移量相加</p>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><ul>
 <li>虚拟内存：在存储分配机制中，尽管备用内存是主存的一部分，但它也可被寻址</li>
 <li>虚拟地址：在虚拟内存中分配给某一位置的地址</li>
 </ul>
-</li>
-</ul>
 <p><img src="http://api.xixfeng.cn/mweb/15604345685771.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
-<h2 id="分页-1"><a href="#分页-1" class="headerlink" title="分页"></a>分页</h2><h3 id="TLB"><a href="#TLB" class="headerlink" title="TLB"></a>TLB</h3><p><img src="http://api.xixfeng.cn/mweb/15604346529706.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
-<h3 id="置换策略"><a href="#置换策略" class="headerlink" title="置换策略"></a>置换策略</h3><p>在使用虚拟分页的时候，我们会出现一些页在内存中，一些页在辅存中，当我们需要从辅存中取出页时，应该换出内存中哪一页，这就是置换策略</p>
+<h3 id="分页-1"><a href="#分页-1" class="headerlink" title="分页"></a>分页</h3><h4 id="TLB"><a href="#TLB" class="headerlink" title="TLB"></a>TLB</h4><p><img src="http://api.xixfeng.cn/mweb/15604346529706.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
+<h4 id="置换策略"><a href="#置换策略" class="headerlink" title="置换策略"></a>置换策略</h4><p>在使用虚拟分页的时候，我们会出现一些页在内存中，一些页在辅存中，当我们需要从辅存中取出页时，应该换出内存中哪一页，这就是置换策略</p>
 <ul>
 <li>OPT：替换未来中最后使用的页</li>
 <li>LRU：置换内存中最长时间未被引用的页</li>
@@ -566,10 +566,10 @@ void semSignalB(binary_semaphore s){
 </ul>
 <ul>
 <li>FCFS</li>
-<li>轮转：每个线程占用cpu一段时间</li>
-<li>最短进程优先：非抢占 选择预计处理时间最短的</li>
-<li>最短剩余时间：在最短进程优先上加入抢占机制</li>
-<li>最高响应比优先：最小归一化周转时间</li>
+<li>轮转(RR)：每个线程占用cpu一段时间</li>
+<li>最短进程优先(SPN,shortest Process Next)：非抢占 选择预计处理时间最短的</li>
+<li>最短剩余时间(SPT)：在最短进程优先上加入抢占机制</li>
+<li>最高响应比优先(HRRN)：最小归一化周转时间</li>
 <li>反馈法</li>
 </ul>
 <h1 id="输入、输出文件"><a href="#输入、输出文件" class="headerlink" title="输入、输出文件"></a>输入、输出文件</h1><ul>
@@ -591,7 +591,8 @@ void semSignalB(binary_semaphore s){
 <li>文件(file)：一组记录的集合</li>
 <li>数据库(database)：一组相关数据的集合</li>
 </ul>
-<h2 id="文件组织和访问"><a href="#文件组织和访问" class="headerlink" title="文件组织和访问"></a>文件组织和访问</h2><p>文件组织(file organization)是指文件中记录的逻辑结构</p>
+<h2 id="文件组织和访问"><a href="#文件组织和访问" class="headerlink" title="文件组织和访问"></a>文件组织和访问</h2><p>文件系统：文件系统是操作系统用于存储设备或分区上的文件的方法和数据结构</p>
+<p><center> 层次结构 </center><br><img src="http://api.xixfeng.cn/mweb/15605107901180.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"><br>文件组织(file organization)是指文件中记录的逻辑结构</p>
 <ul>
 <li>堆：堆(pile)是最简单的文件组织结构，因而对记录的访问是通过穷举查找方式进行的</li>
 <li>顺序文件：关键域+顺序存储</li>
