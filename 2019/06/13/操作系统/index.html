@@ -433,11 +433,11 @@
 </ul>
 <h1 id="并发性：互斥和同步"><a href="#并发性：互斥和同步" class="headerlink" title="并发性：互斥和同步"></a>并发性：互斥和同步</h1><ul>
 <li>原子操作：一个函数或动作由多个指令的序列实现，要保证这个序列要么都执行，要么都不执行</li>
-<li>临界区：一段代码，在这段代码中进程将访问共享资源，当另外一个进程已在这段代码运行时，其他进程就不能在这段代码中运行</li>
+<li>临界区(critical-section)：一段代码，在这段代码中进程将访问共享资源，当另外一个进程已在这段代码运行时，其他进程就不能在这段代码中运行</li>
 <li>死锁：两个或两个以上的进程都在等待其他进程昨晚某些事情而不能继续执行的情况</li>
 <li>活锁：两个或两个以上的进程为响应其他进程中的变化而持续改变自己的状态<strong>但不做有用功但清形</strong></li>
 <li><strong>互斥</strong>(mutual exclusion)：当一个进程在临界区访问共享资源时，其他进程不能进入该区域</li>
-<li>竞争条件：多个线程或进程在读写一个共享数据时，结果依赖于他们执行的相对时间的情形</li>
+<li>竞争条件(race condition：多个线程或进程在读写一个共享数据时，结果依赖于他们执行的相对时间的情形</li>
 <li>饥饿：一个可运行的进程尽管能继续执行，但被调度程序无限期地忽视，而不能执行但情况</li>
 </ul>
 <h2 id="互斥：硬件的支持"><a href="#互斥：硬件的支持" class="headerlink" title="互斥：硬件的支持"></a>互斥：硬件的支持</h2><ol>
@@ -525,7 +525,8 @@ void semSignalB(binary_semaphore s){
 <li>连续取消死锁进程直到不再存在死锁</li>
 <li>连续抢占资源</li>
 </ol>
-<h2 id="哲学家qia饭问题"><a href="#哲学家qia饭问题" class="headerlink" title="哲学家qia饭问题"></a>哲学家qia饭问题</h2><h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="内存管理的需求"><a href="#内存管理的需求" class="headerlink" title="内存管理的需求"></a>内存管理的需求</h2><ul>
+<h2 id="哲学家qia饭问题"><a href="#哲学家qia饭问题" class="headerlink" title="哲学家qia饭问题"></a>哲学家qia饭问题</h2><h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>伙伴系统(Buddy system)：一种综合内存固定分区与动态分区策略</p>
+<h2 id="内存管理的需求"><a href="#内存管理的需求" class="headerlink" title="内存管理的需求"></a>内存管理的需求</h2><ul>
 <li>重定位：把进程重定位(relocate)到内存到不同区域</li>
 </ul>
 <h2 id="内存分区"><a href="#内存分区" class="headerlink" title="内存分区"></a>内存分区</h2><p> <img src="http://api.xixfeng.cn/mweb/15604331923519.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
@@ -539,7 +540,7 @@ void semSignalB(binary_semaphore s){
 <li>页表(page table)：给出页对应的页框</li>
 <li>固定分区(fixed partitioning)：将系统内存分为大小固定的块,但是这些块大小可以相等，也可以不等(就是实现就把内存给划分好了)<br><img src="http://api.xixfeng.cn/mweb/15604337097636.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></li>
 </ul>
-<h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><p>段(segment)<br> <img src="http://api.xixfeng.cn/mweb/15604337097636.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"><br> 根据段号找到物理地址，再将物理地址与偏移量相加</p>
+<h3 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h3><p>段(segment)<br> <img src="http://api.xixfeng.cn/mweb/15605158079883.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"><br> 根据段号找到物理地址，再将物理地址与偏移量相加</p>
 <h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><ul>
 <li>虚拟内存：在存储分配机制中，尽管备用内存是主存的一部分，但它也可被寻址</li>
 <li>虚拟地址：在虚拟内存中分配给某一位置的地址</li>
@@ -600,6 +601,15 @@ void semSignalB(binary_semaphore s){
 <li>索引文件：每个域都能成为索引对象</li>
 <li>直接文件或散列文件：</li>
 </ul>
+<h2 id="辅存管理"><a href="#辅存管理" class="headerlink" title="辅存管理"></a>辅存管理</h2><p>文件分配表(FAT,File Allocation Table)：为跟踪分配给文件的分区，应该使用那种数据结构，也决定了分配给文件何种空间</p>
+<ul>
+<li>连续分配(contiguous allocation)：在创建文件时，分配一组连续的空间给文件</li>
+<li>链式分配(chained allocation)：链式分配基于单个块，每个块的末尾都包含指向下一块的指针</li>
+<li>索引分配(index allocation)：将文件名与索引块放入文件分配表中，再在索引块中存储该文件的所有块</li>
+</ul>
+<p><img src="http://api.xixfeng.cn/mweb/15605167011067.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
+<p><img src="http://api.xixfeng.cn/mweb/15605167530465.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
+<p><img src="http://api.xixfeng.cn/mweb/15605167769994.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
 
         </div>
         <!-- .entry-content -->
