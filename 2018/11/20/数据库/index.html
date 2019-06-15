@@ -377,10 +377,10 @@
 <p>五大约束</p>
 <ul>
 <li>primary KEY：设置主键</li>
-<li>unique：设计唯一性约束</li>
-<li>default：默认</li>
 <li>NOT NULL：不为NULL</li>
 <li>FOREIGN key：设置外键约束</li>
+<li>unique：设计唯一性约束</li>
+<li>default：默认</li>
 </ul>
 <p>码</p>
 <ul>
@@ -389,6 +389,27 @@
 <li>主码：在多候选码中选一个作为主码，主码默认不为空，默认唯一性，默认自动增长</li>
 </ul>
 <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p><img src="http://api.xixfeng.cn/mweb/15605910583402.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
+<p>修改表</p>
+<pre><code class="sql">create table teacher(Id bigint,name varchar(255) not null,
+student_id int foreign key references student(id),primary key(Id))//常用的类型就是int，varchar(255)
+
+alter table teacher add (name varchar(255) not null)
+
+alter table teacher modify name int not null
+
+alter table teacher change name teacher_name varchar(255) not null
+
+alter table teacher drop teacher_name
+</code></pre>
+<p>查看表</p>
+<pre><code class="sql">show tables;
+desc teacher;
+</code></pre>
+<p>增删改</p>
+<pre><code class="sql">insert into teacher(Id,name) values(1,&quot;李小花&quot;),(2,&quot;李春花&quot;)
+update teacher set name=&quot;李春花&quot; where Id=1
+delete from teacher where Id=1
+</code></pre>
 <h2 id="自然连接"><a href="#自然连接" class="headerlink" title="自然连接"></a>自然连接</h2><p>natural join 会自动用两张表相同的字段进行连接</p>
 <h2 id="内部连接"><a href="#内部连接" class="headerlink" title="内部连接"></a>内部连接</h2><p><em>连接只是提供了一种常用的查询方法，将表联系起来，不用连接语法，用where也行</em></p>
 <p>根据一个字段与其它表联系起来，查询两个表的字段.</p>
@@ -458,12 +479,13 @@ where student.dept_name=&#39;Comp. Sci.&#39; and course.course_id=&#39;CS-001&#3
 <ul>
 <li>exists和in的区别，二者执行顺序不同，但是都是判断内外表之间存在管理,但是一般用in来联系内外表，用exists判断是否为空</li>
 </ul>
-<p>#函数与存储过程</p>
-<ul>
+<h1 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h1><p>并、交、差、笛卡尔积、选择、投影、更名<br><img src="http://api.xixfeng.cn/mweb/15605960012077.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
+<p>自然连接、除法、聚合函数<br><img src="http://api.xixfeng.cn/mweb/15605964697643.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
+<p>聚合函数在未分组的情况下，返回的是给的参数；在分组的情况下，返回的是分组字段和参数；<strong>聚合函数结果命名加as</strong></p>
+<h1 id="函数与存储过程"><a href="#函数与存储过程" class="headerlink" title="函数与存储过程"></a>函数与存储过程</h1><ul>
 <li>函数与过程可以在控制语句内加sql语句，或者在begin end中加sql语句</li>
 </ul>
-<p>##创建存储过程和函数</p>
-<pre><code class="json">CREATE PROCEDURE sp_name ([proc_parameter[,...]])
+<h2 id="创建存储过程和函数"><a href="#创建存储过程和函数" class="headerlink" title="创建存储过程和函数"></a>创建存储过程和函数</h2><pre><code class="json">CREATE PROCEDURE sp_name ([proc_parameter[,...]])
     [characteristic ...] routine_body
 
 CREATE FUNCTION sp_name ([func_parameter[,...]])
@@ -508,8 +530,7 @@ delimiter ;
 <li>指定参数为IN， OUT， 或INOUT 只对PROCEDURE是合法的。（FUNCTION参数总是被认为是IN）</li>
 <li>由于在过程中会涉及多条 SQL 语句，因此在程序被定义的时候，用 mysql 客户端 delimiter 命令来把<strong>语句定界符</strong>从 ; 改为 //，这样在语句体末尾开头加上 // 就表示存储过程结束。</li>
 </ul>
-<p>##存储过程和修改函数</p>
-<pre><code class="json">ALTER {PROCEDURE | FUNCTION} sp_name [characteristic ...]
+<h2 id="存储过程和修改函数"><a href="#存储过程和修改函数" class="headerlink" title="存储过程和修改函数"></a>存储过程和修改函数</h2><pre><code class="json">ALTER {PROCEDURE | FUNCTION} sp_name [characteristic ...]
 
 characteristic:
     { CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA }
@@ -519,13 +540,13 @@ characteristic:
 <ul>
 <li>和创建一个语法，就是把create改成alter</li>
 </ul>
-<p>##声明变量<br>显示声明</p>
+<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><p>显示声明</p>
 <pre><code class="json">DECLARE var_name[,...] type [DEFAULT value]
 </code></pre>
 <p>隐示声明，变量可以是局部变量 全局变量 或没有被声明过的变量</p>
 <pre><code class="json">SET var_name = expr
 </code></pre>
-<p>##流程控制语句<br>if</p>
+<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2><p>if</p>
 <pre><code class="json">IF search_condition THEN statement_list
     [ELSEIF search_condition THEN statement_list] ...
     [ELSE statement_list]
@@ -566,14 +587,13 @@ END REPEAT [end_label]#直到search_condition为真才结束
 END WHILE [end_label]
 </code></pre>
 <p><strong>由于存储过程语句经过了预编译，执行速度也会有较大提升，适合用于一些频繁的操作。</strong></p>
-<p>##光标<br>光标的声明要在变量之后</p>
+<h2 id="光标"><a href="#光标" class="headerlink" title="光标"></a>光标</h2><p>光标的声明要在变量之后</p>
 <pre><code class="json">DECLARE cursor_name CURSOR FOR select_statement
 OPEN cursor_name #打开声明的光标
 FETCH cursor_name #移动光标到下一行并读取
 Close cursor_name #关闭光标
 </code></pre>
-<p>#栗子</p>
-<pre><code class="sql">create function avg_salary(company_name varchar(50))
+<h1 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h1><pre><code class="sql">create function avg_salary(company_name varchar(50))
     returns integer
     declear res integer
          select avg(salary) into res from works where company_name = company_name
@@ -582,8 +602,7 @@ end
 
 select company name from works where avg_salary(company_name) &gt; avg salary(&quot;First Bank Corporation&quot;)
 </code></pre>
-<p>#触发器</p>
-<ul>
+<h1 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h1><ul>
 <li>触发器和存储过程差不多，能使用控制语句，sql的使用方法也与过程相同<br>具体语法和例子看电子书笔记</li>
 <li>update，insert一般用new row，delete一般用old row</li>
 <li>new row获得修改发生后的被插入或更新元组，old row获得修改发生前将被修改、更新、删除的元组</li>
