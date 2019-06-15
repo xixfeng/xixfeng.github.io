@@ -410,6 +410,7 @@
 <li>线程：可以分配的工作单元，轻量级进程(LWP)</li>
 <li>进程：资源所有权的单元</li>
 </ul>
+<p>用户级线程和内核级线程都是指在<strong>一个进程中的线程管理</strong></p>
 <h2 id="用户级线程"><a href="#用户级线程" class="headerlink" title="用户级线程"></a>用户级线程</h2><p>用户级线程(user-level thread,ULT)中管理线程的所有工作都由应用程序完成<br>优点：</p>
 <ul>
 <li>所有线程数据结构都在一个进程的用户地址空间中，线程切换不需要内核模式特权，节省了两次状态转换的开销</li>
@@ -549,6 +550,7 @@ void semSignalB(binary_semaphore s){
 <h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><ul>
 <li>虚拟内存：在存储分配机制中，尽管备用内存是主存的一部分，但它也可被寻址</li>
 <li>虚拟地址：在虚拟内存中分配给某一位置的地址</li>
+<li>常驻集(resident set)：常驻集指虚拟页式管理中给进程分配的物理页面数目(内存)。</li>
 </ul>
 <p><img src="http://api.xixfeng.cn/mweb/15604345685771.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
 <h3 id="分页-1"><a href="#分页-1" class="headerlink" title="分页"></a>分页</h3><h4 id="TLB"><a href="#TLB" class="headerlink" title="TLB"></a>TLB</h4><p><img src="http://api.xixfeng.cn/mweb/15604346529706.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
@@ -576,14 +578,16 @@ void semSignalB(binary_semaphore s){
 <li>周转时间：进程等待时间+服务时间</li>
 <li>归一化周转时间：周转时间/服务时间</li>
 </ul>
+<p>选择函数(selection function) </p>
 <ul>
 <li>FCFS</li>
-<li>轮转(RR)：每个线程占用cpu一段时间</li>
+<li>轮转(RR)：每个线程占用cpu一段时间,VRR避免了处理器密集型比I/O密集型占用了更多的cpu时间</li>
 <li>最短进程优先(SPN,shortest Process Next)：非抢占 选择预计处理时间最短的</li>
 <li>最短剩余时间(SPT)：在最短进程优先上加入抢占机制</li>
 <li>最高响应比优先(HRRN)：最小归一化周转时间，当前进程完成或堵塞时，选择R值最大当就绪进程。不可抢占</li>
 <li>反馈法</li>
 </ul>
+<p>决策模式(decision mode)：抢占式还是非抢占式</p>
 <h1 id="输入、输出文件"><a href="#输入、输出文件" class="headerlink" title="输入、输出文件"></a>输入、输出文件</h1><ul>
 <li>三种I/O技术<br>程序控制的I/O、中断控制的I/O、直接存储器访问(DMA)</li>
 </ul>
