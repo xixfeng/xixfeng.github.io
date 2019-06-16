@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-06-15T13:08:54.864Z</updated>
+  <updated>2019-06-16T08:48:55.547Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xixfeng.github.io/2019/06/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
     <id>https://xixfeng.github.io/2019/06/15/软件工程/</id>
     <published>2019-06-15T12:01:55.000Z</published>
-    <updated>2019-06-15T13:08:54.864Z</updated>
+    <updated>2019-06-16T08:48:55.547Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,11 @@
       
         
         
-          &lt;h1 id=&quot;软件工程&quot;&gt;&lt;a href=&quot;#软件工程&quot; class=&quot;headerlink&quot; title=&quot;软件工程&quot;&gt;&lt;/a&gt;软件工程&lt;/h1&gt;&lt;p&gt;软件工程：一组包含过程 、方法、工具的框架&lt;/p&gt;
-&lt;h1 id=&quot;过程模型&quot;&gt;&lt;a href=&quot;#过程模型&quot;
+          &lt;p&gt;#软件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;软件：指令的集合，通过执行这些指令可以完成预期的功能；数据结构，帮助程序有效利用数据；软件描述信息，描述软件的信息和操作&lt;/li&gt;
+&lt;li&gt;软件的特点：功能性、可靠性、可用性、可维护性、可移植性、效率&lt;/li&gt;
+&lt;li&gt;软件于硬件的不同：软
         
       
     
