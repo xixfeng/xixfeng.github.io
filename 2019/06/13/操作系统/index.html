@@ -389,6 +389,7 @@
 <h3 id="多道批处理系统"><a href="#多道批处理系统" class="headerlink" title="多道批处理系统"></a>多道批处理系统</h3><p>解决处理器空闲状态(等待I/O)，内存空间可以保存常驻监控程序和两个用户程序，那么当一个作业需要等待I/O时，处理器可以切换到另一个程序执行。这种处理成为<strong>多道程序处理(multiprogramming)</strong>或<strong>多任务处理(multitasking)</strong></p>
 <h3 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h3><p>多道程序设计允许处理器同时处理多个批作业，还可以处理多个交互系统。对于后者而言，由于多个用户分享处理器时间，因而该技术称为<strong>分时系统(time sharing)</strong></p>
 <p>总结：简单批处理系统内存中只能容纳一个用户程序和操作系统(常驻监控程序)，无法在等待时切换，而多道可以容纳多个用户程序，又因为多道允许处理多个<strong>批处理</strong>（batch processing)而形成了分时系统</p>
+<p>分时系统和多道批处理系统的差别：多道批处理系统是为了提高cpu利用率，分时系统是为了减少响应时间</p>
 <h2 id="现代操作系统的特征"><a href="#现代操作系统的特征" class="headerlink" title="现代操作系统的特征"></a>现代操作系统的特征</h2><p>单体内核(monolithic kernel)：操作系统的大部分功能都由大内核来提供</p>
 <p>微内核(microkernel architecture)：只给内核分配一些最基本的功能，其他服务则由运行在用户模式的其他线程提供</p>
 <p>多线程(multithreading)：把执行一个应用程序的进程划分为可以同时运行的多个线程</p>
@@ -578,6 +579,7 @@ void semSignalB(binary_semaphore s){
 <li>周转时间：进程等待时间+服务时间</li>
 <li>归一化周转时间：周转时间/服务时间</li>
 </ul>
+<p>分配器(dispatcher)：在短程调度的时候，将cpu操作权限交付给进程</p>
 <p>选择函数(selection function) </p>
 <ul>
 <li>FCFS</li>
@@ -588,6 +590,7 @@ void semSignalB(binary_semaphore s){
 <li>反馈法</li>
 </ul>
 <p>决策模式(decision mode)：抢占式还是非抢占式</p>
+<p>HRRN的优点：FCFS方式只考虑每个作业的等待时间而未考虑执行时间的长短，而SPT方式只考虑执行时间而未考虑等待时间的长短。HRRN既考虑了等待时间也考虑了执行时间，避免了线程的饥饿</p>
 <h1 id="输入、输出文件"><a href="#输入、输出文件" class="headerlink" title="输入、输出文件"></a>输入、输出文件</h1><ul>
 <li>三种I/O技术<br>程序控制的I/O、中断控制的I/O、直接存储器访问(DMA)</li>
 </ul>
@@ -607,7 +610,7 @@ void semSignalB(binary_semaphore s){
 <li>文件(file)：一组记录的集合</li>
 <li>数据库(database)：一组相关数据的集合</li>
 </ul>
-<h2 id="文件组织和访问"><a href="#文件组织和访问" class="headerlink" title="文件组织和访问"></a>文件组织和访问</h2><p>文件系统：文件系统是操作系统用于存储设备或分区上的文件的方法和数据结构</p>
+<h2 id="文件组织和访问"><a href="#文件组织和访问" class="headerlink" title="文件组织和访问"></a>文件组织和访问</h2><p>文件系统：文件系统是操作系统用于存储设备或分区上的文件的方法和数据结构<br>选择文件组织的原则：1.快速访问 2.易于修改 3.节约存储空间 4.简单维护(maintenance) 5.可靠性(reliability)</p>
 <p><center> 层次结构 </center><br><img src="http://api.xixfeng.cn/mweb/15605107901180.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"><br>文件组织(file organization)是指文件中记录的逻辑结构</p>
 <ul>
 <li>堆：堆(pile)是最简单的文件组织结构，因而对记录的访问是通过穷举查找方式进行的</li>

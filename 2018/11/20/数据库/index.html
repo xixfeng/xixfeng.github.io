@@ -388,6 +388,13 @@
 <li>候选码：超码的最小集合</li>
 <li>主码：在多候选码中选一个作为主码，主码默认不为空，默认唯一性，默认自动增长</li>
 </ul>
+<p>事物四大特性</p>
+<ul>
+<li>原子性：事务是数据库的逻辑工作单位，事务中包含的各操作要么都做，要么都不做  </li>
+<li>一致性：事务执行的结果必须是使数据库从一个一致性状态变到另一个一致性状态</li>
+<li>持久性：也称永久性，指一个事务一旦提交，它对数据库中的数据的改变就应该是永久性的</li>
+<li>隔离性：一个事务的执行不能其它事务干扰</li>
+</ul>
 <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p><img src="http://api.xixfeng.cn/mweb/15605910583402.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100%"></p>
 <p>修改表</p>
 <pre><code class="sql">create table teacher(Id bigint,name varchar(255) not null,
