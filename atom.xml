@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-06-18T08:11:11.378Z</updated>
+  <updated>2019-06-24T07:17:47.420Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xixfeng.github.io/2019/06/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
     <id>https://xixfeng.github.io/2019/06/15/软件工程/</id>
     <published>2019-06-15T12:01:55.000Z</published>
-    <updated>2019-06-18T08:11:11.378Z</updated>
+    <updated>2019-06-24T07:17:47.420Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,7 @@
       
         
         
-          &lt;p&gt;#软件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;软件：指令的集合，通过执行这些指令可以完成预期的功能；数据结构，帮助程序有效利用数据；软件描述信息，描述软件的信息和操作&lt;/li&gt;
-&lt;li&gt;软件的特点：功能性、可靠性、可用性、可维护性、可移植性、效率&lt;/li&gt;
-&lt;li&gt;软件于硬件的不同：软
+          &lt;h1 id=&quot;软件&quot;&gt;&lt;a href=&quot;#软件&quot; class=&quot;headerlink&quot;
         
       
     
@@ -49,7 +45,7 @@
     <link href="https://xixfeng.github.io/2019/06/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/06/13/操作系统/</id>
     <published>2019-06-13T07:33:33.000Z</published>
-    <updated>2019-06-18T04:20:38.568Z</updated>
+    <updated>2019-06-21T01:51:16.756Z</updated>
     
     <summary type="html">
     
@@ -73,7 +69,7 @@
     <link href="https://xixfeng.github.io/2019/06/01/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://xixfeng.github.io/2019/06/01/数据库/</id>
     <published>2019-06-01T15:42:08.000Z</published>
-    <updated>2019-06-20T08:45:58.148Z</updated>
+    <updated>2019-06-20T11:00:59.833Z</updated>
     
     <summary type="html">
     

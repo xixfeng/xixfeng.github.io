@@ -395,6 +395,7 @@
 <p>多线程(multithreading)：把执行一个应用程序的进程划分为可以同时运行的多个线程</p>
 <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p>进程(进程映像，是进程执行的上下文环境)由程序代码+进程控制块（process control block，PCB)+数据</p>
 <p>PCB:由标识符、状态、优先级、程序计数器、内存指针、上下文数据、I/O状态信息、记账信息组成</p>
+<h2 id="两状态模型"><a href="#两状态模型" class="headerlink" title="两状态模型"></a>两状态模型</h2><p>running and not running</p>
 <h2 id="五状态模型"><a href="#五状态模型" class="headerlink" title="五状态模型"></a>五状态模型</h2><ul>
 <li>新建态：刚刚创建的进程，操作系统还未把它加入可执行进程组，它通常是进程控制块已经创建但<strong>还未加载到内存中的新进程</strong></li>
 </ul>
@@ -628,6 +629,17 @@ void semSignalB(binary_semaphore s){
 <p><img src="http://api.xixfeng.cn/mweb/15605167011067.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
 <p><img src="http://api.xixfeng.cn/mweb/15605167530465.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
 <p><img src="http://api.xixfeng.cn/mweb/15605167769994.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
+<h1 id="试题"><a href="#试题" class="headerlink" title="试题"></a>试题</h1><p>. as one process down the memory hierarchy（from inboard memory to offline storage）,the following condition apply <strong>increasing access time</strong></p>
+<p>. when a new block is written to the cache,the <strong>replacement strategies</strong> determines which cache location the block where be</p>
+<p>. the two basic types of process register <strong>user-visiable,control/status register</strong></p>
+<p>. A common class of interrupts is <strong>I/O,Timer,program </strong></p>
+<p>. <strong>regulating user and process to various aspects of system </strong></p>
+<p>. os frequently relinquihes cpu,and must depend on the processor to regain control of the cpu</p>
+<p>. os provide <strong>error detection and response</strong> to end-user（不提供内建用户程序）</p>
+<p>. a hardware feature in batch-processing system is privileged instruction（特权质量）</p>
+<p>. I/O interrupts and DMA are hardware feature which is important to multiprogramming operating system</p>
+<p>. the <strong>data</strong> set in program image can be changed by user（其他两个不可）</p>
+<p>. in a process model that implement two suspend states,a valid state transition is represented by:<br>A. running -&gt; ready/suspend B. ready -&gt; ready/suspend<br>C. all of the above D.ready/suspend -&gt; ready</p>
 
         </div>
         <!-- .entry-content -->
