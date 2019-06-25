@@ -452,7 +452,7 @@
 <li>行为者（小明）</li>
 <li>前置条件：完成一个用例需要的条件</li>
 <li>后置条件：执行用例之后系统的状态</li>
-<li>用例场景（用例的简述）：A、System shows a list of available food boxes to choose from<br>B、The customer chooses the box(es) he/she likes to have by clicking on the respective button<br>C、The customer enters “Confirm” button<br>D、The customer chooses 微信or 支付宝 payment button<br>E、The customer presses his/her 付款 icon on the smart phone for payment scanning</li>
+<li>用例场景（用例的简述，描述系统和用户分别需要做什么）：A、System shows a list of available food boxes to choose from<br>B、The customer chooses the box(es) he/she likes to have by clicking on the respective button<br>C、The customer enters “Confirm” button<br>D、The customer chooses 微信or 支付宝 payment button<br>E、The customer presses his/her 付款 icon on the smart phone for payment scanning</li>
 <li>流程，分主干和分支，描述共前置条件到后置条件的过程中，系统与用户之间有何种交互步骤，这里多见的是时序图或者流程图（小明自己选 or 让服务员推荐，if 服务员推荐，小明接受 or 不接受……确定点某个菜……）；</li>
 </ul>
 <p><img src="http://api.xixfeng.cn/mweb/15606717522314.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 100"></p>
@@ -589,7 +589,7 @@ Component-level design - Describes the internal detail of each software componen
 2. An activity diagram shows the flow of events within our system. 
 3.A Class diagram shows an overview of the target system by describing the objects and classes inside the system and the relationships between them. 
 4.A State diagram shows the behavior of a single object, specifying the sequence of events that an object goes through during its lifetime in response to events. 
-5. A sequence diagram shows step by step what must happen to accomplish a piece of functionality provided by the system. 
+5. A sequence diagram shows step by step what must happen to accomplish a piece of functionality provided by the system. 时序图描述了一个功能完成需要的每一步步骤
 6. A collaboration diagram(泳道图) displays object interactions organized around objects and their links to one another. 
 </code></pre>
 <p>. What are the fundamental differences between the Structured Analysis(SA) and Object-Oriented Analysis(OOA) strategies for requirements analysis? </p>
@@ -597,6 +597,7 @@ Component-level design - Describes the internal detail of each software componen
 面向对象分析：它以类为中心构建分析模型，着重于类的定义以及它们相互协作以影响客户需求的方式
 </code></pre><p>.<br><img src="http://api.xixfeng.cn/mweb/15608425461827.jpg" align="center" style="border-radius:20px;background-color: white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);width: 10"></p>
 <h1 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h1><p>软件管理不包括 repository<br>瀑布过程：需求清晰；增量开发：核心功能；原型过程：需求不清晰<br>CMMI测量软件开发过程<br>在类分析，行为分析，场景分析中只有类分析是面向对象的分析</p>
+<p>user model从用户的角度描述</p>
 <h1 id="判断题"><a href="#判断题" class="headerlink" title="判断题"></a>判断题</h1><p>. 在对面向对象系统进行单元测试时并不是<strong>独立的测试每一个类的行为</strong><br>. QFD是一种质量管理技术，将顾客的需要转换为系统的需求<br>. it is some times possible that the interface designer is constrained by environmental factors that mitigate（降低）against ease of use(易用性) for many users<br>. functional testing tests against the specification（根据规范进行功能性测试）</p>
 <p>. process can be constructed out of pre-existing patterns（从预先存在的模式中） to best meet the needs of a software project</p>
 <p>一般来说软件只有于设计者的目标一致才会成功 ❌<br>一个泛化的目标对于写程序已经足够了，我们可以一会去完善 ❌</p>
