@@ -644,7 +644,8 @@ void semSignalB(binary_semaphore s){
 <p>. I/O interrupts and DMA are hardware feature which is important to multiprogramming operating system</p>
 <p>. the <strong>data</strong> set in program image can be changed by user（其他两个不可）</p>
 <p>. in a process model that implement two suspend states,a valid state transition is represented by:<br>A. running -&gt; ready/suspend B. ready -&gt; ready/suspend<br><strong>C.</strong> all of the above D.ready/suspend -&gt; ready</p>
-<h1 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h1><p>.多道批处理系统，分时系统是什么，他们之间有什么区别<br>多道批处理系统是在内存中保存多个用户进程，如果当前执行进程因为某些原因被阻塞，则调用其他进程。分时系统就是允许多个用户同时对系统进行访问，系统同时响应对个用户的请求。多道批处理系统是为了提高cpu利用率，分时系统是为了减少响应时间</p>
+<h1 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h1><p>.从设计角度来看，操作系统有哪些模块，并简要介绍<br>进程管理<br>内存管理<br>I/O管理<br>文件管理</p>
+<p>.多道批处理系统，分时系统是什么，他们之间有什么区别<br>多道批处理系统是在内存中保存多个用户进程，如果当前执行进程因为某些原因被阻塞，则调用其他进程。分时系统就是允许多个用户同时对系统进行访问，系统同时响应对个用户的请求。多道批处理系统是为了提高cpu利用率，分时系统是为了减少响应时间</p>
 <p>.什么是模式切换，进程切换，他们之间的关系<br>模式切换就是指进程在用户状态和内核状态之间的切换，进程切换就是指换出当前cpu执行的进程，调用一个新的就绪态进程。模式切换不会引起进程状态的改变，大部分情况下也不会引起进程切换</p>
 <p>.并发的四种挑战<br>同步：两个进程需要相互合作已完成某个功能<br>互斥：当一个进程访问临界区中的资源时，不允许其他进程再访问<br>死锁：两个或以上的进程互相等待对方完成某项事物，而都无法执行的情况<br>饥饿：一个进程处于可以执行的状态，但因为某些原因一直没有被调用</p>
 <p>.什么是缺页，画图描述如何处理缺页<br>指的是当软件试图访问已映射在虚拟地址空间中，但是目前并未被加载在物理内存中的一个分页时，由中央处理器的内存管理单元所发出的中断。</p>
@@ -659,9 +660,11 @@ void semSignalB(binary_semaphore s){
 <p>.三种I/O程序<br>DMA：一个DMA模块控制内存和I/O模块之间的数据交换</p>
 <p>.段页式的地址转换<br>注意 P M位在页表上，而不是段表上</p>
 <p>.What is I/O buffer？Give a description of different ways of the organization of I/O buffer.<br>I/O缓冲：在输入请求发出前就开始执行输入传送，并且在输出请求发出一段时间之后才开始执行输出传送。<br>单缓冲：当用户进程发出I/O请求时，操作系统给该操作分配一个位于内存中系统部分的缓冲区。<br>双缓冲：操作系统给该操作分配两个系统缓冲区。在一个进程往一个缓冲区中传送数据（取数据）的同时，操作系统正在清空（或填充）另一个缓冲区<br>循环缓冲：当使用两个以上的缓冲区时，这组缓冲区自身被当做循环缓冲区。如果进程需要爆发式地执行大量的I/O操作，仅有双缓冲是不够的，这就需要多于两个缓冲区的方案来缓解不足。</p>
-<p>为什么要使用用户态和内核态</p>
-<p>操作系统创建了页表，操作系统启动的时候创建的页表</p>
-<p>列出延迟元素在读写磁盘的时候<br>寻道时间、旋转延迟、传输时间</p>
+<p>.为什么要使用用户态和内核态</p>
+<p>.操作系统创建了页表，操作系统启动的时候创建的页表</p>
+<p>.列出延迟元素在读写磁盘的时候<br>寻道时间、旋转延迟、传输时间</p>
+<p>.列出进程挂起的原因<br>交换（swapping）：操作系统需要释放足够的内存空间，以调入并执行处于就绪态的进程<br>交互式用户请求（interactive user request）：用户可能希望挂起一个程序的执行，目的是为了调试或与一个资源的使用进行连接<br>父进程请求（parent process request）：父进程可能会希望挂起后代进程的执行，以检查或修改挂起的进程，或者协调不同后代进程之间的行为<br>定时（timing）：一个进程可能会周期性地执行，而且可能在等待下一个时间间隔时被挂起<br>其他OS原因：操作系统可能挂起后台进程或工具程序进程，或者被怀疑导致问题的进程</p>
+<p>.What are three objectives of an OS design？<br>方便：操作系统使计算机更易于使用。<br>有效：操作系统允许以更有效的方式使用计算机系统资源。<br>扩展的能力：在构造操作系统时，应该允许在不妨碍服务的前提下有效地开发、测试和引进新的系统功能。</p>
 <h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1><p>抖动：处理器大部分时间用于交换块而不是执行指令</p>
 <h1 id="单词"><a href="#单词" class="headerlink" title="单词"></a>单词</h1><p>-|-<br>hierarchical | 分层的</p>
 <p>consumable | 可消耗资源</p>
