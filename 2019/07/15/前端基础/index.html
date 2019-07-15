@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">xixfeng</title>
+  <title itemprop="name">CSS | xixfeng</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -348,459 +348,416 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
 <div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">hexo-Sakura主题已经开源，目前正在开发中...</div>
-  </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://space.bilibili.com/12473633" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/bilibili.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>博主的b站</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+          <header class="entry-header">
+            <h1 class="entry-title">CSS</h1>
+            <p class="entry-census">hojun&nbsp;·&nbsp;2019-7-15&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
+
+            <hr>
+          </header>
+        
+        <div class="entry-content">
+          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>块级元素、行内元素</p>
+<ul>
+<li>块级元素会自动跳行，行内不会；<pre><code class="html">&lt;div&gt; 属于块级元素 用作元素的容器，常用来网页布局
+&lt;span&gt; 属于内联元素 用作文本的容器
+</code></pre>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>address</th>
+<th>地址</th>
+<th>blockquote</th>
+<th>块引用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>center</td>
+<td>居中对齐块</td>
+<td>dir</td>
+<td>目录列表</td>
+</tr>
+<tr>
+<td>div</td>
+<td>常用块级元素</td>
+<td>dl</td>
+<td>定义列表</td>
+</tr>
+<tr>
+<td>form</td>
+<td>交互表单</td>
+<td>h1-h6</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>hr</td>
+<td>水平分割线</td>
+<td>menu</td>
+<td>菜单列表</td>
+</tr>
+<tr>
+<td>ol</td>
+<td>排序表单</td>
+<td>p</td>
+<td>段落</td>
+</tr>
+</tbody>
+</table>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>选择器</p>
+<pre><code class="CSS">selector{dec} //选择标签名
+#id{dec} //id选择器
+.ClassName{dec} //选择类名
+[att]{dec} //属性选择器
+
+selector1 selector2 {dec}//派生选择器
+#id selector{dec} // 选择标签名与id都满足的
+</code></pre>
+<p>引入</p>
+<ul>
+<li>link引入外部css</li>
+<li>内部style标签</li>
+<li>标签内嵌style属性</li>
+</ul>
+<p>继承与覆盖</p>
+<ul>
+<li>即颜色属性将被继承于外部样式表，而文字排列（text-alignment）和字体尺寸（font-size）会被内部样式表中的规则取代。</li>
+</ul>
+<p>布局相关属性</p>
+<ul>
+<li>盒子模型：每一个标签都是一个盒子<br>padding 内边距</li>
+<li>背景属性是作用于整个盒子，包括内边距那部分<br>| postion    | 把元素放置到一个静态的、相对的、绝对的、或固定的位置中。 |<br>| ———- | ——————————————————– |<br>| float      | 定义元素在哪个方向浮动。                                 |<br>| visibility | 设置元素是否可见或不可见。                               |<br>| cursor     | 规定当指向某元素之上时显示的指针类型。                   |<br>| clear      | 设置一个元素的侧面是否允许其他的浮动元素。               |<br>| display    | 设置是否及如何显示元素。                                 |<br>|            |                                                          |</li>
+</ul>
+<p>padding 内边距</p>
+<pre><code class="CSS">  padding-top: 10px;
+  padding-right: 0.25em;
+  padding-bottom: 2ex;
+  padding-left: 20%;
+</code></pre>
+<p>margin 外边距</p>
+<ul>
+<li>与其他盒子的距离<pre><code>margin-top: 20px;
+margin-right: 30px;
+margin-bottom: 30px;
+margin-left: 20px;
+</code></pre></li>
+</ul>
+<p>border</p>
+<ul>
+<li>边框的样式</li>
+<li>边框的颜色</li>
+<li>边框的宽度</li>
+</ul>
+<p>边距合并</p>
+<ul>
+<li>上下元素合并</li>
+<li>里外元素合并</li>
+</ul>
+<p>position</p>
+<pre><code class="css">position:relative;
+left:20px //相对于原始位置向左移动
+
+position:absolute
+left:100px;
+top:150px //在整个页面中的定位
+
+position:fixed;
+top:150px //在整个页面中的定位，不会随着滚动条移动
+</code></pre>
+<p>float</p>
+<ul>
+<li>将边框向个方向移动直到遇见其他边框</li>
+</ul>
+<pre><code class="CSS">.center
+{
+margin-left:auto;
+margin-right:auto;
+width:70%;
+background-color:#b0e0e6;
+}//使用margin水平对齐
+
+.left
+{
+position:absolute;
+left:0px;
+width:300px;
+background-color:#b0e0e6;
+}//使用position左对齐
+
+.left
+{
+float:left;
+width:300px;
+background-color:#b0e0e6;
+}//使用float左对齐
+</code></pre>
+<h1 id="js"><a href="#js" class="headerlink" title="js"></a>js</h1><p>给未声明的变量赋值时会自动成为全局变量，即使是在函数内部声明的</p>
+<p>this关键词</p>
+<ul>
+<li>在方法中(对象中的函数)，this 指的是所有者对象。</li>
+<li>单独的情况下，this 指的是全局对象。</li>
+<li>在函数中，this 指的是全局对象。</li>
+<li>在函数中，严格模式下，this 是 undefined。</li>
+<li>在事件中，this 指的是接收事件的元素。</li>
+</ul>
+<p>DOM 文档对象模型</p>
+<p>利用document对象去修改HTML文档的所有内容</p>
+<table>
+<thead>
+<tr>
+<th>let</th>
+<th>变量修饰词，增加变量的块作用域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>doucment</td>
+<td>文档对象</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h2><p>类似于js中的DOM操作，但是语法更加简单，是一个封装的js库</p>
+<p>基础语法 <strong>$(selector).action()</strong></p>
+<ul>
+<li>美元符号定义 jQuery</li>
+<li>选择符（selector）”查询”和”查找” HTML 元素</li>
+<li>jQuery 的 action() 执行对元素的操作</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>$(“div”)</th>
+<th>选择标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$(“#test”)</td>
+<td>选择id</td>
+</tr>
+<tr>
+<td>$(“.class”)</td>
+<td>选择类</td>
+</tr>
+<tr>
+<td>$(“[attribute]”)</td>
+<td>选择某一个属性</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="JQuery-事件"><a href="#JQuery-事件" class="headerlink" title="JQuery 事件"></a>JQuery 事件</h3><p><a href="https://www.runoob.com/jquery/jquery-events.html" target="_blank" rel="noopener">常见事件</a></p>
+<p>当某一个元素发生制定时间时，执行的函数</p>
+<p>$(“button”).click(function(){})</p>
+<h3 id="JQuery与AJAX"><a href="#JQuery与AJAX" class="headerlink" title="JQuery与AJAX"></a>JQuery与AJAX</h3><p>$(selector).load(URL,data,callback);可以将服务器中加载的数据放入标签中</p>
+<pre><code class="js">//$.get(URL,callback);
+$(&quot;button&quot;).click(function(){
+  $.get(&quot;demo_test.php&quot;,function(data,status){
+    alert(&quot;数据: &quot; + data + &quot;\n状态: &quot; + status);
+  });
+});
+
+//$.post(URL,data,callback);
+$(&quot;button&quot;).click(function(){
+    $.post(&quot;/try/ajax/demo_test_post.php&quot;,
+    {
+        name:&quot;菜鸟教程&quot;,
+        url:&quot;http://www.runoob.com&quot;
+    },
+        function(data,status){
+        alert(&quot;数据: \n&quot; + data + &quot;\n状态: &quot; + status);
+    });
+});
+</code></pre>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="附录1-HTML常用标签"><a href="#附录1-HTML常用标签" class="headerlink" title="附录1 HTML常用标签"></a>附录1 HTML常用标签</h2><table>
+<thead>
+<tr>
+<th><div></div></th>
+<th>常见块级元素</th>
+<th><span></span></th>
+<th>常见行级元素</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><p></p></td>
+<td>段落</td>
+<td><b></b></td>
+<td>粗体文本</td>
+</tr>
+<tr>
+<td><li></li></td>
+<td>用在有序列表 (<ol>) 和无序列表 (<ul>) 中。</ul></ol></td>
+<td><a></a></td>
+<td>引用</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2019/07/01/商务模型/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                商务模型</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2019/07/15/前端基础/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-15 10:07</div>
-      <a href="/2019/07/15/前端基础/" class="post-title">
-        <h3>CSS</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/07/15/前端基础/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="hojun.cn" class="profile gravatar"><img src="https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg" itemprop="image" alt="hojun" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="hojun.cn" itemprop="url" rel="author">hojun</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/01/商务模型/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-1 10:07</div>
-      <a href="/2019/07/01/商务模型/" class="post-title">
-        <h3>商务模型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/07/01/商务模型/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/15/软件工程/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-15 20:06</div>
-      <a href="/2019/06/15/软件工程/" class="post-title">
-        <h3>软件工程</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/06/15/软件工程/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/13/操作系统/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-13 15:06</div>
-      <a href="/2019/06/13/操作系统/" class="post-title">
-        <h3>操作系统</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/操作系统/">操作系统<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/06/13/操作系统/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/06/01/数据库/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-6-1 23:06</div>
-      <a href="/2019/06/01/数据库/" class="post-title">
-        <h3>数据库</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2019/06/01/数据库/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/12/27/线性数据结构与非线性数据结构/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-12-27 18:12</div>
-      <a href="/2018/12/27/线性数据结构与非线性数据结构/" class="post-title">
-        <h3>线性数据结构与非线性数据结构</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据结构/">数据结构<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/12/27/线性数据结构与非线性数据结构/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/12/02/机器学习/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-12-2 15:12</div>
-      <a href="/2018/12/02/机器学习/" class="post-title">
-        <h3>机器学习</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/12/02/机器学习/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/28/数据挖掘/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-28 12:11</div>
-      <a href="/2018/11/28/数据挖掘/" class="post-title">
-        <h3>数据挖掘</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据挖掘/">数据挖掘<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/28/数据挖掘/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb post-list-thumb-left" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/20/java集合/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-20 11:11</div>
-      <a href="/2018/11/20/java集合/" class="post-title">
-        <h3>java集合</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/20/java集合/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article class="post post-list-thumb" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2018/11/20/测试/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2018-11-20 10:11</div>
-      <a href="/2018/11/20/测试/" class="post-title">
-        <h3>测试</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/测试/">测试<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2018/11/20/测试/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-right"></i></a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/2/" class>Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

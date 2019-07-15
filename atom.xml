@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-06-25T06:45:17.125Z</updated>
+  <updated>2019-07-15T07:48:39.379Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS</title>
+    <link href="https://xixfeng.github.io/2019/07/15/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
+    <id>https://xixfeng.github.io/2019/07/15/前端基础/</id>
+    <published>2019-07-15T02:48:05.000Z</published>
+    <updated>2019-07-15T07:48:39.379Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;p&gt;块级元素、行内元素&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;块级元素会自动跳行，行内不会；&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>商务模型</title>
+    <link href="https://xixfeng.github.io/2019/07/01/%E5%95%86%E5%8A%A1%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://xixfeng.github.io/2019/07/01/商务模型/</id>
+    <published>2019-07-01T02:12:28.000Z</published>
+    <updated>2019-07-09T02:45:59.062Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;mailto:shaukat@simula.no&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;shaukat@simula.no&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;40% 课堂签到&lt;/p&gt;
+&lt;p&gt;20% 课堂参与&lt;/p&gt;
+&lt;p&gt;​   
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>软件工程</title>
@@ -45,7 +98,7 @@
     <link href="https://xixfeng.github.io/2019/06/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/06/13/操作系统/</id>
     <published>2019-06-13T07:33:33.000Z</published>
-    <updated>2019-06-26T06:58:31.239Z</updated>
+    <updated>2019-06-26T07:36:11.735Z</updated>
     
     <summary type="html">
     
@@ -185,7 +238,7 @@
     <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
     <id>https://xixfeng.github.io/2018/11/20/测试/</id>
     <published>2018-11-20T02:37:47.000Z</published>
-    <updated>2019-06-15T12:48:08.700Z</updated>
+    <updated>2019-06-18T07:22:54.108Z</updated>
     
     <summary type="html">
     
