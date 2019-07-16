@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">CSS | xixfeng</title>
+  <title itemprop="name">前端基础 | xixfeng</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -360,7 +360,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
           <header class="entry-header">
-            <h1 class="entry-title">CSS</h1>
+            <h1 class="entry-title">前端基础</h1>
             <p class="entry-census">hojun&nbsp;·&nbsp;2019-7-15&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
 
             <hr>
@@ -369,18 +369,19 @@
         <div class="entry-content">
           <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>块级元素、行内元素</p>
 <ul>
-<li>块级元素会自动跳行，行内不会；<pre><code class="html">&lt;div&gt; 属于块级元素 用作元素的容器，常用来网页布局
+<li>块级元素会自动跳行，行内不会；</li>
+</ul>
+<pre><code class="html">&lt;div&gt; 属于块级元素 用作元素的容器，常用来网页布局
 &lt;span&gt; 属于内联元素 用作文本的容器
 </code></pre>
-</li>
-</ul>
+<p>块级标签</p>
 <table>
 <thead>
 <tr>
-<th>address</th>
-<th>地址</th>
-<th>blockquote</th>
-<th>块引用</th>
+<th>标签</th>
+<th>意义</th>
+<th>标签</th>
+<th>意义</th>
 </tr>
 </thead>
 <tbody>
@@ -414,6 +415,12 @@
 <td>p</td>
 <td>段落</td>
 </tr>
+<tr>
+<td>address</td>
+<td>地址</td>
+<td>blockquote</td>
+<td>块应用</td>
+</tr>
 </tbody>
 </table>
 <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>选择器</p>
@@ -438,8 +445,41 @@ selector1 selector2 {dec}//派生选择器
 <p>布局相关属性</p>
 <ul>
 <li>盒子模型：每一个标签都是一个盒子<br>padding 内边距</li>
-<li>背景属性是作用于整个盒子，包括内边距那部分<br>| postion    | 把元素放置到一个静态的、相对的、绝对的、或固定的位置中。 |<br>| ———- | ——————————————————– |<br>| float      | 定义元素在哪个方向浮动。                                 |<br>| visibility | 设置元素是否可见或不可见。                               |<br>| cursor     | 规定当指向某元素之上时显示的指针类型。                   |<br>| clear      | 设置一个元素的侧面是否允许其他的浮动元素。               |<br>| display    | 设置是否及如何显示元素。                                 |<br>|            |                                                          |</li>
+<li>背景属性是作用于整个盒子，包括内边距那部分</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>postion</th>
+<th>把元素放置到一个静态的、相对的、绝对的、或固定的位置中。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>定义元素在哪个方向浮动。</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>设置元素是否可见或不可见。</td>
+</tr>
+<tr>
+<td>cursor</td>
+<td>规定当指向某元素之上时显示的指针类型。</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>设置一个元素的侧面是否允许其他的浮动元素。</td>
+</tr>
+<tr>
+<td>display</td>
+<td>设置是否及如何显示元素。</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>padding 内边距</p>
 <pre><code class="CSS">  padding-top: 10px;
   padding-right: 0.25em;
@@ -448,12 +488,13 @@ selector1 selector2 {dec}//派生选择器
 </code></pre>
 <p>margin 外边距</p>
 <ul>
-<li>与其他盒子的距离<pre><code>margin-top: 20px;
-margin-right: 30px;
-margin-bottom: 30px;
-margin-left: 20px;
-</code></pre></li>
+<li>与其他盒子的距离</li>
 </ul>
+<pre><code class="css">  margin-top: 20px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+</code></pre>
 <p>border</p>
 <ul>
 <li>边框的样式</li>
@@ -517,8 +558,8 @@ background-color:#b0e0e6;
 <table>
 <thead>
 <tr>
-<th>let</th>
-<th>变量修饰词，增加变量的块作用域</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -527,8 +568,8 @@ background-color:#b0e0e6;
 <td>文档对象</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>let</td>
+<td>变量修改词，增加变量的块作用域</td>
 </tr>
 <tr>
 <td></td>
@@ -557,8 +598,8 @@ background-color:#b0e0e6;
 <table>
 <thead>
 <tr>
-<th>$(“div”)</th>
-<th>选择标签</th>
+<th>代码</th>
+<th>解释</th>
 </tr>
 </thead>
 <tbody>
@@ -573,6 +614,10 @@ background-color:#b0e0e6;
 <tr>
 <td>$(“[attribute]”)</td>
 <td>选择某一个属性</td>
+</tr>
+<tr>
+<td>$(“div”)</td>
+<td>选择标签</td>
 </tr>
 <tr>
 <td></td>
@@ -602,7 +647,9 @@ $(&quot;button&quot;).click(function(){
     });
 });
 </code></pre>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="附录1-HTML常用标签"><a href="#附录1-HTML常用标签" class="headerlink" title="附录1 HTML常用标签"></a>附录1 HTML常用标签</h2><table>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://www.w3school.com.cn/tags/tag_b.asp" target="_blank" rel="noopener">标签参考网址</a></p>
+<p><a href="http://www.w3school.com.cn/jsref/dom_obj_event.asp" target="_blank" rel="noopener">事件集合</a></p>
+<h2 id="附录1-HTML常用标签"><a href="#附录1-HTML常用标签" class="headerlink" title="附录1 HTML常用标签"></a>附录1 HTML常用标签</h2><table>
 <thead>
 <tr>
 <th><div></div></th>
