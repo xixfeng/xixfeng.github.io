@@ -408,7 +408,7 @@
 <pre><code class="js">&lt;% if (pagination == 2){ %&gt;
   &lt;!-- 首页默认取最最新文章集 --&gt;
   &lt;% page.posts.sort(&#39;date&#39;, theme.homePageSortType).limit(theme.homeArticleShown).each(function(post, index){ %&gt;
-    &lt;% if (post.display == &#39;True&#39;){ %&gt;
+    &lt;% if (post.display == &#39;true&#39;){ %&gt;
     &lt;%- partial(&#39;_widget/index-items&#39;, {index: index, post: post})%&gt;
     &lt;% } %&gt;
   &lt;% }) %&gt;
@@ -418,6 +418,9 @@
   &lt;% }) %&gt;
 &lt;% } %&gt;
 </code></pre>
+<ul>
+<li>⚠️post的所有参数大写会转换为小写</li>
+</ul>
 <h1 id="ejs语法"><a href="#ejs语法" class="headerlink" title="ejs语法"></a>ejs语法</h1><p>ejs(js扩展库)是字符串模版引擎，分为<strong>模版</strong>+<strong>数据</strong>。</p>
 <pre><code class="javascript">var ejs = require(&#39;ejs&#39;),
     people = [&#39;geddy&#39;, &#39;neil&#39;, &#39;alex&#39;],
