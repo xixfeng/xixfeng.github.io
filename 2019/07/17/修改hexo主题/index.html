@@ -183,9 +183,9 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
+                        <a href="/categories/基础/">
+                          <i class="fa " aria-hidden="true"></i>
+                          基础
                         </a>
                       </li>
                     
@@ -193,6 +193,13 @@
                         <a href="/categories/资源/">
                           <i class="fa fa-cloud-download" aria-hidden="true"></i>
                           资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
                         </a>
                       </li>
                     
@@ -232,6 +239,13 @@
                       </li>
                     
                       <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                      <li>
                         <a href="/bangumi/">
                           <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
                           番组
@@ -242,13 +256,6 @@
                         <a href="/music/">
                           <i class="fa fa-headphones" aria-hidden="true"></i>
                           歌单
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/tags/图集/">
-                          <i class="fa fa-photo" aria-hidden="true"></i>
-                          图集
                         </a>
                       </li>
                     
@@ -407,6 +414,7 @@
 <p>这个技术页面是如何设置映射的？</p>
 <ul>
 <li>在分类(category)中的文章是hexo生成在public目录中的，会自动映射)</li>
+<li>tag同理</li>
 </ul>
 <h1 id="增加的功能"><a href="#增加的功能" class="headerlink" title="增加的功能"></a>增加的功能</h1><p>一些文章不想展示出来，在主题的archive.ejs中增加判断逻辑，根据post是否有display来展示</p>
 <pre><code class="js">&lt;% if (pagination == 2){ %&gt;
@@ -689,9 +697,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
+                <a href="/categories/基础/">
+                  <i class="fa " aria-hidden="true"></i>
+                  基础
                 </a>
               </li>
             
@@ -699,6 +707,13 @@ $(document).ready(function() {
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
                 </a>
               </li>
             
@@ -738,6 +753,13 @@ $(document).ready(function() {
               </li>
             
               <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+              <li>
                 <a href="/bangumi/">
                   <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
                   番组
@@ -748,13 +770,6 @@ $(document).ready(function() {
                 <a href="/music/">
                   <i class="fa fa-headphones" aria-hidden="true"></i>
                   歌单
-                </a>
-              </li>
-            
-              <li>
-                <a href="/tags/图集/">
-                  <i class="fa fa-photo" aria-hidden="true"></i>
-                  图集
                 </a>
               </li>
             
