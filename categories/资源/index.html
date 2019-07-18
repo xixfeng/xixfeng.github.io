@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">修改hexo主题 | xixfeng</title>
+  <title itemprop="name">Category: 资源 | xixfeng</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -318,204 +318,74 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img data-src="资源.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+  </div>
+  <header class="pattern-header ">
+    <h1 class="cat-title">资源.zh</h1>
+    <span class="cat-des">
+      <p>资源.en</p>
+    </span>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-          <header class="entry-header">
-            <h1 class="entry-title">修改hexo主题</h1>
-            <p class="entry-census">xixfeng&nbsp;·&nbsp;2019-7-17&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
-
-            <hr>
-          </header>
-        
-        <div class="entry-content">
-          <p>模版</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>index</td>
-<td>主页</td>
-</tr>
-<tr>
-<td>post</td>
-<td>文章</td>
-</tr>
-<tr>
-<td>page</td>
-<td>分页(文章下面那部分)</td>
-</tr>
-<tr>
-<td>archive</td>
-<td>归档(主页中所有文章的集合预览)</td>
-</tr>
-<tr>
-<td>category</td>
-<td>分类归档</td>
-</tr>
-<tr>
-<td>tag</td>
-<td>标签分类</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>每个模板都默认使用 <code>layout</code> 布局，您可在 front-matter 指定其他布局，或是设为 <code>false</code> 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>变量</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>site</td>
-<td>网站变量(网站内容)</td>
-</tr>
-<tr>
-<td>page</td>
-<td>该页面内容</td>
-</tr>
-<tr>
-<td>config</td>
-<td>网站配置</td>
-</tr>
-<tr>
-<td>theme</td>
-<td>主题配置</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>这个技术页面是如何设置映射的？</p>
-<ul>
-<li>在分类(category)中的文章是hexo生成在public目录中的，会自动映射)</li>
-</ul>
-<h1 id="增加的功能"><a href="#增加的功能" class="headerlink" title="增加的功能"></a>增加的功能</h1><p>一些文章不想展示出来，在主题的archive.ejs中增加判断逻辑，根据post是否有display来展示</p>
-<pre><code class="js">&lt;% if (pagination == 2){ %&gt;
-  &lt;!-- 首页默认取最最新文章集 --&gt;
-  &lt;% page.posts.sort(&#39;date&#39;, theme.homePageSortType).limit(theme.homeArticleShown).each(function(post, index){ %&gt;
-    &lt;% if (String(post.display) == &#39;true&#39;){ %&gt;
-    &lt;%- partial(&#39;_widget/index-items&#39;, {index: index, post: post})%&gt;
-    &lt;% } %&gt;
-  &lt;% }) %&gt;
-&lt;% } else { %&gt;
-  &lt;% page.posts.each(function(post, index){ %&gt;
-    &lt;%- partial(&#39;_widget/index-items&#39;, {index: index, post: post}) %&gt;
-  &lt;% }) %&gt;
-&lt;% } %&gt;
-</code></pre>
-<ul>
-<li>⚠️post的所有参数大写会转换为小写</li>
-<li>详细分类页面是category.ejs</li>
-</ul>
-<h1 id="ejs语法"><a href="#ejs语法" class="headerlink" title="ejs语法"></a>ejs语法</h1><p>ejs(js扩展库)是字符串模版引擎，分为<strong>模版</strong>+<strong>数据</strong>。</p>
-<pre><code class="javascript">var ejs = require(&#39;ejs&#39;),
-    people = [&#39;geddy&#39;, &#39;neil&#39;, &#39;alex&#39;],
-    html = ejs.render(&#39;&lt;%= people.join(&quot;, &quot;); %&gt;&#39;, {people: people});
-console.log(html)
-</code></pre>
-<ul>
-<li>&lt;%= 转义输出</li>
-<li>&lt;%- 非转义输出</li>
-</ul>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏<div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/WeChanQR.jpg"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-        
-          
-            <div class="post-nepre full next">
-          
-            <a href="/2019/07/15/前端基础/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                前端基础</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
-        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
+  <!-- 首页默认取最最新文章集 -->
+  
+    
+  
 
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="hojun.cn" class="profile gravatar"><img src="http://api.xixfeng.cn/IMG_4096.JPG" itemprop="image" alt="xixfeng" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="hojun.cn" itemprop="url" rel="author">xixfeng</a>
-            </h3>
-          </div>
-        </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>一个好奇的人</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
 
+<!-- 
+  
+    <article class="post post-list" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2018/11/17/github后端架构师技术图谱/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
+        </div>
+        <img width="150" height="150" src class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt>
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2018/11/17/github后端架构师技术图谱/">
+    github后端架构师技术图谱</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2018-11-17</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2018/11/17/github后端架构师技术图谱/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
 
-q
+ -->
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
