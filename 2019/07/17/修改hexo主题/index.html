@@ -404,6 +404,7 @@
 </tr>
 </tbody>
 </table>
+<p>这个技术页面是如何设置映射的？</p>
 <h1 id="增加的功能"><a href="#增加的功能" class="headerlink" title="增加的功能"></a>增加的功能</h1><p>一些文章不想展示出来，在主题的archive.ejs中增加判断逻辑，根据post是否有display来展示</p>
 <pre><code class="js">&lt;% if (pagination == 2){ %&gt;
   &lt;!-- 首页默认取最最新文章集 --&gt;
@@ -420,6 +421,7 @@
 </code></pre>
 <ul>
 <li>⚠️post的所有参数大写会转换为小写</li>
+<li>详细分类页面是category.ejs</li>
 </ul>
 <h1 id="ejs语法"><a href="#ejs语法" class="headerlink" title="ejs语法"></a>ejs语法</h1><p>ejs(js扩展库)是字符串模版引擎，分为<strong>模版</strong>+<strong>数据</strong>。</p>
 <pre><code class="javascript">var ejs = require(&#39;ejs&#39;),
