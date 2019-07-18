@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-07-16T01:19:16.508Z</updated>
+  <updated>2019-07-18T06:47:18.099Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -17,11 +17,50 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>修改hexo主题</title>
+    <link href="https://xixfeng.github.io/2019/07/17/%E4%BF%AE%E6%94%B9hexo%E4%B8%BB%E9%A2%98/"/>
+    <id>https://xixfeng.github.io/2019/07/17/修改hexo主题/</id>
+    <published>2019-07-17T05:49:14.000Z</published>
+    <updated>2019-07-18T06:47:18.099Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;模版&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;index&lt;/td&gt;
+&lt;td&gt;主页&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;post&lt;/td&gt;
+&lt;td&gt;文
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>前端基础</title>
     <link href="https://xixfeng.github.io/2019/07/15/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
     <id>https://xixfeng.github.io/2019/07/15/前端基础/</id>
     <published>2019-07-15T02:48:05.000Z</published>
-    <updated>2019-07-16T01:19:16.508Z</updated>
+    <updated>2019-07-17T05:47:23.895Z</updated>
     
     <summary type="html">
     
