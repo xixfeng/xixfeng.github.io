@@ -404,6 +404,20 @@
 </tr>
 </tbody>
 </table>
+<h1 id="增加的功能"><a href="#增加的功能" class="headerlink" title="增加的功能"></a>增加的功能</h1><p>一些文章不想展示出来，在主题的archive.ejs中增加判断逻辑，根据post是否有display来展示</p>
+<pre><code class="js">&lt;% if (pagination == 2){ %&gt;
+  &lt;!-- 首页默认取最最新文章集 --&gt;
+  &lt;% page.posts.sort(&#39;date&#39;, theme.homePageSortType).limit(theme.homeArticleShown).each(function(post, index){ %&gt;
+    &lt;% if (post.display == &#39;True&#39;){ %&gt;
+    &lt;%- partial(&#39;_widget/index-items&#39;, {index: index, post: post})%&gt;
+    &lt;% } %&gt;
+  &lt;% }) %&gt;
+&lt;% } else { %&gt;
+  &lt;% page.posts.each(function(post, index){ %&gt;
+    &lt;%- partial(&#39;_widget/index-items&#39;, {index: index, post: post}) %&gt;
+  &lt;% }) %&gt;
+&lt;% } %&gt;
+</code></pre>
 <h1 id="ejs语法"><a href="#ejs语法" class="headerlink" title="ejs语法"></a>ejs语法</h1><p>ejs(js扩展库)是字符串模版引擎，分为<strong>模版</strong>+<strong>数据</strong>。</p>
 <pre><code class="javascript">var ejs = require(&#39;ejs&#39;),
     people = [&#39;geddy&#39;, &#39;neil&#39;, &#39;alex&#39;],
