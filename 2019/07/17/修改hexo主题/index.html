@@ -408,7 +408,7 @@
 <pre><code class="js">&lt;% if (pagination == 2){ %&gt;
   &lt;!-- 首页默认取最最新文章集 --&gt;
   &lt;% page.posts.sort(&#39;date&#39;, theme.homePageSortType).limit(theme.homeArticleShown).each(function(post, index){ %&gt;
-    &lt;% if (post.display == &#39;true&#39;){ %&gt;
+    &lt;% if (String(post.display) == &#39;true&#39;){ %&gt;
     &lt;%- partial(&#39;_widget/index-items&#39;, {index: index, post: post})%&gt;
     &lt;% } %&gt;
   &lt;% }) %&gt;
