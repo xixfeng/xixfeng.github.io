@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">前端基础 | xixfeng</title>
+  <title itemprop="name">java范型与反射 | xixfeng</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -344,376 +344,187 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
           <header class="entry-header">
-            <h1 class="entry-title">前端基础</h1>
-            <p class="entry-census">hojun&nbsp;·&nbsp;2019-7-15&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
+            <h1 class="entry-title">java范型与反射</h1>
+            <p class="entry-census">xixfeng&nbsp;·&nbsp;2019-7-17&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p><p></p>
 
             <hr>
           </header>
         
         <div class="entry-content">
-          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>块级元素、行内元素</p>
+          <p>#Class 类型类<br><strong>类型类本身就是一种类，类型类在java虚拟机是唯一的，可以用==比较两个Class</strong><br>    获得类型类<strong>实例</strong>的方法：</p>
 <ul>
-<li>块级元素会自动跳行，行内不会；</li>
-</ul>
-<pre><code class="html">&lt;div&gt; 属于块级元素 用作元素的容器，常用来网页布局
-&lt;span&gt; 属于内联元素 用作文本的容器
+<li>类.class</li>
+<li>实例.getClass()</li>
+<li>Class.forName(“java.lang.String”)<pre><code class="java">A a1 = new A();
+A a2 = new A();
+Class cla1 = a1.getClass();
+Class cla2 = a2.getClass();
+System.out.println(cla1==cla2);//true 同一个类的类型类实例完全相同 类的Class实例与其子类不同
+(String)String.class.newInstance();//通过Class实例创建该Class对应类的实例
 </code></pre>
-<p>块级标签</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">center</td>
-<td style="text-align:center">居中对齐块</td>
-<td style="text-align:center">dir</td>
-<td style="text-align:center">目录列表</td>
-</tr>
-<tr>
-<td style="text-align:center">div</td>
-<td style="text-align:center">常用块级元素</td>
-<td style="text-align:center">dl</td>
-<td style="text-align:center">定义列表</td>
-</tr>
-<tr>
-<td style="text-align:center">form</td>
-<td style="text-align:center">交互表单</td>
-<td style="text-align:center">h1-h6</td>
-<td style="text-align:center">标题</td>
-</tr>
-<tr>
-<td style="text-align:center">hr</td>
-<td style="text-align:center">水平分割线</td>
-<td style="text-align:center">menu</td>
-<td style="text-align:center">菜单列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ol</td>
-<td style="text-align:center">排序表单</td>
-<td style="text-align:center">p</td>
-<td style="text-align:center">段落</td>
-</tr>
-<tr>
-<td style="text-align:center">address</td>
-<td style="text-align:center">地址</td>
-<td style="text-align:center">blockquote</td>
-<td style="text-align:center">块应用</td>
-</tr>
-</tbody>
-</table>
-<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><p>选择器</p>
-<pre><code class="CSS">selector{dec} //选择标签名
-#id{dec} //id选择器
-.ClassName{dec} //选择类名
-[att]{dec} //属性选择器
+<pre><code class="java">//动态加载
+   try{
+       Class.forName(name);
+       return true;
+   }catch(Exception e){
+       return false;
+   }
+</code></pre>
+##Field字段类<br><strong>一个Field对象包含field的所有信息</strong><br>1.getName()<br>2.getType()<br>3.getModifiers()<br>4.get()<br>5.set()<br><strong>获得字段类实例的方法（Class实例）</strong></li>
+<li>getField(name) 获得某个public类的field（包括父类）</li>
+<li>getDeclaredField(name) 获得当前类的field（不包括父类）</li>
+<li>getFields() 获得所有字段</li>
+<li>getDeclaredFields() 获得当前类所有字段 </li>
+<li>setAccessible(true) 允许访问私有变量<br>##Method方法类<br><strong>属性方法</strong><br>getName()<br>getReturnType()<br>getParameterType()<br>getModifiers()<br><strong>获得方法类实例的方法（Class实例）</strong><br>getMethod(name)<br>getDeclaredMethod(name)<br>getMethods()<br>getDeclaredMethods()<pre><code class="java">//执行不含参数方法
+Integer n = new Integer(1);
+Class cla = String.class();
+Method m = cla.getMethod(&quot;toString&quot;);
+String str = m.invoke(n);//这个n是执行当前方法的实体
+//执行含参方法
+</code></pre>
+##Constructor构造类<br><strong>获取构造类</strong><ul>
+<li>getConstructor(Class…)</li>
+<li>getDeclaredConstructor(Class…)</li>
+<li>getConstructors()</li>
+<li>getDeclaredConstructors()<pre><code class="java">Class cla = Integer.class;
+Constructor cons = cla.getConstructor(int.class);//根据参数选择构造函数
+Integer in = (Integer)cons.newInstance(123);//newInstance()返回object类
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">   Class.newInstance();//只能执行public无参构造函数
+</code></pre>
+<p>##获得父类</p>
+<ul>
+<li>getSuperclass()</li>
+<li>getInterfaces()</li>
+<li>通过isAssignableFrom()方法，判断是否向上转型成功<br>#注解<br>配置当前的类，接口，字段，方法，参数的属性<br>当我们定义一个注解过后，需要自己去利用反射处理注解<ul>
+<li>Field.isAnnotationPresent(Class) 当前字段是否有Class注解</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">public class Main {
 
-selector1 selector2 {dec}//派生选择器
-#id selector{dec} // 选择标签名与id都满足的
-</code></pre>
-<p>引入</p>
-<ul>
-<li>link引入外部css</li>
-<li>内部style标签</li>
-<li>标签内嵌style属性</li>
-</ul>
-<p>继承与覆盖</p>
-<ul>
-<li>即颜色属性将被继承于外部样式表，而文字排列（text-alignment）和字体尺寸（font-size）会被内部样式表中的规则取代。</li>
-</ul>
-<p>布局相关属性</p>
-<ul>
-<li>盒子模型：每一个标签都是一个盒子<br>padding 内边距</li>
-<li>背景属性是作用于整个盒子，包括内边距那部分</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>postion</th>
-<th>把元素放置到一个静态的、相对的、绝对的、或固定的位置中。</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>float</td>
-<td>定义元素在哪个方向浮动。</td>
-</tr>
-<tr>
-<td>visibility</td>
-<td>设置元素是否可见或不可见。</td>
-</tr>
-<tr>
-<td>cursor</td>
-<td>规定当指向某元素之上时显示的指针类型。</td>
-</tr>
-<tr>
-<td>clear</td>
-<td>设置一个元素的侧面是否允许其他的浮动元素。</td>
-</tr>
-<tr>
-<td>display</td>
-<td>设置是否及如何显示元素。</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>padding 内边距</p>
-<pre><code class="CSS">  padding-top: 10px;
-  padding-right: 0.25em;
-  padding-bottom: 2ex;
-  padding-left: 20%;
-</code></pre>
-<p>margin 外边距</p>
-<ul>
-<li>与其他盒子的距离</li>
-</ul>
-<pre><code class="css">  margin-top: 20px;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-</code></pre>
-<p>border</p>
-<ul>
-<li>边框的样式</li>
-<li>边框的颜色</li>
-<li>边框的宽度</li>
-</ul>
-<p>边距合并</p>
-<ul>
-<li>上下元素合并</li>
-<li>里外元素合并</li>
-</ul>
-<p>position</p>
-<pre><code class="css">position:relative;
-left:20px //相对于原始位置向左移动
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.year = 21;
+        check(person);
+    }
+    static void check(Person person){
+        Class cls = person.getClass();
+        for(Field field : cls.getFields()){
+            checkField(field,person);
+        }
+    }
+    static void checkField(Field field, Person person){
+        if(field.isAnnotationPresent(Range.class)){
+            Range range = field.getAnnotation(Range.class);
+            if (person.year&lt;range.min()||person.year&gt;range.max())System.out.println(&quot;年龄错误&quot;);
+        }
+    }
 
-position:absolute
-left:100px;
-top:150px //在整个页面中的定位
+}
+class Person{
+    @Range(min = 10,max = 20)
+    public int year;
+}
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)//如果不定义声明周期，会无法正确反射
+@interface Range{
+    int min() default 30;
+    int max() default 40;
+}
 
-position:fixed;
-top:150px //在整个页面中的定位，不会随着滚动条移动
 </code></pre>
-<p>float</p>
+<p>#泛型<br>泛型的使用是因为不清楚传入类的类型，泛型就是编写模板代码来适应任意类型</p>
 <ul>
-<li>将边框向个方向移动直到遇见其他边框</li>
+<li>在泛型类中不指明T类型时候，默认为object类型</li>
 </ul>
-<pre><code class="CSS">.center
-{
-margin-left:auto;
-margin-right:auto;
-width:70%;
-background-color:#b0e0e6;
-}//使用margin水平对齐
-
-.left
-{
-position:absolute;
-left:0px;
-width:300px;
-background-color:#b0e0e6;
-}//使用position左对齐
-
-.left
-{
-float:left;
-width:300px;
-background-color:#b0e0e6;
-}//使用float左对齐
+<pre><code class="java">List&lt;String&gt; list = new ArrayList();//后面可以不用制定类型，但前面必须指定
 </code></pre>
-<h1 id="js"><a href="#js" class="headerlink" title="js"></a>js</h1><p>给未声明的变量赋值时会自动成为全局变量，即使是在函数内部声明的</p>
-<p>this关键词</p>
 <ul>
-<li>在方法中(对象中的函数)，this 指的是所有者对象。</li>
-<li>单独的情况下，this 指的是全局对象。</li>
-<li>在函数中，this 指的是全局对象。</li>
-<li>在函数中，严格模式下，this 是 undefined。</li>
-<li>在事件中，this 指的是接收事件的元素。</li>
+<li>在静态方法中，不能使用泛型类的泛型T，但我们可以把该静态方法改写为“泛型”方法</li>
 </ul>
-<p>DOM 文档对象模型</p>
-<p>利用document对象去修改HTML文档的所有内容</p>
-<p>BOM浏览器对象模型</p>
-<p>使用window对象执行与浏览器相关的操作，  Window 对象会在 body 或 frameset标签每次出现时被自动创建。</p>
-<pre><code class="javascript">var c = a || b// 如果a的值为True就将a赋值给c，反之将b赋值给c
-var c = a &amp;&amp; b //如果a的值为True就将b赋值给c，反之将a赋值给c
-</code></pre>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">doucment</td>
-<td style="text-align:center">文档对象</td>
-</tr>
-<tr>
-<td style="text-align:center">let</td>
-<td style="text-align:center">变量修改词，增加变量的块作用域</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<h2 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h2><p>类似于js中的DOM操作，但是语法更加简单，是一个封装的js库</p>
-<p>基础语法 <strong>$(selector).action()</strong></p>
-<ul>
-<li>美元符号定义 jQuery</li>
-<li>选择符（selector）”查询”和”查找” HTML 元素</li>
-<li>jQuery 的 action() 执行对元素的操作</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">代码</th>
-<th style="text-align:center">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$(“#test”)</td>
-<td style="text-align:center">选择id</td>
-</tr>
-<tr>
-<td style="text-align:center">$(“.class”)</td>
-<td style="text-align:center">选择类</td>
-</tr>
-<tr>
-<td style="text-align:center">$(“[attribute]”)</td>
-<td style="text-align:center">选择某一个属性</td>
-</tr>
-<tr>
-<td style="text-align:center">$(“div”)</td>
-<td style="text-align:center">选择标签</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="JQuery-事件"><a href="#JQuery-事件" class="headerlink" title="JQuery 事件"></a>JQuery 事件</h3><p>当某一个元素发生制定时间时，执行的函数</p>
-<p>$(“button”).click(function(){})</p>
-<h3 id="JQuery与AJAX"><a href="#JQuery与AJAX" class="headerlink" title="JQuery与AJAX"></a>JQuery与AJAX</h3><p>$(selector).load(URL,data,callback);可以将服务器中加载的数据放入标签中</p>
-<pre><code class="js">//$.get(URL,callback);
-$(&quot;button&quot;).click(function(){
-  $.get(&quot;demo_test.php&quot;,function(data,status){
-    alert(&quot;数据: &quot; + data + &quot;\n状态: &quot; + status);
-  });
-});
+<pre><code class="java">//错误
+public static Pair&lt;T&gt; create(T first,T last){
+    return new Pair&lt;T&gt;(first,last);
 
-//$.post(URL,data,callback);
-$(&quot;button&quot;).click(function(){
-    $.post(&quot;/try/ajax/demo_test_post.php&quot;,
-    {
-        name:&quot;菜鸟教程&quot;,
-        url:&quot;http://www.runoob.com&quot;
-    },
-        function(data,status){
-        alert(&quot;数据: \n&quot; + data + &quot;\n状态: &quot; + status);
-    });
-});
+//正确
+public static &lt;K&gt; Pair&lt;K&gt; create(K first,K last){
+    return new Pair&lt;K&gt;(first,last);
+}
 </code></pre>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://www.w3school.com.cn/tags/tag_b.asp" target="_blank" rel="noopener">标签参考网址</a></p>
-<p><a href="http://www.w3school.com.cn/jsref/dom_obj_event.asp" target="_blank" rel="noopener">事件集合</a></p>
-<h2 id="附录1-HTML常用标签"><a href="#附录1-HTML常用标签" class="headerlink" title="附录1 HTML常用标签"></a>附录1 HTML常用标签</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">p</td>
-<td style="text-align:center">段落</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">粗体文本</td>
-</tr>
-<tr>
-<td style="text-align:center">li</td>
-<td style="text-align:center">用在有序列表 (ol) 和无序列表 (ul) 中。</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">引用</td>
-</tr>
-<tr>
-<td style="text-align:center">div</td>
-<td style="text-align:center">常见块级元素</td>
-<td style="text-align:center">span</td>
-<td style="text-align:center">常见行级元素</td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li>泛型实现方法：擦拭法（由编译器完成）<br>1）擦拭法实际上就是在编译时将泛型T转换为object，然后实行安全的强制类型转换<br>2）所以泛型有如下缺点：无法获得带泛型的Class，无法判断带泛型的Class<br>3）无法实例化一个泛型 实例化必须借助Class&lt; T &gt;(Class本身也是泛型类)<br>1) 泛型不能是基本类型</li>
+</ul>
+<p>##泛型通配符</p>
+<ul>
+<li>extends，声明泛型的范围，向下</li>
+<li>super，声明泛型的范围，向上</li>
+<li><strong>？通配符不用确定具体类型，一般用于泛型方法，集合类型</strong></li>
+</ul>
+<p>##不能创建泛型类数组<br><strong>泛型原则：</strong><br><em>如果一段代码在编译时没有提出“未经检查的转换”警告，则程序在运行时不会引发ClasscastException异常。</em><br><strong>java的数组设计原则：</strong><br><em>只有同一类能在一个数组中</em><br>当我们允许创建泛型数组时候，由于我们使用的擦除法所以java编译会把List<string>和List<integer>当成<strong>同一类即List&lt; Object &gt;</strong><br>所以能过通过编译，但当我们对这个数组进行相关操作的时候，会出现ClasscastException<br>因为?是不需要确定类的，那么我们就可以创建Class&lt;?&gt; []数组</integer></string></p>
+<p>#泛型与反射<br>部分反射api是泛型<br>当结合反射与泛型的时候，可以不使用强制类型转换</p>
+<pre><code class="java">//compile warning
+Class clazz = String.class;
+String str = (String) clazz.newInstance();
+
+Class&lt;String&gt; clazz = String.class;
+String str = clazz.newInstance();
+</code></pre>
+<p>#反射具体使用</p>
+<p>##json字符串转换为任意对象</p>
+<pre><code class="java">GoodsEntity goodsEntity = JSON.parseObject(json,GoodsEntity.class);
+</code></pre>
+<p>将T的类型类传递进去 Feature是一个枚举类型 返回T实例</p>
+<pre><code class="java">    public static &lt;T&gt; T parseObject(String text, Class&lt;T&gt; clazz) {
+        return parseObject(text, clazz, new Feature[0]);
+    }
+</code></pre>
+<p>返回T实例 注意Type接口 传入的processor为null（processor为接口）</p>
+<pre><code class="java">    public static &lt;T&gt; T parseObject(String json, Class&lt;T&gt; clazz, Feature... features) {
+        return (T) parseObject(json, (Type) clazz, ParserConfig.global, null, DEFAULT_PARSER_FEATURE, features);
+    }
+</code></pre>
+<p>获取目标类核心代码</p>
+<pre><code class="java">    public &lt;T&gt; T parseObject(Type type, Object fieldName) {
+        int token = lexer.token();
+        if (token == JSONToken.NULL) {
+            lexer.nextToken();
+            return null;
+        }
+
+        if (token == JSONToken.LITERAL_STRING) {
+            if (type == byte[].class) {
+                byte[] bytes = lexer.bytesValue();
+                lexer.nextToken();
+                return (T) bytes;
+            }
+
+            if (type == char[].class) {
+                String strVal = lexer.stringVal();
+                lexer.nextToken();
+                return (T) strVal.toCharArray();
+            }
+        }
+
+        ObjectDeserializer derializer = config.getDeserializer(type);
+
+        try {
+            if (derializer.getClass() == JavaBeanDeserializer.class) {
+                return (T) ((JavaBeanDeserializer) derializer).deserialze(this, type, fieldName, 0);
+            } else {
+                return (T) derializer.deserialze(this, type, fieldName);
+            }
+        } catch (JSONException e) {
+            throw e;
+        } catch (Throwable e) {
+            throw new JSONException(e.getMessage(), e);
+        }
+    }
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -744,7 +555,7 @@ $(&quot;button&quot;).click(function(){
           
             <div class="post-nepre half previous">
           
-            <a href="/2019/07/17/java泛型与反射/" rel="prev">
+            <a href="/2019/07/17/修改hexo主题/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
@@ -752,7 +563,7 @@ $(&quot;button&quot;).click(function(){
               Previous Post</span>
               <div class="info">
                 <h3>
-                java范型与反射</h3>
+                修改hexo主题</h3>
                 <hr>
               </div>
             </a>
@@ -762,7 +573,7 @@ $(&quot;button&quot;).click(function(){
           
             <div class="post-nepre half next">
           
-            <a href="/2019/07/01/商务模型/" rel="next">
+            <a href="/2019/07/15/前端基础/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)">
               </div>
@@ -770,7 +581,7 @@ $(&quot;button&quot;).click(function(){
               Next Post</span>
               <div class="info">
                 <h3>
-                商务模型</h3>
+                前端基础</h3>
                 <hr>
               </div>
             </a>
@@ -794,11 +605,11 @@ $(&quot;button&quot;).click(function(){
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <a href="hojun.cn" class="profile gravatar"><img src="http://api.xixfeng.cn/IMG_4096.JPG" itemprop="image" alt="hojun" height="70" width="70"></a>
+          <a href="hojun.cn" class="profile gravatar"><img src="http://api.xixfeng.cn/IMG_4096.JPG" itemprop="image" alt="xixfeng" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="hojun.cn" itemprop="url" rel="author">hojun</a>
+            <a href="hojun.cn" itemprop="url" rel="author">xixfeng</a>
             </h3>
           </div>
         </div>

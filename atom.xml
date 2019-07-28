@@ -56,6 +56,30 @@
   </entry>
   
   <entry>
+    <title>java范型与反射</title>
+    <link href="https://xixfeng.github.io/2019/07/17/java%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%8F%8D%E5%B0%84/"/>
+    <id>https://xixfeng.github.io/2019/07/17/java泛型与反射/</id>
+    <published>2019-07-17T05:49:14.000Z</published>
+    <updated>2019-07-28T01:09:58.152Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#Class 类型类&lt;br&gt;&lt;strong&gt;类型类本身就是一种类，类型类在java虚拟机是唯一的，可以用==比较两个Class&lt;/strong&gt;&lt;br&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>前端基础</title>
     <link href="https://xixfeng.github.io/2019/07/15/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
     <id>https://xixfeng.github.io/2019/07/15/前端基础/</id>
