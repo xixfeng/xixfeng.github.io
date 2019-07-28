@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-07-27T08:42:16.213Z</updated>
+  <updated>2019-07-27T15:49:39.390Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xixfeng.github.io/2019/07/17/%E4%BF%AE%E6%94%B9hexo%E4%B8%BB%E9%A2%98/"/>
     <id>https://xixfeng.github.io/2019/07/17/修改hexo主题/</id>
     <published>2019-07-17T05:49:14.000Z</published>
-    <updated>2019-07-27T08:42:16.213Z</updated>
+    <updated>2019-07-27T15:49:39.390Z</updated>
     
     <summary type="html">
     
@@ -464,6 +464,51 @@
     
     
       <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gcc</title>
+    <link href="https://xixfeng.github.io/2018/11/08/gcc/"/>
+    <id>https://xixfeng.github.io/2018/11/08/gcc/</id>
+    <published>2018-11-08T10:11:32.000Z</published>
+    <updated>2019-07-28T01:06:12.151Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;gcc&quot;&gt;&lt;a href=&quot;#gcc&quot; class=&quot;headerlink&quot; title=&quot;gcc&quot;&gt;&lt;/a&gt;gcc&lt;/h1&gt;&lt;h2 id=&quot;gcc命令参数&quot;&gt;&lt;a href=&quot;#gcc命令参数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习</title>
+    <link href="https://xixfeng.github.io/2018/11/08/C++%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://xixfeng.github.io/2018/11/08/C++学习/</id>
+    <published>2018-11-08T10:11:32.000Z</published>
+    <updated>2019-07-28T01:05:22.629Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;Std::out &amp;lt;&amp;lt;  “hello world” &amp;lt;&amp;lt;
+        
+      
+    
+    </summary>
+    
     
   </entry>
   

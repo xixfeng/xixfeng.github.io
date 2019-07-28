@@ -423,7 +423,6 @@
 <li>在分类(category)中的文章是hexo生成在public目录中的，会自动映射)</li>
 <li>tag同理</li>
 </ul>
-<p>增加页面？<br>当我们在source中增加文件夹时，hexo会在public中生成对应文件夹，我们可以利用这点来增加页面和跳转页面<br>这个单独文件夹的index，我们该如何生成？<br>自己添加，且index默认作为当前文件夹的首页</p>
 <h1 id="增加的功能"><a href="#增加的功能" class="headerlink" title="增加的功能"></a>增加的功能</h1><p>一些文章不想展示出来，在主题的archive.ejs中增加判断逻辑，根据post是否有display来展示</p>
 <pre><code class="js">&lt;% if (pagination == 2){ %&gt;
   &lt;!-- 首页默认取最最新文章集 --&gt;
@@ -441,6 +440,11 @@
 <ul>
 <li>⚠️post的所有参数大写会转换为小写</li>
 <li>详细分类页面是category.ejs</li>
+</ul>
+<h1 id="增加页面"><a href="#增加页面" class="headerlink" title="增加页面"></a>增加页面</h1><ul>
+<li>在source中增加文件夹(非空)时，hexo会在public中生成对应文件夹，我们可以利用这点来增加页面和跳转页面</li>
+<li>在增加文件夹中添加index.md文件</li>
+<li>在配置文件中添加映射，利用hexo内置参数site.pages、url_for()进行映射</li>
 </ul>
 <h1 id="ejs语法"><a href="#ejs语法" class="headerlink" title="ejs语法"></a>ejs语法</h1><p>ejs(js扩展库)是字符串模版引擎，分为<strong>模版</strong>+<strong>数据</strong>。</p>
 <pre><code class="javascript">var ejs = require(&#39;ejs&#39;),
