@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-07-27T15:49:39.390Z</updated>
+  <updated>2019-07-28T01:09:58.152Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java范型与反射</title>
+    <link href="https://xixfeng.github.io/2019/07/17/java%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%8F%8D%E5%B0%84/"/>
+    <id>https://xixfeng.github.io/2019/07/17/java泛型与反射/</id>
+    <published>2019-07-17T05:49:14.000Z</published>
+    <updated>2019-07-28T01:09:58.152Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;#Class 类型类&lt;br&gt;&lt;strong&gt;类型类本身就是一种类，类型类在java虚拟机是唯一的，可以用==比较两个Class&lt;/strong&gt;&lt;br&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>修改hexo主题</title>
@@ -45,30 +69,6 @@
 &lt;tr&gt;
 &lt;td&gt;post&lt;/td&gt;
 &lt;td&gt;在
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>java范型与反射</title>
-    <link href="https://xixfeng.github.io/2019/07/17/java%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%8F%8D%E5%B0%84/"/>
-    <id>https://xixfeng.github.io/2019/07/17/java泛型与反射/</id>
-    <published>2019-07-17T05:49:14.000Z</published>
-    <updated>2019-07-28T01:09:58.152Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;#Class 类型类&lt;br&gt;&lt;strong&gt;类型类本身就是一种类，类型类在java虚拟机是唯一的，可以用==比较两个Class&lt;/strong&gt;&lt;br&gt;   
         
       
     
@@ -468,11 +468,11 @@
   </entry>
   
   <entry>
-    <title>nginx</title>
-    <link href="https://xixfeng.github.io/2018/11/08/nginx/"/>
-    <id>https://xixfeng.github.io/2018/11/08/nginx/</id>
+    <title>C++学习</title>
+    <link href="https://xixfeng.github.io/2018/11/08/C++%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://xixfeng.github.io/2018/11/08/C++学习/</id>
     <published>2018-11-08T10:11:32.000Z</published>
-    <updated>2019-07-18T08:01:43.079Z</updated>
+    <updated>2019-07-28T01:05:22.629Z</updated>
     
     <summary type="html">
     
@@ -480,14 +480,13 @@
       
         
         
-          &lt;h1 id=&quot;nginx基本应用&quot;&gt;&lt;a href=&quot;#nginx基本应用&quot; class=&quot;headerlink&quot;
+          &lt;ol&gt;
+&lt;li&gt;Std::out &amp;lt;&amp;lt;  “hello world” &amp;lt;&amp;lt;
         
       
     
     </summary>
     
-    
-      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
     
   </entry>
   
@@ -514,11 +513,11 @@
   </entry>
   
   <entry>
-    <title>C++学习</title>
-    <link href="https://xixfeng.github.io/2018/11/08/C++%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://xixfeng.github.io/2018/11/08/C++学习/</id>
+    <title>nginx</title>
+    <link href="https://xixfeng.github.io/2018/11/08/nginx/"/>
+    <id>https://xixfeng.github.io/2018/11/08/nginx/</id>
     <published>2018-11-08T10:11:32.000Z</published>
-    <updated>2019-07-28T01:05:22.629Z</updated>
+    <updated>2019-07-18T08:01:43.079Z</updated>
     
     <summary type="html">
     
@@ -526,13 +525,14 @@
       
         
         
-          &lt;ol&gt;
-&lt;li&gt;Std::out &amp;lt;&amp;lt;  “hello world” &amp;lt;&amp;lt;
+          &lt;h1 id=&quot;nginx基本应用&quot;&gt;&lt;a href=&quot;#nginx基本应用&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
+    
+      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
     
   </entry>
   
