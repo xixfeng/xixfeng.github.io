@@ -205,7 +205,7 @@
             this.DOM.nav = this.DOM.el.querySelector('.nav');
             this.DOM.navCtrl = this.DOM.nav.querySelector('.nav__button');
             // ..Its items.
-            this.DOM.tocItems = Array.from(this.DOM.nav.querySelectorAll('.phot-toc > .toc__item'));
+            this.DOM.tocItems = Array.from(this.DOM.nav.querySelectorAll('.photo-toc > .toc__item'));
             // Set the first one as current.
             this.DOM.tocItems[this.current].classList.add('toc__item--current');
             // Current chapter name (TOC Item that is selected and visible next to the "index+").
