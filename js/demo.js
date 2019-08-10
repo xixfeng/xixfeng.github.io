@@ -205,7 +205,7 @@
             this.DOM.nav = this.DOM.el.querySelector('.nav');
             this.DOM.navCtrl = this.DOM.nav.querySelector('.nav__button');
             // ..Its items.
-            this.DOM.tocItems = Array.from(this.DOM.nav.querySelectorAll('.toc > .toc__item'));
+            this.DOM.tocItems = Array.from(this.DOM.nav.querySelectorAll('.phot-toc > .toc__item'));
             // Set the first one as current.
             this.DOM.tocItems[this.current].classList.add('toc__item--current');
             // Current chapter name (TOC Item that is selected and visible next to the "index+").
@@ -215,6 +215,7 @@
             // The one on the right side is not visible in the beginning while the one on the left is fully visible.
             // We will later change this as we turn the pages.
             TweenMax.set(this.DOM.indicators[1], {scaleX:0});
+            this.pageturn.turn("next", 1, () => this.switchPage(0, "next"));//为了刷新界面而调用一次原地跳转函数
             this.initEvents();
         }
         initEvents() {
