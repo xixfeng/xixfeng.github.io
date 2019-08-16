@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-07-28T01:09:58.152Z</updated>
+  <updated>2019-08-15T05:11:58.189Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -17,43 +17,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>java范型与反射</title>
-    <link href="https://xixfeng.github.io/2019/07/17/java%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%8F%8D%E5%B0%84/"/>
-    <id>https://xixfeng.github.io/2019/07/17/java泛型与反射/</id>
-    <published>2019-07-17T05:49:14.000Z</published>
-    <updated>2019-07-28T01:09:58.152Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;#Class 类型类&lt;br&gt;&lt;strong&gt;类型类本身就是一种类，类型类在java虚拟机是唯一的，可以用==比较两个Class&lt;/strong&gt;&lt;br&gt;   
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>修改hexo主题</title>
     <link href="https://xixfeng.github.io/2019/07/17/%E4%BF%AE%E6%94%B9hexo%E4%B8%BB%E9%A2%98/"/>
     <id>https://xixfeng.github.io/2019/07/17/修改hexo主题/</id>
     <published>2019-07-17T05:49:14.000Z</published>
-    <updated>2019-07-27T15:49:39.390Z</updated>
+    <updated>2019-08-15T05:11:58.189Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;模版&lt;/p&gt;
+      &lt;p&gt;模版&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -68,9 +40,28 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;post&lt;/td&gt;
-&lt;td&gt;在
-        
-      
+&lt;td&gt;在source/post中的文章&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;page&lt;/td&gt;
+&lt;td&gt;在source中除post的所有文章&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;archive&lt;/td&gt;
+&lt;td&gt;归档(主页中所有文章的集合预览)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;category&lt;/td&gt;
+&lt;td&gt;分类归档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tag&lt;/td&gt;
+&lt;td&gt;标签分类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;每个模板都默认使用 &lt;code&gt;layout&lt;/code&gt; 布局，您可在 front-matter 指定其他布局，或是设为 &lt;code&gt;false&lt;/code&gt; 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。
     
     </summary>
     
@@ -84,21 +75,66 @@
     <link href="https://xixfeng.github.io/2019/07/15/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
     <id>https://xixfeng.github.io/2019/07/15/前端基础/</id>
     <published>2019-07-15T02:48:05.000Z</published>
-    <updated>2019-07-18T08:01:54.124Z</updated>
+    <updated>2019-08-14T14:16:21.910Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;p&gt;块级元素、行内元素&lt;/p&gt;
+      &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;p&gt;块级元素、内联元素&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;块级元素会自动跳行，行内不会；&lt;/li&gt;
+&lt;li&gt;块级元素会自动跳行，内联元素不会；&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code
-        
-      
+&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&amp;lt;div&amp;gt; 属于块级元素 用作元素的容器，常用来网页布局
+&amp;lt;span&amp;gt; 属于内联元素 用作文本的容器
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;块级标签&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;标签&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;意义&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;标签&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;意义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;center&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;居中对齐块&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;dir&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;目录列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;div&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;常用块级元素&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;dl&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;定义列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;form&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;交互表单&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;h1-h6&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;标题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;hr&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;水平分割线&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;menu&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;菜单列表&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;ol&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;排序表单&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;p&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;段落&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;address&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;地址&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;blockquote&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;块应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
     
     </summary>
     
@@ -108,48 +144,29 @@
   </entry>
   
   <entry>
-    <title>商务模型</title>
-    <link href="https://xixfeng.github.io/2019/07/01/%E5%95%86%E5%8A%A1%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://xixfeng.github.io/2019/07/01/商务模型/</id>
-    <published>2019-07-01T02:12:28.000Z</published>
-    <updated>2019-07-09T02:45:59.062Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;a href=&quot;mailto:shaukat@simula.no&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;shaukat@simula.no&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;40% 课堂签到&lt;/p&gt;
-&lt;p&gt;20% 课堂参与&lt;/p&gt;
-&lt;p&gt;​   
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>软件工程</title>
     <link href="https://xixfeng.github.io/2019/06/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
     <id>https://xixfeng.github.io/2019/06/15/软件工程/</id>
     <published>2019-06-15T12:01:55.000Z</published>
-    <updated>2019-07-18T08:01:04.927Z</updated>
+    <updated>2019-08-15T05:11:29.967Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;软件&quot;&gt;&lt;a href=&quot;#软件&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;软件&quot;&gt;&lt;a href=&quot;#软件&quot; class=&quot;headerlink&quot; title=&quot;软件&quot;&gt;&lt;/a&gt;软件&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;软件：1.指令的集合，通过执行这些指令可以完成预期的功能；2.数据结构，帮助程序有效利用数据；3.软件描述信息，描述软件的信息和操作&lt;/li&gt;
+&lt;li&gt;软件的特点：功能性、可靠性、可用性、可维护性、可移植性、效率&lt;/li&gt;
+&lt;li&gt;软件于硬件的不同：软件不会”磨损”&lt;/li&gt;
+&lt;li&gt;软件的改变特性：预期情况，实际情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;软件工程&quot;&gt;&lt;a href=&quot;#软件工程&quot; class=&quot;headerlink&quot; title=&quot;软件工程&quot;&gt;&lt;/a&gt;软件工程&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;软件工程：在软件的开发、运行和维护中采用系统的、有纪律的、可量化的方法，即将工程应用于软件。&lt;/li&gt;
+&lt;li&gt;软件神话(myths)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;过程模型&quot;&gt;&lt;a href=&quot;#过程模型&quot; class=&quot;headerlink&quot; title=&quot;过程模型&quot;&gt;&lt;/a&gt;过程模型&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;软件过程：软件过程为一个为建造高质量软件所需完成的任务的框架&lt;/li&gt;
+&lt;li&gt;过程模型：过程模型就是一种开发策略，这种策略针对软件工程的各个阶段提供了一套范形，使工程的进展达到预期的目的&lt;/li&gt;
+&lt;li&gt;过程框架：沟通、策划、建模(需求分析和设计)、构建(实际代码和测试)、部署&lt;/li&gt;
+&lt;li&gt;过程模型分类：步骤模式、任务模式、阶段模式
     
     </summary>
     
@@ -163,17 +180,26 @@
     <link href="https://xixfeng.github.io/2019/06/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/06/13/操作系统/</id>
     <published>2019-06-13T07:33:33.000Z</published>
-    <updated>2019-07-18T08:00:48.391Z</updated>
+    <updated>2019-08-15T05:10:36.904Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;计算机组成&quot;&gt;&lt;a href=&quot;#计算机组成&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;计算机组成&quot;&gt;&lt;a href=&quot;#计算机组成&quot; class=&quot;headerlink&quot; title=&quot;计算机组成&quot;&gt;&lt;/a&gt;计算机组成&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;处理器(CPU)：控制计算机的操作，执行数据处理功能&lt;/li&gt;
+&lt;li&gt;内存(memory)：存储数据和程序&lt;/li&gt;
+&lt;li&gt;输入/输出模块(I/O modules)：在计算机与外部环境之间移动数据&lt;/li&gt;
+&lt;li&gt;系统总线：在处理器、内存和输入/输出模块间提供通信的设施&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;p&gt;操作系统:控制应用程序执行的程序，是应用程序与计算机硬件之间的接口，负责管理计算机硬件和软件资源&lt;br&gt;目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方便&lt;/li&gt;
+&lt;li&gt;有效&lt;/li&gt;
+&lt;li&gt;扩展能力&lt;br&gt;主要成就:&lt;/li&gt;
+&lt;li&gt;进程&lt;/li&gt;
+&lt;li&gt;调度和资源管理&lt;/li&gt;
+&lt;li&gt;内存管理&lt;/li&gt;
+&lt;li&gt;信息保护和安全&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -189,17 +215,24 @@
     <link href="https://xixfeng.github.io/2019/06/01/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://xixfeng.github.io/2019/06/01/数据库/</id>
     <published>2019-06-01T15:42:08.000Z</published>
-    <updated>2019-07-18T08:01:09.064Z</updated>
+    <updated>2019-08-15T05:11:35.418Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;数据库&quot;&gt;&lt;a href=&quot;#数据库&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;数据库&quot;&gt;&lt;a href=&quot;#数据库&quot; class=&quot;headerlink&quot; title=&quot;数据库&quot;&gt;&lt;/a&gt;数据库&lt;/h1&gt;&lt;p&gt;三大范式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一范式（1NF）：字段（列）不可再分&lt;/li&gt;
+&lt;li&gt;第二范式（2NF）：满足1NF,非主属性完全依赖于候选键&lt;/li&gt;
+&lt;li&gt;第三范式（3NF）：满足2NF,非主属性对候选键没有传递依赖&lt;/li&gt;
+&lt;li&gt;BCNF：满足3NF，且所有函数依赖对左边都有候选键&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;五大约束&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;primary KEY：设置主键&lt;/li&gt;
+&lt;li&gt;NOT NULL：不为NULL&lt;/li&gt;
+&lt;li&gt;FOREIGN key：设置外键约束&lt;/li&gt;
+&lt;li&gt;unique：设计唯一性约束&lt;/li&gt;
+&lt;li&gt;default：默认
     
     </summary>
     
@@ -211,45 +244,17 @@
   </entry>
   
   <entry>
-    <title>线性数据结构与非线性数据结构</title>
-    <link href="https://xixfeng.github.io/2018/12/27/%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    <id>https://xixfeng.github.io/2018/12/27/线性数据结构与非线性数据结构/</id>
-    <published>2018-12-27T10:30:18.000Z</published>
-    <updated>2019-06-12T08:10:30.140Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;线性数据结构&quot;&gt;&lt;a href=&quot;#线性数据结构&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
     <title>机器学习</title>
     <link href="https://xixfeng.github.io/2018/12/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     <id>https://xixfeng.github.io/2018/12/02/机器学习/</id>
     <published>2018-12-02T07:49:28.000Z</published>
-    <updated>2019-07-18T08:00:55.915Z</updated>
+    <updated>2019-08-15T05:11:07.640Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;机器学习定义&quot;&gt;&lt;a href=&quot;#机器学习定义&quot; class=&quot;headerlink&quot; title=&quot;机器学习定义&quot;&gt;&lt;/a&gt;机器学习定义&lt;/h1&gt;&lt;p&gt;definete：A computer program is said to learn from
-        
-      
+      &lt;h1 id=&quot;机器学习定义&quot;&gt;&lt;a href=&quot;#机器学习定义&quot; class=&quot;headerlink&quot; title=&quot;机器学习定义&quot;&gt;&lt;/a&gt;机器学习定义&lt;/h1&gt;&lt;p&gt;definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE&lt;/p&gt;
+&lt;p&gt;例如在象棋机器学习中，E就是下象棋的过程，T就是获得胜利，P就是下一次与人下棋时，胜利的概率&lt;/p&gt;
+&lt;p&gt;邮件分类中，E就是我们把某一个邮件归结为辣鸡，T就是把邮件分类，P就是下一次遇到新邮件时，成功归类的概率&lt;/p&gt;
     
     </summary>
     
@@ -263,17 +268,13 @@
     <link href="https://xixfeng.github.io/2018/11/28/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
     <id>https://xixfeng.github.io/2018/11/28/数据挖掘/</id>
     <published>2018-11-28T04:00:38.000Z</published>
-    <updated>2019-07-18T07:56:14.499Z</updated>
+    <updated>2019-08-15T05:11:48.850Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;数据挖掘-机器学习-大数据之间的关系&quot;&gt;&lt;a href=&quot;#数据挖掘-机器学习-大数据之间的关系&quot; class=&quot;headerlink&quot; title=&quot;数据挖掘 机器学习 大数据之间的关系&quot;&gt;&lt;/a&gt;数据挖掘 机器学习
-        
-      
+      &lt;h1 id=&quot;数据挖掘-机器学习-大数据之间的关系&quot;&gt;&lt;a href=&quot;#数据挖掘-机器学习-大数据之间的关系&quot; class=&quot;headerlink&quot; title=&quot;数据挖掘 机器学习 大数据之间的关系&quot;&gt;&lt;/a&gt;数据挖掘 机器学习 大数据之间的关系&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;大数据&lt;/strong&gt;是媒体炒热的一个概念：总的来说就是数据量大，结构复杂，数据更新快&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;机器学习&lt;/strong&gt;方法在&lt;strong&gt;大型数据库中的应用&lt;/strong&gt;称为数据挖掘(Data Mining)&lt;/p&gt;
+&lt;h1 id=&quot;数据挖掘&quot;&gt;&lt;a href=&quot;#数据挖掘&quot; class=&quot;headerlink&quot; title=&quot;数据挖掘&quot;&gt;&lt;/a&gt;数据挖掘&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Data_mining&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数据挖掘&lt;/a&gt;：从大量的数据中获取知识，模式&lt;br&gt;
     
     </summary>
     
@@ -285,43 +286,21 @@
   </entry>
   
   <entry>
-    <title>java集合</title>
-    <link href="https://xixfeng.github.io/2018/11/20/java%E9%9B%86%E5%90%88/"/>
-    <id>https://xixfeng.github.io/2018/11/20/java集合/</id>
-    <published>2018-11-20T03:10:26.000Z</published>
-    <updated>2018-11-20T03:50:54.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>测试</title>
     <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
     <id>https://xixfeng.github.io/2018/11/20/测试/</id>
     <published>2018-11-20T02:37:47.000Z</published>
-    <updated>2019-07-18T08:00:52.393Z</updated>
+    <updated>2019-08-15T05:11:00.927Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot;
-        
-      
+      &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转自&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TDD 有三层含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Test-Driven Development，测试&lt;strong&gt;驱动&lt;/strong&gt;开发。&lt;/li&gt;
+&lt;li&gt;Task-Driven Development，任务&lt;strong&gt;驱动&lt;/strong&gt;开发，要对问题进行分析并进行任务分解。&lt;/li&gt;
+&lt;li&gt;Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计。&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -337,17 +316,17 @@
     <link href="https://xixfeng.github.io/2018/11/17/github%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%B8%88%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1/"/>
     <id>https://xixfeng.github.io/2018/11/17/github后端架构师技术图谱/</id>
     <published>2018-11-17T04:06:28.000Z</published>
-    <updated>2019-07-18T07:50:57.604Z</updated>
+    <updated>2019-08-15T05:12:23.142Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;压力测试&quot;&gt;&lt;a href=&quot;#压力测试&quot; class=&quot;headerlink&quot; title=&quot;压力测试&quot;&gt;&lt;/a&gt;压力测试&lt;/h1&gt;&lt;p&gt;&lt;a
-        
-      
+      &lt;h1 id=&quot;压力测试&quot;&gt;&lt;a href=&quot;#压力测试&quot; class=&quot;headerlink&quot; title=&quot;压力测试&quot;&gt;&lt;/a&gt;压力测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/blueheart20/article/details/52170790&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;apache ab&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;并发&quot;&gt;&lt;a href=&quot;#并发&quot; class=&quot;headerlink&quot; title=&quot;并发&quot;&gt;&lt;/a&gt;并发&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CL0610/Java-concurrency&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;并发知识合集&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;1.同步、异步：同步方法调用一开始，调用者必须等待被调用的方法结束后，调用者后面的代码才能执行。而异步调用，指的是，调用者不用管被调用方法是否完成，都会继续执行后面的代码。&lt;/p&gt;
+&lt;p&gt;2.并发并行：并发和并行是十分容易混淆的概念。并发指的是多个任务交替进行，而并行则是指真正意义上的“同时进行”。实际上，如果系统内只有一个CPU，而使用多线程时，那么真实系统环境下不能并行，只能通过切换时间片的方式交替进行，而成为并发执行任务。真正的并行也只能出现在拥有多个CPU的系统中。&lt;/p&gt;
+&lt;p&gt;3.阻塞和非阻塞：阻塞和非阻塞通常用来形容多线程间的相互影响，比如一个线程占有了临界区资源，那么其他线程需要这个资源就必须进行等待该资源的释放，会导致等待的线程挂起，这种情况就是阻塞，而非阻塞就恰好相反，它强调没有一个线程可以阻塞其他线程，所有的线程都会尝试地往前运行。&lt;strong&gt;线程能否阻塞其他线程&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;4.临界区&lt;/p&gt;
+&lt;p&gt;临界区用来表示一种公共资源或者说是共享数据，可以被多个线程使用。但是每个线程使用时，一旦临界区资源被一个线程占有，那么其他线程必须等待&lt;br&gt;
     
     </summary>
     
@@ -363,21 +342,23 @@
     <link href="https://xixfeng.github.io/2018/11/14/SpringBoot%D6%AA%CA%B6/"/>
     <id>https://xixfeng.github.io/2018/11/14/SpringBoot֪ʶ/</id>
     <published>2018-11-14T09:54:19.000Z</published>
-    <updated>2019-07-19T03:30:00.333Z</updated>
+    <updated>2019-08-15T05:12:50.272Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;ol&gt;
+      &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;@RequestBody 注入http请求的请求体  //post时，为请求表单&lt;/p&gt;
 &lt;p&gt;   data参数是&lt;strong&gt;字符串类型&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;   type必须是post类型，get类型会报错&lt;/p&gt;
-&lt;p&gt;  
-        
-      
+&lt;p&gt;   必须加上请求内容类型为json 类型 contentType : “application/json;charset=utf-8”,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;application/x-www-form-urlencoded， 可选（即非必须，因为这种情况的数据@RequestParam（？？？？？可以吗）, @ModelAttribute也可以处理，当然@RequestBody也能处理）；&lt;/li&gt;
+&lt;li&gt;​    &lt;strong&gt;multipart/form-data, 不能处理&lt;/strong&gt;（即使用@RequestBody不能处理这种格式的数据）；&lt;/li&gt;
+&lt;li&gt;​    其他格式， 必须（其他格式包括application/json, application/xml等。这些格式的数据，必须使用@RequestBody来处理）；&lt;/li&gt;
+&lt;li&gt;@RequestBody最好用来处理json格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用ajax给后端传图片时，不用加content-type&lt;/p&gt;
     
     </summary>
     
@@ -387,50 +368,39 @@
   </entry>
   
   <entry>
-    <title>微信小程序简单学习</title>
-    <link href="https://xixfeng.github.io/2018/11/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://xixfeng.github.io/2018/11/11/微信小程序简单学习/</id>
-    <published>2018-11-11T10:04:52.000Z</published>
-    <updated>2019-06-12T08:11:15.133Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;和vue不一样，微信小程序获取页面data是this.data&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;input标签，数据交换，通过bindinput绑定一个监控函数，当input框内值改变时，便会调用这个函数&lt;/p&gt;
-&lt;pre&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://xixfeng.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
     <title>排序</title>
     <link href="https://xixfeng.github.io/2018/11/10/%E6%8E%92%E5%BA%8F/"/>
     <id>https://xixfeng.github.io/2018/11/10/排序/</id>
     <published>2018-11-10T12:58:16.000Z</published>
-    <updated>2019-07-18T07:55:43.931Z</updated>
+    <updated>2019-08-15T05:11:16.579Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
-&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot;
-        
-      
+      &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
+&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot; class=&quot;headerlink&quot; title=&quot;排序类&quot;&gt;&lt;/a&gt;排序类&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class Sort {
+    public static void main(String[] args) {//测试
+        Integer[] test = {8,7,4,5,111,43,22};
+        long startTime = System.nanoTime();   //获取开始时间 
+        Sort.sort(test);
+        long endTime = System.nanoTime(); //获取结束时间  
+        System.out.println((endTime-startTime)+&amp;quot;ns&amp;quot;);    
+        Sort.show(test);
+    }
+    public static void exchange(Comparable[] a,int i,int j){
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+    public static void show(Comparable[] a){
+        for(int i=0;i&amp;lt;a.length;i++){
+            System.out.println(a[i]);
+        }
+    }
+    public static void sort(Comparable[] a){
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -446,17 +416,110 @@
     <link href="https://xixfeng.github.io/2018/11/09/java%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>https://xixfeng.github.io/2018/11/09/java实现抽象数据结构/</id>
     <published>2018-11-08T16:05:27.000Z</published>
-    <updated>2019-07-18T07:56:24.509Z</updated>
+    <updated>2019-08-15T05:12:35.256Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;双链表&quot;&gt;&lt;a href=&quot;#双链表&quot; class=&quot;headerlink&quot; title=&quot;双链表&quot;&gt;&lt;/a&gt;双链表&lt;/h1&gt;&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;双链表&quot;&gt;&lt;a href=&quot;#双链表&quot; class=&quot;headerlink&quot; title=&quot;双链表&quot;&gt;&lt;/a&gt;双链表&lt;/h1&gt;&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实现&quot;&gt;&lt;/a&gt;实现&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;class DoubleLink&amp;lt;T&amp;gt;{
+    private Node&amp;lt;T&amp;gt; hNode;
+    private int mCount;
+
+
+    class Node&amp;lt;T&amp;gt;{
+        private Node prev;
+        private Node next;
+        private T value;
+        public Node(T value,Node prev,Node next){
+            this.prev = prev;
+            this.next = next;
+            this.value = value;
+        }
+    }
+    public DoubleLink(){
+        hNode = new Node&amp;lt;T&amp;gt;(null, null, null);       
+        mCount = 0;
+    }
+    public int size(){
+        return mCount;
+    }
+    public boolean isEmpty(){
+        return mCount == 0;
+    }
+    private Node&amp;lt;T&amp;gt; getNode(int index){
+        if(index&amp;lt;0||index&amp;gt;=mCount)throw new IndexOutOfBoundsException();//******/
+        if(index&amp;lt;=mCount/2){
+            Node iNode = hNode.next;
+            for(int i=0;i&amp;lt;index;i++){
+                iNode = iNode.next;
+            }
+            return iNode;
+        }
+        else{
+            int rindex = mCount-index-1;
+            Node rNode = hNode.prev;
+            for(int i=0;i&amp;lt;rindex;i++){
+                rNode = rNode.prev;
+            }
+            return rNode;
+        }
+    }
+    public T get(int index){
+        return getNode(index).value;
+    }
+    public T getFirst(){
+        return getNode(0).value;
+    }
+    public T getLast(){
+        return getNode(mCount-1).value;
+    }
+    //插入到index节点之前
+    public void insert(int index,T value){
+        if (mCount==0) {
+            Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value, hNode, hNode);
+            hNode.next = node;
+            hNode.prev = node;
+            mCount++;
+            return ;
+        }
+        if(index==mCount-1){
+            //Node&amp;lt;T&amp;gt; tnode = getNode(index);  这一步可以省略
+            Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value,hNode.prev,hNode);
+            hNode.prev.next = node;
+            hNode.prev = node;
+            mCount++;
+            return;
+        }
+        Node&amp;lt;T&amp;gt; node = getNode(index);
+        Node&amp;lt;T&amp;gt; tNode = new Node&amp;lt;T&amp;gt;(value,node,node.next);
+        node.next.prev = tNode;
+        node.next = tNode;
+        mCount++;
+        return;
+    }
+    public void insertFirst(T value){
+        Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value,hNode,hNode.next);
+        hNode.next.prev = node;
+        hNode.next = node; 
+        mCount++;
+    }
+    public void appendLast(T value){
+        insert(mCount-1, value);
+    }
+    public void delete(int index){
+        Node&amp;lt;T&amp;gt; node = getNode(index);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        node = null;//java的辣鸡回收机制，会回收无法访问的内存
+        mCount--;
+    }
+    public void deleteFirst(){
+        delete(0);
+    }
+    public void deleteLast(){
+        delete(mCount-1);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -472,18 +535,20 @@
     <link href="https://xixfeng.github.io/2018/11/08/C++%E5%AD%A6%E4%B9%A0/"/>
     <id>https://xixfeng.github.io/2018/11/08/C++学习/</id>
     <published>2018-11-08T10:11:32.000Z</published>
-    <updated>2019-07-28T01:05:22.629Z</updated>
+    <updated>2019-08-15T05:12:08.635Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;ol&gt;
-&lt;li&gt;Std::out &amp;lt;&amp;lt;  “hello world” &amp;lt;&amp;lt;
-        
-      
+      &lt;ol&gt;
+&lt;li&gt;Std::out &amp;lt;&amp;lt;  “hello world” &amp;lt;&amp;lt; std::endl&lt;/li&gt;
+&lt;li&gt;环境只是决定了代码的编译方式&lt;/li&gt;
+&lt;li&gt;当编译单个文件时，出现obj，当编译整个项目时，linker将obj文件组合起来变成exe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;#编译&lt;br&gt; 1.将所有的C++文件编译为单个obj文件&lt;br&gt; 2.在编译之前会先执行#中的语句，我们可以在#中使用条件结构以及定义数据&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; #if 1 
+
+ #end if
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -495,17 +560,19 @@
     <link href="https://xixfeng.github.io/2018/11/08/gcc/"/>
     <id>https://xixfeng.github.io/2018/11/08/gcc/</id>
     <published>2018-11-08T10:11:32.000Z</published>
-    <updated>2019-07-28T01:06:12.151Z</updated>
+    <updated>2019-08-15T05:12:16.984Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;gcc&quot;&gt;&lt;a href=&quot;#gcc&quot; class=&quot;headerlink&quot; title=&quot;gcc&quot;&gt;&lt;/a&gt;gcc&lt;/h1&gt;&lt;h2 id=&quot;gcc命令参数&quot;&gt;&lt;a href=&quot;#gcc命令参数&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;gcc&quot;&gt;&lt;a href=&quot;#gcc&quot; class=&quot;headerlink&quot; title=&quot;gcc&quot;&gt;&lt;/a&gt;gcc&lt;/h1&gt;&lt;h2 id=&quot;gcc命令参数&quot;&gt;&lt;a href=&quot;#gcc命令参数&quot; class=&quot;headerlink&quot; title=&quot;gcc命令参数&quot;&gt;&lt;/a&gt;gcc命令参数&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接&lt;br&gt;每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;编译相关&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gcc -E hello.c//激活预处理
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;gcc -S hello.c//激活预处理，编译中的第一步
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码）
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;gcc hello.c//生成可执行文件
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -517,17 +584,22 @@
     <link href="https://xixfeng.github.io/2018/11/08/nginx/"/>
     <id>https://xixfeng.github.io/2018/11/08/nginx/</id>
     <published>2018-11-08T10:11:32.000Z</published>
-    <updated>2019-07-18T08:01:43.079Z</updated>
+    <updated>2019-08-15T05:12:41.967Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;nginx基本应用&quot;&gt;&lt;a href=&quot;#nginx基本应用&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;nginx基本应用&quot;&gt;&lt;a href=&quot;#nginx基本应用&quot; class=&quot;headerlink&quot; title=&quot;nginx基本应用&quot;&gt;&lt;/a&gt;nginx基本应用&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;http服务器。提供http服务，可以做网页静态服务器。&lt;/p&gt;
+&lt;p&gt;将自己已经注册的域名映射到静态文件夹&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。&lt;/p&gt;
+&lt;p&gt;域名不同，端口相同。&lt;/p&gt;
+&lt;p&gt;域名相同，端口不同。&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;1和2是结合使用的&lt;/u&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用nginx做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://images2015.cnblogs.com/blog/799093/201609/799093-20160911100714388-1672984788.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;通过Keepalived实现微服务&lt;/p&gt;
     
     </summary>
     
