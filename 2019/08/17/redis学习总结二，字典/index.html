@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>redis学习总结二，字典 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)  dicADDRaw 将key值加入hash表中  点击显/隐 dictEntry *dictAddRaw(dict *d,">
+  <meta name="description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)">
 <meta name="keywords" content="redis,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis学习总结二，字典">
 <meta property="og:url" content="https://xixfeng.github.io/2019/08/17/redis学习总结二，字典/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)  dicADDRaw 将key值加入hash表中  点击显/隐 dictEntry *dictAddRaw(dict *d,">
+<meta property="og:description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-17T12:34:36.736Z">
+<meta property="og:updated_time" content="2019-08-17T12:41:21.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis学习总结二，字典">
-<meta name="twitter:description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)  dicADDRaw 将key值加入hash表中  点击显/隐 dictEntry *dictAddRaw(dict *d,">
+<meta name="twitter:description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -171,6 +171,7 @@
 <li>dict拥有两张hash表(0号和1号)</li>
 <li>A &amp; B &lt;= B  (bit位相与)</li>
 </ul>
+<a id="more"></a>
 <h1 id="dicADDRaw"><a href="#dicADDRaw" class="headerlink" title="dicADDRaw"></a>dicADDRaw</h1><ul>
 <li>将key值加入hash表中</li>
 </ul>

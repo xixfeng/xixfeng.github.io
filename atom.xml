@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-08-17T12:34:36.736Z</updated>
+  <updated>2019-08-17T12:41:21.122Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,21 +21,17 @@
     <link href="https://xixfeng.github.io/2019/08/17/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C%EF%BC%8C%E5%AD%97%E5%85%B8/"/>
     <id>https://xixfeng.github.io/2019/08/17/redis学习总结二，字典/</id>
     <published>2019-08-17T08:00:29.000Z</published>
-    <updated>2019-08-17T12:34:36.736Z</updated>
+    <updated>2019-08-17T12:41:21.122Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;字典&lt;/p&gt;
+      &lt;p&gt;字典&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点&lt;/li&gt;
 &lt;li&gt;rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值&lt;/li&gt;
-&lt;li&gt;dict拥有两张hash表(0号和1号
-        
-      
+&lt;li&gt;dict拥有两张hash表(0号和1号)&lt;/li&gt;
+&lt;li&gt;A &amp;amp; B &amp;lt;= B  (bit位相与)&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -53,24 +49,31 @@
     <link href="https://xixfeng.github.io/2019/08/16/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80%EF%BC%8C%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>https://xixfeng.github.io/2019/08/16/redis学习总结一，简单动态字符串/</id>
     <published>2019-08-16T10:13:21.000Z</published>
-    <updated>2019-08-17T08:01:22.710Z</updated>
+    <updated>2019-08-17T12:41:38.521Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;redis中使用简单动态字符串(SDS)来表达字符串&lt;/p&gt;
+      &lt;p&gt;redis中使用简单动态字符串(SDS)来表达字符串&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;C&quot;&gt;struct sdshdr {
 
     // buf 中已占用空间的长度，不会计算末尾的\0
     int len;
 
     // buf 中剩余可用空间的长度
+    int free;
 
-        
-      
+    // 数据空间
+    char buf[];
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SDS与C字符串区别&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;常数复杂度获得字符串长度&lt;/li&gt;
+&lt;li&gt;C字符串存在字符串溢出的可能(strcat函数)&lt;/li&gt;
+&lt;li&gt;减少修改字符时，内存重新分配花的时间(空间换时间)&lt;/li&gt;
+&lt;li&gt;SDS预分配：对SDS修改之后，会额外分配空间(sdscat函数)&lt;/li&gt;
+&lt;li&gt;惰性空间释放：当缩短SDS字符串时，不会立马释放其多余空间（那不是会造成大量当浪费空间）&lt;/li&gt;
+&lt;li&gt;二进制安全，不用/0作为结尾字符，所以可以存储二进制文件
     
     </summary>
     

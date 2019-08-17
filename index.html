@@ -144,7 +144,163 @@
             
   
     
+      <article id="post-redis学习总结二，字典" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/17/redis学习总结二，字典/">redis学习总结二，字典</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/17/redis学习总结二，字典/" class="archive-article-date">
+  	<time datetime="2019-08-17T08:00:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>字典</p>
+<ul>
+<li>redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点</li>
+<li>rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值</li>
+<li>dict拥有两张hash表(0号和1号)</li>
+<li>A &amp; B &lt;= B  (bit位相与)</li>
+</ul>
+          
+            <a class="article-more-a" href="/2019/08/17/redis学习总结二，字典/#more">more >></a>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/17/redis学习总结二，字典/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-redis学习总结一，简单动态字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/16/redis学习总结一，简单动态字符串/">redis学习总结一，简单动态字符串、链表</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/16/redis学习总结一，简单动态字符串/" class="archive-article-date">
+  	<time datetime="2019-08-16T10:13:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>redis中使用简单动态字符串(SDS)来表达字符串</p>
+<pre><code class="C">struct sdshdr {
+
+    // buf 中已占用空间的长度，不会计算末尾的\0
+    int len;
+
+    // buf 中剩余可用空间的长度
+    int free;
+
+    // 数据空间
+    char buf[];
+};
+</code></pre>
+<p>SDS与C字符串区别</p>
+<ul>
+<li>常数复杂度获得字符串长度</li>
+<li>C字符串存在字符串溢出的可能(strcat函数)</li>
+<li>减少修改字符时，内存重新分配花的时间(空间换时间)</li>
+<li>SDS预分配：对SDS修改之后，会额外分配空间(sdscat函数)</li>
+<li>惰性空间释放：当缩短SDS字符串时，不会立马释放其多余空间（那不是会造成大量当浪费空间）</li>
+<li>二进制安全，不用/0作为结尾字符，所以可以存储二进制文件
+          
+            <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/#more">more >></a>
+          
+        
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
     
   
     
