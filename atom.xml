@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-08-15T05:11:58.189Z</updated>
+  <updated>2019-08-17T12:08:09.995Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -17,11 +17,76 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>redis学习总结二，字典</title>
+    <link href="https://xixfeng.github.io/2019/08/17/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C%EF%BC%8C%E5%AD%97%E5%85%B8/"/>
+    <id>https://xixfeng.github.io/2019/08/17/redis学习总结二，字典/</id>
+    <published>2019-08-17T08:00:29.000Z</published>
+    <updated>2019-08-17T12:08:09.995Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;字典&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点&lt;/li&gt;
+&lt;li&gt;rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值&lt;/li&gt;
+&lt;li&gt;dict拥有两张hash表(0号和1号
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="redis" scheme="https://xixfeng.github.io/tags/redis/"/>
+    
+      <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis学习总结一，简单动态字符串、链表</title>
+    <link href="https://xixfeng.github.io/2019/08/16/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80%EF%BC%8C%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>https://xixfeng.github.io/2019/08/16/redis学习总结一，简单动态字符串/</id>
+    <published>2019-08-16T10:13:21.000Z</published>
+    <updated>2019-08-17T08:01:22.710Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;redis中使用简单动态字符串(SDS)来表达字符串&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;C&quot;&gt;struct sdshdr {
+
+    // buf 中已占用空间的长度，不会计算末尾的\0
+    int len;
+
+    // buf 中剩余可用空间的长度
+
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="redis" scheme="https://xixfeng.github.io/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
     <title>修改hexo主题</title>
     <link href="https://xixfeng.github.io/2019/07/17/%E4%BF%AE%E6%94%B9hexo%E4%B8%BB%E9%A2%98/"/>
     <id>https://xixfeng.github.io/2019/07/17/修改hexo主题/</id>
     <published>2019-07-17T05:49:14.000Z</published>
-    <updated>2019-08-15T05:11:58.189Z</updated>
+    <updated>2019-08-17T09:17:03.159Z</updated>
     
     <summary type="html">
     
