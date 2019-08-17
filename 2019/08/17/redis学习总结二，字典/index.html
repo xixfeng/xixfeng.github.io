@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)  dicADDRaw 将key值加入hash表中  点击显/隐 dictEntry *dictAddRaw(dict *d,">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-17T12:08:09.995Z">
+<meta property="og:updated_time" content="2019-08-17T12:32:15.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis学习总结二，字典">
 <meta name="twitter:description" content="字典  redis使用链表的方式（开域哈希）解决冲突，即hash表上一个点可以存放多个节点 rehash（当负载因子过大时），修改hash表的大小，然后重新计算哈希值和索引值 dict拥有两张hash表(0号和1号) A &amp;amp; B &amp;lt;= B  (bit位相与)  dicADDRaw 将key值加入hash表中  点击显/隐 dictEntry *dictAddRaw(dict *d,">
@@ -210,8 +210,9 @@ idx = h &amp; d-&gt;ht[table].sizemask;<span class="comment">//table为0，1；�
 <div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
 <pre><code class="C"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">dictGenHashFunction</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *buf, <span class="keyword">int</span> len)</span> </span>{
     <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = <span class="number">5381</span>;
-
+    <span class="comment">//遍历每一个字符,while中数字&lt;=0时，跳出循环</span>
     <span class="keyword">while</span> (len--)
+        <span class="comment">//*buff++ 取buff地址的值，再跳到下一个地址</span>
         hash = ((hash &lt;&lt; <span class="number">5</span>) + hash) + (*buf++); <span class="comment">/* hash * 33 + c */</span>
     <span class="keyword">return</span> hash;
 }
