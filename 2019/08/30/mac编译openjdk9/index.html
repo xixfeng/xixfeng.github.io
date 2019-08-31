@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>about | xixfeng</title>
+  <title>mac编译openjdk9 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[xixfeng]                与&amp;nbsp;     xixfeng&amp;nbsp;   （      ）      对话中...                 function bot_ui_ini() {     var botui = new BotUI(&quot;hello-mashiro&quot;);     botui.message.add({         delay: 80">
-<meta name="keywords" content="关于">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://xixfeng.github.io/about/index.html">
+  <meta name="description" content="准备 homebrew freetype Mercurial xcode-select 源码  步骤bash ./configure \     --with-target-bits=64 \ --with-debug-level=slowdebug \ --with-freetype-include=/usr/local/include/freetype2 \ --with-freetype-l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac编译openjdk9">
+<meta property="og:url" content="https://xixfeng.github.io/2019/08/30/mac编译openjdk9/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="[xixfeng]                与&amp;nbsp;     xixfeng&amp;nbsp;   （      ）      对话中...                 function bot_ui_ini() {     var botui = new BotUI(&quot;hello-mashiro&quot;);     botui.message.add({         delay: 80">
+<meta property="og:description" content="准备 homebrew freetype Mercurial xcode-select 源码  步骤bash ./configure \     --with-target-bits=64 \ --with-debug-level=slowdebug \ --with-freetype-include=/usr/local/include/freetype2 \ --with-freetype-l">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/about.jpg">
-<meta property="og:updated_time" content="2019-07-16T02:21:54.424Z">
+<meta property="og:updated_time" content="2019-08-31T07:25:26.909Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="[xixfeng]                与&amp;nbsp;     xixfeng&amp;nbsp;   （      ）      对话中...                 function bot_ui_ini() {     var botui = new BotUI(&quot;hello-mashiro&quot;);     botui.message.add({         delay: 80">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/about.jpg">
+<meta name="twitter:title" content="mac编译openjdk9">
+<meta name="twitter:description" content="准备 homebrew freetype Mercurial xcode-select 源码  步骤bash ./configure \     --with-target-bits=64 \ --with-debug-level=slowdebug \ --with-freetype-include=/usr/local/include/freetype2 \ --with-freetype-l">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,20 +142,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-mac编译openjdk9" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      mac编译openjdk9
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2018-12-12T14:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+        <a href="/2019/08/30/mac编译openjdk9/" class="archive-article-date">
+  	<time datetime="2019-08-30T11:28:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
 </a>
         
       </header>
@@ -166,134 +163,74 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          
-<div class="moe-mashiro" style="text-align:center; font-size: 50px; margin-bottom: 20px;">[xixfeng]</div>
-<div id="hello-mashiro" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgba(242, 242, 242, 0.5); border-radius: 10px;">
-  <center>
-  <p>
-  </p>
-  <h4>
-  与&nbsp;<ruby>
-    xixfeng&nbsp;<rp>
-  （</rp>
-  <rp>
-  ）</rp>
-  </ruby>
-  对话中...</h4>
-  <p>
-  </p>
-  </center>
-  <bot-ui>
-</bot-ui></div>
-<script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
-<script src="https://unpkg.com/botui/build/botui.min.js"></script>
-<script>
-function bot_ui_ini() {
-    var botui = new BotUI("hello-mashiro");
-    botui.message.add({
-        delay: 800,
-        content: "Hi, there111👋"
-    }).then(function () {
-        botui.message.add({
-            delay: 1100,
-            content: "这里是 xixfeng"
-        }).then(function () {
-            botui.message.add({
-                delay: 1100,
-                content: "一个没有梦想的程序员~"
-            }).then(function () {
-                botui.action.button({
-                    delay: 1600,
-                    action: [{
-                        text: "可以的，弟弟？ 😃",
-                        value: "sure"
-                    }, {
-                        text: "我觉得不行，弟弟！ 🙄",
-                        value: "skip"
-                    }]
-                }).then(function (a) {
-                    "sure" == a.value && sure();
-                    "skip" == a.value && end()
-                })
-            })
-        })
-    });
-    var sure = function () {
-            botui.message.add({
-                delay: 600,
-                content: "😘"
-            }).then(function () {
-                secondpart()
-            })
-        },
-        end = function () {
-            botui.message.add({
-                delay: 600,
-                content: "![...](https://view.moezx.cc/images/2018/05/06/a1c4cd0452528b572af37952489372b6.md.jpg)"
-            })
-        },
-        secondpart = function () {
-            botui.message.add({
-                delay: 1500,
-                content: "目前就读于四川大学"
-            }).then(function () {
-                botui.message.add({
-                    delay: 1500,
-                    content: "专业是弟弟软件工程"
-                })
-            })
-        },
-        thirdpart = function () {
-            botui.message.add({
-                delay: 1E3,
-                content: "Mashiro以及站名都来自一部动画，因为和主角有一样的爱好~ 如果有兴趣可以找找首页上的视频~"
-            }).then(function () {
-                botui.action.button({
-                    delay: 1500,
-                    action: [{
-                        text: "为什么是白猫呢？ 🤔",
-                        value: "why-cat"
-                    }]
-                }).then(function (a) {
-                    fourthpart()
-                })
-            })
-        },
-        fourthpart = function () {
-            botui.message.add({
-                delay: 1E3,
-                content: "因为对GitHub有种执念… "
-            }).then(function () {
-                botui.message.add({
-                    delay: 1100,
-                    content: "而且我真的是猫控！"
-                }).then(function () {
-                    botui.action.button({
-                        delay: 1500,
-                        action: [{
-                            text: "域名有什么含意吗？(ง •_•)ง",
-                            value: "why-domain"
-                        }]
-                    }).then(function (a) {
-                        fifthpart()
-                    })
-                })
-            })
-        },
-        fifthpart = function () {
-            botui.message.add({
-                delay: 1E3,
-                content: "emmmm，看备案信息你就知道了=.= 本来想要zheng.xin的，但50万真买不起。。"
-            }).then(function () {
-                botui.message.add({
-                    delay: 1600,
-                    content: "那么，仔细看看我的博客吧？ ^_^"
-                })
-            })
-        } 
+          <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
+<li>homebrew</li>
+<li>freetype</li>
+<li>Mercurial</li>
+<li>xcode-select</li>
+<li>源码</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><pre><code>bash ./configure \
+    --with-target-bits=64 \
+--with-debug-level=slowdebug \
+--with-freetype-include=/usr/local/include/freetype2 \
+--with-freetype-lib=/usr/local/Cellar/freetype/2.10.0/lib \
+--disable-warnings-as-errors 
+//注意把freetype版本换为本机安装的
+
+make all
+</code></pre><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q1 #include<new> 头文件缺失<br>这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可<br><a href="https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA" target="_blank" rel="noopener">https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA</a></new></p>
+<p>Q2<br>/Users/xixfeng/ly_jvm/openjdk/hotspot/src/share/vm/gc/g1/heapRegionSet.hpp:53:38: note: expanded from macro ‘HEAP_REGION_SET_FORCE_VERIFY’<br><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
+<pre><code class="C"><span class="comment">// Set verification will be forced either if someone defines</span>
+<span class="comment">// HEAP_REGION_SET_FORCE_VERIFY to be 1, or in builds in which</span>
+<span class="comment">// asserts are compiled in.如果这个值被定义或者在编译断言的声明中，执行强制检验</span>
+<span class="meta">#<span class="meta-keyword">ifndef</span> HEAP_REGION_SET_FORCE_VERIFY</span>
+<span class="meta">#<span class="meta-keyword">define</span> HEAP_REGION_SET_FORCE_VERIFY defined(ASSERT)</span>
+<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// HEAP_REGION_SET_FORCE_VERIFY</span></span>
+
+<span class="meta">#<span class="meta-keyword">if</span> HEAP_REGION_SET_FORCE_VERIFY</span>
+  <span class="function"><span class="keyword">void</span> <span class="title">verify_optional</span><span class="params">()</span> </span>{
+    verify();
+  }
+<span class="meta">#<span class="meta-keyword">else</span> <span class="comment">// HEAP_REGION_SET_FORCE_VERIFY</span></span>
+  <span class="function"><span class="keyword">void</span> <span class="title">verify_optional</span><span class="params">()</span> </span>{ }
+<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// HEAP_REGION_SET_FORCE_VERIFY</span></span>
+</code></pre>
+
+</div></div><br>将defined(ASSERT) 改为 0</p>
+<p>Q3<br>/Users/kiva/Documents/OpenJDK8/jdk8/hotspot/src/share/vm/runtime/virtualspace.cpp:331:14: error: ordered comparison between pointer and zero (‘char *’ and ‘int’)<br>if (base() &gt; 0) {</p>
+<p>base() &gt; 0 改成 base() != 0</p>
+<p>Q4<br>instantiation of variable ‘TreeChunk&lt;Metachunk, FreeList<metachunk> &gt;::_min_tree_chunk_size’ required here, but no definition is available [-Wundefined-var-template]<br>    return _min_tree_chunk_size;<br>bash ./configue 的时候加上 –disable-warnings-as-errors<br>这个问题是由于clang的设置造成的，如果不设置，会将一个warning变为error</metachunk></p>
+<p>Q5<br>a fatal error has been detected by the java runtime environment</p>
+<p>hotspot/src/share/vm/runtime/perfMemory.cpp<br><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
+<pre><code class="C"><span class="function"><span class="keyword">void</span> <span class="title">perfMemory_exit</span><span class="params">()</span> </span>{
+
+  <span class="keyword">if</span> (!UsePerfData) <span class="keyword">return</span>;
+  <span class="keyword">if</span> (!PerfMemory::is_initialized()) <span class="keyword">return</span>;
+
+  <span class="comment">// Only destroy PerfData objects if we're at a safepoint and the</span>
+  <span class="comment">// StatSampler is not active. Otherwise, we risk removing PerfData</span>
+  <span class="comment">// objects that are currently being used by running JavaThreads</span>
+  <span class="comment">// or the StatSampler. This method is invoked while we are not at</span>
+  <span class="comment">// a safepoint during a VM abort so leaving the PerfData objects</span>
+  <span class="comment">// around may also help diagnose the failure. In rare cases,</span>
+  <span class="comment">// PerfData objects are used in parallel with a safepoint. See</span>
+  <span class="comment">// the work around in PerfDataManager::destroy().</span>
+  <span class="comment">//</span>
+  <span class="comment">// if (SafepointSynchronize::is_at_safepoint() &amp;&amp; !StatSampler::is_active()) {</span>
+  <span class="comment">//   PerfDataManager::destroy();</span>
+  <span class="comment">// }将这里注视掉</span>
+
+  <span class="comment">// Remove the persistent external resources, if any. This method</span>
+  <span class="comment">// does not unmap or invalidate any virtual memory allocated during</span>
+  <span class="comment">// initialization.</span>
+  <span class="comment">//</span>
+  PerfMemory::destroy();
 }
-bot_ui_ini()
-</script>
+</code></pre>
+
+</div></div></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://imkiva.com/2018/02/24/building-openjdk8-on-macos/" target="_blank" rel="noopener">在 macOS 上编译 OpenJDK 8</a><br><a href="https://www.cnblogs.com/huys03/p/7101227.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">Build OpenJDK9 on macOS Sierra</a><br><a href="https://github.com/dealii/dealii/pull/3713/files/98b050eeebc7a34ba41eb77a13977120308eed14" target="_blank" rel="noopener">clang error</a><br><a href="https://www.jianshu.com/p/38e697dcbaa5" target="_blank" rel="noopener">解决openjdk9编译时虚拟机崩溃问题</a><br><a href="https://www.jianshu.com/p/c126e021e7cc" target="_blank" rel="noopener">在xcode中调试openjdk</a></p>
 
         
 
@@ -351,7 +288,7 @@ bot_ui_ini()
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/08/30/mac编译openjdk9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -363,6 +300,16 @@ bot_ui_ini()
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/22/redis学习总结二，数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis学习总结二，数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -384,14 +331,7 @@ bot_ui_ini()
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">
-  与 
-    xixfeng 
-  （
-  
-  ）
-  
-  对话中...</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备"><span class="toc-number">1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤"><span class="toc-number">2.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">3.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -401,6 +341,26 @@ bot_ui_ini()
 </aside>
 
 
+
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid="mac编译openjdk9"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyuo3j8w5",
+        conf: "prod_d14550be6d515829f23fa0799fde66ad"
+    });
+</script>
+
+  
+
+  
+
+  
 
 
           </div>
@@ -423,7 +383,7 @@ bot_ui_ini()
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

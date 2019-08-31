@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-08-22T13:51:18.984Z</updated>
+  <updated>2019-08-31T07:25:26.909Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac编译openjdk9</title>
+    <link href="https://xixfeng.github.io/2019/08/30/mac%E7%BC%96%E8%AF%91openjdk9/"/>
+    <id>https://xixfeng.github.io/2019/08/30/mac编译openjdk9/</id>
+    <published>2019-08-30T11:28:35.000Z</published>
+    <updated>2019-08-31T07:25:26.909Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>redis学习总结二，数据库</title>
