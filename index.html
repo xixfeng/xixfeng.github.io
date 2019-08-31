@@ -144,6 +144,88 @@
             
   
     
+      <article id="post-mac编译openjdk9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/30/mac编译openjdk9/">mac编译openjdk9</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/30/mac编译openjdk9/" class="archive-article-date">
+  	<time datetime="2019-08-30T11:28:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
+<li>homebrew</li>
+<li>freetype</li>
+<li>Mercurial</li>
+<li>xcode-select</li>
+<li>源码</li>
+</ul>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><pre><code>bash ./configure \
+    --with-target-bits=64 \
+--with-debug-level=slowdebug \
+--with-freetype-include=/usr/local/include/freetype2 \
+--with-freetype-lib=/usr/local/Cellar/freetype/2.10.0/lib \
+--disable-warnings-as-errors 
+//注意把freetype版本换为本机安装的
+
+make all
+</code></pre><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q1 </p>
+<p>#include<new> 头文件缺失<br>这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可<br><a href="https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA" target="_blank" rel="noopener">https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA</a></new></p>
+          
+            <a class="article-more-a" href="/2019/08/30/mac编译openjdk9/#more">more >></a>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/30/mac编译openjdk9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
   
     
   

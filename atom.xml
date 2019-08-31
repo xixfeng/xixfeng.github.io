@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-08-31T07:25:26.909Z</updated>
+  <updated>2019-08-31T07:28:53.445Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,17 +21,28 @@
     <link href="https://xixfeng.github.io/2019/08/30/mac%E7%BC%96%E8%AF%91openjdk9/"/>
     <id>https://xixfeng.github.io/2019/08/30/mac编译openjdk9/</id>
     <published>2019-08-30T11:28:35.000Z</published>
-    <updated>2019-08-31T07:25:26.909Z</updated>
+    <updated>2019-08-31T07:28:53.445Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;homebrew&lt;/li&gt;
+&lt;li&gt;freetype&lt;/li&gt;
+&lt;li&gt;Mercurial&lt;/li&gt;
+&lt;li&gt;xcode-select&lt;/li&gt;
+&lt;li&gt;源码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;bash ./configure \
+    --with-target-bits=64 \
+--with-debug-level=slowdebug \
+--with-freetype-include=/usr/local/include/freetype2 \
+--with-freetype-lib=/usr/local/Cellar/freetype/2.10.0/lib \
+--disable-warnings-as-errors 
+//注意把freetype版本换为本机安装的
+
+make all
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;Q1 &lt;/p&gt;
+&lt;p&gt;#include&lt;new&gt; 头文件缺失&lt;br&gt;这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可&lt;br&gt;&lt;a href=&quot;https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA&lt;/a&gt;&lt;/new&gt;&lt;/p&gt;
     
     </summary>
     

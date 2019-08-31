@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="准备 homebrew freetype Mercurial xcode-select 源码  步骤bash ./configure \     --with-target-bits=64 \ --with-debug-level=slowdebug \ --with-freetype-include=/usr/local/include/freetype2 \ --with-freetype-l">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-31T07:25:26.909Z">
+<meta property="og:updated_time" content="2019-08-31T07:28:53.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac编译openjdk9">
 <meta name="twitter:description" content="准备 homebrew freetype Mercurial xcode-select 源码  步骤bash ./configure \     --with-target-bits=64 \ --with-debug-level=slowdebug \ --with-freetype-include=/usr/local/include/freetype2 \ --with-freetype-l">
@@ -179,7 +179,9 @@
 //注意把freetype版本换为本机安装的
 
 make all
-</code></pre><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q1 #include<new> 头文件缺失<br>这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可<br><a href="https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA" target="_blank" rel="noopener">https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA</a></new></p>
+</code></pre><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q1 </p>
+<p>#include<new> 头文件缺失<br>这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可<br><a href="https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA" target="_blank" rel="noopener">https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA</a></new></p>
+<a id="more"></a>
 <p>Q2<br>/Users/xixfeng/ly_jvm/openjdk/hotspot/src/share/vm/gc/g1/heapRegionSet.hpp:53:38: note: expanded from macro ‘HEAP_REGION_SET_FORCE_VERIFY’<br><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
 <pre><code class="C"><span class="comment">// Set verification will be forced either if someone defines</span>
 <span class="comment">// HEAP_REGION_SET_FORCE_VERIFY to be 1, or in builds in which</span>
