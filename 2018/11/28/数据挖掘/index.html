@@ -16,14 +16,10 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="数据挖掘 机器学习 大数据之间的关系大数据是媒体炒热的一个概念：总的来说就是数据量大，结构复杂，数据更新快 机器学习方法在大型数据库中的应用称为数据挖掘(Data Mining) 数据挖掘数据挖掘：从大量的数据中获取知识，模式">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="c:/Users/XIFENG/AppData/Roaming/Typora/typora-user-images/1543554483923.png">
-<meta property="og:image" content="c:/Users/XIFENG/AppData/Roaming/Typora/typora-user-images/1543582875003.png">
-<meta property="og:image" content="c:/Users/XIFENG/AppData/Roaming/Typora/typora-user-images/1543670989830.png">
-<meta property="og:updated_time" content="2019-08-15T05:11:48.850Z">
+<meta property="og:updated_time" content="2019-09-05T11:30:54.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘">
 <meta name="twitter:description" content="数据挖掘 机器学习 大数据之间的关系大数据是媒体炒热的一个概念：总的来说就是数据量大，结构复杂，数据更新快 机器学习方法在大型数据库中的应用称为数据挖掘(Data Mining) 数据挖掘数据挖掘：从大量的数据中获取知识，模式">
-<meta name="twitter:image" content="c:/Users/XIFENG/AppData/Roaming/Typora/typora-user-images/1543554483923.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -172,11 +168,9 @@
 <p><strong>机器学习</strong>方法在<strong>大型数据库中的应用</strong>称为数据挖掘(Data Mining)</p>
 <h1 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h1><p><a href="https://en.wikipedia.org/wiki/Data_mining" target="_blank" rel="noopener">数据挖掘</a>：从大量的数据中获取知识，模式<br><a id="more"></a></p>
 <h3 id="数据规约"><a href="#数据规约" class="headerlink" title="数据规约"></a>数据规约</h3><ol>
-<li><p>主成分分析</p>
-<p><img src="C:\Users\XIFENG\AppData\Roaming\Typora\typora-user-images\1543554483923.png" alt="1543554483923"></p>
-</li>
+<li>主成分分析</li>
 </ol>
-<p>​    </p>
+<p>   ​    </p>
 <h3 id="文本挖掘"><a href="#文本挖掘" class="headerlink" title="文本挖掘"></a>文本挖掘</h3><p><a href="https://blog.csdn.net/kevin_darkelf/article/details/39520881" target="_blank" rel="noopener">jieba词性表</a></p>
 <pre><code class="python">import jieba
 import jieba.posseg
@@ -304,7 +298,6 @@ print(sim)
 <li>支持向量机（SVM）</li>
 </ol>
 <h5 id="KNN算法"><a href="#KNN算法" class="headerlink" title="KNN算法"></a>KNN算法</h5><p>  根据特征值建立维度，通过未知物品在这个维度中与其他物品的“距离”来分类</p>
-<p><img src="C:\Users\XIFENG\AppData\Roaming\Typora\typora-user-images\1543582875003.png" alt="1543582875003"></p>
 <p>先分类，然后按照更群的距离对该对象进行归类</p>
 <p>步骤</p>
 <ol>
@@ -315,63 +308,63 @@ print(sim)
 <li><p>计算欧几里得距离（核心）</p>
 </li>
 <li><p>根据距离进行分类</p>
-<pre><code class="python">from numpy import *
-import operator
-from os import listdir
-#这个数据集的行列代表什么，数值代表什么？
-#这个数据集的每一行代表一个“物品”（不同两行可能代表相同“物品”） 每一列代表一个属性 其中的数值代表特征值
-#(个数，测试数据集，训练数据集，分类名称)
-def knn(k,testdata,traindata,labels):
-    #得到行数 tile是numpy里面的
-    traindatasize = traindata.shape[0]
-    #(需扩展的数组，（行扩展倍数，列扩展倍数）)
-    dif = tile(testdata,(traindata.size,1))-traindata
-    sqdif = dif**2
-    #将每一行相加
-    sumsqdif = sqdif.sum(axis=1)
-    dis = sumsqdif**0.5
-    #排序 得到下标序号
-    sortdis = dis.argsort()
-    count = {}
-    for i in range(0,k):
-        vote = labels[sortdis[i]]
-        count[vote] = count.get(vote,0)+1
-    sortcount = sorted(count.items(),key=operator.itemgetter(1),reverse=True)
-    return sortcount[0][0]
-
-#读取文件变为一维数组
-def datatoarray(fname):
-    arr = []
-    fh = open(fname)
-    for i in range(0,32):
-        thisline = fh.readline()
-        for j in range(0,32):
-            arr.append(int(thisline[j]))
-    return arr
-
-#取文件前缀，得到lables
-def seplabel(fname):
-    filestr = fname.split(&quot;.&quot;)[0]
-    label = int(filestr.split(&quot;_&quot;)[0])
-    return label
-
-#得到训练数组和标签数组
-def traindata():
-    labels=[]
-    trainfile = listdir(&quot;D:\项目\数据挖掘\数据\图片&quot;)
-    num = len(trainfile)
-    #长度1024（列），每一行存储一个文件
-    #用一个数组存储所有训练数据，行：文件总数，列：1024（32*32存储每一个像素点）
-    trainarr = zeros((num,1024))
-    for i in range(0,num):
-        thisfname = trainfile[i]
-        thislabel = seplabel(thisfname)
-        labels.append(thislabel)
-        trainarr[i,:] = datatoarray(&quot;traindata/&quot;+thisfname)#赋予二维数组一行数据
-        return trainarr,labels
-</code></pre>
 </li>
 </ol>
+<pre><code class="python">   from numpy import *
+   import operator
+   from os import listdir
+   #这个数据集的行列代表什么，数值代表什么？
+   #这个数据集的每一行代表一个“物品”（不同两行可能代表相同“物品”） 每一列代表一个属性 其中的数值代表特征值
+   #(个数，测试数据集，训练数据集，分类名称)
+   def knn(k,testdata,traindata,labels):
+       #得到行数 tile是numpy里面的
+       traindatasize = traindata.shape[0]
+       #(需扩展的数组，（行扩展倍数，列扩展倍数）)
+       dif = tile(testdata,(traindata.size,1))-traindata
+       sqdif = dif**2
+       #将每一行相加
+       sumsqdif = sqdif.sum(axis=1)
+       dis = sumsqdif**0.5
+       #排序 得到下标序号
+       sortdis = dis.argsort()
+       count = {}
+       for i in range(0,k):
+           vote = labels[sortdis[i]]
+           count[vote] = count.get(vote,0)+1
+       sortcount = sorted(count.items(),key=operator.itemgetter(1),reverse=True)
+       return sortcount[0][0]
+
+   #读取文件变为一维数组
+   def datatoarray(fname):
+       arr = []
+       fh = open(fname)
+       for i in range(0,32):
+           thisline = fh.readline()
+           for j in range(0,32):
+               arr.append(int(thisline[j]))
+       return arr
+
+   #取文件前缀，得到lables
+   def seplabel(fname):
+       filestr = fname.split(&quot;.&quot;)[0]
+       label = int(filestr.split(&quot;_&quot;)[0])
+       return label
+
+   #得到训练数组和标签数组
+   def traindata():
+       labels=[]
+       trainfile = listdir(&quot;D:\项目\数据挖掘\数据\图片&quot;)
+       num = len(trainfile)
+       #长度1024（列），每一行存储一个文件
+       #用一个数组存储所有训练数据，行：文件总数，列：1024（32*32存储每一个像素点）
+       trainarr = zeros((num,1024))
+       for i in range(0,num):
+           thisfname = trainfile[i]
+           thislabel = seplabel(thisfname)
+           labels.append(thislabel)
+           trainarr[i,:] = datatoarray(&quot;traindata/&quot;+thisfname)#赋予二维数组一行数据
+           return trainarr,labels
+</code></pre>
 <h5 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h5><p>逻辑回归：</p>
 <p>功能：判断是非问题，例如判断邮件是否为垃圾邮件</p>
 <p>步骤：</p>
@@ -380,7 +373,6 @@ def traindata():
 <li>根据物品和线的关系得出结论</li>
 </ol>
 <h5 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h5><p>贝叶斯分类：</p>
-<p><img src="C:\Users\XIFENG\AppData\Roaming\Typora\typora-user-images\1543670989830.png" alt="1543670989830"></p>
 <pre><code class="python">import numpy as npy
 import operator
 class Bayes:
@@ -663,6 +655,14 @@ bayes.btest([1,0])
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
              
               <li class="article-tag-list-item">
