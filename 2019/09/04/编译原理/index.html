@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>编译原理 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 the phases of a compiler lexical analyzer 词法">
+  <meta name="description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta name="keywords" content="编译器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/04/编译原理/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 the phases of a compiler lexical analyzer 词法">
+<meta property="og:description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
-<meta property="og:updated_time" content="2019-09-04T02:42:48.791Z">
+<meta property="og:updated_time" content="2019-09-06T06:32:30.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
-<meta name="twitter:description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 the phases of a compiler lexical analyzer 词法">
+<meta name="twitter:description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -174,6 +174,7 @@
 <li>二者都使用 java</li>
 </ul>
 <p>编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码</p>
+<p>步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler) → 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)</p>
 <h2 id="the-phases-of-a-compiler"><a href="#the-phases-of-a-compiler" class="headerlink" title="the phases of a compiler"></a>the phases of a compiler</h2><ul>
 <li>lexical analyzer 词法分析 </li>
 <li>syntax analyzer 语法分析</li>
@@ -415,10 +416,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -443,11 +440,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>tags | xixfeng</title>
+  <title>SpringBoot知识 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了什么而生活">
+  <meta name="description" content="@RequestBody 注入http请求的请求体  //post时，为请求表单    data参数是字符串类型。    type必须是post类型，get类型会报错    必须加上请求内容类型为json 类型 contentType : “application/json;charset=utf-8”,  application/x-www-form-urlencoded， 可选（即非必须，因">
+<meta name="keywords" content="后端">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://xixfeng.github.io/tags/index.html">
+<meta property="og:title" content="SpringBoot知识">
+<meta property="og:url" content="https://xixfeng.github.io/False/SpringBoot֪ʶ.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="为了什么而生活">
+<meta property="og:description" content="@RequestBody 注入http请求的请求体  //post时，为请求表单    data参数是字符串类型。    type必须是post类型，get类型会报错    必须加上请求内容类型为json 类型 contentType : “application/json;charset=utf-8”,  application/x-www-form-urlencoded， 可选（即非必须，因">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-05-31T23:21:46.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5155976-82eaa5653c945971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-15T05:12:50.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了什么而生活">
+<meta name="twitter:title" content="SpringBoot知识">
+<meta name="twitter:description" content="@RequestBody 注入http请求的请求体  //post时，为请求表单    data参数是字符串类型。    type必须是post类型，get类型会报错    必须加上请求内容类型为json 类型 contentType : “application/json;charset=utf-8”,  application/x-www-form-urlencoded， 可选（即非必须，因">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5155976-82eaa5653c945971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -149,13 +152,13 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      SpringBoot知识
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-12-12T14:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+        <a href="/False/SpringBoot֪ʶ.html" class="archive-article-date">
+  	<time datetime="2018-11-14T09:54:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-14</time>
 </a>
         
       </header>
@@ -163,7 +166,75 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          
+          <ol>
+<li><p>@RequestBody 注入http请求的请求体  //post时，为请求表单</p>
+<p>   data参数是<strong>字符串类型</strong>。</p>
+<p>   type必须是post类型，get类型会报错</p>
+<p>   必须加上请求内容类型为json 类型 contentType : “application/json;charset=utf-8”,</p>
+<ul>
+<li>application/x-www-form-urlencoded， 可选（即非必须，因为这种情况的数据@RequestParam（？？？？？可以吗）, @ModelAttribute也可以处理，当然@RequestBody也能处理）；</li>
+<li>​    <strong>multipart/form-data, 不能处理</strong>（即使用@RequestBody不能处理这种格式的数据）；</li>
+<li>​    其他格式， 必须（其他格式包括application/json, application/xml等。这些格式的数据，必须使用@RequestBody来处理）；</li>
+<li>@RequestBody最好用来处理json格式</li>
+</ul>
+</li>
+<li><p>使用ajax给后端传图片时，不用加content-type</p>
+<a id="more"></a></li>
+<li><pre><code>&lt;input type=&quot;file&quot; ref=&quot;file&quot;/&gt;
+&lt;span @click=&quot;getFile &quot;&gt;提交&lt;/span&gt;
+getFile () {
+　　console.log(this.$refs.file.files)
+}
+</code></pre><p>例2：</p>
+<pre><code>&lt;input type=&quot;file&quot; @change=&quot;getFile &quot;/&gt;
+getFile (e) {
+　　console.log(e.target.files)
+}
+</code></pre></li>
+<li><p>@RequestParam 取body里面的参数（不管是POST的表单还是GET的query都是放在body中的</p>
+</li>
+<li><p>FormData对象用以将数据编译成键值对，以便用<code>XMLHttpRequest</code>来发送数据。其主要用于发送表单数据，但亦可用于发送带键数据(keyed data)，而独立于表单使用。如果表单<code>enctype</code>属性设为multipart/form-data ，则会使用表单的<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement/submit" target="_blank" rel="noopener"><code>submit()</code></a>方法来发送数据，从而，发送数据具有同样形式。不用去用qs去解析  md</p>
+<p><strong>axios中当使用FormData时，会自动 Content-type：multipart/form-data;？</strong></p>
+</li>
+<li><p>SpringBoot静态资源更新后，需要重启才能访问到</p>
+</li>
+</ol>
+<p>7.在SpringBoot中我们用bean类与数据库对应，当bean类的变量名称与数据库不一致时，可以用@Results建立映射</p>
+<p>当使用@Results(也可以从英文上理解)对应，并且只返回这些数据</p>
+<pre><code class="java">    @Results({
+            @Result(property = &quot;id&quot;, column = &quot;id&quot;),
+            @Result(property = &quot;pageId&quot;, column = &quot;page_id&quot;),
+            @Result(property = &quot;studentId&quot;, column = &quot;student_id&quot;),
+            @Result(property = &quot;content&quot;,column = &quot;content&quot;),
+            @Result(property = &quot;time&quot;,column = &quot;time&quot;),
+            @Result(property = &quot;like&quot;,column = &quot;like&quot;),
+            @Result(property = &quot;unlike&quot;,column = &quot;unlike&quot;),
+            @Result(property = &quot;score&quot;,column = &quot;score&quot;),
+            @Result(property = &quot;pic&quot;,column = &quot;pic&quot;),
+            @Result(property = &quot;page&quot;,column = &quot;page_id&quot;,one=@One(select=&quot;com.scuknow.mapper.PageMapper.findPageById&quot;)),
+            @Result(property = &quot;user&quot;,column = &quot;student_id&quot;,
+                    one=@One(select=&quot;com.scuknow.mapper.UserMapper.findUserBasicInfoById&quot;))
+    })
+</code></pre>
+<p>8.Mysql分页查询</p>
+<p>9.SpringBoot查询，使用其他mapper的查询</p>
+<pre><code class="java">@Result(property = &quot;user&quot;, column = &quot;student_id&quot;,
+                    one = @One(select = &quot;com.scuknow.mapper.UserMapper.findUserBasicInfoById&quot;))
+</code></pre>
+<p>10.使用bean类去映射数据库表时，一定要设置好bean的getter setter，不然不会返回数据</p>
+<p>用bean类去映射，或者注入sql语句时，给参数</p>
+<p>bean映射一般用于需要返回数据时</p>
+<p>11.</p>
+<p>第一个参数为bean类里面的，第二个参数为数据表中的，第三个参数通过数据表中的第二个参数查找</p>
+<pre><code class="java"> @Result(property = &quot;followList&quot;, column = &quot;fstudent_id&quot;,
+                    many = @Many(select = &quot;com.scuknow.mapper.UserMapper.findUserBasicInfoById&quot;))
+</code></pre>
+<p>12.注意数据库的int和bigint</p>
+<p>13.</p>
+<p>进阶操作——组合索引的唯一性<br>前面只讲了给一个字段设置唯一性的方法，如果有两个或多个字段的组合需要唯一呢？<br>例子：有一个保存大四毕业生每周上传的毕设报告的表。它有学生id：sid，周数：week，报告内容：content等字段。<br>这里只允许每个学生每周上传一份周报告，即sid和week的组合不能出现重复的情况，也就是说不能有两条记录他们的sid和week都相同。<br>如何在mysql中进行设置呢，这里只给出navicat中的方法：选中navicat设计表中的引索</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5155976-82eaa5653c945971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>14 有时候maven引入会出现问题，是因为下载依赖没有下载完全，需要输入maven指令<br>mvn -U idea:idea</p>
+
         
 
       
@@ -220,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/SpringBoot֪ʶ.html" alt="微信分享二维码">
     </div>
 </div>
 

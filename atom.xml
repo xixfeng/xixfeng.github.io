@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-09-04T14:37:45.228Z</updated>
+  <updated>2019-09-06T06:32:33.827Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode</title>
+    <link href="https://xixfeng.github.io/2019/09/06/leetcode/"/>
+    <id>https://xixfeng.github.io/2019/09/06/leetcode/</id>
+    <published>2019-09-06T02:04:31.000Z</published>
+    <updated>2019-09-06T06:32:33.827Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;找出链表回文&lt;br&gt;&lt;div&gt;&lt;div class=&quot;fold_hider&quot;&gt;&lt;div class=&quot;close hider_title&quot;&gt;点击显/隐&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;fold&quot;&gt;
+&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>计算机网络</title>
@@ -47,7 +72,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-09-04T02:42:48.791Z</updated>
+    <updated>2019-09-06T06:32:30.479Z</updated>
     
     <summary type="html">
     
@@ -175,36 +200,6 @@
 make all
 &lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;Q1 &lt;/p&gt;
 &lt;p&gt;#include&lt;new&gt; 头文件缺失&lt;br&gt;这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可&lt;br&gt;&lt;a href=&quot;https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA&lt;/a&gt;&lt;/new&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>redis学习总结二，数据库</title>
-    <link href="https://xixfeng.github.io/2019/08/22/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C%EF%BC%8C%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>https://xixfeng.github.io/2019/08/22/redis学习总结二，数据库/</id>
-    <published>2019-08-22T08:56:46.000Z</published>
-    <updated>2019-08-22T13:51:18.984Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;我们将非空数据库以及他们的键值对叫做数据库状态&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;所有的数据库保存在redis/redisServer的db数组中&lt;/li&gt;
-&lt;li&gt;数据库则是redis/redisDb类&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;一个键如何被删除（实际使用后两种）&lt;/p&gt;
-&lt;u
-        
-      
     
     </summary>
     
@@ -575,36 +570,6 @@ make all
   </entry>
   
   <entry>
-    <title>SpringBoot知识</title>
-    <link href="https://xixfeng.github.io/2018/11/14/SpringBoot%D6%AA%CA%B6/"/>
-    <id>https://xixfeng.github.io/2018/11/14/SpringBoot֪ʶ/</id>
-    <published>2018-11-14T09:54:19.000Z</published>
-    <updated>2019-08-15T05:12:50.272Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;@RequestBody 注入http请求的请求体  //post时，为请求表单&lt;/p&gt;
-&lt;p&gt;   data参数是&lt;strong&gt;字符串类型&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;   type必须是post类型，get类型会报错&lt;/p&gt;
-&lt;p&gt;   必须加上请求内容类型为json 类型 contentType : “application/json;charset=utf-8”,&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;application/x-www-form-urlencoded， 可选（即非必须，因为这种情况的数据@RequestParam（？？？？？可以吗）, @ModelAttribute也可以处理，当然@RequestBody也能处理）；&lt;/li&gt;
-&lt;li&gt;​    &lt;strong&gt;multipart/form-data, 不能处理&lt;/strong&gt;（即使用@RequestBody不能处理这种格式的数据）；&lt;/li&gt;
-&lt;li&gt;​    其他格式， 必须（其他格式包括application/json, application/xml等。这些格式的数据，必须使用@RequestBody来处理）；&lt;/li&gt;
-&lt;li&gt;@RequestBody最好用来处理json格式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;使用ajax给后端传图片时，不用加content-type&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
     <title>排序</title>
     <link href="https://xixfeng.github.io/2018/11/10/%E6%8E%92%E5%BA%8F/"/>
     <id>https://xixfeng.github.io/2018/11/10/排序/</id>
@@ -764,6 +729,31 @@ make all
     
     
       <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习</title>
+    <link href="https://xixfeng.github.io/2018/11/08/C++%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://xixfeng.github.io/2018/11/08/C++学习/</id>
+    <published>2018-11-08T10:11:32.000Z</published>
+    <updated>2019-08-15T05:12:08.635Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;Std::out &amp;lt;&amp;lt;  “hello world” &amp;lt;&amp;lt; std::endl&lt;/li&gt;
+&lt;li&gt;环境只是决定了代码的编译方式&lt;/li&gt;
+&lt;li&gt;当编译单个文件时，出现obj，当编译整个项目时，linker将obj文件组合起来变成exe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;#编译&lt;br&gt; 1.将所有的C++文件编译为单个obj文件&lt;br&gt; 2.在编译之前会先执行#中的语句，我们可以在#中使用条件结构以及定义数据&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; #if 1 
+
+ #end if
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
     
   </entry>
   

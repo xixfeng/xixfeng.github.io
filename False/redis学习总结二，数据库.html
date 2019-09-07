@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>tags | xixfeng</title>
+  <title>redis学习总结二，数据库 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了什么而生活">
+  <meta name="description" content="我们将非空数据库以及他们的键值对叫做数据库状态  所有的数据库保存在redis/redisServer的db数组中 数据库则是redis/redisDb类  一个键如何被删除（实际使用后两种）  定时删除 惰性删除(bd.c/expireIfNeeded) 定期删除(redis.c/activeExpireCycle): 每当redis的周期性操作redis.c/serverCron 执行时，就会">
 <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://xixfeng.github.io/tags/index.html">
+<meta property="og:title" content="redis学习总结二，数据库">
+<meta property="og:url" content="https://xixfeng.github.io/False/redis学习总结二，数据库.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="为了什么而生活">
+<meta property="og:description" content="我们将非空数据库以及他们的键值对叫做数据库状态  所有的数据库保存在redis/redisServer的db数组中 数据库则是redis/redisDb类  一个键如何被删除（实际使用后两种）  定时删除 惰性删除(bd.c/expireIfNeeded) 定期删除(redis.c/activeExpireCycle): 每当redis的周期性操作redis.c/serverCron 执行时，就会">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-05-31T23:21:46.000Z">
+<meta property="og:updated_time" content="2019-08-22T13:51:18.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了什么而生活">
+<meta name="twitter:title" content="redis学习总结二，数据库">
+<meta name="twitter:description" content="我们将非空数据库以及他们的键值对叫做数据库状态  所有的数据库保存在redis/redisServer的db数组中 数据库则是redis/redisDb类  一个键如何被删除（实际使用后两种）  定时删除 惰性删除(bd.c/expireIfNeeded) 定期删除(redis.c/activeExpireCycle): 每当redis的周期性操作redis.c/serverCron 执行时，就会">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -149,13 +149,13 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      redis学习总结二，数据库
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-12-12T14:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+        <a href="/False/redis学习总结二，数据库.html" class="archive-article-date">
+  	<time datetime="2019-08-22T08:56:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
 </a>
         
       </header>
@@ -163,7 +163,24 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          
+          <p>我们将非空数据库以及他们的键值对叫做数据库状态</p>
+<ul>
+<li>所有的数据库保存在redis/redisServer的db数组中</li>
+<li>数据库则是redis/redisDb类</li>
+</ul>
+<p>一个键如何被删除（实际使用后两种）</p>
+<ul>
+<li>定时删除</li>
+<li>惰性删除(bd.c/expireIfNeeded)</li>
+<li>定期删除(redis.c/activeExpireCycle): 每当redis的周期性操作redis.c/serverCron 执行时，就会执行相应操作</li>
+</ul>
+<p>RDB和AOF<br>二者都是redis持久化方式；redis是将数据存在内存中，一旦宕机数据就会丢失，而RDB、AOF则可以将redis数据持久化到硬盘</p>
+<h1 id="RDB持久化"><a href="#RDB持久化" class="headerlink" title="RDB持久化"></a>RDB持久化</h1><ul>
+<li>SAVE：生成RDB文件，直到生成完成才接受命令</li>
+<li>BGSAVE：生成RDB文件，过程中仍然可以接受命令(创建子程序去生成RDB)</li>
+<li>AOF持久化优先于RDB</li>
+</ul>
+
         
 
       
@@ -220,7 +237,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/redis学习总结二，数据库.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,7 +270,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RDB持久化"><span class="toc-number">1.</span> <span class="toc-text">RDB持久化</span></a></li></ol>
                     </div>
                 </span>
             </div>

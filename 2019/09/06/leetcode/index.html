@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>tags | xixfeng</title>
+  <title>leetcode | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了什么而生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://xixfeng.github.io/tags/index.html">
+  <meta name="description" content="找出链表回文点击显/隐 def isPalindrome(self, head):     fast = slow = head     # find the mid node     while fast and fast.next:         fast = fast.next.next         slow = slow.next     # reverse the second h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode">
+<meta property="og:url" content="https://xixfeng.github.io/2019/09/06/leetcode/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="为了什么而生活">
+<meta property="og:description" content="找出链表回文点击显/隐 def isPalindrome(self, head):     fast = slow = head     # find the mid node     while fast and fast.next:         fast = fast.next.next         slow = slow.next     # reverse the second h">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-05-31T23:21:46.000Z">
+<meta property="og:updated_time" content="2019-09-06T06:32:33.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="为了什么而生活">
+<meta name="twitter:title" content="leetcode">
+<meta name="twitter:description" content="找出链表回文点击显/隐 def isPalindrome(self, head):     fast = slow = head     # find the mid node     while fast and fast.next:         fast = fast.next.next         slow = slow.next     # reverse the second h">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -142,20 +142,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-leetcode" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      leetcode
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-12-12T14:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+        <a href="/2019/09/06/leetcode/" class="archive-article-date">
+  	<time datetime="2019-09-06T02:04:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
 </a>
         
       </header>
@@ -163,7 +163,31 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          
+          <p>找出链表回文<br><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
+<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, head)</span>:</span>
+    fast = slow = head
+    <span class="comment"># find the mid node</span>
+    <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:
+        fast = fast.next.next
+        slow = slow.next
+    <span class="comment"># reverse the second half</span>
+    node = <span class="literal">None</span>
+    <span class="keyword">while</span> slow:
+        nxt = slow.next
+        slow.next = node
+        node = slow
+        slow = nxt
+    <span class="comment"># compare the first and second half nodes</span>
+    <span class="keyword">while</span> node: <span class="comment"># while node and head:</span>
+        <span class="keyword">if</span> node.val != head.val:
+            <span class="keyword">return</span> <span class="literal">False</span>
+        node = node.next
+        head = head.next
+    <span class="keyword">return</span> <span class="literal">True</span>
+</code></pre>
+
+</div></div></p>
+
         
 
       
@@ -220,7 +244,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/09/06/leetcode/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -232,6 +256,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/04/计算机网络/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -269,7 +303,7 @@
   
 
   
-  <div id="SOHUCS" sid></div> 
+  <div id="SOHUCS" sid="leetcode"></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -305,7 +339,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
