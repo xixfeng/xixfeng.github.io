@@ -125,6 +125,34 @@
   </entry>
   
   <entry>
+    <title>java虚拟机</title>
+    <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
+    <published>2019-09-03T12:28:49.000Z</published>
+    <updated>2019-09-07T06:55:25.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方法区 （perm Gen
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="虚拟机" scheme="https://xixfeng.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深入理解计算机系统</title>
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
@@ -636,125 +664,6 @@ make all
     
     
       <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java实现抽象数据结构</title>
-    <link href="https://xixfeng.github.io/2018/11/09/java%E5%AE%9E%E7%8E%B0%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    <id>https://xixfeng.github.io/2018/11/09/java实现抽象数据结构/</id>
-    <published>2018-11-08T16:05:27.000Z</published>
-    <updated>2019-08-15T05:12:35.256Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;双链表&quot;&gt;&lt;a href=&quot;#双链表&quot; class=&quot;headerlink&quot; title=&quot;双链表&quot;&gt;&lt;/a&gt;双链表&lt;/h1&gt;&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实现&quot;&gt;&lt;/a&gt;实现&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;class DoubleLink&amp;lt;T&amp;gt;{
-    private Node&amp;lt;T&amp;gt; hNode;
-    private int mCount;
-
-
-    class Node&amp;lt;T&amp;gt;{
-        private Node prev;
-        private Node next;
-        private T value;
-        public Node(T value,Node prev,Node next){
-            this.prev = prev;
-            this.next = next;
-            this.value = value;
-        }
-    }
-    public DoubleLink(){
-        hNode = new Node&amp;lt;T&amp;gt;(null, null, null);       
-        mCount = 0;
-    }
-    public int size(){
-        return mCount;
-    }
-    public boolean isEmpty(){
-        return mCount == 0;
-    }
-    private Node&amp;lt;T&amp;gt; getNode(int index){
-        if(index&amp;lt;0||index&amp;gt;=mCount)throw new IndexOutOfBoundsException();//******/
-        if(index&amp;lt;=mCount/2){
-            Node iNode = hNode.next;
-            for(int i=0;i&amp;lt;index;i++){
-                iNode = iNode.next;
-            }
-            return iNode;
-        }
-        else{
-            int rindex = mCount-index-1;
-            Node rNode = hNode.prev;
-            for(int i=0;i&amp;lt;rindex;i++){
-                rNode = rNode.prev;
-            }
-            return rNode;
-        }
-    }
-    public T get(int index){
-        return getNode(index).value;
-    }
-    public T getFirst(){
-        return getNode(0).value;
-    }
-    public T getLast(){
-        return getNode(mCount-1).value;
-    }
-    //插入到index节点之前
-    public void insert(int index,T value){
-        if (mCount==0) {
-            Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value, hNode, hNode);
-            hNode.next = node;
-            hNode.prev = node;
-            mCount++;
-            return ;
-        }
-        if(index==mCount-1){
-            //Node&amp;lt;T&amp;gt; tnode = getNode(index);  这一步可以省略
-            Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value,hNode.prev,hNode);
-            hNode.prev.next = node;
-            hNode.prev = node;
-            mCount++;
-            return;
-        }
-        Node&amp;lt;T&amp;gt; node = getNode(index);
-        Node&amp;lt;T&amp;gt; tNode = new Node&amp;lt;T&amp;gt;(value,node,node.next);
-        node.next.prev = tNode;
-        node.next = tNode;
-        mCount++;
-        return;
-    }
-    public void insertFirst(T value){
-        Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value,hNode,hNode.next);
-        hNode.next.prev = node;
-        hNode.next = node; 
-        mCount++;
-    }
-    public void appendLast(T value){
-        insert(mCount-1, value);
-    }
-    public void delete(int index){
-        Node&amp;lt;T&amp;gt; node = getNode(index);
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-        node = null;//java的辣鸡回收机制，会回收无法访问的内存
-        mCount--;
-    }
-    public void deleteFirst(){
-        delete(0);
-    }
-    public void deleteLast(){
-        delete(mCount-1);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   

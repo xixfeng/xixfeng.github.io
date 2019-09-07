@@ -290,6 +290,459 @@ st.sayHello((Women) man)
     
   
     
+      <article id="post-java虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/java虚拟机/">java虚拟机</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/java虚拟机/" class="archive-article-date">
+  	<time datetime="2019-09-03T12:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h1><p>组成</p>
+<ul>
+<li>方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息</li>
+<li>虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈</li>
+<li>方法栈</li>
+<li>堆：<ul>
+<li>yang Gen 年轻代 （存放容易dead对象）<ul>
+<li>Eden</li>
+<li>survivor（Two）</li>
+</ul>
+</li>
+<li>Tenured Gen 老年代 （存放不容易dead的对象）</li>
+<li>常量池</li>
+</ul>
+</li>
+<li>程序计数器</li>
+</ul>
+<p>其中虚拟机栈、方法栈、程序计算器随线程生灭</p>
+<ul>
+<li>类加载器</li>
+<li>垃圾收集器</li>
+<li>执行引擎</li>
+</ul>
+<h2 id="java内存区域与内存溢出异常"><a href="#java内存区域与内存溢出异常" class="headerlink" title="java内存区域与内存溢出异常"></a>java内存区域与内存溢出异常</h2><p>java堆溢出</p>
+<ul>
+<li>-verbose:gc -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError</li>
+<li>-Xms20m 堆内存最小20m，  -Xmx20m 最大20m，-XX：+HeapDumpOnOutofMemoryError 当内存溢出时，生成dump文件</li>
+<li>内存泄露：程序中已经动态分配的堆内存由于某种原因未释放或者无法释放。 内存溢出：程序中的堆内存不足</li>
+</ul>
+<p>虚拟机栈和本地方法栈溢出</p>
+<ul>
+<li>-Xss</li>
+<li>StackOverflowError 线程请求的栈深度大于虚拟机的默认值，例如无限递归</li>
+<li>OutofMemoryError 虚拟机在扩展栈时无法申请到足够的内存</li>
+</ul>
+<p>运行时常量池溢出、方法区溢出</p>
+<ul>
+<li>-XX::PermSize=10M -XX:MaxPermSize=10M限制方法区大小</li>
+<li>String.intern()</li>
+</ul>
+<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><p>基础算法</p>
+<ul>
+<li>标记-清除算法：首先标记出需要清理</li>
+<li>复制算法：将内存分为几个区域，解决空间碎片问题</li>
+<li>标记整理：将存活的对象移动到一起，清理掉其他对象</li>
+<li>分代算法：将java堆分为新生代和老年代，在前者使用复制算法，在后者使用标记-清除或者标记-整理</li>
+</ul>
+<p>引用算法</p>
+<p>给对象一个引用计数，当引用计数为0当时候，就回收对象，（python使用该算法）。但存在两个无法访问的对象循环引用的问题</p>
+<p>根搜索算法<br>当一个对象到GC Roots不可达时，则证明此对象是不可用的</p>
+<blockquote>
+<p>GC Roots</p>
+</blockquote>
+<ol>
+<li>虚拟机栈(栈帧中的本地变量表)中引用的对象</li>
+<li>方法区中类静态属性(static)引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中引用的对象</li>
+</ol>
+<p>在JDK1.2之前，对于引用只有两种情况：引用和未引用。在JDK1.2之后，将引用划分为</p>
+<ul>
+<li>强引用</li>
+<li>软引用：在将要发生内存溢出的时候才回收</li>
+<li>弱引用：在下一次垃圾收集发生时回收</li>
+<li>虚引用：对类的生命周期无影响，只是这些引用被回收时，需要通知一哈</li>
+</ul>
+<pre><code>finalize：对象被GC回收时执行的函数，需要重载。当对象被判断为需要执行finalize时，会被放入F-Queue队列中，这也是对象逃脱GC的最后机会。但是多次调用只会执行第一次
+</code></pre><p>方法区回收：在大量使用反射、动态代理、GCLib等bytecode框架等场景，以及动态生成JSP和OSGi这类频繁自定义ClassLoader的场景都需要虚拟机具备类卸载的功能</p>
+<blockquote>
+<p>收集器</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>收集器</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Serial</td>
+<td>简单、高效</td>
+</tr>
+<tr>
+<td>ParNew</td>
+<td>Serial并行版</td>
+</tr>
+<tr>
+<td>Parallel Scavenge</td>
+<td>更加关注cpu吞吐量 cpu run time/(cpu run time+GC time），其他更关心停顿时间</td>
+</tr>
+<tr>
+<td>CMS</td>
+<td>进行GC时基本不影响进程进行</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>新生代GC（Minor GC）：发生频率较快</p>
+<p>老年代（Major GC/FULL GC）：发生频率较慢</p>
+<hr>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>大对象直接进入老年代</p>
+<p>长期存活的对象将进入老年代</p>
+<p>空间分配担保：</p>
+<pre><code class="java">//Minor GC之前会检测
+if（晋升到老年代的平均大小 &gt; 老年代剩余大小）{
+    FULL GC；
+}else{
+    if(允许担保失败)Minor GC；
+    else FULL GC;
+}
+</code></pre>
+<pre><code>2014-07-18T16:02:17.606+0800（当前时间戳）: 611.633（时间戳）: [GC（表示Young GC） 611.633: [DefNew（单线程Serial年轻代GC）: 843458K（年轻代垃圾回收前的大小）-&gt;2K（年轻代回收后的大小）(948864K（年轻代总大小）), 0.0059180 secs（本次回收的时间）] 2186589K（整个堆回收前的大小）-&gt;1343132K（整个堆回收后的大小）(3057292K（堆总大小）), 0.0059490 secs（回收时间）] [Times: user=0.00（用户耗时） sys=0.00（系统耗时）, real=0.00 secs（实际耗时）]
+</code></pre><h1 id="虚拟机性能监控与故障处理工具"><a href="#虚拟机性能监控与故障处理工具" class="headerlink" title="虚拟机性能监控与故障处理工具"></a>虚拟机性能监控与故障处理工具</h1><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>主要作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jstat</td>
+<td>JVM Process Status Tool</td>
+</tr>
+<tr>
+<td>jstat</td>
+<td>JVM statistics monitoring tool</td>
+</tr>
+<tr>
+<td>jinfo</td>
+<td>Configuration info for java</td>
+</tr>
+<tr>
+<td>jmap</td>
+<td>Memory Map for java 生成虚拟机内存快照</td>
+</tr>
+<tr>
+<td>jhat</td>
+<td>JVM Heap Dump Browser 用于分析dump文件，会建立一个http服务器</td>
+</tr>
+<tr>
+<td>jstack</td>
+<td>stack trace for java 显示线程快照</td>
+</tr>
+<tr>
+<td>jconsole</td>
+<td>虚拟机可视化工具</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>虚拟机内置了两运行时编译器，如果一段java方法被多次调用，就会判定为热代码，从而交给JIT编译器及时编译为本地代码，以提高运行速度（这就是hotspot名字的由来），所以随着程序的运行，编译得越来越彻底，运行速度会越来越快。而一般的代码都是通过解释方式执行代码。</p>
+<p>java虚拟机调优总结：</p>
+<ul>
+<li><p>虚拟机内存大小调整（新生代大小调整，老年代大小调整，永久代大小调整，堆大小调整）</p>
+</li>
+<li><p>GC工具的选择</p>
+</li>
+<li><p>运行时编译器的选择</p>
+</li>
+</ul>
+<h1 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h1><blockquote>
+<p>代码编译的结果从本地机器码转变为字节码，是存储格式发展的一小步，却是变成语言发展的一大步</p>
+</blockquote>
+<p>Class类文件的结构 （类似于C语言结构体），只有两种基本数据结构</p>
+<ul>
+<li>无符号整数：u1，u2，u4，u8</li>
+<li>表：一般以_info结尾</li>
+</ul>
+<p>全限定名：指类的全名如 org/fenixsoft/clazz/TestClass<br>简单名称：没有类型和参数修饰符的方法或字段名称<br>描述符：描述字段的数据类型、方法的参数列表和返回值，比如()V 代表特殊类型void</p>
+<h2 id="Class类文件结构"><a href="#Class类文件结构" class="headerlink" title="Class类文件结构"></a>Class类文件结构</h2><p><u><strong>常量池</strong></u><br>字面量（Literal）：文本字符串、声明为final的变量</p>
+<p>符号引用（symbolic References）：</p>
+<ul>
+<li>类和接口的全限定名（Fully Qualified Name）</li>
+<li>字段的名称和描述符（Descriptor）</li>
+<li>方法的名称和描述符</li>
+</ul>
+<p><u><strong>访问标志</strong></u><br>紧跟在常量池后面，用于识别一些类或接口层次的访问信息</p>
+<p><u><strong>类索引、父类索引、接口索引集合</strong></u><br>类索引、父类索引都是u2数据类型，而接口索引集合则是u2类型数据的集合</p>
+<p><u><strong>字段表集合与字段描述</strong></u><br>字段表（field_info)：用于描述接口或类中声明的变量。包括字段的作用域（public、private、protected）、类级变量还是实例级变量（static修饰符）、可变性（final）、并发可见性（volatile）、是否序列化（transient）、字段类型、字段名称</p>
+<p><u><strong>方法表集合</strong></u><br>方法和字段的描述是十分相近的，只是方法的type中会多出传递参数和返回参数 (Ljava/lang/Object;)Z</p>
+<p><u><strong>属性表集合</strong></u><br>在Class文件、字段表、方法表中都可以携带自己都属性表集合，以描述某些场景都专有信息<br>在code（实例函数）的局部变量表中至少会有一个this（对象实例）的引用，所以max_local&gt;=1，且args_size&gt;=1</p>
+<h1 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h1><h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><pre><code class="mermaid">graph LR
+    A(加载)
+    B(验证)
+    C(准备)
+    D(解析)
+    E(初始化)
+    F(使用)
+    G(卸载)
+
+    A --&gt; B
+    subgraph 连接
+    B --&gt; C
+    C --&gt; D
+    end
+    D --&gt; E
+    E --&gt; F
+    F --&gt; G
+</code></pre>
+<p>除解析和使用，其他步骤都是按照顺序开始，但是会有一定的穿插，比如一个步骤还未执行完就启动另一个步骤。</p>
+<p>而java虚拟机中对内的加载时机不确定，只有在四种主动引用的情况下才会立刻执行加载</p>
+<p><u><strong>加载</strong></u></p>
+<ul>
+<li>通过类的全限定名来获取定义此类的二进制字节流</li>
+<li>将这个字节流代表的静态存储结构转换为<strong>方法区</strong>的运行时数据结构</li>
+<li>在java堆中生成一个代表这个类的java.lang.Class对象，作为方法区这些数据的访问入口</li>
+</ul>
+<p>加载阶段是开发过程中相对灵活的，因为虚拟机规范中没有规定一定要从Class文件中加载二进制流。</p>
+<p>加载进行时连接就开始了</p>
+<p><strong><u>验证</u></strong></p>
+<ul>
+<li>文件格式验证</li>
+<li>元数据验证（语义验证）</li>
+<li>字节码验证（验证类的方法会不会作出危害虚拟机安全的行为）</li>
+<li>符号引用验证</li>
+</ul>
+<p><strong><u>准备</u></strong></p>
+<p>准备阶段正式为类变量分配内存并设置类变量初始值</p>
+<ul>
+<li>这里是类变量而不是实例变量，实例变量会在对象初始化时赋值</li>
+<li>初始值是指零值</li>
+</ul>
+<pre><code class="java">public static final int value = 123//这里并不会赋值为123，而是赋值为0
+</code></pre>
+<p><u><strong>解析</strong></u></p>
+<p>在解析的过程中可能会涉及到其他类的加载及一系列过程</p>
+<p>解析阶段是虚拟机将常量池中内的符号引用替换为直接引用的过程</p>
+<p>在Class文件中，符号引用以CONSTANT_Class_info   CONSTANT_Fieldref_info  CONSTANT_Methodref_info出现</p>
+<ul>
+<li>符号引用：符号引用以一组符号来描述所引用的目标，符号引用可以是任何形式的字面量，只要使用时能无歧义的定位到目标即可</li>
+<li>直接引用：直接引用可以是直接指向目标的指针、相对偏移量、一个能间接定位到目标的句柄</li>
+</ul>
+<p>以下分别对应常量池 CONSTANT_Class_info CONSTANT_Fieldref_info  CONSTANT_Methodref_info  CONSTANT_InterfaceMethodref_info</p>
+<ol>
+<li>类或接口解析</li>
+<li>字段解析</li>
+<li>类方法解析 </li>
+<li>接口方法解析 </li>
+</ol>
+<p><u><strong>初始化</strong></u></p>
+<p>到了初始化阶段，才真正开始执行类中定义的java程序代码。初始化阶段是执行<strong>类构造器</strong> <clinit>()方法的过程。</clinit></p>
+<ul>
+<li><clinit>()方法是编译器自动收集的类变量赋值动作+静态语句块(static{}快)</clinit></li>
+<li><strong>类构造器</strong>和<strong>类构造函数</strong>不同，它不需要显式的调用父类构造器，虚拟机会保证执行<clinit>()之前，父类的<clinit>()已经执行完毕。因此在虚拟机中第一个执行<clinit>()方法的类一定是java.lang.Object</clinit></clinit></clinit></li>
+<li><clinit>()是线程安全的，当有多个线程去执行类构造器方法时，只有一个能执行，其余线程都需要等待</clinit></li>
+</ul>
+<h2 id="类加载器🍃"><a href="#类加载器🍃" class="headerlink" title="类加载器🍃"></a>类加载器🍃</h2><blockquote>
+<p>类加载器可以说是java语言的一项创新，也是java流行的重要因素之一。类加载器在类层次划分、OSGI、热部署、代码加密等领域大放异彩</p>
+</blockquote>
+<p>对于任意一个类，都需要由</p>
+<ol>
+<li>它的类加载器</li>
+<li>这个类本身</li>
+</ol>
+<p>决定在java虚拟机中的唯一性</p>
+<p>双亲委派模型</p>
+<p>加载器的分类</p>
+<ul>
+<li>启动类加载器 （Bootstrap ClassLoader）：这个类加载器负责将存放在<strong>&lt;JAVA_HOME&gt;/lib</strong>目录中的，和被<strong>-Xbootclasspath</strong> 参数指定路径中的类库加载到虚拟机内存中</li>
+<li>扩展类加载器（Extension ClassLoader）：这个类加载器由sun.misc.Launcher$ExtClassLoader实现，它负责加载<strong>&lt;JAVA_HOME&gt;/lib/ext</strong>目录中的，和被<strong>java.ext.dirs</strong>系统变量所指定路径中的类库</li>
+<li>应用程序类加载器（Application ClassLoader）：这个类加载器由sun.misc.Launcher$AppClassLoader来实现。由于这个类加载器是ClassLoader中的getSystemClassLoader()方法的返回值，所以一般也叫它系统类加载器。它负责加载用户类路径（ClassPath）上的类库</li>
+</ul>
+<p>我们的应用程序都是由这三种类加载器互相配合进行加载的，如果有必要，还可以加入自己定义的类加载器</p>
+<pre><code class="mermaid">graph BT
+A(Bootstrap ClassLoader)
+B(Extension ClassLoader)
+C(Application Classloader)
+D(User Classloader)
+E(User Classloader)
+
+B --&gt; A
+C --&gt; B
+D --&gt; C
+E --&gt; C
+
+</code></pre>
+<p>上图被称为类加载器的双亲委派模型（parents Delegation Model），这里类加载器之间父子关系一般不会以继承的关系来实现，而是都使用组合关系来复用父加载器的代码</p>
+<p>双亲委派模型：如果一个类加载器收到了类加载的请求，他首先不会自己去尝试加载这个类，而是把请求委派给父类加载器去完成，每一个层次的类加载器都是如此，<strong>因此所有的类加载请求最终都应该传到顶层的启动类加载器中</strong>，只有当父加载器无法加载时，才会向下传递</p>
+<p>优点：java类随着它的类加载器一起具备了一种带有优先级的层次关系。例如Object类，不论哪一个类加载器去加载都会交给启动类加载器，但是如果是各自加载，java虚拟机内存中就有有多个Object类</p>
+<h1 id="虚拟机字节码执行引擎"><a href="#虚拟机字节码执行引擎" class="headerlink" title="虚拟机字节码执行引擎"></a>虚拟机字节码执行引擎</h1><h2 id="运行时虚拟机栈-栈帧结构"><a href="#运行时虚拟机栈-栈帧结构" class="headerlink" title="运行时虚拟机栈 栈帧结构"></a>运行时虚拟机栈 栈帧结构</h2><pre><code class="mermaid">graph RL
+    subgraph 当前线程
+    subgraph 当前栈帧 n
+    A(局部变量表)
+    B(操作数栈)
+    C(动态连接)
+    D(返回地址)
+    end
+    F(栈帧 2)
+    G(栈帧 1)
+    end
+
+</code></pre>
+<ul>
+<li><p><strong>局部变量表：</strong>存放<strong>方法参数</strong>和方法<strong>内部定义的局部变量</strong>。</p>
+<p>🍃局部变量表以变量槽（variable Slot）为最小单位。一个slot可以存放32位以内的数据类型，在java中占用32位以内的数据类型有：int、boolean、char、float、byte、short、reference、returnAddress八种类型。</p>
+<p>🍃对于Double、Long这种64位数据类型，虚拟机会以高位在前的方式为其分配两个连续的slot空间</p>
+<p>🍃对于非static方法，局部变量表第0位索引默认为方法所属实例的引用（this）</p>
+<p>🍃方法体中定义的变量，其作用域并不一定会覆盖整个方法体，如果当前字节码的PC计数器已经超出了某个变量的作用域，它的slot可以交给其他变量使用。引申出一点：当变量的索引存在与局部变量表中时，它不会被GC回收；但当它的slot交给其他变量使用时，它就会被回收</p>
+<p>🍃局部变量不存在像类变量那样的“准备阶段”（赋予“0”值）</p>
+</li>
+<li><p>操作数栈</p>
+<p>操作数栈也被称作为操作栈，是一个LIFO栈，32位数据类型所占的栈容量为1，64位数据类型所占的栈容量为2，任何时候操作数栈的深度都不会超过max_stacks数据项中设定的最大值</p>
+<p>操作数栈最开始是空的，随着指令的执行，不断的出栈入栈</p>
+<p>🍃两个栈帧本是相互独立的，但是虚拟机会做一定的优化，使得n-1的一部分操作数栈与n的一部分局部变量表重叠</p>
+<p>🍃java虚拟机的解释执行引擎称为“基于栈道执行引擎”，栈即指的是操作数栈</p>
+</li>
+<li><p>动态链接</p>
+<p>每个栈帧都包含一个指向运行时常量池中该栈帧所属方法的引用</p>
+</li>
+<li><p>方法返回地址</p>
+<p>一个栈帧有两种方法退出，第一种遇到方法返回的字节码，这是好将返回值传递给方法调用者，这种是<strong>正常完成出口</strong>；第二种是遇到异常时方法退出，被称为<strong>异常完成出口</strong></p>
+<p>退出时可能执行的操作，将返回值雅茹调用者栈帧的操作数栈种，调整PC计数器的值指向方法调用指令后面的一条指令</p>
+</li>
+<li><p>附加信息</p>
+<p>实际开发中，一般会把动态链接、方法返回地址与其他附加信息全部归为一类，称为栈帧信息</p>
+</li>
+</ul>
+<h2 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h2><p>方法调用不等于方法执行，方法调用只是确定调用方法的哪一个版本（<strong>即调用哪一个方法</strong>）。之前学习Class文件的时候已经清楚，在Class文件中所有引用都是符号引用（字面量），没有具体的链接。所以方法的调用可能要在类加载期间甚至到运行期间才能确定目标方法的直接引用。</p>
+<p><strong><u>解析</u></strong></p>
+<p>在类加载的解析阶段，会将其中一部分引用转换为直接引用，⚠️这种解析能成立的前提条件是：方法在程序真正运行前就有一个可确定的调用版本，并且这个方法的调用版本在运行期间是不可改变的。这类方法的调用称为<strong>解析</strong></p>
+<p>在java中符合“编译器可知、运行期不可变”的方法主要静态方法、私有方法两大类，在java虚拟机中有四种调用字节码的方式；只要是通过前面两种指令调用的方法，方法调用就是解析：</p>
+<ul>
+<li>invokestatic 调用static方法</li>
+<li>invokespecial 调用私有方法、<init>、父类方法</init></li>
+<li>invokevirtual 调用虚方法</li>
+<li>invokeinterface 调用接口方法，会在运行时再确定一个实现此接口的对象</li>
+</ul>
+<h2 id="分派"><a href="#分派" class="headerlink" title="分派"></a>分派</h2><p>分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载）</p>
+<h2 id="基于栈的字节码解释执行引擎"><a href="#基于栈的字节码解释执行引擎" class="headerlink" title="基于栈的字节码解释执行引擎"></a>基于栈的字节码解释执行引擎</h2><p>许多java虚拟机的执行引擎在执行java代码时都有解释执行和编译执行两种</p>
+<p><strong><u>解释执行</u></strong></p>
+<pre><code class="mermaid">graph TB
+    A(程序代码)
+    B(词法分析)
+    C(单词流)
+    D(语法分析)
+    E(抽象语法树)
+
+
+    F(优化器 可选)
+    G(中间代码 可选)
+    H(生成器)
+    I(目标代码)
+
+
+    J(指令流 可选)
+    K(解释器)
+    L(解释执行)
+
+    subgraph java编译器
+    A --&gt; B
+    B --&gt; C
+    C --&gt; D
+    D --&gt; E
+    E --&gt; J
+    J --&gt; K
+    K --&gt; L
+    end
+
+    subgraph gcc编译器
+    E --&gt; F
+    F --&gt; G
+    G --&gt; H
+    H --&gt; I
+    end
+
+
+
+
+
+
+</code></pre>
+<p>java语言中，javac编译器完成了程序代码经过词法分析、语法分析、抽象语法树、再遍历语法书生成线性的字节码指令流的过程。</p>
+<p>java编译器输出的指令流，基本上是一种基于栈的指令集（instructions set Architecture，ISA），指令流里面的指令大部分都是零地址指令，它们依赖操作数栈进行工作。</p>
+<p>栈指令集的可移植性是它的一大亮点，它不需要依赖与硬件的结构。但是由于指令的数量以及对内存访问的原因，导致了栈架构指令集的执行速度相对较慢</p>
+<h1 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h1><p>虚拟机栈中每一个栈帧所使用的内存大小是基本确定了的？<br>因为栈帧中的局部变量和操作数是可以大致确定的<br>FULL GC / Major GC 区别</p>
+<p>类静态方法不可被继承？</p>
+<p>java私有方法</p>
+<p>为什么实际类型不能在编译器确定？</p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/java虚拟机/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
   
     
   
@@ -436,109 +889,6 @@ make all
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-修改hexo主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/17/修改hexo主题/">修改hexo主题</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/17/修改hexo主题/" class="archive-article-date">
-  	<time datetime="2019-07-17T05:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <p>模版</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>index</td>
-<td>主页</td>
-</tr>
-<tr>
-<td>post</td>
-<td>在source/post中的文章</td>
-</tr>
-<tr>
-<td>page</td>
-<td>在source中除post的所有文章</td>
-</tr>
-<tr>
-<td>archive</td>
-<td>归档(主页中所有文章的集合预览)</td>
-</tr>
-<tr>
-<td>category</td>
-<td>分类归档</td>
-</tr>
-<tr>
-<td>tag</td>
-<td>标签分类</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>每个模板都默认使用 <code>layout</code> 布局，您可在 front-matter 指定其他布局，或是设为 <code>false</code> 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。
-          
-            <a class="article-more-a" href="/2019/07/17/修改hexo主题/#more">more >></a>
-          
-        
-
-      
-    </li></ul></div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/17/修改hexo主题/">展开全文 >></a>
         </p>
       
 

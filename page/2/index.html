@@ -144,6 +144,109 @@
             
   
     
+      <article id="post-修改hexo主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/修改hexo主题/">修改hexo主题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/17/修改hexo主题/" class="archive-article-date">
+  	<time datetime="2019-07-17T05:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>模版</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td>主页</td>
+</tr>
+<tr>
+<td>post</td>
+<td>在source/post中的文章</td>
+</tr>
+<tr>
+<td>page</td>
+<td>在source中除post的所有文章</td>
+</tr>
+<tr>
+<td>archive</td>
+<td>归档(主页中所有文章的集合预览)</td>
+</tr>
+<tr>
+<td>category</td>
+<td>分类归档</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>标签分类</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>每个模板都默认使用 <code>layout</code> 布局，您可在 front-matter 指定其他布局，或是设为 <code>false</code> 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。
+          
+            <a class="article-more-a" href="/2019/07/17/修改hexo主题/#more">more >></a>
+          
+        
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/17/修改hexo主题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-前端基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -707,172 +810,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/10/排序/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-java实现抽象数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/09/java实现抽象数据结构/">java实现抽象数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/09/java实现抽象数据结构/" class="archive-article-date">
-  	<time datetime="2018-11-08T16:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h1><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="java">class DoubleLink&lt;T&gt;{
-    private Node&lt;T&gt; hNode;
-    private int mCount;
-
-
-    class Node&lt;T&gt;{
-        private Node prev;
-        private Node next;
-        private T value;
-        public Node(T value,Node prev,Node next){
-            this.prev = prev;
-            this.next = next;
-            this.value = value;
-        }
-    }
-    public DoubleLink(){
-        hNode = new Node&lt;T&gt;(null, null, null);       
-        mCount = 0;
-    }
-    public int size(){
-        return mCount;
-    }
-    public boolean isEmpty(){
-        return mCount == 0;
-    }
-    private Node&lt;T&gt; getNode(int index){
-        if(index&lt;0||index&gt;=mCount)throw new IndexOutOfBoundsException();//******/
-        if(index&lt;=mCount/2){
-            Node iNode = hNode.next;
-            for(int i=0;i&lt;index;i++){
-                iNode = iNode.next;
-            }
-            return iNode;
-        }
-        else{
-            int rindex = mCount-index-1;
-            Node rNode = hNode.prev;
-            for(int i=0;i&lt;rindex;i++){
-                rNode = rNode.prev;
-            }
-            return rNode;
-        }
-    }
-    public T get(int index){
-        return getNode(index).value;
-    }
-    public T getFirst(){
-        return getNode(0).value;
-    }
-    public T getLast(){
-        return getNode(mCount-1).value;
-    }
-    //插入到index节点之前
-    public void insert(int index,T value){
-        if (mCount==0) {
-            Node&lt;T&gt; node = new Node&lt;T&gt;(value, hNode, hNode);
-            hNode.next = node;
-            hNode.prev = node;
-            mCount++;
-            return ;
-        }
-        if(index==mCount-1){
-            //Node&lt;T&gt; tnode = getNode(index);  这一步可以省略
-            Node&lt;T&gt; node = new Node&lt;T&gt;(value,hNode.prev,hNode);
-            hNode.prev.next = node;
-            hNode.prev = node;
-            mCount++;
-            return;
-        }
-        Node&lt;T&gt; node = getNode(index);
-        Node&lt;T&gt; tNode = new Node&lt;T&gt;(value,node,node.next);
-        node.next.prev = tNode;
-        node.next = tNode;
-        mCount++;
-        return;
-    }
-    public void insertFirst(T value){
-        Node&lt;T&gt; node = new Node&lt;T&gt;(value,hNode,hNode.next);
-        hNode.next.prev = node;
-        hNode.next = node; 
-        mCount++;
-    }
-    public void appendLast(T value){
-        insert(mCount-1, value);
-    }
-    public void delete(int index){
-        Node&lt;T&gt; node = getNode(index);
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-        node = null;//java的辣鸡回收机制，会回收无法访问的内存
-        mCount--;
-    }
-    public void deleteFirst(){
-        delete(0);
-    }
-    public void deleteLast(){
-        delete(mCount-1);
-    }
-}
-</code></pre>
-          
-            <a class="article-more-a" href="/2018/11/09/java实现抽象数据结构/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/09/java实现抽象数据结构/">展开全文 >></a>
         </p>
       
 
