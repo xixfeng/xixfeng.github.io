@@ -144,6 +144,146 @@
             
   
     
+      <article id="post-java虚拟机方法调用-分派" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/07/java虚拟机方法调用-分派/">java虚拟机方法调用-分派</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/07/java虚拟机方法调用-分派/" class="archive-article-date">
+  	<time datetime="2019-09-07T05:11:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="分派"><a href="#分派" class="headerlink" title="分派"></a>分派</h1><p>分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载）</p>
+<p>重写：子类对父类或接口方法的覆盖；重写需要康调用者</p>
+<p>重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型</p>
+<h2 id="静态分派"><a href="#静态分派" class="headerlink" title="静态分派"></a>静态分派</h2><pre><code class="java">public Class StaticDispatch(){
+    static abstract class Human{}
+    static class Man extends Human{}
+    staitc class Women extends Human{}
+    public void sayHello(Human human){System.out.println(&quot;hello human&quot;)}
+    public void sayHello(Man man){System.out.println(&quot;hello man&quot;)}
+    public void sayHello(Woman woman){System.out.println(&quot;hello women&quot;)}
+    public static void main(String[] args){
+        Human man = new Man();
+        Human women = new Women();
+        StaticDispatch st = new StaticDispatch();
+        st.sayHello(man);
+        st.sayHello(women);
+    }
+}
+
+//输出结果
+//hello human
+//hello human
+</code></pre>
+<p>Human man = new Man(); </p>
+<ul>
+<li>静态类型：Human就是静态类型，静态类型是在编译器可知的</li>
+<li>实际类型：Man就是实际类型，实际类型变化的结果在运行期才可确定</li>
+</ul>
+<pre><code class="java">//实际类型改变
+Human man = new Man();
+man = new Women()
+//静态类型改变
+st.sayHello((Man) man)
+st.sayHello((Women) man)
+</code></pre>
+<p>⚠️编译器在重载时是通过参数的静态类型而不是实际类型作为判定依据的。</p>
+<p>并且静态类型是编译器可知的，所以在编译阶段，javac编译器就根据参数的静态类型决定使用哪个重载版本。</p>
+<p>所以依赖静态类型来定位方法执行版本的分派动作，都被称为<strong>静态分派</strong></p>
+<h2 id="动态分派"><a href="#动态分派" class="headerlink" title="动态分派"></a>动态分派</h2><pre><code class="java">public class DynamicDispatch{
+    static abstract class Human{
+        protected abstract void sayHello();
+    }
+    static class Man extends Human{
+        @override
+        protected void sayHello();{
+            System.out.println(&quot;man say hello&quot;)
+        }
+    }
+    static class Women extends Human{
+        @override
+        protected void sayHello();{
+            System.out.println(&quot;women say hello&quot;)
+        }
+    }
+    public static void main(String[] args){
+        Human man = new Man();
+        Human women = new Women();
+        man.sayHello();
+        women.sayHello();
+        man = new Women();
+        man.sayHello();
+    }
+}
+</code></pre>
+<p>在Class文件中，women.sayHello(),man.sayHello()的字节码是完全一样的</p>
+<p>那么为什么最后执行的函数会不同呢？这个和虚拟机执行invokevirtual指令的多态查找过程有关</p>
+<ol>
+<li>找到操作数栈顶的第一个元素所指向的对象的实际类型C</li>
+<li>如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则进行访问权限校验，如果通过则返回这个方法的直接引用；不通过则返回java.lang.IllegalAccessError异常</li>
+<li>否则，按照继承关系从下往上对C的各个父类进行第2步的搜索和验证</li>
+<li>如果始终没有找到，则抛出java.lang.AbstractMethodError异常</li>
+</ol>
+<p>这个过程就是重写方法的本质</p>
+<h2 id="单分派与多分派"><a href="#单分派与多分派" class="headerlink" title="单分派与多分派"></a>单分派与多分派</h2><p>方法的接收者（重写）与方法的参数（重载）统称为方法的宗量。单分派是根据一个宗量对目标方法进行选择，多分派则是根据多与一个多宗量对目标方法进行选择</p>
+<p>我感觉书上说的有点问题，java同时存在<strong>重写</strong>和<strong>重载</strong>必须结合静态分派、动态分派才能真正完成一个方法的定位，不应该分开说？</p>
+<p>动态分配由于需要频繁的去查找某个类的方法元数据，会导致性能下降。面对这种情况最常见的手段就是为类在方法区中建立一个虚方法表和接口方法表，每当一个类的方法被调用时（加载到内存）就会将方法的地址放入该表中。</p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/07/java虚拟机方法调用-分派/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
   
     
   
@@ -429,128 +569,6 @@ make all
 
     
   
-    
-      <article id="post-前端基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/前端基础/">前端基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/15/前端基础/" class="archive-article-date">
-  	<time datetime="2019-07-15T02:48:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>块级元素、内联元素</p>
-<ul>
-<li>块级元素会自动跳行，内联元素不会；</li>
-</ul>
-<pre><code class="html">&lt;div&gt; 属于块级元素 用作元素的容器，常用来网页布局
-&lt;span&gt; 属于内联元素 用作文本的容器
-</code></pre>
-<p>块级标签</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">center</td>
-<td style="text-align:center">居中对齐块</td>
-<td style="text-align:center">dir</td>
-<td style="text-align:center">目录列表</td>
-</tr>
-<tr>
-<td style="text-align:center">div</td>
-<td style="text-align:center">常用块级元素</td>
-<td style="text-align:center">dl</td>
-<td style="text-align:center">定义列表</td>
-</tr>
-<tr>
-<td style="text-align:center">form</td>
-<td style="text-align:center">交互表单</td>
-<td style="text-align:center">h1-h6</td>
-<td style="text-align:center">标题</td>
-</tr>
-<tr>
-<td style="text-align:center">hr</td>
-<td style="text-align:center">水平分割线</td>
-<td style="text-align:center">menu</td>
-<td style="text-align:center">菜单列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ol</td>
-<td style="text-align:center">排序表单</td>
-<td style="text-align:center">p</td>
-<td style="text-align:center">段落</td>
-</tr>
-<tr>
-<td style="text-align:center">address</td>
-<td style="text-align:center">地址</td>
-<td style="text-align:center">blockquote</td>
-<td style="text-align:center">块应用</td>
-</tr>
-</tbody>
-</table>
-          
-            <a class="article-more-a" href="/2019/07/15/前端基础/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/15/前端基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -674,6 +692,10 @@ make all
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
             
             <div class="clearfix"></div>

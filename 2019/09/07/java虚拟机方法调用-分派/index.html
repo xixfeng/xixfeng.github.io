@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>donate | xixfeng</title>
+  <title>java虚拟机方法调用-分派 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了什么而生活">
-<meta name="keywords" content="谢谢饲主了喵~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="donate">
-<meta property="og:url" content="https://xixfeng.github.io/donate/index.html">
+  <meta name="description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型 静态分派public Class StaticDispatch(){     static abstract class Human{}     static class Man exte">
+<meta name="keywords" content="虚拟机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java虚拟机方法调用-分派">
+<meta property="og:url" content="https://xixfeng.github.io/2019/09/07/java虚拟机方法调用-分派/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="为了什么而生活">
+<meta property="og:description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型 静态分派public Class StaticDispatch(){     static abstract class Human{}     static class Man exte">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/donate.jpg">
-<meta property="og:updated_time" content="2019-05-31T23:21:46.000Z">
+<meta property="og:updated_time" content="2019-09-07T06:51:34.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="donate">
-<meta name="twitter:description" content="为了什么而生活">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/donate.jpg">
+<meta name="twitter:title" content="java虚拟机方法调用-分派">
+<meta name="twitter:description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型 静态分派public Class StaticDispatch(){     static abstract class Human{}     static class Man exte">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="donate-" class="article article-type-donate " itemscope itemprop="blogPost">
+            <article id="post-java虚拟机方法调用-分派" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      donate
+      java虚拟机方法调用-分派
     </h1>
   
 
         
-        <a href="/donate/index.html" class="archive-article-date">
-  	<time datetime="2018-12-20T15:13:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-20</time>
+        <a href="/2019/09/07/java虚拟机方法调用-分派/" class="archive-article-date">
+  	<time datetime="2019-09-07T05:11:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
 </a>
         
       </header>
@@ -166,7 +164,83 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          
+          <h1 id="分派"><a href="#分派" class="headerlink" title="分派"></a>分派</h1><p>分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载）</p>
+<p>重写：子类对父类或接口方法的覆盖；重写需要康调用者</p>
+<p>重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型</p>
+<h2 id="静态分派"><a href="#静态分派" class="headerlink" title="静态分派"></a>静态分派</h2><pre><code class="java">public Class StaticDispatch(){
+    static abstract class Human{}
+    static class Man extends Human{}
+    staitc class Women extends Human{}
+    public void sayHello(Human human){System.out.println(&quot;hello human&quot;)}
+    public void sayHello(Man man){System.out.println(&quot;hello man&quot;)}
+    public void sayHello(Woman woman){System.out.println(&quot;hello women&quot;)}
+    public static void main(String[] args){
+        Human man = new Man();
+        Human women = new Women();
+        StaticDispatch st = new StaticDispatch();
+        st.sayHello(man);
+        st.sayHello(women);
+    }
+}
+
+//输出结果
+//hello human
+//hello human
+</code></pre>
+<p>Human man = new Man(); </p>
+<ul>
+<li>静态类型：Human就是静态类型，静态类型是在编译器可知的</li>
+<li>实际类型：Man就是实际类型，实际类型变化的结果在运行期才可确定</li>
+</ul>
+<pre><code class="java">//实际类型改变
+Human man = new Man();
+man = new Women()
+//静态类型改变
+st.sayHello((Man) man)
+st.sayHello((Women) man)
+</code></pre>
+<p>⚠️编译器在重载时是通过参数的静态类型而不是实际类型作为判定依据的。</p>
+<p>并且静态类型是编译器可知的，所以在编译阶段，javac编译器就根据参数的静态类型决定使用哪个重载版本。</p>
+<p>所以依赖静态类型来定位方法执行版本的分派动作，都被称为<strong>静态分派</strong></p>
+<h2 id="动态分派"><a href="#动态分派" class="headerlink" title="动态分派"></a>动态分派</h2><pre><code class="java">public class DynamicDispatch{
+    static abstract class Human{
+        protected abstract void sayHello();
+    }
+    static class Man extends Human{
+        @override
+        protected void sayHello();{
+            System.out.println(&quot;man say hello&quot;)
+        }
+    }
+    static class Women extends Human{
+        @override
+        protected void sayHello();{
+            System.out.println(&quot;women say hello&quot;)
+        }
+    }
+    public static void main(String[] args){
+        Human man = new Man();
+        Human women = new Women();
+        man.sayHello();
+        women.sayHello();
+        man = new Women();
+        man.sayHello();
+    }
+}
+</code></pre>
+<p>在Class文件中，women.sayHello(),man.sayHello()的字节码是完全一样的</p>
+<p>那么为什么最后执行的函数会不同呢？这个和虚拟机执行invokevirtual指令的多态查找过程有关</p>
+<ol>
+<li>找到操作数栈顶的第一个元素所指向的对象的实际类型C</li>
+<li>如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则进行访问权限校验，如果通过则返回这个方法的直接引用；不通过则返回java.lang.IllegalAccessError异常</li>
+<li>否则，按照继承关系从下往上对C的各个父类进行第2步的搜索和验证</li>
+<li>如果始终没有找到，则抛出java.lang.AbstractMethodError异常</li>
+</ol>
+<p>这个过程就是重写方法的本质</p>
+<h2 id="单分派与多分派"><a href="#单分派与多分派" class="headerlink" title="单分派与多分派"></a>单分派与多分派</h2><p>方法的接收者（重写）与方法的参数（重载）统称为方法的宗量。单分派是根据一个宗量对目标方法进行选择，多分派则是根据多与一个多宗量对目标方法进行选择</p>
+<p>我感觉书上说的有点问题，java同时存在<strong>重写</strong>和<strong>重载</strong>必须结合静态分派、动态分派才能真正完成一个方法的定位，不应该分开说？</p>
+<p>动态分配由于需要频繁的去查找某个类的方法元数据，会导致性能下降。面对这种情况最常见的手段就是为类在方法区中建立一个虚方法表和接口方法表，每当一个类的方法被调用时（加载到内存）就会将方法的地址放入该表中。</p>
+
         
 
       
@@ -223,7 +297,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/donate/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/09/07/java虚拟机方法调用-分派/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -235,6 +309,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/06/leetcode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -256,7 +340,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分派"><span class="toc-number">1.</span> <span class="toc-text">分派</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态分派"><span class="toc-number">1.1.</span> <span class="toc-text">静态分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态分派"><span class="toc-number">1.2.</span> <span class="toc-text">动态分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单分派与多分派"><span class="toc-number">1.3.</span> <span class="toc-text">单分派与多分派</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -266,6 +350,26 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid="java虚拟机方法调用-分派"></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyuo3j8w5",
+        conf: "prod_d14550be6d515829f23fa0799fde66ad"
+    });
+</script>
+
+  
+
+  
+
+  
 
 
           </div>
@@ -288,7 +392,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
