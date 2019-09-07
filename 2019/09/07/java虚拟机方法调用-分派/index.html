@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>java虚拟机方法调用-分派 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型 静态分派public Class StaticDispatch(){     static abstract class Human{}     static class Man exte">
+  <meta name="description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型">
 <meta name="keywords" content="虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java虚拟机方法调用-分派">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/07/java虚拟机方法调用-分派/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型 静态分派public Class StaticDispatch(){     static abstract class Human{}     static class Man exte">
+<meta property="og:description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-07T06:51:34.333Z">
+<meta property="og:updated_time" content="2019-09-07T06:56:43.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java虚拟机方法调用-分派">
-<meta name="twitter:description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型 静态分派public Class StaticDispatch(){     static abstract class Human{}     static class Man exte">
+<meta name="twitter:description" content="分派分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载） 重写：子类对父类或接口方法的覆盖；重写需要康调用者 重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -167,6 +167,7 @@
           <h1 id="分派"><a href="#分派" class="headerlink" title="分派"></a>分派</h1><p>分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载）</p>
 <p>重写：子类对父类或接口方法的覆盖；重写需要康调用者</p>
 <p>重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型</p>
+<a id="more"></a>
 <h2 id="静态分派"><a href="#静态分派" class="headerlink" title="静态分派"></a>静态分派</h2><pre><code class="java">public Class StaticDispatch(){
     static abstract class Human{}
     static class Man extends Human{}

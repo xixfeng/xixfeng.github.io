@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-09-07T06:51:34.333Z</updated>
+  <updated>2019-09-07T06:56:43.379Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="https://xixfeng.github.io/2019/09/07/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8-%E5%88%86%E6%B4%BE/"/>
     <id>https://xixfeng.github.io/2019/09/07/java虚拟机方法调用-分派/</id>
     <published>2019-09-07T05:11:30.000Z</published>
-    <updated>2019-09-07T06:51:34.333Z</updated>
+    <updated>2019-09-07T06:56:43.379Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;分派&quot;&gt;&lt;a href=&quot;#分派&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;分派&quot;&gt;&lt;a href=&quot;#分派&quot; class=&quot;headerlink&quot; title=&quot;分派&quot;&gt;&lt;/a&gt;分派&lt;/h1&gt;&lt;p&gt;分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载）&lt;/p&gt;
+&lt;p&gt;重写：子类对父类或接口方法的覆盖；重写需要康调用者&lt;/p&gt;
+&lt;p&gt;重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型&lt;/p&gt;
     
     </summary>
     
@@ -129,19 +125,32 @@
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
     <published>2019-09-03T12:28:49.000Z</published>
-    <updated>2019-09-07T06:55:25.692Z</updated>
+    <updated>2019-09-07T06:56:52.351Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
+      &lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;方法区 （perm Gen
-        
-      
+&lt;li&gt;方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息&lt;/li&gt;
+&lt;li&gt;虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈&lt;/li&gt;
+&lt;li&gt;方法栈&lt;/li&gt;
+&lt;li&gt;堆：&lt;ul&gt;
+&lt;li&gt;yang Gen 年轻代 （存放容易dead对象）&lt;ul&gt;
+&lt;li&gt;Eden&lt;/li&gt;
+&lt;li&gt;survivor（Two）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Tenured Gen 老年代 （存放不容易dead的对象）&lt;/li&gt;
+&lt;li&gt;常量池&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;程序计数器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中虚拟机栈、方法栈、程序计算器随线程生灭&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类加载器&lt;/li&gt;
+&lt;li&gt;垃圾收集器&lt;/li&gt;
+&lt;li&gt;执行引擎
     
     </summary>
     
