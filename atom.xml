@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-09-07T06:56:43.379Z</updated>
+  <updated>2019-09-08T13:02:04.695Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-二叉树</title>
+    <link href="https://xixfeng.github.io/2019/09/08/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://xixfeng.github.io/2019/09/08/leetcode-二叉树/</id>
+    <published>2019-09-08T11:11:58.000Z</published>
+    <updated>2019-09-08T13:02:04.695Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;二叉树问题主要是递归分解问题&lt;br&gt;一般会用到深度优先遍历DFS 的三种形态&lt;br&gt;以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-链表</title>
+    <link href="https://xixfeng.github.io/2019/09/08/leetcode-%E9%93%BE%E8%A1%A8/"/>
+    <id>https://xixfeng.github.io/2019/09/08/leetcode-链表/</id>
+    <published>2019-09-08T11:11:46.000Z</published>
+    <updated>2019-09-08T12:57:40.407Z</updated>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code class=&quot;python&quot;&gt;def isPalindrome(self, head):
+    fast = slow = head
+    # find the mid node ⚠️ 速度差在链表中的使用
+    while fast and fast.next:
+        fast = fast.next.next
+        slow = slow.next
+    # reverse the second half  ⚠️ 将链表反转
+    node = None
+    while slow:
+        nxt = slow.next
+        slow.next = node
+        node = slow
+        slow = nxt
+    # compare the first and second half nodes
+    while node: # while node and head:
+        if node.val != head.val:
+            return False
+        node = node.next
+        head = head.next
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>java虚拟机方法调用-分派</title>
@@ -35,31 +91,6 @@
     
     
       <category term="虚拟机" scheme="https://xixfeng.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode</title>
-    <link href="https://xixfeng.github.io/2019/09/06/leetcode/"/>
-    <id>https://xixfeng.github.io/2019/09/06/leetcode/</id>
-    <published>2019-09-06T02:04:31.000Z</published>
-    <updated>2019-09-06T06:32:33.827Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;找出链表回文&lt;br&gt;&lt;div&gt;&lt;div class=&quot;fold_hider&quot;&gt;&lt;div class=&quot;close hider_title&quot;&gt;点击显/隐&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;fold&quot;&gt;
-&lt;pre&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
     
   </entry>
   
@@ -125,7 +156,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
     <published>2019-09-03T12:28:49.000Z</published>
-    <updated>2019-09-07T06:56:52.351Z</updated>
+    <updated>2019-09-07T13:15:11.945Z</updated>
     
     <summary type="html">
     
@@ -176,31 +207,6 @@
         
           &lt;p&gt;以C语言为例，介绍一种高级语言从编码到执行的所有底层细节&lt;/p&gt;
 &lt;h1 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>信息可视化</title>
-    <link href="https://xixfeng.github.io/2019/09/02/%E4%BF%A1%E6%81%AF%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    <id>https://xixfeng.github.io/2019/09/02/信息可视化/</id>
-    <published>2019-09-02T02:59:17.000Z</published>
-    <updated>2019-09-02T13:01:44.333Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;可视化通常被理解为一个生成图形的过程。更深刻的认识是，可视化是认知的过程，可视化的终极目的是对事物规律的探索。&lt;/p&gt;
-&lt;p&gt;可视化是指利用人眼的感知能力对数据进行可交互的可视化表达以增强认知的技术（就是将数据表达出来）。它将不可见或难以直接显示的数据转换为可感知的图形、符
         
       
     
