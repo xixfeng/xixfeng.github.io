@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-08T13:02:04.695Z">
+<meta property="og:updated_time" content="2019-09-09T01:44:54.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-二叉树">
 <meta name="twitter:description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
@@ -206,7 +206,7 @@
      return t1
 </code></pre>
 </li>
-<li>12312<br>判断一棵树是不是镜像树，主要是判断左子树和右子树是不是镜像的<br>判断两颗树是不是镜像树，有两个条件</li>
+<li>Mirror Tree<br>判断一棵树是不是镜像树，主要是判断左子树和右子树是不是镜像的<br>判断两颗树是不是镜像树，有两个条件</li>
 </ol>
 <ul>
 <li>两颗树跟节点值相同</li>
@@ -226,7 +226,71 @@
 </code></pre>
 </li>
 </ul>
-
+<ol start="5">
+<li><p>invert Tree<br>简单的递归返回问题</p>
+<pre><code class="python">class Solution(object):
+ def invertTree(self, root):
+     &quot;&quot;&quot;
+     :type root: TreeNode
+     :rtype: TreeNode
+     &quot;&quot;&quot;
+     return self.reverse(root)
+ def reverse(self,root):
+     if not root:return
+     if not root.right and not root.left:return root
+     node_left = self.reverse(root.left)
+     node_right = self.reverse(root.right)
+     root.left = node_right
+     root.right = node_left
+     return root
+</code></pre>
+</li>
+<li><p>Path Sum III<br>每次递归过程中包含递归<br><code>`</code>python<br>class Solution(object):<br> def pathSum(self, root, sum):</p>
+<pre><code> &quot;&quot;&quot;
+ :type root: TreeNode
+ :type sum: int
+ :rtype: int
+ &quot;&quot;&quot;
+ self.count = 0
+ self.sum = sum
+ self.re(root)
+ return self.count
+</code></pre></li>
+</ol>
+<pre><code>def reverseSum(self,root,old):
+    if not root:return
+    old += root.val
+    if old == self.sum: self.count += 1
+    self.reverseSum(root.left,old)
+    self.reverseSum(root.right,old)
+def re(self,root):
+    if not root:return
+    self.reverseSum(root,0)
+    self.re(root.left)
+    self.re(root.right)
+</code></pre><pre><code>
+7. Diameter of Binary Tree
+二叉树中两个邻节点一定是有高低差的，最长路径一定会有一个最高节点
+最长的路径包含的节点数一定是等于 某个节点的左边最长路径节点数+右边最长路径节点数+1
+一道题，记录路径长度和记录路径中的节点大小会有如此大的区别
+```python
+class Solution(object):
+    def diameterOfBinaryTree(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: int
+        &quot;&quot;&quot;
+        self.ans = 1
+        # 找出以root节点为顶的最长路径
+        def deepth(root):
+            if not root:return 0
+            left = deepth(root.left)
+            right = deepth(root.right)
+            self.ans = max(self.ans,left+right+1)
+            return max(left+1,right+1)
+        deepth(root)
+        return self.ans-1
+</code></pre>
         
 
       
