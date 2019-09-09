@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-09T01:44:54.858Z">
+<meta property="og:updated_time" content="2019-09-09T02:12:30.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-二叉树">
 <meta name="twitter:description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
@@ -169,112 +169,116 @@
 </ol>
 <p>递归一般是到左（右）叶子节点再依次向上返回，这里返回的就是父节点的左（右）路径的最大深度</p>
 <ol start="2">
-<li><p>Same Tree<br>同时遍历两棵树</p>
+<li>Same Tree<br>同时遍历两棵树</li>
+</ol>
 <pre><code class="python">class Solution(object):
- def isSameTree(self, p, q):
-     &quot;&quot;&quot;
-     :type p: TreeNode
-     :type q: TreeNode
-     :rtype: bool
-     &quot;&quot;&quot;
-     def check(p,q):
-         if not p or not q: # 如果节点为空，根据情况返回
-             return True if not p and not q else False
-         return False if p.val != q.val else check(p.left,q.left) and check(p.right,q.right) # 当值相等时继续遍历
-     return check(p,q) # 遍历两颗树
+    def isSameTree(self, p, q):
+        &quot;&quot;&quot;
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        &quot;&quot;&quot;
+        def check(p,q):
+            if not p or not q: # 如果节点为空，根据情况返回
+                return True if not p and not q else False
+            return False if p.val != q.val else check(p.left,q.left) and check(p.right,q.right) # 当值相等时继续遍历
+        return check(p,q) # 遍历两颗树
 </code></pre>
-</li>
-<li><p>Merge Two Binary Trees<br>同时遍历两颗树</p>
+<ol start="3">
+<li>Merge Two Binary Trees<br>同时遍历两颗树</li>
+</ol>
 <pre><code class="python">class Solution(object):
- def mergeTrees(self, t1, t2):
-     &quot;&quot;&quot;
-     :type t1: TreeNode
-     :type t2: TreeNode
-     :rtype: TreeNode
-     &quot;&quot;&quot;
-     if not t2 :return t1
-     if not t1 :return t2
-     t1.val += t2.val
-     if not t1.left: # 如果t1的左子树为空，则将t2的左子树交给t1，此时t2.left对t2已经无用可以回收
-         t1.left = t2.left
-         t2.left = None
-     if not t1.right:
-         t1.right = t2.right
-         t2.right = None
-     self.mergeTrees(t1.left,t2.left)
-     self.mergeTrees(t1.right,t2.right)
-     return t1
+    def mergeTrees(self, t1, t2):
+        &quot;&quot;&quot;
+        :type t1: TreeNode
+        :type t2: TreeNode
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        if not t2 :return t1
+        if not t1 :return t2
+        t1.val += t2.val
+        if not t1.left: # 如果t1的左子树为空，则将t2的左子树交给t1，此时t2.left对t2已经无用可以回收
+            t1.left = t2.left
+            t2.left = None
+        if not t1.right:
+            t1.right = t2.right
+            t2.right = None
+        self.mergeTrees(t1.left,t2.left)
+        self.mergeTrees(t1.right,t2.right)
+        return t1
 </code></pre>
-</li>
+<ol start="4">
 <li>Mirror Tree<br>判断一棵树是不是镜像树，主要是判断左子树和右子树是不是镜像的<br>判断两颗树是不是镜像树，有两个条件</li>
 </ol>
 <ul>
 <li>两颗树跟节点值相同</li>
-<li>左树的左子树和右树的右子树是镜像的，左树的右子树和右树的左子树是镜像的<pre><code class="python">class Solution(object):
-  def isSymmetric(self, root):
-      def isMirror(left,right):
-          if not left and not right:return True
-          try:
-              return isMirror(left.left,right.right) and isMirror(left.right,right.left) and left.val == right.val
-          except:
-              return False
-      &quot;&quot;&quot;
-      :type root: TreeNode
-      :rtype: bool
-      &quot;&quot;&quot;
-      return isMirror(root,root)
-</code></pre>
-</li>
+<li>左树的左子树和右树的右子树是镜像的，左树的右子树和右树的左子树是镜像的</li>
 </ul>
-<ol start="5">
-<li><p>invert Tree<br>简单的递归返回问题</p>
 <pre><code class="python">class Solution(object):
- def invertTree(self, root):
-     &quot;&quot;&quot;
-     :type root: TreeNode
-     :rtype: TreeNode
-     &quot;&quot;&quot;
-     return self.reverse(root)
- def reverse(self,root):
-     if not root:return
-     if not root.right and not root.left:return root
-     node_left = self.reverse(root.left)
-     node_right = self.reverse(root.right)
-     root.left = node_right
-     root.right = node_left
-     return root
+    def isSymmetric(self, root):
+        def isMirror(left,right):
+            if not left and not right:return True
+            try:
+                return isMirror(left.left,right.right) and isMirror(left.right,right.left) and left.val == right.val
+            except:
+                return False
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: bool
+        &quot;&quot;&quot;
+        return isMirror(root,root)
 </code></pre>
-</li>
-<li><p>Path Sum III<br>每次递归过程中包含递归<br><code>`</code>python<br>class Solution(object):<br> def pathSum(self, root, sum):</p>
-<pre><code> &quot;&quot;&quot;
- :type root: TreeNode
- :type sum: int
- :rtype: int
- &quot;&quot;&quot;
- self.count = 0
- self.sum = sum
- self.re(root)
- return self.count
-</code></pre></li>
+<ol start="5">
+<li>invert Tree<br>简单的递归返回问题</li>
 </ol>
-<pre><code>def reverseSum(self,root,old):
-    if not root:return
-    old += root.val
-    if old == self.sum: self.count += 1
-    self.reverseSum(root.left,old)
-    self.reverseSum(root.right,old)
-def re(self,root):
-    if not root:return
-    self.reverseSum(root,0)
-    self.re(root.left)
-    self.re(root.right)
-</code></pre><pre><code>
-7. Diameter of Binary Tree
-二叉树中两个邻节点一定是有高低差的，最长路径一定会有一个最高节点
-最长的路径包含的节点数一定是等于 某个节点的左边最长路径节点数+右边最长路径节点数+1
-一道题，记录路径长度和记录路径中的节点大小会有如此大的区别
-```python
-class Solution(object):
+<pre><code class="python">class Solution(object):
+    def invertTree(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: TreeNode
+        &quot;&quot;&quot;
+        return self.reverse(root)
+    def reverse(self,root):
+        if not root:return
+        if not root.right and not root.left:return root
+        node_left = self.reverse(root.left)
+        node_right = self.reverse(root.right)
+        root.left = node_right
+        root.right = node_left
+        return root
+</code></pre>
+<ol start="6">
+<li>Path Sum III<br>每次递归过程中包含递归</li>
+</ol>
+<pre><code class="python">class Solution(object):
+    def pathSum(self, root, sum):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :type sum: int
+        :rtype: int
+        &quot;&quot;&quot;
+        self.count = 0
+        self.sum = sum
+        self.re(root)
+        return self.count
+
+
+    def reverseSum(self,root,old):
+        if not root:return
+        old += root.val
+        if old == self.sum: self.count += 1
+        self.reverseSum(root.left,old)
+        self.reverseSum(root.right,old)
+    def re(self,root):
+        if not root:return
+        self.reverseSum(root,0)
+        self.re(root.left)
+        self.re(root.right)
+</code></pre>
+<ol start="7">
+<li>Diameter of Binary Tree<br>二叉树中两个邻节点一定是有高低差的，最长路径一定会有一个最高节点<br>最长的路径包含的节点数一定是等于 某个节点的左边最长路径节点数+右边最长路径节点数+1<br>一道题，记录路径长度和记录路径中的节点大小会有如此大的区别</li>
+</ol>
+<pre><code class="python">class Solution(object):
     def diameterOfBinaryTree(self, root):
         &quot;&quot;&quot;
         :type root: TreeNode
@@ -291,6 +295,7 @@ class Solution(object):
         deepth(root)
         return self.ans-1
 </code></pre>
+
         
 
       
