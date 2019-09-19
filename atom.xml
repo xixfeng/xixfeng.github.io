@@ -99,17 +99,29 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     <id>https://xixfeng.github.io/2019/09/04/计算机网络/</id>
     <published>2019-09-04T05:47:06.000Z</published>
-    <updated>2019-09-19T09:47:54.706Z</updated>
+    <updated>2019-09-19T09:50:53.256Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;h2
-        
-      
+      &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;h2 id=&quot;Model-of-communication&quot;&gt;&lt;a href=&quot;#Model-of-communication&quot; class=&quot;headerlink&quot; title=&quot;Model of communication&quot;&gt;&lt;/a&gt;Model of communication&lt;/h2&gt;&lt;p&gt;Data Transmission Mode&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Baseband(基带) Transmission&lt;/li&gt;
+&lt;li&gt;Passband(通带) Transmission&lt;ul&gt;
+&lt;li&gt;Broadband(宽带) Transmission&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Signal Encoding&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;analog data&lt;/li&gt;
+&lt;li&gt;digital signal&lt;br&gt;PCM 脉冲调制编码&lt;br&gt;简单的说，模拟信号是连续的波形信号，就像正弦波形一样；数字信号是断续的幅度波形，是用二进制的1和0来表示信号&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Channel Communitaion Mode&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;half-duplex(半双工) communication：传输、接收不能同时进行&lt;/li&gt;
+&lt;li&gt;full-duplex(全双工) communication：传输、接收同时进行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Transmission&lt;br&gt;Asynchronous Transmission&lt;br&gt;Synchronous Transmission&lt;br&gt;同步传输到底是怎么回事&lt;/p&gt;
     
     </summary>
     
@@ -125,7 +137,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-09-18T13:48:45.503Z</updated>
+    <updated>2019-09-19T09:51:10.106Z</updated>
     
     <summary type="html">
     
