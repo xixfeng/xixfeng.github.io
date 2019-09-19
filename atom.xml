@@ -77,13 +77,13 @@
     <link href="https://xixfeng.github.io/2019/09/07/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8-%E5%88%86%E6%B4%BE/"/>
     <id>https://xixfeng.github.io/2019/09/07/java虚拟机方法调用-分派/</id>
     <published>2019-09-07T05:11:30.000Z</published>
-    <updated>2019-09-07T06:56:43.379Z</updated>
+    <updated>2019-09-12T11:18:34.324Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;分派&quot;&gt;&lt;a href=&quot;#分派&quot; class=&quot;headerlink&quot; title=&quot;分派&quot;&gt;&lt;/a&gt;分派&lt;/h1&gt;&lt;p&gt;分派调用过程将会揭示多态性特征的一些最基本的体现（如重写、重载）&lt;/p&gt;
-&lt;p&gt;重写：子类对父类或接口方法的覆盖；重写需要康调用者&lt;/p&gt;
-&lt;p&gt;重载：多个相同名称的方法，根据调用时放入参数的不同执行不同的方法；重载需要康放入参数类型&lt;/p&gt;
+&lt;p&gt;重写：方法覆盖是说子类重新定义了父类的方法。方法覆盖必须有相同的方法名，参数列表和返回类型&lt;/p&gt;
+&lt;p&gt;重载： Java中的方法重载发生在同一个类里面两个或者是多个方法的方法名相同但是参数不同的情况。；重载需要康放入参数类型&lt;/p&gt;
     
     </summary>
     
@@ -99,7 +99,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     <id>https://xixfeng.github.io/2019/09/04/计算机网络/</id>
     <published>2019-09-04T05:47:06.000Z</published>
-    <updated>2019-09-04T14:37:45.228Z</updated>
+    <updated>2019-09-19T09:47:54.706Z</updated>
     
     <summary type="html">
     
@@ -125,22 +125,19 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-09-06T06:32:30.479Z</updated>
+    <updated>2019-09-18T13:48:45.503Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;#introduce&lt;br&gt;两个主要策略&lt;/p&gt;
+      &lt;h1 id=&quot;introduce&quot;&gt;&lt;a href=&quot;#introduce&quot; class=&quot;headerlink&quot; title=&quot;introduce&quot;&gt;&lt;/a&gt;introduce&lt;/h1&gt;&lt;p&gt;两个主要策略&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;intercepter 解释器  python&lt;/li&gt;
 &lt;li&gt;compiler 编译器 C&lt;/li&gt;
 &lt;li&gt;编译器与解释器相比做了更多的预处理&lt;/li&gt;
-&lt;li&gt;二者都使用
-        
-      
+&lt;li&gt;二者都使用 java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码&lt;/p&gt;
+&lt;p&gt;步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler) → 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)&lt;/p&gt;
     
     </summary>
     
@@ -156,7 +153,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
     <published>2019-09-03T12:28:49.000Z</published>
-    <updated>2019-09-07T13:15:11.945Z</updated>
+    <updated>2019-09-17T00:31:58.650Z</updated>
     
     <summary type="html">
     
@@ -172,16 +169,16 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Tenured Gen 老年代 （存放不容易dead的对象）&lt;/li&gt;
-&lt;li&gt;常量池&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;程序计数器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;其中虚拟机栈、方法栈、程序计算器随线程生灭&lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;程序计数器&lt;br&gt;其中虚拟机栈、方法栈、程序计算器随线程生灭&lt;/li&gt;
 &lt;li&gt;类加载器&lt;/li&gt;
 &lt;li&gt;垃圾收集器&lt;/li&gt;
-&lt;li&gt;执行引擎
+&lt;li&gt;&lt;p&gt;执行引擎&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;常量池：编译期被确定，*.class文件中的一部分，包含字面量（Literal）和符号引用（Symbolic Reference）。&lt;br&gt;  JDK1.6之前字符串常量池位于方法区。&lt;br&gt;  JDK1.7字符串常量池已经被移至堆。&lt;br&gt;  JDK1.8字符串常量池位移至元空间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -197,7 +194,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
     <published>2019-09-03T01:10:30.000Z</published>
-    <updated>2019-09-03T12:54:04.920Z</updated>
+    <updated>2019-09-18T05:17:49.157Z</updated>
     
     <summary type="html">
     
@@ -206,7 +203,7 @@
         
         
           &lt;p&gt;以C语言为例，介绍一种高级语言从编码到执行的所有底层细节&lt;/p&gt;
-&lt;h1 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot;
+&lt;h1 id=&quot;计算机总览&quot;&gt;&lt;a href=&quot;#计算机总览&quot; class=&quot;headerlink&quot;
         
       
     

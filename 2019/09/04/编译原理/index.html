@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>编译原理 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
+  <meta name="description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta name="keywords" content="编译器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/04/编译原理/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
+<meta property="og:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
-<meta property="og:updated_time" content="2019-09-06T06:32:30.479Z">
+<meta property="og:updated_time" content="2019-09-18T13:48:45.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
-<meta name="twitter:description" content="#introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
+<meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -166,7 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <p>#introduce<br>两个主要策略</p>
+          <h1 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h1><p>两个主要策略</p>
 <ul>
 <li>intercepter 解释器  python</li>
 <li>compiler 编译器 C</li>
@@ -175,6 +175,7 @@
 </ul>
 <p>编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码</p>
 <p>步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler) → 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)</p>
+<a id="more"></a>
 <h2 id="the-phases-of-a-compiler"><a href="#the-phases-of-a-compiler" class="headerlink" title="the phases of a compiler"></a>the phases of a compiler</h2><ul>
 <li>lexical analyzer 词法分析 </li>
 <li>syntax analyzer 语法分析</li>
@@ -191,6 +192,126 @@
 <li>后端：与目标代码有关</li>
 </ul>
 <p>pass：一般来说编译的一个阶段叫做一次pass(即从头到尾扫描完一次源代码)，但是有些编译器会把某些阶段和并，比如词法、语法分析放在一个pass中<br><img src="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png" alt="21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C"></p>
+<h1 id="lexical-analyzer"><a href="#lexical-analyzer" class="headerlink" title="lexical analyzer"></a>lexical analyzer</h1><p>从源代码中读取字符，并形成最小逻辑单元（tokens 词法单元）</p>
+<ul>
+<li>token：➡由一个词法单元名和一个可选对属性值组成（词素） &lt;id,2&gt; &lt;number,整数100&gt; &lt;add_op&gt;</li>
+<li>pattern：用于匹配字符串的模式</li>
+<li><p>词素：能够被模式匹配到的字符串</p>
+</li>
+<li><p>关键字、运算符、标识符、常量、标点符号</p>
+</li>
+</ul>
+<p><u><strong>词法单元的说明</strong></u></p>
+<p>正则表达式描述了一类字符模版，a|b，ab，a*，优先级依次升高</p>
+<p>二意性（Ambiguity）：一个字符串可以被多个模式匹配，比如关键字。匹配最长的那个串</p>
+<p>单个字符向前看（single-character lookahead）：通过往前多(后)看一个符号，知道单词结束</p>
+<p>多个字符向前看（multi-character lookahead）：通过往前多(后)看一个符号，知道单词结束</p>
+<p>分隔符（Delimiters）：完全没有二意型，知道它不属于单词</p>
+<p><strong><u>词法单元识别</u></strong></p>
+<p>状态转换图：描述状态之间的转换关系</p>
+<ul>
+<li>开始状态：识别处理开始</li>
+<li>结束状态：代表识别过程的结束，加一个*表示最后那个单词不要</li>
+</ul>
+<p>状态转换表</p>
+<p>控制解析流程（任何状态转换图都可以变为状态转换表）</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>letter</th>
+<th>digit</th>
+<th>other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>是否为结束点</p>
+<table>
+<thead>
+<tr>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<p>是否保存输入的值</p>
+<table>
+<thead>
+<tr>
+<th>T</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>有限自动机</strong></u></p>
+<p>也叫作有限状态自动机：用数学的方式去表达某种算法</p>
+<ul>
+<li><p>非确定有限自动机，NFA</p>
+<p>一个输入可能会到多个状态</p>
+<p>从前一个状态转换到后一个状态，不需要输入</p>
+<p>NFA能接受的语言就是所有从开始状态到结束状态所组成的字符</p>
+</li>
+<li><p>确定有限自动机，DFA</p>
+<p>一个输入只会到一个状态</p>
+<p>每一个状态都需要输入</p>
+</li>
+</ul>
+<p><strong><u>将正则表达式转换为NFA</u></strong></p>
+<p>步骤</p>
+<ul>
+<li>构建基本REs的NFA</li>
+<li>The NFA of rs</li>
+<li>The NFA of r|s</li>
+<li>The NFA of r*</li>
+</ul>
+<p><u><strong>将NFA转换为DFA</strong></u></p>
+<p>定义</p>
+<p>t状态闭包：从t出发能到达的所有状态集合（输入必须为 一铺色龙），包括t。其实就是合并等价点</p>
+<p>move[t,a]：从t出发经过一条a边（跳过a边前的任意条 一铺色龙 ）能到达的状态，不包括t</p>
+<p>Dtran[t,a]：求move[t,a]的闭包</p>
+<ul>
+<li>以上的t都可以为状态集合</li>
+</ul>
+<p>步骤</p>
+<p>当求的move分散于终态集合、非终态集合时候，它就需要被拆散</p>
 <p><a href="mailto:yangqiuhui@edu.scu.cn" target="_blank" rel="noopener">yangqiuhui@edu.scu.cn</a><br>教材</p>
 <ul>
 <li>编译原理 赵建华 第二版(本科教学版)</li>
@@ -305,7 +426,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a></li></ol>
                     </div>
                 </span>
             </div>

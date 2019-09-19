@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>project | xixfeng</title>
+  <title>java线程 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了什么而生活">
+  <meta name="description" content="java线程java虚拟机试图定义一种java内存模型（JMM）以忽略硬件对程序对影响达到跨平台的特性JMM主要定义了程序中各个变量的访问规则，即在虚拟机中将变量存储在内存和从内存中取出变量这样的底层细节此处的变量（与java中的变量不一样）是指线程公有的，它包括了实例变量、静态字段、构成数组对象的元素。（不包括局部变量和方法参数，因为它们是线程私有的，不存在竞争问题） JMM规定了所有java所">
 <meta property="og:type" content="website">
-<meta property="og:title" content="project">
-<meta property="og:url" content="https://xixfeng.github.io/project/index.html">
+<meta property="og:title" content="java线程">
+<meta property="og:url" content="https://xixfeng.github.io/False/java内存模型与线程.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="为了什么而生活">
+<meta property="og:description" content="java线程java虚拟机试图定义一种java内存模型（JMM）以忽略硬件对程序对影响达到跨平台的特性JMM主要定义了程序中各个变量的访问规则，即在虚拟机中将变量存储在内存和从内存中取出变量这样的底层细节此处的变量（与java中的变量不一样）是指线程公有的，它包括了实例变量、静态字段、构成数组对象的元素。（不包括局部变量和方法参数，因为它们是线程私有的，不存在竞争问题） JMM规定了所有java所">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-14T05:35:45.176Z">
+<meta property="og:updated_time" content="2019-09-09T12:59:46.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="project">
-<meta name="twitter:description" content="为了什么而生活">
+<meta name="twitter:title" content="java线程">
+<meta name="twitter:description" content="java线程java虚拟机试图定义一种java内存模型（JMM）以忽略硬件对程序对影响达到跨平台的特性JMM主要定义了程序中各个变量的访问规则，即在虚拟机中将变量存储在内存和从内存中取出变量这样的底层细节此处的变量（与java中的变量不一样）是指线程公有的，它包括了实例变量、静态字段、构成数组对象的元素。（不包括局部变量和方法参数，因为它们是线程私有的，不存在竞争问题） JMM规定了所有java所">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -142,207 +142,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <div class="project-wrap">
-  <div class="project-header">
-    <p class="header-text">项目</p>
-    <p class="header-subtitle">莫愁前路无知己，天下谁人不识君</p>
-  </div>
-  <div class="project-body">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java线程
+    </h1>
+  
+
+        
+        <a href="/False/java内存模型与线程.html" class="archive-article-date">
+  	<time datetime="2019-09-07T07:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+</a>
+        
+      </header>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <a href="/project/scuknow.html">
-      <div class="project-items" id="page-">
-        <div class="project-img">
-          <img class="project-img-item" src="http://api.xixfeng.cn/857C544F-DC26-4BCA-A2BF-C4AF392019C1.png">
-        </div>
-        <div class="project-introduce">
-          <h3 class="project-title">
-            ScuKnow
-          </h3>
-          <p class="project-date">
-            2019-7-27 13:07
-          </p>
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="java线程"><a href="#java线程" class="headerlink" title="java线程"></a>java线程</h1><p>java虚拟机试图定义一种java内存模型（JMM）以忽略硬件对程序对影响达到跨平台的特性<br>JMM主要定义了程序中各个变量的访问规则，即在虚拟机中将变量存储在内存和从内存中取出变量这样的底层细节<br>此处的变量（与java中的变量不一样）是指线程公有的，它包括了实例变量、静态字段、构成数组对象的元素。（不包括局部变量和方法参数，因为它们是线程私有的，不存在竞争问题）</p>
+<p>JMM规定了所有java所有变量都存储在<strong>主内存</strong>中，每条线程还有自己的<strong>工作内存</strong>。线程的工作内存保存了主内存中变量的复制。线程对变量的修改都是在工作内存中执行的</p>
+<p>此处的主内存、工作内存与虚拟机java内存区域中的方法区、虚拟机栈、方法栈、堆并不是同一个层次的划分。如果一定要对应，主内存对于java堆中对象的实例数据部分。工作内存对于虚拟机栈的部分区域</p>
+<p><strong><u>工作内存和主内存交互操作</u></strong><br>loco、unlock、read、load、use、assign、store、write 八种基本操作，它们是原子的<br>以及8种基本规则</p>
+<p>volatile:</p>
+<ol>
+<li>线程对该变量的修改对于其他线程是可见的，我猜不是立即可见，还是有一定的时间差</li>
+<li>对该变量的赋值顺序不会被改变</li>
+</ol>
+<p>对于没有声明为volatile 的long、double：JMM允许线程对他们的read、load、store、write不是原子的</p>
+<p>原子性<br>可见性：volatile、synchronized、final<br>有序性<br>synchronized能满足上面三条性质</p>
+<p>先行发生规则：如果A先行发生与B，A产生的操作影响能被B观察到（两项操作的偏序关系）<br>而java中有一些“天然的”满足先行规则的关系。<br>满足先行规则就能保证次序性<br>时间上的先后发生顺序与先行发生原则直接没有联系</p>
+<p><u><strong>java与线程</strong></u></p>
+<p>线程的实现（操作系统）</p>
+<ul>
+<li>内核线程：直接由操作系统内核支持的线程，由内核来完成线程切换、处理器调度</li>
+<li>用户线程：狭义来讲，就是建立在用户空间的线程库上的，系统内核不能感知到线程的存在。用户线程的创建、同步、销毁和调度完全在用户态完成</li>
+<li>混合实现</li>
+</ul>
+<p>java线程是基于操作系统原生线程模型实现的</p>
+<p><u><strong>线程安全</strong></u></p>
+<blockquote>
+<p>线程安全，当多个线程访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者调用方进行其他任何协调操作，调用这个对象的方法都能获得正确的结果时，那这个对象就是线程安全的</p>
+</blockquote>
+<p>共享数据分类</p>
+<ul>
+<li>不可变</li>
+<li>绝对线程安全</li>
+<li>相对线程安全</li>
+<li>线程兼容</li>
+<li>线程对立</li>
+</ul>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
       </div>
-    </a>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <a href="/project/极市.html">
-      <div class="project-items" id="page-">
-        <div class="project-img">
-          <img class="project-img-item" src="http://api.xixfeng.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-29%20%E4%B8%8B%E5%8D%887.56.38.png">
-        </div>
-        <div class="project-introduce">
-          <h3 class="project-title">
-            极市
-          </h3>
-          <p class="project-date">
-            2019-7-27 13:07
-          </p>
-        </div>
-      </div>
-    </a>
-
-    
-    
-    
-    
-    
-    
-    
-    
+    </span>
   </div>
 </div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/java内存模型与线程.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java线程"><span class="toc-number">1.</span> <span class="toc-text">java线程</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
 
 
 
-<style>
-  .test {
-    width: 200px;
-    height: 100px;
-    background: black;
-  }
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyuo3j8w5",
+        conf: "prod_d14550be6d515829f23fa0799fde66ad"
+    });
+</script>
+
+  
+
+  
+
+  
 
 
-  .project-wrap {
-    position: relative;
-    margin: 0 auto;
-    width: 1400px;
-    min-height: 920px;
-    /* 为什么加一个min-height后，下标就可以正常显示了？根据容器内情况，自动判断容器分辨率大小（适用于list大小不定的情况） */
-    background: #4d4d4d;
-  }
-
-  .project-header {
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    width: 1400px;
-    height: 180px;
-    background: snow;
-  }
-
-  .header-text {
-    font-size: 35px;
-    font-weight: 400;
-    font-family: Futura, "futura-pt", Arial, sans-serif;
-    color: black;
-    padding-top: 20px;
-  }
-
-  .header-subtitle {
-    font-size: 20px;
-    font-weight: 200;
-    color: gray;
-  }
-
-  .project-items {
-    width: 1000px;
-    height: 400px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    /* border-radius: 8%; */
-  }
-
-  .project-items:hover {
-    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-    -o-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-  }
-
-  .project-img {
-    float: left;
-    width: 650px;
-    height: 400px;
-    background: black;
-    /* border-radius: 8%; */
-  }
-
-  .project-img-item {
-    width: inherit;
-    height: inherit;
-    /* border-radius: 8%; */
-  }
-
-  .project-introduce {
-    float: left;
-    width: 350px;
-    height: 400px;
-    background: white;
-    text-align: center;
-  }
-
-  .project-title {
-    color: black;
-    font-size: 30px;
-    font-weight: 400;
-    padding-top: 170px;
-    /* line-height: 400px字体上下行高加起来的大小*/
-  }
-
-  .project-date {
-    padding-top: 130px;
-    text-align: right;
-    padding-right: 10px;
-    font-size: 10px;
-    color: gray;
-  }
-</style>
           </div>
         </div>
       </div>

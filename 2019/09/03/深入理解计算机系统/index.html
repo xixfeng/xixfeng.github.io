@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>深入理解计算机系统 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 第一章C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.11f">
+  <meta name="description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解计算机系统">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/03/深入理解计算机系统/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 第一章C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.11f">
+<meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.1">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-03T12:54:04.920Z">
+<meta property="og:updated_time" content="2019-09-18T05:17:49.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
-<meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 第一章C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.11f">
+<meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.1">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -164,7 +164,7 @@
 
         
           <p>以C语言为例，介绍一种高级语言从编码到执行的所有底层细节</p>
-<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>C语言运行的6个阶段</p>
+<h1 id="计算机总览"><a href="#计算机总览" class="headerlink" title="计算机总览"></a>计算机总览</h1><p>C语言运行的6个阶段</p>
 <ul>
 <li>edit：C使用ASCLL编码，以8位（bit）来表示字符</li>
 <li>preprocess：.i文本文件</li>
@@ -174,6 +174,74 @@
 <li>loader</li>
 </ul>
 <p>硬件分层<br>figure1.6<br>figure1.9<br>操作系统分层<br>figure 1.11<br>figure 1.13 !important</p>
+<h1 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h1><p>内存空间编址：字节、字<br>大端优先、小端优先，C语言使用小端优先</p>
+<p>逻辑移动、算数移动：逻辑移动全用0填补，算数右移用左边第一位补齐。<br>C语言是算数移位,左移一位==数字乘以2<br>在C语言中，对于移位操作执行的是逻辑左移和算术右移，不过对于无符号类型，所有的移位操作都是逻辑的。<br>所以要相对一个有符号数执行逻辑右移，那么可以先将它强制类型转换为无符号类型。</p>
+<p>C语言整型溢出会继续计算（错误结果），不会处理<br>无符号和符号之间的转换，不会改变内存序列。真正有区别的是打印的时候printf如何识别这个序列</p>
+<h2 id="整型的存储"><a href="#整型的存储" class="headerlink" title="整型的存储"></a>整型的存储</h2><p>在C语言中int是32位，最高位是符号位，保存数字的补码。</p>
+<ul>
+<li>负数：1s 反码（对应正数的原码1变0，0变1）   2s 补码（反码+1）</li>
+<li>正数：原码 = 反码 = 补码</li>
+</ul>
+<h2 id="浮点数的存储"><a href="#浮点数的存储" class="headerlink" title="浮点数的存储"></a>浮点数的存储</h2><p>二进制浮点数 10.5 == 1010.1<br>BCD 十进制编码的二进制  127.5 == 0001 0010 0111 . 0101<br>IEEE Standard 754</p>
+<ol>
+<li>将浮点数转变为十进制</li>
+<li>移动小数点直到左边只有一个1，移动n位</li>
+<li>单精度指数偏移量 = n + 127</li>
+<li>尾数部分就是现在小数点后面的部分<br><a href="https://blog.csdn.net/crjmail/article/details/79723051" target="_blank" rel="noopener">https://blog.csdn.net/crjmail/article/details/79723051</a></li>
+</ol>
+<h1 id="程序的机器级表示"><a href="#程序的机器级表示" class="headerlink" title="程序的机器级表示"></a>程序的机器级表示</h1><p>指令 = 操作码+操作数</p>
+<p><u><strong>cpu中的寄存器</strong></u><br>32位寄存器</p>
+<ul>
+<li>EAX：一般用于加法</li>
+<li>EBX</li>
+<li>BCX</li>
+<li>EDX</li>
+<li>EBP：栈帧的基地址指针 base pointer of stack frame</li>
+<li>ESP：栈顶指针，就是栈最上面栈帧的指针</li>
+<li>ESI</li>
+<li>EDI</li>
+</ul>
+<p>16位寄存器</p>
+<ul>
+<li>EIP：指令指针，与IR相似<br>  一般是自动递增<br>  jump：改变程序计数器<br>  branch：改变程序计数器</li>
+<li>EFLAG：标志寄存器</li>
+<li>CS：Code segment</li>
+<li>SS：stack segment</li>
+<li>DS：Data segment</li>
+<li>ES： Extra segment</li>
+</ul>
+<p><u><strong>寻址方式</strong></u></p>
+<h2 id="汇编程序"><a href="#汇编程序" class="headerlink" title="汇编程序"></a>汇编程序</h2><p>三种汇编语言的语句</p>
+<ul>
+<li>可执行指令 Executable instruction</li>
+<li>宏指令 Macros</li>
+<li>伪指令 Assembler Directives</li>
+</ul>
+<pre><code class="assembly">.386 
+.model flat, stdcall 
+option casemap :none 
+include \masm32\include\windows.inc 
+include \masm32\include\kernel32.inc 
+include \masm32\include\masm32.inc 
+includelib \masm32\lib\kernel32.lib 
+includelib \masm32\lib\masm32.lib 
+.data 
+ HelloWorld db &quot;Hello World!&quot;, 0 
+.code 
+start: 
+ invoke StdOut, addr HelloWorld 
+ invoke ExitProcess, 0 
+end start 
+</code></pre>
+<ul>
+<li>.386 -汇编指令，告诉汇编器使用386指令集</li>
+<li>.model -指定程序的内存模型</li>
+<li>option casemap :none   -强制标签区区分大小写</li>
+<li>data  –程序中的所有初始化数据</li>
+<li>HelloWorld db “Hello World!”, 0  –db stands for ‘define byte’ and defines HelloWorld to be the string “Hello World!”  followed by a NUL character</li>
+<li>.code  –This is the starting point for the program code. </li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><p>x86</p>
 
         
 
@@ -283,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.1.</span> <span class="toc-text">汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">4.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

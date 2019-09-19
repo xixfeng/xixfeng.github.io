@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>java虚拟机 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象） 常量池   程序计数器  其中虚拟机栈、方法栈、程序计算">
+  <meta name="description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
 <meta name="keywords" content="虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java虚拟机">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/03/java虚拟机/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象） 常量池   程序计数器  其中虚拟机栈、方法栈、程序计算">
+<meta property="og:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-07T13:15:11.945Z">
+<meta property="og:updated_time" content="2019-09-17T00:31:58.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java虚拟机">
-<meta name="twitter:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象） 常量池   程序计数器  其中虚拟机栈、方法栈、程序计算">
+<meta name="twitter:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -176,18 +176,17 @@
 </ul>
 </li>
 <li>Tenured Gen 老年代 （存放不容易dead的对象）</li>
-<li>常量池</li>
 </ul>
 </li>
-<li>程序计数器</li>
-</ul>
-<p>其中虚拟机栈、方法栈、程序计算器随线程生灭</p>
-<ul>
+<li>程序计数器<br>其中虚拟机栈、方法栈、程序计算器随线程生灭</li>
 <li>类加载器</li>
 <li>垃圾收集器</li>
-<li>执行引擎<a id="more"></a>
+<li><p>执行引擎</p>
+</li>
+<li><p>常量池：编译期被确定，*.class文件中的一部分，包含字面量（Literal）和符号引用（Symbolic Reference）。<br>  JDK1.6之前字符串常量池位于方法区。<br>  JDK1.7字符串常量池已经被移至堆。<br>  JDK1.8字符串常量池位移至元空间。</p>
 </li>
 </ul>
+<a id="more"></a>
 <h2 id="java内存区域与内存溢出异常"><a href="#java内存区域与内存溢出异常" class="headerlink" title="java内存区域与内存溢出异常"></a>java内存区域与内存溢出异常</h2><p>java堆溢出</p>
 <ul>
 <li>-verbose:gc -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError</li>
@@ -357,6 +356,30 @@ if（晋升到老年代的平均大小 &gt; 老年代剩余大小）{
 <p><u><strong>字段表集合与字段描述</strong></u><br>字段表（field_info)：用于描述接口或类中声明的变量。包括字段的作用域（public、private、protected）、类级变量还是实例级变量（static修饰符）、可变性（final）、并发可见性（volatile）、是否序列化（transient）、字段类型、字段名称</p>
 <p><u><strong>方法表集合</strong></u><br>方法和字段的描述是十分相近的，只是方法的type中会多出传递参数和返回参数 (Ljava/lang/Object;)Z</p>
 <p><u><strong>属性表集合</strong></u><br>在Class文件、字段表、方法表中都可以携带自己都属性表集合，以描述某些场景都专有信息<br>在code（实例函数）的局部变量表中至少会有一个this（对象实例）的引用，所以max_local&gt;=1，且args_size&gt;=1</p>
+<blockquote>
+<p>变量不外乎成员变量、局部变量两种</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字段 Field 成员变量</td>
+<td>类变量、实例变量</td>
+</tr>
+<tr>
+<td>局部变量</td>
+<td>方法中的变量</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h1 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h1><h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><pre><code class="mermaid">graph LR
     A(加载)
     B(验证)
@@ -550,10 +573,138 @@ E --&gt; C
 <p>java语言中，javac编译器完成了程序代码经过词法分析、语法分析、抽象语法树、再遍历语法书生成线性的字节码指令流的过程。</p>
 <p>java编译器输出的指令流，基本上是一种基于栈的指令集（instructions set Architecture，ISA），指令流里面的指令大部分都是零地址指令，它们依赖操作数栈进行工作。</p>
 <p>栈指令集的可移植性是它的一大亮点，它不需要依赖与硬件的结构。但是由于指令的数量以及对内存访问的原因，导致了栈架构指令集的执行速度相对较慢</p>
-<h1 id="早期（编译器）优化"><a href="#早期（编译器）优化" class="headerlink" title="早期（编译器）优化"></a>早期（编译器）优化</h1><h1 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h1><p>虚拟机栈中每一个栈帧所使用的内存大小是基本确定了的？<br>因为栈帧中的局部变量和操作数是可以大致确定的<br>FULL GC / Major GC 区别</p>
+<h1 id="早期（编译器）优化"><a href="#早期（编译器）优化" class="headerlink" title="早期（编译器）优化"></a>早期（编译器）优化</h1><h2 id="javac编译过程"><a href="#javac编译过程" class="headerlink" title="javac编译过程"></a>javac编译过程</h2><p><u><strong>解析和填充符号表</strong></u></p>
+<p>词法、语法分析：将源代码字符转变为（token）集合，，标记是编译过程的最小元素</p>
+<p>语法分析：生成抽象语法树AST</p>
+<p>填充符号表</p>
+<p><u><strong>注解处理器</strong></u></p>
+<p>注解处理器根据注解去读取、修改、添加抽象语法树中的任意元素。注解处理器相当于编译器的一个插件，有了它的标准api，我们就可以去影响编译的过程</p>
+<p><strong><u>语法分析与字节码生成</u></strong></p>
+<p>语义分析：</p>
+<ul>
+<li><p>标注检查：变量使用前是否声明，变量与赋值之间的数据类型是否能够匹配，常量折叠等等</p>
+</li>
+<li><p>数据及控制流分析：局部变量与字段不同，它在常量池中没有CONSTANT_Field_info的符号引用，自然就没有访问标志的信息</p>
+<p>局部变量在字节码中是如何存储的？</p>
+<p>没有存储在常量池中，而是直接变成了指令集，连名字都没保存</p>
+</li>
+</ul>
+<pre><code>         0: iconst_1
+         1: istore_0 // x = 1 经过javac编译后（x是局部变量）
+</code></pre><ul>
+<li>解语法糖：指在计算机中添加的某种语法糖，这种语法对语言的功能没有影响，但是更方便程序员使用</li>
+<li>字节码生成：实例构造器<init>，类构造器<clinit> 方法就是在这个阶段被添加到语法树之中的</clinit></init></li>
+</ul>
+<h2 id="java语法糖"><a href="#java语法糖" class="headerlink" title="java语法糖"></a>java语法糖</h2><p><strong><u>泛型</u></strong>是JDK1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口、泛型方法</p>
+<p>泛型分为：</p>
+<ul>
+<li>真实泛型：泛型存在于编译期，中间代码期，运行期</li>
+<li>伪泛型：只存在于源码期，在编译后的字节码文件中，就已经被替换为原来的原生类型。java语言中的泛型实现方法称为类型擦除。对于运行期的java语言，ArrayList<string>与ArrayList<int>就是同一个类，因为会把后面的泛型给擦除</int></string></li>
+</ul>
+<p>所谓擦除法仅仅是对方法的code属性中字节码的进行擦除？，实际上元数据中还是保留了泛型信息，这也是我们能通过反射手段取得参数化类型的根本依据</p>
+<p><strong><u>自动装箱、自动拆箱、遍历循环（Foreach）</u></strong></p>
+<p>自动装箱、自动拆箱是什么？</p>
+<p>自动装箱：将基本数据类型转换为包装器类型</p>
+<p>自动拆箱：将包装类型转换为基本数据类型</p>
+<p>java数据类型：</p>
+<ul>
+<li>基本数据类型：boolean、char、byte、short、int、long、floalt、double，在基本数据类型不是对象，不符合一切皆对象的规则</li>
+<li>引用数据类型：所有的对象都是引用数据类型</li>
+<li>包装器类型：基本数据类型的对象，将他们的值给包装进了对象中，增加了可执行的操作</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>包装器类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Charater</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+</tbody>
+</table>
+<h2 id="插入式注解处理器"><a href="#插入式注解处理器" class="headerlink" title="插入式注解处理器"></a>插入式注解处理器</h2><p>注解处理器本身是处理注解，修改编译内容的。</p>
+<p>编译源码的时候编译器更加专注于程序对不对，而不关注程序好不好。但是也有一些辅助工具帮助我们判断程序的好坏</p>
+<p>写出一款检验命名的注解处理器：</p>
+<ul>
+<li>类或接口：符合驼式命名法，首字母大写</li>
+<li>方法：符合驼式命名法，首字母小写</li>
+<li>字段：类或实例变量：符合驼式命名法，首字母小写。常量：要求全部由大些字母或下划线构成，并且第一个字符不能是下划线</li>
+</ul>
+<h1 id="晚期（运行期）优化"><a href="#晚期（运行期）优化" class="headerlink" title="晚期（运行期）优化"></a>晚期（运行期）优化</h1><p><u><strong>JIT</strong></u></p>
+<p>java字节码的执行是依靠解释器的，但当java发现某一块代码使用频率较高时（热点代码 hot spot code），为了提高执行率，JIT会将热点代码编译成于本地平台相关的机器码。所以通常来说java的执行效率会越来越高</p>
+<p>当程序需要迅速启动和执行的时候，解释器可以首先发挥作用，省去编译的时间。当程序执行后，随着时间的推移解释器逐渐发挥作用，提高程序执行效率</p>
+<p>Hotspot虚拟机中内置</p>
+<ul>
+<li>Client Compiler：C1，执行高效率的编译</li>
+<li>Server Compiler：C2，执行更高优化的编译，会采取激进优化</li>
+</ul>
+<p>Hotspot虚拟机启动分为三种模式</p>
+<ul>
+<li>mixed Mode</li>
+<li>Interpreted Mode</li>
+<li>Compiled Mode</li>
+</ul>
+<p>JDK1.6之前，默认使用一个解释器+一个编译器。JDK1.6之后则采用分层模式</p>
+<ul>
+<li>第0层：程序解释执行，解释器不开启性能监控功能，可触发第一层</li>
+<li>第1层：C1，将字节码编译为本地代码，进行简单可靠的优化，有必要将加入性能监控</li>
+<li>第2层及以上：C2，将字节码编译为本地代码，但是会启用一些编译耗时比较长的优化，甚至会根据性能监控信息进行一些不可靠的激进优化</li>
+</ul>
+<p>编译对象</p>
+<ul>
+<li>被多次调用的方法</li>
+<li>被多次调用的循环体：编译器会以整个方法作为编译对象，这种方式因为编译发生在方法执行过程中，因此被很形象的称为栈上替换（On Stack Replacement，OSR）</li>
+</ul>
+<p>编译优化技术</p>
+<ul>
+<li>语言无关的经典优化技术之一：公共子表达式消除</li>
+<li>语言相关的的经典优化技术之一：数组范围检查消除</li>
+<li>最重要的优化技术之一：方法内联</li>
+<li>最前沿的优化技术之一：逃逸分析</li>
+</ul>
+<h1 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h1><p>虚拟机栈中每一个栈帧所使用的内存大小是基本确定了的？<br>因为栈帧中的局部变量和操作数是可以大致确定的<br>FULL GC / Major GC 区别</p>
 <p>类静态方法不可被继承？</p>
 <p>java私有方法</p>
 <p>为什么实际类型不能在编译器确定？</p>
+<p>1）对于==，如果作用于基本数据类型的变量，则直接比较其存储的 “值”是否相等；</p>
+<p>　　　　如果作用于引用类型的变量，则比较的是所指向的对象的地址</p>
+<p>2）对于equals方法，注意：equals方法不能作用于基本数据类型的变量</p>
+<p>　　　　如果没有对equals方法进行重写，则比较的是引用类型的变量所指向的对象的地址；</p>
+<p>　　　　诸如String、Date等类对equals方法进行了重写的话，比较的是所指向的对象的内容。</p>
+<p>　</p>
+<p>一个注解处理器支持所有的注解，但也应该要有注解的地方它才启动？</p>
 
         
 
@@ -663,7 +814,7 @@ E --&gt; C
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java虚拟机"><span class="toc-number">1.</span> <span class="toc-text">java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java内存区域与内存溢出异常"><span class="toc-number">1.1.</span> <span class="toc-text">java内存区域与内存溢出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-number">2.</span> <span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集"><span class="toc-number">2.1.</span> <span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存分配"><span class="toc-number">2.2.</span> <span class="toc-text">内存分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-number">3.</span> <span class="toc-text">虚拟机性能监控与故障处理工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number">4.</span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class类文件结构"><span class="toc-number">4.1.</span> <span class="toc-text">Class类文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-number">5.</span> <span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载过程"><span class="toc-number">5.1.</span> <span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器🍃"><span class="toc-number">5.2.</span> <span class="toc-text">类加载器🍃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-number">6.</span> <span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时虚拟机栈-栈帧结构"><span class="toc-number">6.1.</span> <span class="toc-text">运行时虚拟机栈 栈帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-number">6.2.</span> <span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分派"><span class="toc-number">6.3.</span> <span class="toc-text">分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-number">6.4.</span> <span class="toc-text">基于栈的字节码解释执行引擎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#早期（编译器）优化"><span class="toc-number">7.</span> <span class="toc-text">早期（编译器）优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q"><span class="toc-number">8.</span> <span class="toc-text">Q</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java虚拟机"><span class="toc-number">1.</span> <span class="toc-text">java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java内存区域与内存溢出异常"><span class="toc-number">1.1.</span> <span class="toc-text">java内存区域与内存溢出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-number">2.</span> <span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集"><span class="toc-number">2.1.</span> <span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存分配"><span class="toc-number">2.2.</span> <span class="toc-text">内存分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-number">3.</span> <span class="toc-text">虚拟机性能监控与故障处理工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number">4.</span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class类文件结构"><span class="toc-number">4.1.</span> <span class="toc-text">Class类文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-number">5.</span> <span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载过程"><span class="toc-number">5.1.</span> <span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器🍃"><span class="toc-number">5.2.</span> <span class="toc-text">类加载器🍃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-number">6.</span> <span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时虚拟机栈-栈帧结构"><span class="toc-number">6.1.</span> <span class="toc-text">运行时虚拟机栈 栈帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-number">6.2.</span> <span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分派"><span class="toc-number">6.3.</span> <span class="toc-text">分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-number">6.4.</span> <span class="toc-text">基于栈的字节码解释执行引擎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#早期（编译器）优化"><span class="toc-number">7.</span> <span class="toc-text">早期（编译器）优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#javac编译过程"><span class="toc-number">7.1.</span> <span class="toc-text">javac编译过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java语法糖"><span class="toc-number">7.2.</span> <span class="toc-text">java语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入式注解处理器"><span class="toc-number">7.3.</span> <span class="toc-text">插入式注解处理器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#晚期（运行期）优化"><span class="toc-number">8.</span> <span class="toc-text">晚期（运行期）优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q"><span class="toc-number">9.</span> <span class="toc-text">Q</span></a></li></ol>
                     </div>
                 </span>
             </div>

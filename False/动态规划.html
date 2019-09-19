@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>project | xixfeng</title>
+  <title>动态规划 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为了什么而生活">
+  <meta name="description" content="自底向上：对于任何子问题，直到它依赖的所有子问题都已求解再求解他最优子结构：一个问题的最优解包含了他子问题的最优解状态转移方程：根据状态图写出状态转移方程 最优子结构当一个问题符合最优子结构时，一般就会考虑使用动态规划  刻画一个最优解的结构特征 递归的定义最优解的值 计算最优解的值，通常采用自底向上方法感觉以上做法更适合一纬的动态规划问题  比如在据钢条问题中  求5m长钢条的最优解会依赖1，2">
+<meta name="keywords" content="java">
 <meta property="og:type" content="website">
-<meta property="og:title" content="project">
-<meta property="og:url" content="https://xixfeng.github.io/project/index.html">
+<meta property="og:title" content="动态规划">
+<meta property="og:url" content="https://xixfeng.github.io/False/动态规划.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="为了什么而生活">
+<meta property="og:description" content="自底向上：对于任何子问题，直到它依赖的所有子问题都已求解再求解他最优子结构：一个问题的最优解包含了他子问题的最优解状态转移方程：根据状态图写出状态转移方程 最优子结构当一个问题符合最优子结构时，一般就会考虑使用动态规划  刻画一个最优解的结构特征 递归的定义最优解的值 计算最优解的值，通常采用自底向上方法感觉以上做法更适合一纬的动态规划问题  比如在据钢条问题中  求5m长钢条的最优解会依赖1，2">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-14T05:35:45.176Z">
+<meta property="og:updated_time" content="2019-09-14T07:05:59.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="project">
-<meta name="twitter:description" content="为了什么而生活">
+<meta name="twitter:title" content="动态规划">
+<meta name="twitter:description" content="自底向上：对于任何子问题，直到它依赖的所有子问题都已求解再求解他最优子结构：一个问题的最优解包含了他子问题的最优解状态转移方程：根据状态图写出状态转移方程 最优子结构当一个问题符合最优子结构时，一般就会考虑使用动态规划  刻画一个最优解的结构特征 递归的定义最优解的值 计算最优解的值，通常采用自底向上方法感觉以上做法更适合一纬的动态规划问题  比如在据钢条问题中  求5m长钢条的最优解会依赖1，2">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -142,207 +143,170 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <div class="project-wrap">
-  <div class="project-header">
-    <p class="header-text">项目</p>
-    <p class="header-subtitle">莫愁前路无知己，天下谁人不识君</p>
-  </div>
-  <div class="project-body">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态规划
+    </h1>
+  
+
+        
+        <a href="/False/动态规划.html" class="archive-article-date">
+  	<time datetime="2019-09-07T07:00:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
+</a>
+        
+      </header>
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <a href="/project/scuknow.html">
-      <div class="project-items" id="page-">
-        <div class="project-img">
-          <img class="project-img-item" src="http://api.xixfeng.cn/857C544F-DC26-4BCA-A2BF-C4AF392019C1.png">
-        </div>
-        <div class="project-introduce">
-          <h3 class="project-title">
-            ScuKnow
-          </h3>
-          <p class="project-date">
-            2019-7-27 13:07
-          </p>
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>自底向上：对于任何子问题，直到它依赖的所有子问题都已求解再求解他<br>最优子结构：一个问题的最优解包含了他子问题的最优解<br>状态转移方程：根据状态图写出状态转移方程</p>
+<h1 id="最优子结构"><a href="#最优子结构" class="headerlink" title="最优子结构"></a>最优子结构</h1><p>当一个问题符合最优子结构时，一般就会考虑使用动态规划</p>
+<ul>
+<li>刻画一个最优解的结构特征</li>
+<li>递归的定义最优解的值</li>
+<li>计算最优解的值，通常采用自底向上方法<br>感觉以上做法更适合一纬的动态规划问题</li>
+</ul>
+<p>比如在据钢条问题中</p>
+<ul>
+<li>求5m长钢条的最优解会依赖1，2，3，4m的最优解</li>
+<li>写出求解式</li>
+<li>自顶向下 -&gt; 自底向上</li>
+</ul>
+<h1 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h1><ul>
+<li>画出状态图</li>
+<li>穷举状态</li>
+<li>用数组表示某一个具体的状态</li>
+<li>写出状态转换式，注意状态数组的初始化</li>
+</ul>
+<p>比如leetcode中的六道股票买卖问题，给人的感觉就是所谓动态规划就是通过<strong>问题与子问题的联系（状态转移方程）</strong>从而实现从底向上的穷举（穷举所有可能），所以也可以说是一种不太聪明的方法<br>所谓状态转移式就是：i和i-1之间的关系（如果是多纬，则还有 j和j-1之间的关系、n和n-1之间的关系……）</p>
+<p>处理完bad case后记得重新循环</p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
       </div>
-    </a>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <a href="/project/极市.html">
-      <div class="project-items" id="page-">
-        <div class="project-img">
-          <img class="project-img-item" src="http://api.xixfeng.cn/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-05-29%20%E4%B8%8B%E5%8D%887.56.38.png">
-        </div>
-        <div class="project-introduce">
-          <h3 class="project-title">
-            极市
-          </h3>
-          <p class="project-date">
-            2019-7-27 13:07
-          </p>
-        </div>
-      </div>
-    </a>
-
-    
-    
-    
-    
-    
-    
-    
-    
+    </span>
   </div>
 </div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/动态规划.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#最优子结构"><span class="toc-number">1.</span> <span class="toc-text">最优子结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态转移方程"><span class="toc-number">2.</span> <span class="toc-text">状态转移方程</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
 
 
 
-<style>
-  .test {
-    width: 200px;
-    height: 100px;
-    background: black;
-  }
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyuo3j8w5",
+        conf: "prod_d14550be6d515829f23fa0799fde66ad"
+    });
+</script>
+
+  
+
+  
+
+  
 
 
-  .project-wrap {
-    position: relative;
-    margin: 0 auto;
-    width: 1400px;
-    min-height: 920px;
-    /* 为什么加一个min-height后，下标就可以正常显示了？根据容器内情况，自动判断容器分辨率大小（适用于list大小不定的情况） */
-    background: #4d4d4d;
-  }
-
-  .project-header {
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    width: 1400px;
-    height: 180px;
-    background: snow;
-  }
-
-  .header-text {
-    font-size: 35px;
-    font-weight: 400;
-    font-family: Futura, "futura-pt", Arial, sans-serif;
-    color: black;
-    padding-top: 20px;
-  }
-
-  .header-subtitle {
-    font-size: 20px;
-    font-weight: 200;
-    color: gray;
-  }
-
-  .project-items {
-    width: 1000px;
-    height: 400px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    /* border-radius: 8%; */
-  }
-
-  .project-items:hover {
-    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-    -o-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-  }
-
-  .project-img {
-    float: left;
-    width: 650px;
-    height: 400px;
-    background: black;
-    /* border-radius: 8%; */
-  }
-
-  .project-img-item {
-    width: inherit;
-    height: inherit;
-    /* border-radius: 8%; */
-  }
-
-  .project-introduce {
-    float: left;
-    width: 350px;
-    height: 400px;
-    background: white;
-    text-align: center;
-  }
-
-  .project-title {
-    color: black;
-    font-size: 30px;
-    font-weight: 400;
-    padding-top: 170px;
-    /* line-height: 400px字体上下行高加起来的大小*/
-  }
-
-  .project-date {
-    padding-top: 130px;
-    text-align: right;
-    padding-right: 10px;
-    font-size: 10px;
-    color: gray;
-  }
-</style>
           </div>
         </div>
       </div>

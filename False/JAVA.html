@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>JAVA | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="🍃packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败">
+  <meta name="description" content="1.1 packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败 1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错? 对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转">
 <meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JAVA">
 <meta property="og:url" content="https://xixfeng.github.io/False/JAVA.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="🍃packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败">
+<meta property="og:description" content="1.1 packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败 1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错? 对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-07T13:17:22.074Z">
+<meta property="og:updated_time" content="2019-09-12T11:42:35.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA">
-<meta name="twitter:description" content="🍃packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败">
+<meta name="twitter:description" content="1.1 packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败 1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错? 对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -164,8 +164,129 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <p>🍃package<br>java包名+类名是为了更好的区分同名包<br>一个包中的类不可同名<br>包的命名必须与路径相符合，不然会编译失败</p>
+          <h1 id="1-1-package"><a href="#1-1-package" class="headerlink" title="1.1 package"></a>1.1 package</h1><p>java包名+类名是为了更好的区分同名包<br>一个包中的类不可同名<br>包的命名必须与路径相符合，不然会编译失败</p>
+<h1 id="1-2-short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><a href="#1-2-short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错" class="headerlink" title="1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错?"></a>1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错?</h1><ul>
+<li>对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转换错误。</li>
+<li>对于short s1=1;s1+=1来说 +=是java语言规定的运算符，java编译器会对它进行特殊处理，因此可以正确编译。</li>
+<li>同理，long也不可转换为int。</li>
+</ul>
+<h1 id="1-3-int-与-Integer区别"><a href="#1-3-int-与-Integer区别" class="headerlink" title="1.3 int 与 Integer区别"></a>1.3 int 与 Integer区别</h1><p>1、Integer变量和int变量比较时，只要两个变量的值是向等的，则结果为true（因为包装类Integer和基本数据类型int比较时，java会自动拆包装为int，然后进行比较，实际上就变为两个int变量的比较）</p>
+<pre><code>Integer i = new Integer(100);
+int j = 100；
+System.out.print(i == j); //true
+</code></pre><p>2、非new生成的Integer变量和new Integer()生成的变量比较时，结果为false。（因为非new生成的Integer变量指向的是java常量池中的对象，而new Integer()生成的变量指向堆中新建的对象，两者在内存中的地址不同）</p>
+<pre><code>Integer i = new Integer(100);
+Integer j = 100;
+System.out.print(i == j); //false
 
+# 1.4 
+HashCode()，System.identityHashCode()。不管类有没有重写Object的HashCode()方法，identityHashCode()都使用Object的HashCode()去计算hash值
+对于两个非new生成的Integer对象，进行比较时，如果两个变量的值在区间-128到127之间，则比较结果为true，如果两个变量的值不在此区间，则比较结果为false
+
+</code></pre><p>Integer i = 100;<br>Integer j = 100;<br>System.out.print(i == j); //true 这里的i、j是同一个Integer对象<br>Integer i = 128;<br>Integer j = 128;<br>System.out.print(i == j); //false</p>
+<pre><code>
+对于第4条的原因： 
+java在编译Integer i = 100 ;时，会翻译成为Integer i = Integer.valueOf(100)；，而java API中对Integer类型的valueOf的定义如下：
+</code></pre><p>public static Integer valueOf(int i){<br>    assert IntegerCache.high &gt;= 127;<br>    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){<br>        return IntegerCache.cache[i + (-IntegerCache.low)];<br>    }<br>    return new Integer(i);<br>}</p>
+<pre><code>java对于-128到127之间的数，会进行缓存，Integer i = 127时，会将127进行缓存，下次再写Integer j  = 127时，就会直接从缓存中取，就不会new了
+# 1.5 Java的四个基本特性及多态的理解？
+![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w2pliuhij30js0b8n1z.jpg)
+
+# 1.6 面向对象的六个基本原则
+![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w39fm22gj30vw0hy13y.jpg)
+
+
+# 1.7 Java 创建对象的四种方式
+https://www.cnblogs.com/yunche/p/9530927.html
+- 1.使用new创建对象
+使用new关键字创建对象应该是最常见的一种方式，但我们应该知道，使用new创建对象会增加耦合度。无论使用什么框架，都要减少new的使用以降低耦合度。
+- 2.使用反射的机制创建对象
+使用Class类的newInstance方法
+- 3.采用clone
+clone时，需要已经有一个分配了内存的源对象，创建新对象时，首先应该分配一个和源对象一样大的内存空间。要调用clone方法需要实现Cloneable接口
+- 4.采用序列化机制
+使用序列化时，要实现实现Serializable接口，将一个对象序列化到磁盘上，而采用反序列化可以将磁盘上的对象信息转化到内存中。
+
+# 1.8 String、StringBuffer和StringBuilder的区别
+
+![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w4mh9b0zj30ur06pn0z.jpg)
+![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w4mlg6vej30fe016aa8.jpg)
+
+# 1.9 String Pool
+
+https://github.com/gzc426/CS-Notes/edit/master/docs/notes/Java%20%E5%9F%BA%E7%A1%80.md
+
+字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程中将字符串添加到 String Pool 中。
+
+当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。
+
+下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。
+
+```java
+String s1 = new String(&quot;aaa&quot;);
+String s2 = new String(&quot;aaa&quot;);
+System.out.println(s1 == s2);           // false
+String s3 = s1.intern();
+String s4 = s1.intern();
+System.out.println(s3 == s4);           // true
+</code></pre><p>如果是采用 “bbb” 这种字面量的形式创建字符串，会自动地将字符串放入 String Pool 中。</p>
+<pre><code class="java">String s5 = &quot;bbb&quot;;
+String s6 = &quot;bbb&quot;;
+System.out.println(s5 == s6);  // true
+</code></pre>
+<p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/10578984/what-is-string-interning" target="_blank" rel="noopener">StackOverflow : What is String interning?</a></li>
+<li><a href="https://tech.meituan.com/in_depth_understanding_string_intern.html" target="_blank" rel="noopener">深入解析 String#intern</a></li>
+</ul>
+<h1 id="9-new-String-“abc”"><a href="#9-new-String-“abc”" class="headerlink" title="9 new String(“abc”)"></a>9 new String(“abc”)</h1><p>使用这种方式一共会创建两个字符串对象（前提是 String Pool 中还没有 “abc” 字符串对象）。</p>
+<ul>
+<li>“abc” 属于字符串字面量，因此编译时期会在 String Pool 中创建一个字符串对象，指向这个 “abc” 字符串字面量；</li>
+<li>而使用 new 的方式会在堆中创建一个字符串对象。</li>
+</ul>
+<p>创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</p>
+<pre><code class="java">public class NewStringTest {
+    public static void main(String[] args) {
+        String s = new String(&quot;abc&quot;);
+    }
+}
+</code></pre>
+<p>使用 javap -verbose 进行反编译，得到以下内容：</p>
+<pre><code class="java">// ...
+Constant pool:
+// ...
+   #2 = Class              #18            // java/lang/String
+   #3 = String             #19            // abc
+// ...
+  #18 = Utf8               java/lang/String
+  #19 = Utf8               abc
+// ...
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=2, args_size=1
+         0: new           #2                  // class java/lang/String
+         3: dup
+         4: ldc           #3                  // String abc
+         6: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
+         9: astore_1
+// ...
+</code></pre>
+<p>在 Constant Pool 中，#19 存储这字符串字面量 “abc”，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+<p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
+<pre><code class="java">public String(String original) {
+    this.value = original.value;
+    this.hash = original.hash;
+}
+</code></pre>
+<h1 id="java常用代码"><a href="#java常用代码" class="headerlink" title="* java常用代码"></a>* java常用代码</h1><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
+<pre><code class="java">t <span class="keyword">instanceof</span> Integer
+t.Class.equals()<span class="comment">//判断是否为某个类型</span>
+</code></pre>
+
+</div></div>
         
 
       
@@ -255,7 +376,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-package"><span class="toc-number">1.</span> <span class="toc-text">1.1 package</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><span class="toc-number">2.</span> <span class="toc-text">1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-int-与-Integer区别"><span class="toc-number">3.</span> <span class="toc-text">1.3 int 与 Integer区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-new-String-“abc”"><span class="toc-number">4.</span> <span class="toc-text">9 new String(“abc”)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java常用代码"><span class="toc-number">5.</span> <span class="toc-text">* java常用代码</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -17,7 +17,8 @@
 <meta property="og:description" content="IntroductionModel of communicationData Transmission Mode  Baseband(基带) Transmission Passband(通带) Transmission Broadband(宽带) Transmission    Signal Encoding  analog data digital signal   PCM 脉冲调制编码简单的说">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
-<meta property="og:updated_time" content="2019-09-04T14:37:45.228Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
+<meta property="og:updated_time" content="2019-09-19T09:47:54.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="IntroductionModel of communicationData Transmission Mode  Baseband(基带) Transmission Passband(通带) Transmission Broadband(宽带) Transmission    Signal Encoding  analog data digital signal   PCM 脉冲调制编码简单的说">
@@ -197,9 +198,17 @@
 </ul>
 <p>🌿network core：<br>交换的两个基本功能：集中、复用</p>
 <ul>
-<li>circuit switching（电路交换）</li>
-<li>packet-switching（分组交换）<ol>
-<li>存储转发：中转节点需要将数据全部下载再进行转发。数据每经过一次中转节点，都需要进行一次存储转发。<br>network of networks(互联网)<br>local - Tier2 ISP - Tier1 ISP</li>
+<li><p>circuit switching（线路交换）</p>
+<p>数据是碎片化的，宽带是碎片化的</p>
+<p>FDM  Frequency-division multiplexing <strong>频分多路复用</strong>：一个线路中含有不同的数据</p>
+<p>TDM Time-division multiplexing 时分多路复用：一个时间段内只有一个数据</p>
+</li>
+<li><p>⚠️packet-switching（分组交换）</p>
+<p>each packet uses full link bandwidth 将用户的数据变为包，每一个包都会使用一整个链路</p>
+<ol>
+<li><p>存储转发：中转节点需要将数据全部下载再进行转发。数据每经过一次中转节点，都需要进行一次存储转发。<br> network of networks(互联网)</p>
+<p>local - Tier2 ISP - Tier1 ISP</p>
+</li>
 </ol>
 </li>
 </ul>
@@ -211,11 +220,13 @@ circuit-switched network?
 ▪ 500 msec to establish end-to-end circuit
 </code></pre><p>How do loss and delay occur：<br>🌿loss：buffer溢出造成了丢失<br>delay：</p>
 <pre><code>1. nodal processing（检查错误，决定输出节点 &lt;1ms）
-2. queueing delay (排队延迟 由traffic intensity决定 La/R a：average packet arrival rate)
-3. transmission delay（数据变成信号  L/R    packet length/link bandwidth）
+2. queueing delay (排队延迟 由traffic intensity决定 La/R a：average packet arrival rate)、、、
+、
+</code></pre><p>​    </p>
+<pre><code>3. transmission delay（数据变成信号  L/R    packet length/link bandwidth）
 4. propagation delay （传输时间  d/s）
 </code></pre><p>路由追踪：提供数据从起始地到目的地所经过到路径，但是由于路由算法，每次路径可能不同<br>吞吐量(throughput)：sender/receiver之间bit的传输速率</p>
-<h3 id="internet-layer"><a href="#internet-layer" class="headerlink" title="internet layer"></a>internet layer</h3><p>🌿application: supporting network applications<br>▪ FTP, SMTP, HTTP<br>🌿transport: process-process data<br>transfer<br>▪ TCP, UDP<br>🌿network: routing of datagrams from<br>source to destination<br>▪ IP, routing protocols<br>🌿link: data transfer between<br>neighboring network elements<br>▪ Ethernet, 802.111 (WiFi), PPP<br>🌿 physical: bits “on the wire”</p>
+<h3 id="internet-layer"><a href="#internet-layer" class="headerlink" title="internet layer"></a>internet layer</h3><p>🌿application: supporting network applications，各种协议的实现<br>▪ FTP, SMTP, HTTP<br>🌿transport: process-process data，控制数据的传输<br>▪ TCP, UDP<br>🌿network: routing of datagrams from source to destination   (packet)<br>▪ IP, routing protocols<br>🌿link: data transfer between neighboring network elements      (frame)<br>▪ Ethernet, 802.111 (WiFi), PPP<br>🌿 physical: bits “on the wire”</p>
 <p><img src="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png" alt="E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0"></p>
 <ul>
 <li>有网络层的设备才有ip地址，而图中的交换机是没有的</li>
@@ -224,6 +235,194 @@ circuit-switched network?
 <li>链路层的协议在网卡上</li>
 <li>网络层、传输层的实现都在内核里面</li>
 </ul>
+<p>Each layer in protocol stack, except layer1, has its PDU (protocol data unit) </p>
+<p>❑ Data + header = PDU (Protocol Data Unit)</p>
+<p><img src="http://api.xixfeng.cn/mweb/Overview.jpg" alt="Overview"></p>
+<h1 id="Application-Layer"><a href="#Application-Layer" class="headerlink" title="Application Layer"></a>Application Layer</h1><ul>
+<li><p>client-server </p>
+<p>server farms：cluster，cloud，SPN，LoadBalance</p>
+</li>
+<li><p>peer-to-peer (P2P) </p>
+</li>
+<li><p>hybrid of client-server and P2P</p>
+</li>
+</ul>
+<p>进程间通信：</p>
+<p>标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port）</p>
+<pre><code>为什么不使用PID作为identifier？因为一个主机中程序的PID每次启动都不相同
+</code></pre><h2 id="Internet-transport-protocols-services"><a href="#Internet-transport-protocols-services" class="headerlink" title="Internet transport protocols services"></a>Internet transport protocols services</h2><p>任何internet应用必然需要使用TCP、UDP中一种</p>
+<p><u><strong>TCP</strong></u></p>
+<p>面向连接的可靠数据传输，带有流量控制、拥塞控制</p>
+<p>在分组交换中缺点</p>
+<ul>
+<li>包的传输是跳跃式的，同一时间来自一个host的包会经过不同的路径</li>
+<li>不同的路径会有不同的延迟</li>
+<li>所以包的传输容易出现乱序和丢失</li>
+</ul>
+<p>但是有些数据我需要它们按序到达，保证到达。所以必须在传输层加入大量的控制信息</p>
+<ul>
+<li>connection-oriented: setup required between client and server processes </li>
+<li>reliable transport between sending and receiving process </li>
+<li>flow control （流量控制）: sender won’t overwhelm receiver，当接收端传输层buffer快溢出的时候，发送端停止发送</li>
+<li>congestion control（拥塞控制）: throttle sender when network overloaded ，避免中间节点出现拥塞</li>
+<li>does not provide: timing, minimum throughput guarantees, security</li>
+</ul>
+<p><strong><u>UDP</u></strong></p>
+<p>什么都没有，只负责发送出去</p>
+<p>⚠️但有时候TCP、UDP都不合适，需要找一种中间方式：<strong>在应用层使用UDP组包</strong></p>
+<h2 id="Web-and-HTTP"><a href="#Web-and-HTTP" class="headerlink" title="Web and HTTP"></a>Web and HTTP</h2><p><u><strong>HTTP</strong></u></p>
+<p>HTTP is “stateless”<br>无状态：指每次的请求都是独立的，它的执行情况和结果与前面的请求和之后的请求是无直接关系的，它不会受前面的请求应答情况直接影响，也不会直接影响后面的请求应答情况<br>连接过程</p>
+<ol>
+<li>client initiates TCP connection (creates socket) to server, port 80</li>
+<li>server accepts TCP connection from client</li>
+<li>HTTP messages (applicationlayer protocol messages) exchanged between browser (HTTP client) and Web server (HTTP server)</li>
+<li>TCP connection closed</li>
+</ol>
+<p><strong>HTTP分类</strong></p>
+<ul>
+<li>non-persistent HTTP：计算机发展初期，资源有限必须立马释放</li>
+<li>persistent HTTP：资源变多了，允许保持长连接</li>
+</ul>
+<p>definition of <strong>RTT</strong>: time for a small packet to travel from client to server and back</p>
+<p>请求速度，计算RTT</p>
+<ul>
+<li>HTTP Parallel，非保持HTTP：建立TCP 1 RTT+请求HTML文本 1RTT+ 2RTT（同时请求所有RTT）</li>
+<li>HTTP pipeline，保持HTTP：建立TCP 1 RTT+请求HTML文本 1RTT + 1RTT（一次性线性发出所有请求）</li>
+</ul>
+<pre><code>请求一个http页面，里面有3个object，假设DNS没有消耗时间。
+a 非保持HTTP，没有并行：8RTT 2 + 2*3
+b 非保持HTTP，并行：4RTT  2 + 2
+c 保持HTTP，没有流水线：5RTT  2 + 3
+d 保持HTTP，有流水线：3RTT 2 + 1
+</code></pre><p><strong>Cookies</strong></p>
+<p>cookie file kept on user’s host, managed by user’s browser</p>
+<p><strong>Web caches (proxy server)</strong></p>
+<p>客户端向代理服务器发送请求，假如代理服务器已缓存该内容而直接返回。如果没有缓存则向后面的服务器请求，再转发给客户端</p>
+<p><strong>Condition GET</strong> cache 和server之间</p>
+<p>don’t send object if cache has up-to-date cached version</p>
+<h2 id="some-protocal"><a href="#some-protocal" class="headerlink" title="some protocal"></a>some protocal</h2><p><strong><u>FTP</u></strong></p>
+<p>The File Transfer protocal</p>
+<p>control connection: “out of band”：传输信息和控制信息分别位于两个不同的TCP上</p>
+<p><u><strong>Electronic Mail</strong></u></p>
+<p><strong>SMTP</strong> （user agent -&gt; sender’s mail server，sender’s mail server -&gt; sender’s mail server）</p>
+<ul>
+<li>user agents ：发送、阅读邮件</li>
+<li>mail servers </li>
+<li>simple mail transfer protocol: SMTP</li>
+</ul>
+<p>SMTP uses TCP to reliably transfer email message from client to server, port 25</p>
+<p><strong>POP、IMAP、HTTP</strong>（sender’s mail server -&gt; user agent）</p>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p><a href="https://www.cnblogs.com/xiaogan/p/5954678.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaogan/p/5954678.html</a></p>
+<p>Domain Name System：域名系统</p>
+<ul>
+<li>hostname to IP address translation 讲域名转换为ip地址</li>
+<li>host aliasing  Canonical, alias names，主机别名</li>
+<li>mail server aliasing</li>
+<li>load distribution：一个域名可能对应多个ip地址，DNS服务器也会返回多个ip地址</li>
+</ul>
+<p>为什么不采用集中式DNS服务器：</p>
+<ul>
+<li>single point of failure 单点故障</li>
+<li>traffic volume</li>
+<li>maintenance</li>
+</ul>
+<p><strong>DNS服务器</strong></p>
+<ul>
+<li><p>Root name servers 根名字服务器：</p>
+<p>contacted by local name server that can not resolve name</p>
+<p>gets mapping</p>
+<p>returns mapping to local name server</p>
+</li>
+<li><p>Top-level domain (TLD) servers 顶级域名服务器：com、org</p>
+</li>
+<li><p>Authoritative DNS servers 权威域名服务器：解析以baidu.com结尾的域名</p>
+</li>
+<li><p>Local Name Server</p>
+</li>
+</ul>
+<p><strong>两种查询方式</strong></p>
+<p>迭代查询：现代基本上都是迭代查询，假如Local Name Server知道该域名的映射直接访问，反之则向Root name servers 请求，依次向下请求</p>
+<p>递归查询：Local Name Server -&gt; Root name servers -&gt; 。。。</p>
+<p><strong>DNS records</strong></p>
+<p>RR format：name，value，type，ttl</p>
+<p>type</p>
+<p>A：name是主机名（hostname），vaule是ip，我觉得这里存储的不应该是主机名。应该是域名</p>
+<p>CNAME：name是别名 （ <a href="http://www.ibm.com" target="_blank" rel="noopener">www.ibm.com</a> ），value是真实名字（servereast.backup2.ibm.com）</p>
+<p>NS：name是域名，value是Authoritative DNS servers的主机名</p>
+<p>MX</p>
+<h2 id="Application-layer"><a href="#Application-layer" class="headerlink" title="Application layer"></a>Application layer</h2><p>详细内容在课件 2-75</p>
+<p><u><strong>P2P</strong></u></p>
+<p><strong>文件分布式存储</strong></p>
+<p>tracker：管理和追踪参与Torrent的对等方</p>
+<p>torrent：交换文件块的对等方</p>
+<p>存储目录位置</p>
+<ul>
+<li>centralized directory：locating content is highly centralized</li>
+<li>Query flooding: Gnutella</li>
+</ul>
+<p>如何存储资源</p>
+<p>分布式的hash表 DHT</p>
+<ul>
+<li>为每一个对等方赋予id</li>
+<li>将key m映射到 [0,2^n-1]中</li>
+<li>假如该n值处没有节点，则交给最近的后继</li>
+</ul>
+<p><strong>区块链</strong>（block chain）</p>
+<ul>
+<li><p>分布式账本</p>
+</li>
+<li><p>交易按时间顺序记录</p>
+</li>
+<li><p>共识：如何证明你是个“好人”</p>
+<p> prove of work （POW）：努力工作</p>
+<p> prove of stack（POS）：证明股权（利益）</p>
+</li>
+<li><p>智能合约：一个节点的所有操作都会被记录下来</p>
+</li>
+</ul>
+<h2 id="Socket-programming-with-TCP"><a href="#Socket-programming-with-TCP" class="headerlink" title="Socket programming with TCP"></a>Socket programming with TCP</h2><p><u>socket是基于TCP或者UDP的</u></p>
+<h1 id="Transport-Layer"><a href="#Transport-Layer" class="headerlink" title="Transport Layer"></a>Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
+<p>传输层负责不同程序之间数据的传输，Port</p>
+<h2 id="Multiplexing-and-demultiplexing"><a href="#Multiplexing-and-demultiplexing" class="headerlink" title="Multiplexing and demultiplexing"></a>Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用</p>
+<p>多路分解（rec）：delivering received segments to correct socket 将收到的段交给正确的socket</p>
+<p>多路复用 （send）：gathering data from multiple sockets, enveloping data with header (later used for</p>
+<p>demultiplexing)  收集来自不同socket的data，用头部封装这些数据。⚠️这里不同socket的data会使用不同的头部封装，不是共同使用一个头部。这个也是多路分解的基础</p>
+<p>在UDP中，头部会包含</p>
+<ul>
+<li>SP</li>
+<li>DP</li>
+</ul>
+<p>在TCP中，头部会包含</p>
+<ul>
+<li><p>SP</p>
+</li>
+<li><p>DP</p>
+</li>
+<li><p>S_IP</p>
+</li>
+<li><p>D_IP</p>
+</li>
+</ul>
+<h2 id="Connectionless-transport-UDP"><a href="#Connectionless-transport-UDP" class="headerlink" title="Connectionless transport: UDP"></a>Connectionless transport: UDP</h2><p>用户数据报协议 UDP（User Datagram protocol）</p>
+<p>优点</p>
+<ul>
+<li>无连接</li>
+<li>简单</li>
+<li>报文头简单</li>
+<li>无网络拥塞</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>报文存在丢失</li>
+<li>可能会乱序到达</li>
+</ul>
+<p>使用</p>
+<ul>
+<li>流媒体</li>
+<li>DNS、SNMP</li>
+<li>建立在UDP上的可靠传输，在头中加入长度字段和checksum检验字段（checksum字段如何求）</li>
+</ul>
+<p>socket属于传输层？</p>
 <p>text book:</p>
 <ul>
 <li>Computer Networking: A Top Down Approach Featuring the Internet,计算机网络（自顶向下方法)</li>
@@ -341,7 +540,7 @@ circuit-switched network?
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.1.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet"><span class="toc-number">1.2.</span> <span class="toc-text">Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">internet layer</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.1.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet"><span class="toc-number">1.2.</span> <span class="toc-text">Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">internet layer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-transport-protocols-services"><span class="toc-number">2.1.</span> <span class="toc-text">Internet transport protocols services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.2.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.3.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.4.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">2.5.</span> <span class="toc-text">Application layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.6.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
