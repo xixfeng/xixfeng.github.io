@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-09-09T02:11:46.128Z</updated>
+  <updated>2019-09-23T13:59:08.166Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-排序</title>
+    <link href="https://xixfeng.github.io/2019/09/22/leetcode-%E6%8E%92%E5%BA%8F/"/>
+    <id>https://xixfeng.github.io/2019/09/22/leetcode-排序/</id>
+    <published>2019-09-22T12:43:25.000Z</published>
+    <updated>2019-09-23T13:59:08.166Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;二分查找&quot;&gt;&lt;a href=&quot;#二分查找&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-二叉树</title>
+    <link href="https://xixfeng.github.io/2019/09/08/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://xixfeng.github.io/2019/09/08/leetcode-二叉树/</id>
+    <published>2019-09-08T11:11:58.000Z</published>
+    <updated>2019-09-23T13:58:44.370Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;二叉树问题主要是递归分解问题（以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的）&lt;br&gt;一般会用到深度优先遍历DFS 的三种形态，以及BFS&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode-链表</title>
@@ -628,76 +674,6 @@ make all
     
     
       <category term="测试" scheme="https://xixfeng.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github后端架构师技术图谱</title>
-    <link href="https://xixfeng.github.io/2018/11/17/github%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%B8%88%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1/"/>
-    <id>https://xixfeng.github.io/2018/11/17/github后端架构师技术图谱/</id>
-    <published>2018-11-17T04:06:28.000Z</published>
-    <updated>2019-08-15T05:12:23.142Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;压力测试&quot;&gt;&lt;a href=&quot;#压力测试&quot; class=&quot;headerlink&quot; title=&quot;压力测试&quot;&gt;&lt;/a&gt;压力测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/blueheart20/article/details/52170790&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;apache ab&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;并发&quot;&gt;&lt;a href=&quot;#并发&quot; class=&quot;headerlink&quot; title=&quot;并发&quot;&gt;&lt;/a&gt;并发&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CL0610/Java-concurrency&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;并发知识合集&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;1.同步、异步：同步方法调用一开始，调用者必须等待被调用的方法结束后，调用者后面的代码才能执行。而异步调用，指的是，调用者不用管被调用方法是否完成，都会继续执行后面的代码。&lt;/p&gt;
-&lt;p&gt;2.并发并行：并发和并行是十分容易混淆的概念。并发指的是多个任务交替进行，而并行则是指真正意义上的“同时进行”。实际上，如果系统内只有一个CPU，而使用多线程时，那么真实系统环境下不能并行，只能通过切换时间片的方式交替进行，而成为并发执行任务。真正的并行也只能出现在拥有多个CPU的系统中。&lt;/p&gt;
-&lt;p&gt;3.阻塞和非阻塞：阻塞和非阻塞通常用来形容多线程间的相互影响，比如一个线程占有了临界区资源，那么其他线程需要这个资源就必须进行等待该资源的释放，会导致等待的线程挂起，这种情况就是阻塞，而非阻塞就恰好相反，它强调没有一个线程可以阻塞其他线程，所有的线程都会尝试地往前运行。&lt;strong&gt;线程能否阻塞其他线程&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;4.临界区&lt;/p&gt;
-&lt;p&gt;临界区用来表示一种公共资源或者说是共享数据，可以被多个线程使用。但是每个线程使用时，一旦临界区资源被一个线程占有，那么其他线程必须等待&lt;br&gt;
-    
-    </summary>
-    
-      <category term="资源" scheme="https://xixfeng.github.io/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>排序</title>
-    <link href="https://xixfeng.github.io/2018/11/10/%E6%8E%92%E5%BA%8F/"/>
-    <id>https://xixfeng.github.io/2018/11/10/排序/</id>
-    <published>2018-11-10T12:58:16.000Z</published>
-    <updated>2019-08-15T05:11:16.579Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
-&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot; class=&quot;headerlink&quot; title=&quot;排序类&quot;&gt;&lt;/a&gt;排序类&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class Sort {
-    public static void main(String[] args) {//测试
-        Integer[] test = {8,7,4,5,111,43,22};
-        long startTime = System.nanoTime();   //获取开始时间 
-        Sort.sort(test);
-        long endTime = System.nanoTime(); //获取结束时间  
-        System.out.println((endTime-startTime)+&amp;quot;ns&amp;quot;);    
-        Sort.show(test);
-    }
-    public static void exchange(Comparable[] a,int i,int j){
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-    public static void show(Comparable[] a){
-        for(int i=0;i&amp;lt;a.length;i++){
-            System.out.println(a[i]);
-        }
-    }
-    public static void sort(Comparable[] a){
-
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

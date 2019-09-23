@@ -6,66 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>机器学习 | xixfeng</title>
+  <title>Spring | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习定义definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE 例如在象">
+  <meta name="description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习">
-<meta property="og:url" content="https://xixfeng.github.io/2018/12/02/机器学习/index.html">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="https://xixfeng.github.io/2018/11/02/Spring/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="机器学习定义definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE 例如在象">
+<meta property="og:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/1544323151215.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544323911985.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544276143779.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544279648964.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544281344537.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544281286818.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544282269239.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544282595643.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544799346683.png">
-<meta property="og:image" content="http://api.xixfeng.cn/knn.png">
-<meta property="og:image" content="http://api.xixfeng.cn/regression.png">
-<meta property="og:image" content="http://api.xixfeng.cn/regression1.png">
-<meta property="og:image" content="http://api.xixfeng.cn/regression2.png">
-<meta property="og:image" content="http://api.xixfeng.cn/feature.png">
-<meta property="og:image" content="http://api.xixfeng.cn/feature1.png">
-<meta property="og:image" content="http://api.xixfeng.cn/feature.png">
-<meta property="og:image" content="http://api.xixfeng.cn/feature4.png">
-<meta property="og:image" content="http://api.xixfeng.cn/Regularization.png">
-<meta property="og:image" content="http://api.xixfeng.cn/Regularization1.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543761058776.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543761992763.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543761975824.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543799545787.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543936455505.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543936506353.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543845949309.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543845989686.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543936825031.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543801628739.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543894128910.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543895250196.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543896572458.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543897707155.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543898067066.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543899464984.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543938146499.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544262985947.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544263006550.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543982348485.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1543982802430.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544264342931.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544264961194.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544256721314.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544258592724.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544257181522.png">
-<meta property="og:image" content="http://api.xixfeng.cn/1544257391761.png">
-<meta property="og:updated_time" content="2019-08-15T05:11:07.640Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
+<meta property="og:updated_time" content="2019-09-23T13:59:13.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习">
-<meta name="twitter:description" content="机器学习定义definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE 例如在象">
-<meta name="twitter:image" content="http://api.xixfeng.cn/1544323151215.png">
+<meta name="twitter:title" content="Spring">
+<meta name="twitter:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
+<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -189,20 +145,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-机器学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      机器学习
+      Spring
     </h1>
   
 
         
-        <a href="/2018/12/02/机器学习/" class="archive-article-date">
-  	<time datetime="2018-12-02T07:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
+        <a href="/2018/11/02/Spring/" class="archive-article-date">
+  	<time datetime="2018-11-02T02:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-02</time>
 </a>
         
       </header>
@@ -210,381 +166,319 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="机器学习定义"><a href="#机器学习定义" class="headerlink" title="机器学习定义"></a>机器学习定义</h1><p>definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE</p>
-<p>例如在象棋机器学习中，E就是下象棋的过程，T就是获得胜利，P就是下一次与人下棋时，胜利的概率</p>
-<p>邮件分类中，E就是我们把某一个邮件归结为辣鸡，T就是把邮件分类，P就是下一次遇到新邮件时，成功归类的概率</p>
+          <p><a href="https://www.cnblogs.com/nwu-edu/p/9542074.html" target="_blank" rel="noopener">Spring maven配置</a></p>
+<h1 id="Spring-IOC容器"><a href="#Spring-IOC容器" class="headerlink" title="Spring IOC容器"></a>Spring IOC容器</h1><p>两种读取Beans.xml的方法</p>
+<ul>
+<li>ApplicationContext</li>
+<li>BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。</li>
+</ul>
+<p>在资源宝贵的移动设备或者基于 applet 的应用当中， BeanFactory 会被优先选择。否则，一般使用的是 ApplicationContext，除非你有更好的理由选择 BeanFactory。</p>
+<p><img src="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png" alt="Bean是如何被加载的"></p>
 <a id="more"></a>
-<h1 id="学习算法"><a href="#学习算法" class="headerlink" title="学习算法"></a>学习算法</h1><p>监督学习、无监督学习：有没有一个明确的值，比如新闻分类问题就没有的值，而判断是否有癌症就有明确的值</p>
-<p>分类问题：给特征值，分类，离散的</p>
-<p>回归问题：给特征值，预测数值，连续的</p>
-<p>偏斜类：结果的不同情况概率本身差距很大</p>
-<p><img src="http://api.xixfeng.cn/1544323151215.png" alt="1544323151215"></p>
-<p><strong>precision查准率  recall回调率 解决偏斜类问题</strong> </p>
-<p>查准率：预测正确成功的概率</p>
-<p>回调率：预测错误成功的概率</p>
-<p><img src="http://api.xixfeng.cn/1544323911985.png" alt="1544323911985"></p>
-<p>评估查准率和回调率</p>
-<h1 id="如何优化算法"><a href="#如何优化算法" class="headerlink" title="如何优化算法"></a>如何优化算法</h1><p><img src="http://api.xixfeng.cn/1544276143779.png" alt="1544276143779"></p>
-<p><strong>1.选择合适的模型</strong></p>
-<p>将数据6 2 2划分，一部分作为训练数据，一部分作为（交叉）验证数据 ，一部分作为测试数据</p>
-<p>使用交叉验证来得到最合适的模型，测试数据来得到他的错误率</p>
-<p><img src="http://api.xixfeng.cn/1544279648964.png" alt="1544279648964"></p>
-<p><strong>2.解决过拟合，欠拟合问题</strong></p>
-<p><img src="http://api.xixfeng.cn/1544281344537.png" alt="1544281344537"></p>
-<p><img src="http://api.xixfeng.cn/1544281286818.png" alt="1544281286818"></p>
-<p><strong>3.学习曲线</strong></p>
-<p>解决是否增加数据集的问题</p>
-<h1 id><a href="#" class="headerlink" title></a><img src="http://api.xixfeng.cn/1544282269239.png" alt="1544282269239"></h1><p>判断两条曲线之间距离是否过大</p>
-<p><strong>4.神经网络</strong></p>
-<p><img src="http://api.xixfeng.cn/1544282595643.png" alt="1544282595643"></p>
-<p><strong>5.PCA算法</strong></p>
-<p>将数据降维，更快的进行计算</p>
-<p>降维矩阵？可以根据这个矩阵降维，还原</p>
-<p><img src="http://api.xixfeng.cn/1544799346683.png" alt="1544799346683"></p>
-<h2 id="KNN算法"><a href="#KNN算法" class="headerlink" title="KNN算法"></a>KNN算法</h2><p>  根据特征值建立维度，通过未知物品在这个维度中与其他物品的“距离”来分类</p>
-<p><img src="http://api.xixfeng.cn/knn.png" alt="1543582875003"></p>
-<p>先分类，然后按照更群的距离对该对象进行归类</p>
-<p>步骤</p>
-<ol>
-<li><p>处理数据</p>
-</li>
-<li><p>数据向量化（处理到一个特征维度）</p>
-</li>
-<li><p>计算欧几里得距离（核心）</p>
-</li>
-<li><p>根据距离进行分类</p>
-<pre><code class="python">from numpy import *
-import operator
-from os import listdir
-#这个数据集的行列代表什么，数值代表什么？
-#这个数据集的每一行代表一个“物品”（不同两行可能代表相同“物品”） 每一列代表一个属性 其中的数值代表特征值
-#(个数，测试数据集，训练数据集，分类名称)
-def knn(k,testdata,traindata,labels):
-    #得到行数 tile是numpy里面的
-    traindatasize = traindata.shape[0]
-    #(需扩展的数组，（行扩展倍数，列扩展倍数）)
-    dif = tile(testdata,(traindata.size,1))-traindata
-    sqdif = dif**2
-    #将每一行相加
-    sumsqdif = sqdif.sum(axis=1)
-    dis = sumsqdif**0.5
-    #排序 得到下标序号
-    sortdis = dis.argsort()
-    count = {}
-    for i in range(0,k):
-        vote = labels[sortdis[i]]
-        count[vote] = count.get(vote,0)+1
-    sortcount = sorted(count.items(),key=operator.itemgetter(1),reverse=True)
-    return sortcount[0][0]
+<h2 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h2><p>Bean是Spring应用程序的基础，它是被实例化、组装、并通过SpringIOC容器所管理的对象。这bean是由配置元数据所创建的（如Beans.xml）</p>
+<p>SpringIOC容器所需要知道的配置元数据</p>
+<ul>
+<li>bean的创建方法</li>
+<li>bean的生命周期</li>
+<li>bean的依赖关系</li>
+</ul>
+<p>上述配置元数据被细分为以下部分</p>
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class</td>
+<td>类的名字，具体类的位置</td>
+</tr>
+<tr>
+<td>name</td>
+<td>这个属性指定唯一的 bean 标识符。在基于 XML 的配置元数据中，你可以使用 ID 和/或 name 属性来指定 bean 标识符。</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>这个属性指定由特定的 bean 定义创建的对象的作用域，它将会在 bean 作用域的章节中进行讨论。</td>
+</tr>
+<tr>
+<td>constructor-arg</td>
+<td></td>
+</tr>
+<tr>
+<td>properties</td>
+<td>类函数参数注入值，不是为类变量注入值</td>
+</tr>
+<tr>
+<td>autowiring mode</td>
+<td></td>
+</tr>
+<tr>
+<td>lazy-initialization mode</td>
+<td>延迟初始化的 bean 告诉 IoC 容器在它第一次被请求时，而不是在启动时去创建一个 bean 实例。</td>
+</tr>
+<tr>
+<td>initialization方法</td>
+<td>在 bean 的所有必需的属性被容器设置之后，调用回调方法。它将会在 bean 的生命周期章节中进行讨论</td>
+</tr>
+<tr>
+<td>destruction方法</td>
+<td>当包含该 bean 的容器被销毁时，使用回调方法。它将会在 bean 的生命周期章节中进行讨论。</td>
+</tr>
+</tbody>
+</table>
+<p><strong><u>scope</u></strong></p>
+<table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>singleton</td>
+<td>在spring IoC容器仅存在一个Bean实例，Bean以单例方式存在，默认值</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时，相当于执行newXxxBean()</td>
+</tr>
+<tr>
+<td>request</td>
+<td>每次HTTP请求都会创建一个新的Bean，该作用域仅适用于WebApplicationContext环境</td>
+</tr>
+<tr>
+<td>session</td>
+<td>同一个HTTP Session共享一个Bean，不同Session使用不同的Bean，仅适用于WebApplicationContext环境</td>
+</tr>
+<tr>
+<td>global-session</td>
+<td>一般用于Portlet应用环境，该运用域仅适用于WebApplicationContext环境</td>
+</tr>
+</tbody>
+</table>
+<p><u><strong>生命周期</strong></u></p>
+<p>Bean的生命周期可以表达为：Bean的定义——Bean的初始化——Bean的使用——Bean的销毁 </p>
+<p>创建Bean的<strong>初始化函数</strong>可以使用两种方式</p>
+<ul>
+<li>Bean implements InitializingBean 而后实现afterPropertiesSet()方法</li>
+<li>在xml的bean配置中加入  init-method=”init”  选项</li>
+</ul>
+<p>⚠️Bean初始化函数是<strong>创建实例完成</strong>后执行的</p>
+<p>创建Bean的销毁函数可以使用两种方式</p>
+<ul>
+<li>Bean implements DisposableBean 而后实现destroy()方法</li>
+<li>在xml的bean配置中加入   destroy-method=”destroy” 选项</li>
+</ul>
+<p><u><strong>Bean后置处理器</strong></u></p>
+<p>⚠️Bean后置处理器是<strong>创建实例完成</strong>后执行的</p>
+<p>可以通过实现<strong>BeanPostProcessor</strong> 接口，实现在Bean初始化方法前后的额外处理。</p>
+<p>可以配置配置多个BeanPostProcessor接口，通过设置 BeanPostProcessor 实现的 <strong>Ordered</strong> 接口提供的 <strong>order</strong> 属性来控制这些 BeanPostProcessor 接口的执行顺序。</p>
+<p><strong>ApplicationContext</strong> 会自动检测由 <strong>BeanPostProcessor</strong> 接口的实现定义的 bean，注册这些 bean 为后置处理器，然后通过在容器中创建 bean，在适当的时候调用它。</p>
+<p><u><strong>Bean继承</strong></u></p>
+<p>helloIndia会覆盖message1的值，并继承message2的值</p>
+<pre><code class="xml">   &lt;bean id=&quot;helloWorld&quot; class=&quot;com.tutorialspoint.HelloWorld&quot;&gt;
+      &lt;property name=&quot;message1&quot; value=&quot;Hello World!&quot;/&gt;
+      &lt;property name=&quot;message2&quot; value=&quot;Hello Second World!&quot;/&gt;
+   &lt;/bean&gt;
 
-#读取文件变为一维数组
-def datatoarray(fname):
-    arr = []
-    fh = open(fname)
-    for i in range(0,32):
-        thisline = fh.readline()
-        for j in range(0,32):
-            arr.append(int(thisline[j]))
-    return arr
-
-#取文件前缀，得到lables
-def seplabel(fname):
-    filestr = fname.split(&quot;.&quot;)[0]
-    label = int(filestr.split(&quot;_&quot;)[0])
-    return label
-
-#得到训练数组和标签数组
-def traindata():
-    labels=[]
-    trainfile = listdir(&quot;D:\项目\数据挖掘\数据\图片&quot;)
-    num = len(trainfile)
-    #长度1024（列），每一行存储一个文件
-    #用一个数组存储所有训练数据，行：文件总数，列：1024（32*32存储每一个像素点）
-    trainarr = zeros((num,1024))
-    for i in range(0,num):
-        thisfname = trainfile[i]
-        thislabel = seplabel(thisfname)
-        labels.append(thislabel)
-        trainarr[i,:] = datatoarray(&quot;traindata/&quot;+thisfname)#赋予二维数组一行数据
-        return trainarr,labels
+   &lt;bean id=&quot;helloIndia&quot; class=&quot;com.tutorialspoint.HelloIndia&quot; parent=&quot;helloWorld&quot;&gt;
+      &lt;property name=&quot;message1&quot; value=&quot;Hello India!&quot;/&gt;
+      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
+   &lt;/bean&gt;
 </code></pre>
-</li>
-</ol>
-<h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p><img src="http://api.xixfeng.cn/regression.png" alt="1543763784883"></p>
-<p><strong>同步更新</strong></p>
-<p><img src="http://api.xixfeng.cn/regression1.png" alt="1543764331586"></p>
-<p>其中a为学习率，偏导积分项为该变量的<strong>“斜率”</strong>。</p>
-<p><img src="http://api.xixfeng.cn/regression2.png" alt="1543765659693"></p>
-<p>纠结点</p>
-<ol>
-<li><p>开始有点纠结这里的a代表横轴还是竖轴，但根本不用纠结。因为这里的a就只是一个<strong>控制下降快慢的参数</strong>不存在什么横竖</p>
-</li>
-<li><p><strong>为什么会出现导数？因为求偏导后的正负能帮我们移动参数到底端</strong></p>
-</li>
-<li><p>导数的大小并不影响</p>
-</li>
-<li><p>当a过小时，会导致算法速度太慢；当a过大时，会导致参数无法收敛，甚至发散</p>
-</li>
-<li><p>参数可能会局部收敛</p>
-</li>
-<li><p>这个导数求出来是函数变化最快的地方,即往这个方向走，函数值更容易下降？（但是我觉得更容易下降并没有什么意义）</p>
-</li>
-</ol>
-<p><strong>一些技巧</strong></p>
-<ol>
-<li><strong>特征收缩（feature Scaling）</strong></li>
-</ol>
-<p><img src="http://api.xixfeng.cn/feature.png" alt="1543799861659"></p>
-<p>特征收缩使得我们更快的到达收敛</p>
-<p>那么为什么特征量过大会导致我们算法时间变长呢？因为当特征值过大时，这个特征值需要改变很多才能改变因变量，导致函数拉长，收缩的“路径”变长</p>
-<ol>
-<li>每一项除以最大值，使范围为 -1到 1之间</li>
-<li>保证处理过后的特征值的平均值在0左右</li>
-</ol>
-<p>2.<strong>关于学习率 a的取值</strong></p>
-<p><img src="http://api.xixfeng.cn/feature1.png" alt="1543801153004"></p>
-<p>a太大容易出问题，a太小速度太慢</p>
-<p>3.减少特征值</p>
-<h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>根据代价函数来计算我们的假设函数与真正值之间的偏差</p>
-<h3 id="拟合问题"><a href="#拟合问题" class="headerlink" title="拟合问题"></a>拟合问题</h3><p>过拟合、欠拟合</p>
-<p><img src="http://api.xixfeng.cn/feature.png" alt="1543933779259"></p>
-<p><img src="http://api.xixfeng.cn/feature4.png" alt="1543933862360"></p>
-<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><ol>
-<li><p>减少特征量的数目</p>
-<p> 手动选择，模型选择算法</p>
-</li>
-<li><p>正则化</p>
-<p>不改变特征量数目，但是降低量级或者降低theta的值</p>
-<p>当我们有很多特征值，并且每个特征值对结果都有影响</p>
-</li>
-</ol>
-<h5 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h5><p>通过给想要降低的theta值添加“惩罚函数”，来降低影响较小的theta的值，使假设函数更加简单</p>
-<p><strong>为什么不用对theta0降值呢？</strong></p>
-<p>   <img src="http://api.xixfeng.cn/Regularization.png" alt="1543935135849"></p>
-<p><strong>问题，如何知道哪个参数对结果影响小呢？</strong>并不能知道，所以我们会给所有的参数都加上惩罚函数</p>
-<p> <img src="http://api.xixfeng.cn/Regularization1.png" alt="1543935541114"></p>
-<p>lambda两个目的</p>
-<ol>
-<li>使假设更好的拟合数据集</li>
-<li>使假设函数相对简单，避免出现过拟合</li>
-</ol>
-<p>lambda参数需要平衡这两个目标</p>
-<p>当lambad参数过大时，会使函数欠拟合，当过小时，会发生过度拟合的情况</p>
-<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p><strong>y = a+bx</strong> 次数不大于1</p>
-<h4 id="方法一-梯度下降算法"><a href="#方法一-梯度下降算法" class="headerlink" title="方法一 梯度下降算法"></a>方法一 梯度下降算法</h4><p><strong>代价函数</strong>：通过求代价函数的最小值，帮我们得到最准确的参数的值。我们一般选择平方差作为代价函数。</p>
-<p><img src="http://api.xixfeng.cn/1543761058776.png" alt="1543761058776"></p>
-<p><img src="http://api.xixfeng.cn/1543761992763.png" alt="1543761992763"></p>
-<p><img src="http://api.xixfeng.cn/1543761975824.png" alt="1543761975824"></p>
-<p>​                                利用等高线来表示多维函数</p>
-<p><img src="http://api.xixfeng.cn/1543799545787.png" alt="1543799545787"></p>
-<p>特征值大于等于1时</p>
-<h5 id="加入正则化"><a href="#加入正则化" class="headerlink" title="加入正则化"></a>加入正则化</h5><p><strong>改变代价函数</strong>，更新梯度下降中的J</p>
-<p><img src="http://api.xixfeng.cn/1543936455505.png" alt="1543936455505"></p>
-<p><img src="http://api.xixfeng.cn/1543936506353.png" alt="1543936506353"></p>
-<p><strong>加入正则化后，梯度下降的速率并没有改变</strong></p>
-<h4 id="方法二-正规方程"><a href="#方法二-正规方程" class="headerlink" title="方法二 正规方程"></a>方法二 正规方程</h4><p>直接用正规方程，算出令代价函数最小的参数的值</p>
-<p><img src="http://api.xixfeng.cn/1543845949309.png" alt="1543845949309"></p>
-<p>​                                    X matrix</p>
-<p><img src="http://api.xixfeng.cn/1543845989686.png" alt="1543845989686"></p>
-<p>​                                         直接计算</p>
-<h5 id="加入正则化-1"><a href="#加入正则化-1" class="headerlink" title="加入正则化"></a>加入正则化</h5><p>记住，千万不要正则化X0，因为这个X0是我们人工加进去的，theta的取值和它无关，</p>
-<p>这里有一点很难受的地方，octave下标都是从1开始计算的</p>
-<p><img src="http://api.xixfeng.cn/1543936825031.png" alt="1543936825031"></p>
-<h3 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h3><p><strong>当特征值（包括人工组合featureMap的特征值）越多，参数越准确，但是可能会出现过拟合情况</strong></p>
-<p><img src="http://api.xixfeng.cn/1543801628739.png" alt="1543801628739"></p>
-<p>代价函数没变，梯度下降算法没变</p>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>逻辑回归和线性回归的区别就是</p>
-<ol>
-<li>可以得到概率</li>
-<li>没有选择均方差作为代价函数</li>
-<li>代价函数和假设函数间接相关</li>
-</ol>
-<p>功能：判断是非问题，例如判断邮件是否为垃圾邮件 </p>
-<p><img src="http://api.xixfeng.cn/1543894128910.png" alt="1543894128910"></p>
-<p>假设函数</p>
-<p><img src="http://api.xixfeng.cn/1543895250196.png" alt="1543895250196"></p>
-<p>选择合适的多项式</p>
-<p><img src="http://api.xixfeng.cn/1543896572458.png" alt="1543896572458"></p>
-<p><img src="http://api.xixfeng.cn/1543897707155.png" alt="1543897707155"></p>
-<p>代价函数，和线性回归代价函数不一样</p>
-<p><img src="http://api.xixfeng.cn/1543898067066.png" alt="1543898067066"></p>
-<p><img src="http://api.xixfeng.cn/1543899464984.png" alt="1543899464984"></p>
-<h5 id="加入正则化-2"><a href="#加入正则化-2" class="headerlink" title="加入正则化"></a>加入正则化</h5><p>改变代价</p>
-<p><img src="http://api.xixfeng.cn/1543938146499.png" alt="1543938146499"></p>
-<h2 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h2><p>我们的神经网络，每一个神经节点传给下一层的都是0、1值</p>
-<p><strong>theta n = L(n+1) * Ln+1</strong> </p>
-<p><strong>a n = L(n) * Ln+1</strong> </p>
-<p><strong>z (n+1) = an <em> theta n’ = L(n) </em> L(n+1)</strong></p>
-<p><strong>an(n+1) = sigmoid(z(n+1))</strong></p>
-<p>不要所有的theta值都设置为0，</p>
-<p><img src="http://api.xixfeng.cn/1544262985947.png" alt="1544262985947"></p>
-<p><img src="http://api.xixfeng.cn/1544263006550.png" alt="1544263006550"></p>
-<p><img src="http://api.xixfeng.cn/1543982348485.png" alt="1543982348485"></p>
-<p>神经网络</p>
-<p><img src="http://api.xixfeng.cn/1543982802430.png" alt="1543982802430"></p>
-<p>第j层第i个神经元的激励函数</p>
-<p><img src="http://api.xixfeng.cn/1544264342931.png" alt="1544264342931"></p>
-<p><strong>代价函数，其中的 htheta代表最后一层的theta,k代表第几个输出3，我觉得这个代价函数有问题，因为没用运用隐藏层的theta（我理解有问题，注意看题目中的h代表什么），所以用一般的求偏导的算法很难算出梯度</strong></p>
-<p>注意我们需要每一层额外添加一个无影响的参数，详情参考作业1，因为我们的逻辑回归有一个没有x项的theta0</p>
-<p>且是计算玩过后添加，因为计算前我们相对于上一层是不需要添加的</p>
-<h3 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h3><p>反向传播算法就是神经网络的一个逆向计算，计算的D就是参数梯度。</p>
-<p>不要将所有theta设置为零或者相同的数，这会使得我们隐藏层“学习”不到东西，这与反向传播算法计算的梯度有关</p>
-<p><img src="http://api.xixfeng.cn/1544264961194.png" alt="1544264961194"></p>
-<p><img src="http://api.xixfeng.cn/1544256721314.png" alt="1544256721314"></p>
-<h4 id="梯度检验"><a href="#梯度检验" class="headerlink" title="梯度检验"></a>梯度检验</h4><p>梯度检验计算量十分大，没用必要不用开启</p>
-<p><img src="http://api.xixfeng.cn/1544258592724.png" alt="1544258592724"></p>
-<h3 id="Octave算法"><a href="#Octave算法" class="headerlink" title="Octave算法"></a>Octave算法</h3><p><img src="http://api.xixfeng.cn/1544257181522.png" alt="1544257181522"></p>
-<p><img src="http://api.xixfeng.cn/1544257391761.png" alt="1544257391761"></p>
-<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>参考作业ex3，在这个作业中，并没有使用神经网络，但是训练一个分类器，重点是利用逻辑回归判断，这个东西是本类还是不是本类</p>
-<h2 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h2><p>贝叶斯分类：</p>
-<pre><code class="python">import numpy as npy
-import operator
-class Bayes:
-    def __init__(self):
-        self.length = -1
-        self.labelcount = dict()
-        self.vectorcount = dict()
-    #(已知物体，这些物体的类别)
-    def fit(self,dataSet:list,labels:list):
-        if(len(dataSet)!=len(labels)):
-            return ValueError(&quot;输入的数据数和他们所属的类别数不一样&quot;)
-        self.length = len(dataSet[0])#特征数数量
-        labelnum = len(labels)
-        norlabels = set(labels)
-        for item in norlabels:
-            self.labelcount[item] = labels.count(item)/labelnum#计算每个类别的概率
-        #实现同时遍历两个列表
-        #将每个物体的特征数组存入对应的字典中
-        for vetor,label in zip(dataSet,labels):
-            if(label not in self.vectorcount):
-                self.vectorcount[label] = []
-            self.vectorcount[label].append(vetor)
+<p>使用Bean的Template</p>
+<p>bean的模版本身是抽象的，不能被实例化</p>
+<pre><code class="xml">   &lt;bean id=&quot;beanTeamplate&quot; abstract=&quot;true&quot;&gt;
+      &lt;property name=&quot;message1&quot; value=&quot;Hello World!&quot;/&gt;
+      &lt;property name=&quot;message2&quot; value=&quot;Hello Second World!&quot;/&gt;
+      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
+   &lt;/bean&gt;
 
-        #计算出每个特征量在不同类中的概率
-        #1.行相加2.每一个特征值除以总行数 （记住每个特征值相互独立）
-        for item in self.vectorcount:
-            tem = npy.array(self.vectorcount[item])
-            rowsum = tem.shape[0]#行数
-            temcount = tem.sum(axis=0)#0不同行相加 1不同列相加
-            self.vectorcount[item] = temcount/rowsum
-        print(&quot;训练完毕&quot;)
-        return self
-
-    def btest(self,testdata):
-        if(self.length == -1):
-            return ValueError(&quot;你还没有训练&quot;)
-        tem = npy.array([])
-        pdict = {}
-        for label in self.vectorcount:
-            temp = 1
-            thisdata = self.vectorcount[label]
-            thisp = self.labelcount[label]
-            for item in range(len(testdata)):
-                if testdata[item] == 1:temp = temp*thisdata[item]
-                else: temp = temp*(1-thisdata[item])
-            temp = temp * thisp
-            pdict[label] = temp
-        sortcount = sorted(pdict.items(),key=operator.itemgetter(1),reverse=True)
-        print(sortcount[0])
-        # for item in self.vectorcount:
-
-bayes = Bayes()
-dataSet = [[1,0],[1,0],[0,1],[0,1],[1,1]]
-labels = [&quot;学习好&quot;,&quot;学习好&quot;,&quot;运动好&quot;,&quot;运动好&quot;,&quot;学习好&quot;]
-bayes.fit(dataSet,labels)
-bayes.btest([1,0])
+   &lt;bean id=&quot;helloIndia&quot; class=&quot;com.tutorialspoint.HelloIndia&quot; parent=&quot;beanTeamplate&quot;&gt;
+      &lt;property name=&quot;message1&quot; value=&quot;Hello India!&quot;/&gt;
+      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
+   &lt;/bean&gt;
 </code></pre>
-<h1 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h1><h2 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h2><p>求偏导相当于一元函数找变化率，（把这个图像映射为一元函数，因变量为f，自变量为x）</p>
-<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>单位矩阵</p>
-<p>I <em> A = A</em> I = A<br>矩阵的逆</p>
-<h2 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h2><p>标准差</p>
-<p>标准差是方差的算术平方根</p>
-<h1 id="octave"><a href="#octave" class="headerlink" title="octave"></a>octave</h1><p>：这个符号有点东西</p>
-<ol>
-<li>用来表示范围省略</li>
-<li>1:3 代表取1到3 </li>
-<li>: 代表从开头取到结尾</li>
-</ol>
-<p>[1 3]代表取1和3 </p>
-<p>. 一般代表元素的运算</p>
-<p>octave的 p = zeros(1,m)和 p1 = zeros(m,1)是不一样的，如果p = p1有时候会出现问题</p>
-<p><strong>计算</strong></p>
-<pre><code class="octave">sqrt(10) 开平方
-exp(10) 以e为底，10为指数的幂运算 
-abs(10) 取绝对值
-floor(a) 向下取整
-ceil(a) 向上取整
-max(A,B) 返回一个由A B中最大元素组成的矩阵
-max(A,[],1)    1返回每一列最大值 2返回每一行的最大值
-max(A) 默认求每一列最大值
-sum(A,1) 计算每一列相加
-sum(A,2) 计算每一行相加
+<h1 id="Spring依赖注入"><a href="#Spring依赖注入" class="headerlink" title="Spring依赖注入"></a>Spring依赖注入</h1><p><strong><u>通过构造函数注入</u></strong></p>
+<pre><code class="xml">&lt;beans&gt;
+   &lt;bean id=&quot;foo&quot; class=&quot;x.y.Foo&quot;&gt;
+      &lt;constructor-arg ref=&quot;bar&quot;/&gt; 默认位于构造函数第0个
+      &lt;constructor-arg ref=&quot;baz&quot;/&gt;
+      &lt;constructor-arg type=&quot;int&quot; value=&quot;2019&quot;/&gt;
+      &lt;constructor-arg index=&quot;3&quot; value=&quot;1010&quot;/&gt; 显示指定位于构造函数哪一位
+   &lt;/bean&gt;
 
+   &lt;bean id=&quot;bar&quot; class=&quot;x.y.Bar&quot;/&gt;
+   &lt;bean id=&quot;baz&quot; class=&quot;x.y.Baz&quot;/&gt;
+&lt;/beans&gt;
 </code></pre>
-<p><strong>矩阵相关</strong></p>
-<pre><code class="octave">disp(a)
-disp(sprintf(&#39;2 decimal: %0.2f&#39;,a))
-A = [1 2;3 4;5 6]    ;分割行
-ones(2,3)   生成2行三列全部为1的矩阵
-zeros(1,2)
-rand(1,3) 生成1行3列的随机矩阵
-randn(1,3) 随机生成满足高斯的矩阵 平均值为0 标准差为1 
-eye(3) 生成单位矩阵 
-help eye
-size (a) 返回a矩阵的size
-A(:,2)返回第二列所有数据
-A = [A,[1;2;3]] 给A增加一列
-A(:) 把A变成一个列向量
-A = [A B]组合A B两个矩阵
-A = [A;B]
-A &#39; 求A的转置
-find(A&lt;3) 返回索引
-A&lt;3 返回对应的bealoon值
+<p><u><strong>基于设值函数的依赖注入</strong></u></p>
+<p>这里的property可以是</p>
+<ul>
+<li>类函数的参数：为类函数的参数时，会注入值，并调用这个函数</li>
+</ul>
+<pre><code class="xml">   &lt;!-- Definition for textEditor bean --&gt;
+   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot;&gt;
+      &lt;property name=&quot;spellChecker&quot; ref=&quot;spellChecker&quot;/&gt;
+   &lt;/bean&gt;
+
+   &lt;!-- Definition for spellChecker bean --&gt;
+   &lt;bean id=&quot;spellChecker&quot; class=&quot;com.tutorialspoint.SpellChecker&quot;&gt;
+   &lt;/bean&gt;
 </code></pre>
-<p><strong>系统操作</strong></p>
-<pre><code class="octave">load name 加载文件
-who 显示所有变量
-clear x 删除变量
-save hello.dat x 将x变量保存在本地 保存为二进制
-save hello.txt v -ascll
+<p><u><strong>注入集合</strong></u></p>
+<p>也是基于设值函数的依赖注入</p>
+<p>Spring允许四种集合类型的注入</p>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>它有助于连线，如注入一列值，允许重复。</td>
+</tr>
+<tr>
+<td>set</td>
+<td>它有助于连线一组值，但不能重复。</td>
+</tr>
+<tr>
+<td>map</td>
+<td>它可以用来注入名称-值对的集合，其中名称和值可以是任何类型。</td>
+</tr>
+<tr>
+<td>prop</td>
+<td>它可以用来注入名称-值对的集合，其中名称和值都是字符串类型。</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="xml">&lt;bean id=&quot;javaCollection&quot; class=&quot;com.tutorialspoint.JavaCollection&quot;&gt;
 
+      &lt;!-- results in a setAddressList(java.util.List) call --&gt;
+      &lt;property name=&quot;addressList&quot;&gt;
+         &lt;list&gt;
+            &lt;value&gt;INDIA&lt;/value&gt;
+            &lt;value&gt;Pakistan&lt;/value&gt;
+            &lt;value&gt;USA&lt;/value&gt;
+            &lt;value&gt;USA&lt;/value&gt;
+         &lt;/list&gt;
+      &lt;/property&gt;
+
+      &lt;!-- results in a setAddressSet(java.util.Set) call --&gt;
+      &lt;property name=&quot;addressSet&quot;&gt;
+         &lt;set&gt;
+            &lt;value&gt;INDIA&lt;/value&gt;
+            &lt;value&gt;Pakistan&lt;/value&gt;
+            &lt;value&gt;USA&lt;/value&gt;
+            &lt;value&gt;USA&lt;/value&gt;
+        &lt;/set&gt;
+      &lt;/property&gt;
+
+      &lt;!-- results in a setAddressMap(java.util.Map) call --&gt;
+      &lt;property name=&quot;addressMap&quot;&gt;
+         &lt;map&gt;
+            &lt;entry key=&quot;1&quot; value=&quot;INDIA&quot;/&gt;
+            &lt;entry key=&quot;2&quot; value=&quot;Pakistan&quot;/&gt;
+            &lt;entry key=&quot;3&quot; value=&quot;USA&quot;/&gt;
+            &lt;entry key=&quot;4&quot; value=&quot;USA&quot;/&gt;
+         &lt;/map&gt;
+      &lt;/property&gt;
+
+      &lt;!-- results in a setAddressProp(java.util.Properties) call --&gt;
+      &lt;property name=&quot;addressProp&quot;&gt;
+         &lt;props&gt;
+            &lt;prop key=&quot;one&quot;&gt;INDIA&lt;/prop&gt;
+            &lt;prop key=&quot;two&quot;&gt;Pakistan&lt;/prop&gt;
+            &lt;prop key=&quot;three&quot;&gt;USA&lt;/prop&gt;
+            &lt;prop key=&quot;four&quot;&gt;USA&lt;/prop&gt;
+         &lt;/props&gt;
+      &lt;/property&gt;
+
+   &lt;/bean&gt;
 </code></pre>
-<p><strong>画图</strong></p>
-<pre><code class="octave">plot(x,y)
-hold() 
-title(&quot;my plot&quot;)
-print(&quot;myPlot.png&quot;)
-close
-subplot(2,2,1) 分图
-axis(p[0.5 1 1 2]) 限制坐标范围 
-imagesc(A),colorbar,colormap gray 绘制一个有颜色的图
-
+<p><u><strong>注入内部 Beans</strong></u></p>
+<p>在一个bean的xml文件内声明一个bean</p>
+<p>但是个人感觉内部Bean很鸡肋，本来就是为了抛弃依赖关系而引入的IOC，现在又强行搞依赖关系</p>
+<p>也是通过函数注入值</p>
+<pre><code class="xml">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot;&gt;
+      &lt;property name=&quot;spellChecker&quot;&gt;
+         &lt;bean id=&quot;spellChecker&quot; class=&quot;com.tutorialspoint.SpellChecker&quot;/&gt;
+       &lt;/property&gt;
+   &lt;/bean&gt;
 </code></pre>
-<p><strong>控制语句</strong></p>
-<pre><code class="octave">while i &lt;=5,
-    i = i+1;
-end;
-
-for i = 1:10,
-    disp(i);
-end;
-
-if i == 1,
-    disp(i);
-end;
+<h1 id="Spring-自动装配"><a href="#Spring-自动装配" class="headerlink" title="Spring 自动装配"></a>Spring 自动装配</h1><p>在bean中将<em>autowire</em> 属性设置为 <em>byName</em>，则查找容器中是否有bean的id或者name等于参数名的，假如有，则注入这些bean</p>
+<p>在bean中将<em>auto-wire</em> 属性设置为 <em>byType</em>，则查找容器中是否有bean的class等于参数的class，假如有，则注入这些bean</p>
+<p>在 XML 配置文件中 beans 的 <em>autowire</em> 属性设置为 <em>constructor</em>，这种与byType类似，查找class</p>
+<p>但是当我设置autowire为byName，且参数名称不会bean的id时，依然会自动注入？？？？？？（此时一个class只有一个bean）</p>
+<p>但是当一个class有两个bean时，且参数名称不会bean的id时，依然会自动注入？？？？？？</p>
+<p>那byName和byType有啥子区别？？？？？</p>
+<pre><code class="xml">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot; 
+      autowire=&quot;byType&quot;&gt;
+      &lt;property name=&quot;name&quot; value=&quot;Generic Text Editor&quot; /&gt;
+   &lt;/bean&gt;
 </code></pre>
-<p><strong>函数</strong></p>
-<pre><code class="octave">function y = squareThisNumber(x)
-y = x^2;
-
-function [y1,y2] = squareThisNumber(x)
-y1 = x^2;
-y2 = x^3; 
-
-addpath()  帮助找到我们自定义的function函数
-</code></pre>
-<p>fminunc</p>
-<p>这个函数会自动帮你调整学习    这个函数会自动帮你调整学习率，只需要弄好梯度和代价函数<br>tions = optimset(‘GradObj’, ‘on’, ‘MaxIter’, 400)<br>[theta,cost] = fminunc(@(t)(costFunction(t, X, y)), initial_theta, options);%这个是必须要加的，之前也没有定义的参数<br>%这个函数最开始会把initial_theta赋值给t，然后调用costfunction函数<br>%第一次调用完过后会使用我们的costFunction结果中的grad，将theta = theta - a*grad<br>%再把theta赋值给t，进行二轮计算<br>%！！！！！所以在fminunc里面需要返回Jvalue和grad（梯度）</p>
+<h1 id="Spring-基于注解的配置"><a href="#Spring-基于注解的配置" class="headerlink" title="Spring 基于注解的配置"></a>Spring 基于注解的配置</h1><p><u><strong>@ Required</strong></u></p>
+<p><strong>@Required</strong> 注释应用于 bean 属性的 setter 方法，它表明受影响的 bean 属性在配置时必须放在 XML 配置文件中，否则容器就会抛出一个 BeanInitializationException 异常。</p>
+<p><u><strong>@Autowired</strong></u></p>
+<ul>
+<li>Setter 方法中的 @Autowired：当 Spring遇到一个在 setter 方法中使用的 @Autowired 注释，它会在方法中视图执行 <strong>byType</strong> 自动连接。（对所有setter参数）</li>
+<li>属性中的 @Autowired：ByType自动连接</li>
+<li>构造函数中的@Autowired：与Setter方法类似</li>
+</ul>
+<p>默认情况下，@Autowired 注释意味着依赖是必须的，它类似于 @Required 注释，然而，你可以使用 @Autowired 的 <strong>（required=false）</strong> 选项关闭默认行为。</p>
+<p><u><strong>@Qualifier</strong></u></p>
+<p>当有多个Bean是同一类型的时候，可以使用@Qualifier指定注入bean的id</p>
+<p><u><strong>JSR-250注释</strong></u></p>
+<p>可以使用 <strong>@PostConstruct</strong> 注释作为初始化回调函数的一个替代，<strong>@PreDestroy</strong> 注释作为销毁回调函数的一个替代</p>
+<p><strong>@Resource(name = “youki”)</strong>使用在字段或函数上，与<strong>byName</strong>语义相同，假如没有指定name，就以字段名称或参数名称为默认</p>
+<p><u><strong>基于java的配置</strong></u></p>
+<p>带有 <strong>@Configuration</strong> 的注解类表示这个类作为 bean 定义的来源 被 Spring IoC 容器加载。<strong>@Bean</strong> 注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。⚠️通过这种方法注册config类、获取Bean时，要传入目标类的Class（类型类）</p>
+<p><strong>@import</strong> 注解允许从另一个配置类中加载 @Bean 定义。即一个配置类B使用这个注解引入A后，它就包含了A的bean配置。最后在上下文注册时，只用注册配置类B</p>
+<h1 id="Spring中的事件处理"><a href="#Spring中的事件处理" class="headerlink" title="Spring中的事件处理"></a>Spring中的事件处理</h1><p>除了管理Bean以外，上下文(context)还需要管理事件。通过 <strong>ApplicationEvent</strong> 类和 <strong>ApplicationListener</strong> 接口来提供在 ApplicationContext 中处理事件。如果一个 bean 实现 ApplicationListener，那么每次 ApplicationEvent 被发布到 ApplicationContext 上，那个 bean 会被通知。</p>
+<p>Spring中的事件</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ContextRefreshedEvent</td>
+<td>ApplicationContext 被初始化或刷新时，该事件被发布。这也可以在 ConfigurableApplicationContext 接口中使用 refresh() 方法来发生。</td>
+</tr>
+<tr>
+<td>ContextStartedEvent</td>
+<td>当使用 ConfigurableApplicationContext 接口中的 start() 方法启动 ApplicationContext 时，该事件被发布。你可以调查你的数据库，或者你可以在接受到这个事件后重启任何停止的应用程序。</td>
+</tr>
+<tr>
+<td>ContextStopEvent</td>
+<td>当使用 ConfigurableApplicationContext 接口中的 stop() 方法停止 ApplicationContext 时，发布这个事件。你可以在接受到这个事件后做必要的清理的工作。</td>
+</tr>
+<tr>
+<td>ContextClosedEvent</td>
+<td>当使用 ConfigurableApplicationContext 接口中的 close() 方法关闭 ApplicationContext 时，该事件被发布。一个已关闭的上下文到达生命周期末端；它不能被刷新或重启。</td>
+</tr>
+<tr>
+<td>RequestHandledEvent</td>
+<td>这是一个 web-specific 事件，告诉所有 bean HTTP 请求已经被服务。</td>
+</tr>
+</tbody>
+</table>
+<p><strong><u>创建一个自己的事件</u></strong></p>
+<ul>
+<li>Event类：<strong>不需要在上下文中注册</strong></li>
+<li>Publisher类：向上下文发布我们自定义的事件</li>
+<li>Listener类：坚定我们自定义的事情</li>
+</ul>
 
         
 
@@ -642,7 +536,7 @@ addpath()  帮助找到我们自定义的function函数
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2018/12/02/机器学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2018/11/02/Spring/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -656,20 +550,15 @@ addpath()  帮助找到我们自定义的function函数
   
 <nav id="article-nav">
   
-    <a href="/2019/06/01/数据库/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/08/nginx/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数据库
+          nginx
         
       </div>
     </a>
   
-  
-    <a href="/2018/11/28/数据挖掘/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据挖掘</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -694,7 +583,7 @@ addpath()  帮助找到我们自定义的function函数
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#机器学习定义"><span class="toc-number">1.</span> <span class="toc-text">机器学习定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#学习算法"><span class="toc-number">2.</span> <span class="toc-text">学习算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何优化算法"><span class="toc-number">3.</span> <span class="toc-text">如何优化算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#KNN算法"><span class="toc-number">4.1.</span> <span class="toc-text">KNN算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回归"><span class="toc-number">4.2.</span> <span class="toc-text">回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#梯度下降算法"><span class="toc-number">4.2.1.</span> <span class="toc-text">梯度下降算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代价函数"><span class="toc-number">4.2.2.</span> <span class="toc-text">代价函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拟合问题"><span class="toc-number">4.2.3.</span> <span class="toc-text">拟合问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法"><span class="toc-number">4.2.3.0.1.</span> <span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#正则化"><span class="toc-number">4.2.3.0.2.</span> <span class="toc-text">正则化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归"><span class="toc-number">4.2.4.</span> <span class="toc-text">线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方法一-梯度下降算法"><span class="toc-number">4.2.4.1.</span> <span class="toc-text">方法一 梯度下降算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#加入正则化"><span class="toc-number">4.2.4.1.1.</span> <span class="toc-text">加入正则化</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法二-正规方程"><span class="toc-number">4.2.4.2.</span> <span class="toc-text">方法二 正规方程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#加入正则化-1"><span class="toc-number">4.2.4.2.1.</span> <span class="toc-text">加入正则化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多项式回归"><span class="toc-number">4.2.5.</span> <span class="toc-text">多项式回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑回归"><span class="toc-number">4.2.6.</span> <span class="toc-text">逻辑回归</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#加入正则化-2"><span class="toc-number">4.2.6.0.1.</span> <span class="toc-text">加入正则化</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#神经网络"><span class="toc-number">4.3.</span> <span class="toc-text">神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#反向传播算法"><span class="toc-number">4.3.1.</span> <span class="toc-text">反向传播算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度检验"><span class="toc-number">4.3.1.1.</span> <span class="toc-text">梯度检验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Octave算法"><span class="toc-number">4.3.2.</span> <span class="toc-text">Octave算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分类问题"><span class="toc-number">4.3.3.</span> <span class="toc-text">分类问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">4.4.</span> <span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数学知识"><span class="toc-number">5.</span> <span class="toc-text">数学知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导数"><span class="toc-number">5.1.</span> <span class="toc-text">导数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矩阵"><span class="toc-number">5.2.</span> <span class="toc-text">矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性代数"><span class="toc-number">5.3.</span> <span class="toc-text">线性代数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#octave"><span class="toc-number">6.</span> <span class="toc-text">octave</span></a></li>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -710,7 +599,7 @@ addpath()  帮助找到我们自定义的function函数
   
 
   
-  <div id="SOHUCS" sid="机器学习"></div> 
+  <div id="SOHUCS" sid="Spring"></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
     window.changyan.api.config({

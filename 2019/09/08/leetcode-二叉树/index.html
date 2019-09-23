@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>leetcode-二叉树 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
+  <meta name="description" content="二叉树问题主要是递归分解问题（以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的）一般会用到深度优先遍历DFS 的三种形态，以及BFS">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-二叉树">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/08/leetcode-二叉树/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
+<meta property="og:description" content="二叉树问题主要是递归分解问题（以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的）一般会用到深度优先遍历DFS 的三种形态，以及BFS">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-09T02:12:30.951Z">
+<meta property="og:updated_time" content="2019-09-23T13:58:44.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-二叉树">
-<meta name="twitter:description" content="二叉树问题主要是递归分解问题一般会用到深度优先遍历DFS 的三种形态以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的">
+<meta name="twitter:description" content="二叉树问题主要是递归分解问题（以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的）一般会用到深度优先遍历DFS 的三种形态，以及BFS">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -163,8 +164,89 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <p>二叉树问题主要是递归分解问题<br>一般会用到深度优先遍历DFS 的三种形态<br>以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的<br><a id="more"></a></p>
-<ol>
+          <p>二叉树问题主要是递归分解问题（以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的）<br>一般会用到深度优先遍历DFS 的三种形态，以及BFS<br><a id="more"></a></p>
+<h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>DFS一般又分为</p>
+<ul>
+<li>不带参数的递归</li>
+<li>返回参数的递归</li>
+<li>传入参数的递归</li>
+<li>全局参数的递归</li>
+</ul>
+<p><strong>前序遍历</strong></p>
+<p>中左右</p>
+<pre><code class="python">class Solution(object):
+    def preorderTraversal(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        self.li = []
+        self.pre(root)
+        return self.li
+
+    def pre(self, root):
+        if not root:return
+        self.li.append(root.val)
+        self.pre(root.left)
+        self.pre(root.right)
+</code></pre>
+<p><strong>中序遍历</strong></p>
+<p>左中右</p>
+<pre><code class="python">class Solution(object):
+    def inorderTraversal(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        self.lis = []
+        self.recursive(root)
+        return self.lis
+    def recursive(self,root):
+        if not root:return
+        self.recursive(root.left)
+        self.lis.append(root.val)
+        self.recursive(root.right)
+</code></pre>
+<p><strong>后序遍历</strong></p>
+<p>左右中</p>
+<pre><code class="python">class Solution(object):
+    def postorderTraversal(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[int]
+        &quot;&quot;&quot;
+        self.li = []
+        self.pos(root)
+        return self.li
+    def pos(self, root):
+        if not root:return
+        self.pos(root.left)
+        self.pos(root.right)
+        self.li.append(root.val)
+</code></pre>
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><pre><code class="python">class Solution(object):
+    def levelOrder(self, root):
+        &quot;&quot;&quot;
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        &quot;&quot;&quot;
+        if not root:return []
+        queue = [root]
+        ans = []
+        while queue:
+            tem = [] #存放下一层节点
+            li = [] #存放本层节点值
+            for i in queue:
+                if i.left:
+                    tem.append(i.left)
+                if i.right:
+                    tem.append(i.right)
+                li.append(i.val)
+            ans.append(li)
+            queue = tem
+        return ans
+</code></pre>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ol>
 <li>Maximum Depth of Binary Tree<br>找出左子树最大深度，找出右子树最大深度<br>返回其中最大的</li>
 </ol>
 <p>递归一般是到左（右）叶子节点再依次向上返回，这里返回的就是父节点的左（右）路径的最大深度</p>
@@ -366,6 +448,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/09/22/leetcode-排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode-排序
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/09/08/leetcode-链表/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">leetcode-链表</div>
@@ -395,7 +486,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DFS"><span class="toc-number">1.</span> <span class="toc-text">DFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BFS"><span class="toc-number">2.</span> <span class="toc-text">BFS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">3.</span> <span class="toc-text">题目</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -506,6 +597,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -518,19 +613,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +629,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>

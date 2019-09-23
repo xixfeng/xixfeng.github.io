@@ -144,6 +144,178 @@
             
   
     
+      <article id="post-leetcode-排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/22/leetcode-排序/">leetcode-排序</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/22/leetcode-排序/" class="archive-article-date">
+  	<time datetime="2019-09-22T12:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><blockquote>
+<p>二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目</p>
+</blockquote>
+<p>二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找</p>
+<pre><code class="python">        l,r = 0,len(nums)-1
+        while l &lt;= r:
+            mid = (l+r)/2
+            if target == nums[mid]:return mid
+            elif target &gt; nums[mid]:l = mid + 1
+            elif target &lt; nums[mid]:r = mid - 1
+        return -1
+</code></pre>
+<ul>
+<li>左、右半区区域是否包含mid</li>
+<li>l &lt;= r 还是 l &lt; r 停止</li>
+</ul>
+<p>278 第一个错误版本</p>
+<p>在该题中，左半区要包含mid，右半区不包含mid。当l==r时停止</p>
+<pre><code class="python">    def firstBadVersion(self, n):
+        &quot;&quot;&quot;
+        :type n: int
+        :rtype: int
+        &quot;&quot;&quot;
+        l,r = 1,n
+        while l &lt; r:
+            mid = (l+r)/2
+            if isBadVersion(mid):r = mid
+            if not isBadVersion(mid):l = mid + 1
+        return l
+</code></pre>
+<p>69 平方根</p>
+<p> 当l == r时停止</p>
+<pre><code class="python">        left = 0
+        right = x
+        while left &lt; right:#除了x，其他的值都能取到
+            mid = (right+left)/2
+            if mid ** 2 &lt; x:left = mid + 1
+            elif mid ** 2 &gt; x :right = mid - 1
+            elif mid ** 2 == x:return mid
+        return left if left ** 2 &lt;= x else left - 1#最后会返回r或者r-1，取决于r**2&lt;=x
+</code></pre>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/22/leetcode-排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-leetcode-二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/08/leetcode-二叉树/">leetcode-二叉树</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/08/leetcode-二叉树/" class="archive-article-date">
+  	<time datetime="2019-09-08T11:11:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>二叉树问题主要是递归分解问题（以及一生二，二生四的这种解决方式，比如镜像树中，假如一棵树是镜像的，那么左子树和右子树是镜像的，而他们如果是镜像的，则他们各自的2个子树也必须是镜像的）<br>一般会用到深度优先遍历DFS 的三种形态，以及BFS<br>
+          
+            <a class="article-more-a" href="/2019/09/08/leetcode-二叉树/#more">more >></a>
+          
+        
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/08/leetcode-二叉树/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-leetcode-链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -627,177 +799,6 @@
   
     
   
-    
-      <article id="post-mac编译openjdk9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/mac编译openjdk9/">mac编译openjdk9</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/mac编译openjdk9/" class="archive-article-date">
-  	<time datetime="2019-08-30T11:28:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
-<li>homebrew</li>
-<li>freetype</li>
-<li>Mercurial</li>
-<li>xcode-select</li>
-<li>源码</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><pre><code>bash ./configure \
-    --with-target-bits=64 \
---with-debug-level=slowdebug \
---with-freetype-include=/usr/local/include/freetype2 \
---with-freetype-lib=/usr/local/Cellar/freetype/2.10.0/lib \
---disable-warnings-as-errors 
-//注意把freetype版本换为本机安装的
-
-make all
-</code></pre><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q1 </p>
-<p>#include<new> 头文件缺失<br>这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可<br><a href="https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA" target="_blank" rel="noopener">https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA</a></new></p>
-          
-            <a class="article-more-a" href="/2019/08/30/mac编译openjdk9/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/mac编译openjdk9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-redis学习总结一，简单动态字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/16/redis学习总结一，简单动态字符串/">redis学习总结一，数据结构、对象</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/16/redis学习总结一，简单动态字符串/" class="archive-article-date">
-  	<time datetime="2019-08-16T10:13:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="动态字符串"><a href="#动态字符串" class="headerlink" title="动态字符串"></a>动态字符串</h1><p>redis中使用简单动态字符串(SDS)来表达字符串</p>
-<pre><code class="C">struct sdshdr {
-
-    // buf 中已占用空间的长度，不会计算末尾的\0
-    int len;
-
-    // buf 中剩余可用空间的长度
-    int free;
-
-    // 数据空间
-    char buf[];
-};
-</code></pre>
-<p>SDS与C字符串区别</p>
-<ul>
-<li>常数复杂度获得字符串长度</li>
-<li>C字符串存在字符串溢出的可能(strcat函数)</li>
-<li>减少修改字符时，内存重新分配花的时间(空间换时间)</li>
-<li>SDS预分配：对SDS修改之后，会额外分配空间(sdscat函数)</li>
-<li>惰性空间释放：当缩短SDS字符串时，不会立马释放其多余空间（那不是会造成大量当浪费空间）</li>
-<li>二进制安全，不用/0作为结尾字符，所以可以存储二进制文件
-          
-            <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/#more">more >></a>
-          
-        
-
-      
-    </li></ul></div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -929,6 +930,10 @@ make all
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>
