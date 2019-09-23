@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>JAVA | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.1 packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败 1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错? 对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转">
+  <meta name="description" content="java SE，EE，Web  java SE：Sun公司提供的基础java包 java EE：根据基础java包开发出来的企业级框架 java Web：使用java开发应用类网站  java EE面向对象类对象方法封装继承多态抽象集合框架13.Java集合类框架的基本接口有哪些？Java集合类提供了一套设计良好的支持对一组对象进行操作的接口和类。Java集合类里面最基本的接口有：• Collec">
 <meta name="keywords" content="java">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JAVA">
 <meta property="og:url" content="https://xixfeng.github.io/False/JAVA.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="1.1 packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败 1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错? 对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转">
+<meta property="og:description" content="java SE，EE，Web  java SE：Sun公司提供的基础java包 java EE：根据基础java包开发出来的企业级框架 java Web：使用java开发应用类网站  java EE面向对象类对象方法封装继承多态抽象集合框架13.Java集合类框架的基本接口有哪些？Java集合类提供了一套设计良好的支持对一组对象进行操作的接口和类。Java集合类里面最基本的接口有：• Collec">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-12T11:42:35.077Z">
+<meta property="og:updated_time" content="2019-09-23T02:48:26.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA">
-<meta name="twitter:description" content="1.1 packagejava包名+类名是为了更好的区分同名包一个包中的类不可同名包的命名必须与路径相符合，不然会编译失败 1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错? 对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转">
+<meta name="twitter:description" content="java SE，EE，Web  java SE：Sun公司提供的基础java包 java EE：根据基础java包开发出来的企业级框架 java Web：使用java开发应用类网站  java EE面向对象类对象方法封装继承多态抽象集合框架13.Java集合类框架的基本接口有哪些？Java集合类提供了一套设计良好的支持对一组对象进行操作的接口和类。Java集合类里面最基本的接口有：• Collec">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -164,129 +164,27 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="1-1-package"><a href="#1-1-package" class="headerlink" title="1.1 package"></a>1.1 package</h1><p>java包名+类名是为了更好的区分同名包<br>一个包中的类不可同名<br>包的命名必须与路径相符合，不然会编译失败</p>
-<h1 id="1-2-short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><a href="#1-2-short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错" class="headerlink" title="1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错?"></a>1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错?</h1><ul>
-<li>对于short s1=1;s1=s1+1来说，在s1+1运算时会自动提升表达式的类型为int，那么将int赋予给short类型的变量s1会出现类型转换错误。</li>
-<li>对于short s1=1;s1+=1来说 +=是java语言规定的运算符，java编译器会对它进行特殊处理，因此可以正确编译。</li>
-<li>同理，long也不可转换为int。</li>
-</ul>
-<h1 id="1-3-int-与-Integer区别"><a href="#1-3-int-与-Integer区别" class="headerlink" title="1.3 int 与 Integer区别"></a>1.3 int 与 Integer区别</h1><p>1、Integer变量和int变量比较时，只要两个变量的值是向等的，则结果为true（因为包装类Integer和基本数据类型int比较时，java会自动拆包装为int，然后进行比较，实际上就变为两个int变量的比较）</p>
-<pre><code>Integer i = new Integer(100);
-int j = 100；
-System.out.print(i == j); //true
-</code></pre><p>2、非new生成的Integer变量和new Integer()生成的变量比较时，结果为false。（因为非new生成的Integer变量指向的是java常量池中的对象，而new Integer()生成的变量指向堆中新建的对象，两者在内存中的地址不同）</p>
-<pre><code>Integer i = new Integer(100);
-Integer j = 100;
-System.out.print(i == j); //false
-
-# 1.4 
-HashCode()，System.identityHashCode()。不管类有没有重写Object的HashCode()方法，identityHashCode()都使用Object的HashCode()去计算hash值
-对于两个非new生成的Integer对象，进行比较时，如果两个变量的值在区间-128到127之间，则比较结果为true，如果两个变量的值不在此区间，则比较结果为false
-
-</code></pre><p>Integer i = 100;<br>Integer j = 100;<br>System.out.print(i == j); //true 这里的i、j是同一个Integer对象<br>Integer i = 128;<br>Integer j = 128;<br>System.out.print(i == j); //false</p>
-<pre><code>
-对于第4条的原因： 
-java在编译Integer i = 100 ;时，会翻译成为Integer i = Integer.valueOf(100)；，而java API中对Integer类型的valueOf的定义如下：
-</code></pre><p>public static Integer valueOf(int i){<br>    assert IntegerCache.high &gt;= 127;<br>    if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high){<br>        return IntegerCache.cache[i + (-IntegerCache.low)];<br>    }<br>    return new Integer(i);<br>}</p>
-<pre><code>java对于-128到127之间的数，会进行缓存，Integer i = 127时，会将127进行缓存，下次再写Integer j  = 127时，就会直接从缓存中取，就不会new了
-# 1.5 Java的四个基本特性及多态的理解？
-![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w2pliuhij30js0b8n1z.jpg)
-
-# 1.6 面向对象的六个基本原则
-![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w39fm22gj30vw0hy13y.jpg)
-
-
-# 1.7 Java 创建对象的四种方式
-https://www.cnblogs.com/yunche/p/9530927.html
-- 1.使用new创建对象
-使用new关键字创建对象应该是最常见的一种方式，但我们应该知道，使用new创建对象会增加耦合度。无论使用什么框架，都要减少new的使用以降低耦合度。
-- 2.使用反射的机制创建对象
-使用Class类的newInstance方法
-- 3.采用clone
-clone时，需要已经有一个分配了内存的源对象，创建新对象时，首先应该分配一个和源对象一样大的内存空间。要调用clone方法需要实现Cloneable接口
-- 4.采用序列化机制
-使用序列化时，要实现实现Serializable接口，将一个对象序列化到磁盘上，而采用反序列化可以将磁盘上的对象信息转化到内存中。
-
-# 1.8 String、StringBuffer和StringBuilder的区别
-
-![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w4mh9b0zj30ur06pn0z.jpg)
-![](http://ww1.sinaimg.cn/large/007s8HJUly1g5w4mlg6vej30fe016aa8.jpg)
-
-# 1.9 String Pool
-
-https://github.com/gzc426/CS-Notes/edit/master/docs/notes/Java%20%E5%9F%BA%E7%A1%80.md
-
-字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程中将字符串添加到 String Pool 中。
-
-当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。
-
-下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。
-
-```java
-String s1 = new String(&quot;aaa&quot;);
-String s2 = new String(&quot;aaa&quot;);
-System.out.println(s1 == s2);           // false
-String s3 = s1.intern();
-String s4 = s1.intern();
-System.out.println(s3 == s4);           // true
-</code></pre><p>如果是采用 “bbb” 这种字面量的形式创建字符串，会自动地将字符串放入 String Pool 中。</p>
-<pre><code class="java">String s5 = &quot;bbb&quot;;
-String s6 = &quot;bbb&quot;;
-System.out.println(s5 == s6);  // true
-</code></pre>
-<p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+          <p><a href="https://blog.csdn.net/weixin_39297312/article/details/79454642" target="_blank" rel="noopener">java SE，EE，Web</a></p>
 <ul>
-<li><a href="https://stackoverflow.com/questions/10578984/what-is-string-interning" target="_blank" rel="noopener">StackOverflow : What is String interning?</a></li>
-<li><a href="https://tech.meituan.com/in_depth_understanding_string_intern.html" target="_blank" rel="noopener">深入解析 String#intern</a></li>
+<li>java SE：Sun公司提供的基础java包</li>
+<li>java EE：根据基础java包开发出来的企业级框架</li>
+<li>java Web：使用java开发应用类网站</li>
 </ul>
-<h1 id="9-new-String-“abc”"><a href="#9-new-String-“abc”" class="headerlink" title="9 new String(“abc”)"></a>9 new String(“abc”)</h1><p>使用这种方式一共会创建两个字符串对象（前提是 String Pool 中还没有 “abc” 字符串对象）。</p>
-<ul>
-<li>“abc” 属于字符串字面量，因此编译时期会在 String Pool 中创建一个字符串对象，指向这个 “abc” 字符串字面量；</li>
-<li>而使用 new 的方式会在堆中创建一个字符串对象。</li>
-</ul>
-<p>创建一个测试类，其 main 方法中使用这种方式来创建字符串对象。</p>
-<pre><code class="java">public class NewStringTest {
-    public static void main(String[] args) {
-        String s = new String(&quot;abc&quot;);
-    }
-}
-</code></pre>
-<p>使用 javap -verbose 进行反编译，得到以下内容：</p>
-<pre><code class="java">// ...
-Constant pool:
-// ...
-   #2 = Class              #18            // java/lang/String
-   #3 = String             #19            // abc
-// ...
-  #18 = Utf8               java/lang/String
-  #19 = Utf8               abc
-// ...
-
-  public static void main(java.lang.String[]);
-    descriptor: ([Ljava/lang/String;)V
-    flags: ACC_PUBLIC, ACC_STATIC
-    Code:
-      stack=3, locals=2, args_size=1
-         0: new           #2                  // class java/lang/String
-         3: dup
-         4: ldc           #3                  // String abc
-         6: invokespecial #4                  // Method java/lang/String.&quot;&lt;init&gt;&quot;:(Ljava/lang/String;)V
-         9: astore_1
-// ...
-</code></pre>
-<p>在 Constant Pool 中，#19 存储这字符串字面量 “abc”，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
-<p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
-<pre><code class="java">public String(String original) {
-    this.value = original.value;
-    this.hash = original.hash;
-}
-</code></pre>
-<h1 id="java常用代码"><a href="#java常用代码" class="headerlink" title="* java常用代码"></a>* java常用代码</h1><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
-<pre><code class="java">t <span class="keyword">instanceof</span> Integer
-t.Class.equals()<span class="comment">//判断是否为某个类型</span>
+<h1 id="java-EE"><a href="#java-EE" class="headerlink" title="java EE"></a>java EE</h1><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><h3 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h3><h2 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h2><p>13.Java集合类框架的基本接口有哪些？<br>Java集合类提供了一套设计良好的支持对一组对象进行操作的接口和类。Java集合类里面最基本的接口有：<br>• Collection：代表一组对象，每一个对象都是它的子元素。<br>• Set：不包含重复元素的Collection。<br>• List：有顺序的collection，并且可以包含重复元素。<br>• Map：可以把键(key)映射到值(value)的对象，键不能重复。</p>
+<p>14.什么是迭代器(Iterator)？<br>Iterator接口提供了很多对集合元素进行迭代的方法。每一个集合类都包含了可以返回迭代器实例的迭代方法。迭代器可以在迭代的过程中删除底层集合的元素。</p>
+<p>15.Iterator和ListIterator的区别是什么？<br>下面列出了他们的区别：<br>• Iterator可用来遍历Set和List集合，但是ListIterator只能用来遍历List。<br>• Iterator对集合只能是前向遍历，ListIterator既可以前向也可以后向。<br>• ListIterator实现了Iterator接口，并包含其他的功能，比如：增加元素，替换元素，获取前一个和后一个元素的索引，等等。</p>
+<p>16.Java中的HashMap的工作原理是什么？<br>Java中的HashMap是以键值对(key-value)的形式存储元素的。HashMap需要一个hash函数，它使用hashCode()和equals()方法来向集合/从集合添加和检索元素。当调用put()方法的时候，HashMap会计算key的hash值，然后把键值对存储在集合中合适的索引上。如果key已经存在了，value会被更新成新值。HashMap的一些重要的特性是它的容量(capacity)，负载因子(load factor)和扩容极限(threshold resizing)。</p>
+<p>17.HashMap和Hashtable有什么区别？<br>• HashMap和Hashtable都实现了Map接口，因此很多特性非常相似。但是，他们有以下不同点：<br>• HashMap允许键和值是null，而Hashtable不允许键或者值是null。<br>• Hashtable是同步的，而HashMap不是。因此，HashMap更适合于单线程环境，而Hashtable适合于多线程环境。<br>• HashMap提供了可供应用迭代的键的集合，因此，HashMap是快速失败的。另一方面，Hashtable提供了对键的列举(Enumeration)。<br>o 一般认为Hashtable是一个遗留的类。</p>
+<p>18.数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？<br>下面列出了Array和ArrayList的不同点：<br>• Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。<br>• Array大小是固定的，ArrayList的大小是动态变化的。<br>• ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。<br>• 对于基本类型数据，集合使用自动装箱来减少编码工作量。但是，当处理固定大小的基本数据类型的时候，这种方式相对比较慢。</p>
+<p>19.ArrayList和LinkedList有什么区别？<br>ArrayList和LinkedList都实现了List接口，他们有以下的不同点：<br>• ArrayList是基于索引的数据接口<strong>，它的底层是数组</strong>。它可以以O(1)时间复杂度对元素进行随机访问。与此对应，LinkedList是以元素链表的形式存储它的数据，每一个元素都和它的前一个和后一个元素链接在一起，在这种情况下，查找某个元素的时间复杂度是O(n)。<br>• 相对于ArrayList，LinkedList的插入，添加，删除操作速度更快，因为当元素被添加到集合任意位置的时候，不需要像数组那样重新计算大小或者是更新索引。<br>• LinkedList比ArrayList更占内存，因为LinkedList为每一个节点存储了两个引用，一个指向前一个元素，一个指向下一个元素。<br>也可以参考ArrayList vs. LinkedList。</p>
+<p>21.HashSet和TreeSet有什么区别？<br>HashSet是由一个hash表来实现的，因此，它的元素是无序的。add()，remove()，contains()方法的时间复杂度是O(1)。<br>另一方面，<strong>TreeSet是由一个树形的结构来实现的，它里面的元素是有序的。</strong>因此，add()，remove()，contains()方法的时间复杂度是O(logn)。</p>
+<p>22.List的子类特点<br>        ArrayList:<br>            底层数据结构是数组，查询快，增删慢<br>            线程不安全，效率高<br>        Vector:<br>            底层数据结构是数组，查询快，增删慢<br>            线程安全，效率低<br>        LinkedList:<br>            底层数据结构是链表，查询慢，增删快<br>            线程不安全，效率高</p>
+<p>42、swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上?<br>switch（expr1）中，expr1是一个整数表达式。因此传递给switch 和 case 语句的参数应该是 int、 short、 char 或者byte。long,string 都不能作用于swtich(1.7版本之后switch语句支持string类型)。</p>
+<p>52、线程的基本概念、线程的基本状态以及状态之间的关系<br>线程指在程序执行过程中，能够执行程序代码的一个执行单位，每个程序至少都有一个线程，也就是程序本身。<br>Java中的线程有五种状态分别是：新建、就绪、运行、阻塞、结束。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h2 id="多线程、并发"><a href="#多线程、并发" class="headerlink" title="多线程、并发"></a>多线程、并发</h2><h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h2 id="I-O流"><a href="#I-O流" class="headerlink" title="I/O流"></a>I/O流</h2><h1 id="java-SE"><a href="#java-SE" class="headerlink" title="java SE"></a>java SE</h1><h1 id="java常用代码"><a href="#java常用代码" class="headerlink" title="java常用代码"></a>java常用代码</h1><pre><code class="java">t instanceof Integer
+t.Class.equals()//判断是否为某个类型
 </code></pre>
 
-</div></div>
         
 
       
@@ -376,7 +274,7 @@ t.Class.equals()<span class="comment">//判断是否为某个类型</span>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-package"><span class="toc-number">1.</span> <span class="toc-text">1.1 package</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-short-s1-1-s1-s1-1-有什么错-short-s1-1-s1-1-有什么错"><span class="toc-number">2.</span> <span class="toc-text">1.2  short s1 = 1; s1 = s1 + 1;有什么错? short s1 = 1; s1 +=1;有什么错?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-int-与-Integer区别"><span class="toc-number">3.</span> <span class="toc-text">1.3 int 与 Integer区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-new-String-“abc”"><span class="toc-number">4.</span> <span class="toc-text">9 new String(“abc”)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java常用代码"><span class="toc-number">5.</span> <span class="toc-text">* java常用代码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java-EE"><span class="toc-number">1.</span> <span class="toc-text">java EE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象"><span class="toc-number">1.1.</span> <span class="toc-text">面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类"><span class="toc-number">1.1.1.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装"><span class="toc-number">1.1.4.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">1.1.5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多态"><span class="toc-number">1.1.6.</span> <span class="toc-text">多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象"><span class="toc-number">1.1.7.</span> <span class="toc-text">抽象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合框架"><span class="toc-number">1.2.</span> <span class="toc-text">集合框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.3.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程、并发"><span class="toc-number">1.4.</span> <span class="toc-text">多线程、并发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式"><span class="toc-number">1.5.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络编程"><span class="toc-number">1.6.</span> <span class="toc-text">网络编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O流"><span class="toc-number">1.7.</span> <span class="toc-text">I/O流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-SE"><span class="toc-number">2.</span> <span class="toc-text">java SE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java常用代码"><span class="toc-number">3.</span> <span class="toc-text">java常用代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -487,6 +385,10 @@ t.Class.equals()<span class="comment">//判断是否为某个类型</span>
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -499,10 +401,6 @@ t.Class.equals()<span class="comment">//判断是否为某个类型</span>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -511,15 +409,19 @@ t.Class.equals()<span class="comment">//判断是否为某个类型</span>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

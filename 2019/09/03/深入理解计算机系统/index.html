@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>深入理解计算机系统 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.1">
+  <meta name="description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解计算机系统">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/03/深入理解计算机系统/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.1">
+<meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-18T05:17:49.157Z">
+<meta property="og:updated_time" content="2019-09-22T14:02:55.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
-<meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader  硬件分层figure1.6figure1.9操作系统分层figure 1.1">
+<meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -173,6 +173,7 @@
 <li>linker：涉及到地址的重新定位</li>
 <li>loader</li>
 </ul>
+<a id="more"></a>
 <p>硬件分层<br>figure1.6<br>figure1.9<br>操作系统分层<br>figure 1.11<br>figure 1.13 !important</p>
 <h1 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h1><p>内存空间编址：字节、字<br>大端优先、小端优先，C语言使用小端优先</p>
 <p>逻辑移动、算数移动：逻辑移动全用0填补，算数右移用左边第一位补齐。<br>C语言是算数移位,左移一位==数字乘以2<br>在C语言中，对于移位操作执行的是逻辑左移和算术右移，不过对于无符号类型，所有的移位操作都是逻辑的。<br>所以要相对一个有符号数执行逻辑右移，那么可以先将它强制类型转换为无符号类型。</p>
@@ -190,27 +191,37 @@
 <li>尾数部分就是现在小数点后面的部分<br><a href="https://blog.csdn.net/crjmail/article/details/79723051" target="_blank" rel="noopener">https://blog.csdn.net/crjmail/article/details/79723051</a></li>
 </ol>
 <h1 id="程序的机器级表示"><a href="#程序的机器级表示" class="headerlink" title="程序的机器级表示"></a>程序的机器级表示</h1><p>指令 = 操作码+操作数</p>
-<p><u><strong>cpu中的寄存器</strong></u><br>32位寄存器</p>
+<p>ATT与Intel汇编代码格式</p>
+<ul>
+<li>ATT是GCC、OBJDUMP等其他工具等默认汇编代码格式</li>
+<li>Intel格式与ATT相比更加简略</li>
+</ul>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p><u><strong>cpu中的寄存器</strong></u></p>
+<p>在x86-64的cpu中一共有16个64位寄存器，16位操作可访问前两位字节，32位操作可访问前4位字节，64位操作可访问整个寄存器</p>
+<p><strong>64位寄存器</strong></p>
+<p>%rsp：栈指针，存运行时栈结束的位置，即调用一个函数时，会记录本函数内下一条指令的位置</p>
+<p>%rip：程序计数器指针，下一条指令的地址</p>
+<p>32位寄存器（由64位寄存器拆开得到</p>
 <ul>
 <li>EAX：一般用于加法</li>
 <li>EBX</li>
-<li>BCX</li>
+<li>ECX：一般用于加减法</li>
 <li>EDX</li>
 <li>EBP：栈帧的基地址指针 base pointer of stack frame</li>
 <li>ESP：栈顶指针，就是栈最上面栈帧的指针</li>
 <li>ESI</li>
 <li>EDI</li>
 </ul>
-<p>16位寄存器</p>
-<ul>
-<li>EIP：指令指针，与IR相似<br>  一般是自动递增<br>  jump：改变程序计数器<br>  branch：改变程序计数器</li>
-<li>EFLAG：标志寄存器</li>
-<li>CS：Code segment</li>
-<li>SS：stack segment</li>
-<li>DS：Data segment</li>
-<li>ES： Extra segment</li>
-</ul>
-<p><u><strong>寻址方式</strong></u></p>
+<p>16位寄存器：它们事实上是上面8个32-bit寄存器的低16位<br>%ax，%bx，%cx，%dx，%di，%si，%bp，%sp； </p>
+<p>8位寄存器，它们事实上是寄存器%ax，%bx，%cx，%dx的高8位和低8位；<br>%ah，%al，%bh，%bl，%ch，%cl，%dh，%dl。</p>
+<p><strong>条件码寄存器</strong></p>
+<p>CF：进位标志，最近的操作使最高位产生了进位，可以用来检查无符号操作的溢出</p>
+<p>ZF：零标志，最近的操作得出的结果为零，<strong>为零设置为1</strong></p>
+<p>SF：符号标志，最近的操作得到的结果为负数</p>
+<p>OF：溢出标志。最近的操作导致一个补码溢出-正溢出或负溢出</p>
+<blockquote>
+<p>C语言中*是取值操作，&amp;是取地址操作</p>
+</blockquote>
 <h2 id="汇编程序"><a href="#汇编程序" class="headerlink" title="汇编程序"></a>汇编程序</h2><p>三种汇编语言的语句</p>
 <ul>
 <li>可执行指令 Executable instruction</li>
@@ -240,8 +251,553 @@ end start
 <li>data  –程序中的所有初始化数据</li>
 <li>HelloWorld db “Hello World!”, 0  –db stands for ‘define byte’ and defines HelloWorld to be the string “Hello World!”  followed by a NUL character</li>
 <li>.code  –This is the starting point for the program code. </li>
+<li>_b(%rip)代表变量 _b的值</li>
 </ul>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><p>x86</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>C语言使用栈数据结构实现函数调用</p>
+<p>每次进入函数之前，会修改%rsp寄存器的值以记录本函数内下一条指令的位置</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><p>x86-64 ATT格式</p>
+<p><strong>数据格式</strong></p>
+<table>
+<thead>
+<tr>
+<th>C声明</th>
+<th>Intel数据类型</th>
+<th>汇编代码后缀</th>
+<th>大小(字节)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>字节</td>
+<td>b</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>子</td>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>双字</td>
+<td>l</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>四字</td>
+<td>q</td>
+<td>8</td>
+</tr>
+<tr>
+<td>char*</td>
+<td>四字</td>
+<td>q</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>单精度</td>
+<td>s</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度</td>
+<td>l</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>寻址方式</strong></p>
+<p>$0xff $表示常数，ra表示寄存器，R[ra]表示寄存器中的值，M[Addr]表示内存中的值</p>
+<p>比例因子s必须是1，2，4，8</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>格式</th>
+<th>操作数值</th>
+<th>名称</th>
+<th>🌰</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>立即数</td>
+<td>$Imm</td>
+<td>Imm</td>
+<td>立即数寻址</td>
+<td>$0xff</td>
+</tr>
+<tr>
+<td>寄存器</td>
+<td>ra</td>
+<td>R[ra]</td>
+<td>寄存器寻址</td>
+<td>%rax</td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>Imm</td>
+<td>R[Imm]</td>
+<td>绝对寻址</td>
+<td>0xff</td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>(ra)</td>
+<td>M[R[ra]]</td>
+<td>间接寻址</td>
+<td>(%rax)</td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>imm(rb)</td>
+<td>M[Imm+R[rb]]</td>
+<td>基址+偏移量寻址</td>
+<td>0xff(%rax)</td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>(rb,ri)</td>
+<td>M[R[rb]+R[ri]]</td>
+<td>变地寻址</td>
+<td>(%rax,%rbx)</td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>Imm(rb,ri)</td>
+<td>M[Imm+R[rb]+R[ri]]</td>
+<td>变址寻址</td>
+<td>0xff(%rax,rbx)</td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>(,ri,s)</td>
+<td>M[R[ri]*s]</td>
+<td>比例变址寻址</td>
+<td></td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>Imm(,ri,s)</td>
+<td>M[Imm+R[ri]*s]</td>
+<td>比例变址寻址</td>
+<td></td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>(rb,ri,s)</td>
+<td>M[R[b]+R[ri]*s]</td>
+<td>比例变址寻址</td>
+<td></td>
+</tr>
+<tr>
+<td>存储器</td>
+<td>Imm(rb,ri,s)</td>
+<td>M[Imm+R[b]+R[ri]*s]</td>
+<td>比例变址寻址</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据移动</strong></p>
+<p>mov指令只会更新目的操作数指定的那些寄存器字节或内存位置。唯一的例外是movl指令以寄存器作为目的时，它会把该寄存器的高位4字节都设置为0</p>
+<p>movz将高位用零扩展，movs将高位用符号扩展</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>效果</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOV  S，D</td>
+<td>S -&gt; D</td>
+<td>传送</td>
+</tr>
+<tr>
+<td>movb</td>
+<td></td>
+<td>传送字节</td>
+</tr>
+<tr>
+<td>movw</td>
+<td></td>
+<td>传送字</td>
+</tr>
+<tr>
+<td>movl</td>
+<td></td>
+<td>传送双字</td>
+</tr>
+<tr>
+<td>movq</td>
+<td></td>
+<td>传送四字</td>
+</tr>
+<tr>
+<td>movabsq</td>
+<td></td>
+<td>传送绝对四字</td>
+</tr>
+</tbody>
+</table>
+<p><strong>压入和弹出栈数据</strong></p>
+<p>在x86-64中，程序栈存放在内存中某个区域，栈顶元素的地址是所有栈中元素最低的</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>效果</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pushq  S</td>
+<td>R[%rsp] = R[%rsp] - 8,  M[R[%rsp]] = S</td>
+<td>将4字压入栈</td>
+</tr>
+<tr>
+<td>popq  D</td>
+<td>D = M[R[%rsp]],  R[%rsp] = R[%rsp] + 8</td>
+<td>将4字弹出栈</td>
+</tr>
+</tbody>
+</table>
+<p><strong>算数和逻辑运算</strong></p>
+<p>leaq 与 mov的差别，mov会将求出来的值进行一次寻址，leaq直接将计算出来的值赋给后面</p>
+<p>下面除了leaq指令，其他都会设置条件码</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>效果</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>leaq a(b, c, d), %rax</td>
+<td>%rax &lt;-  a + b + c * d</td>
+<td>加载有效地址，取消内存寻址操作</td>
+</tr>
+<tr>
+<td>INC   D</td>
+<td>D &lt;- D + 1</td>
+<td>加1</td>
+</tr>
+<tr>
+<td>DEC  D</td>
+<td>D &lt;- D - 1</td>
+<td>减1</td>
+</tr>
+<tr>
+<td>NEG  D</td>
+<td>D &lt;-  -D</td>
+<td>取负</td>
+</tr>
+<tr>
+<td>NOT  D</td>
+<td>D &lt;- ～D</td>
+<td>取反</td>
+</tr>
+<tr>
+<td>ADD  S，D</td>
+<td>D &lt;- D + S</td>
+<td>加</td>
+</tr>
+<tr>
+<td>SUB  S，D</td>
+<td>D &lt;- D - S</td>
+<td>减</td>
+</tr>
+<tr>
+<td>IMUL  S，D</td>
+<td>D &lt;- D * S</td>
+<td>乘</td>
+</tr>
+<tr>
+<td>XOR  S，D</td>
+<td>D &lt;- D ^ S</td>
+<td>异或</td>
+</tr>
+<tr>
+<td>OR  S，D</td>
+<td>D &lt;- D \</td>
+<td>S</td>
+<td>或</td>
+</tr>
+<tr>
+<td>AND  S，D</td>
+<td>D &lt;- D &amp; S</td>
+<td>与</td>
+</tr>
+<tr>
+<td>SAL  k，D</td>
+<td>D &lt;- D &lt;&lt; k</td>
+<td>左移</td>
+</tr>
+<tr>
+<td>SHL  k，D</td>
+<td>D <- d>&gt; k</-></td>
+<td>右移</td>
+</tr>
+<tr>
+<td>SAR  k，D</td>
+<td></td>
+<td>算数右移</td>
+</tr>
+<tr>
+<td>SHR  k，D</td>
+<td></td>
+<td>逻辑右移</td>
+</tr>
+</tbody>
+</table>
+<p><strong>设置条件码</strong></p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>基于</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CMP  S1，S2</td>
+<td>S2-S1</td>
+<td>比较</td>
+</tr>
+<tr>
+<td>TEST  S1，S2</td>
+<td>S1&amp;S2</td>
+<td>测试</td>
+</tr>
+</tbody>
+</table>
+<p><strong>访问条件码</strong></p>
+<p>条件码使用方法</p>
+<ul>
+<li>根据条件码的某种组合将一个字节设置为0或1</li>
+<li>可以有条件的跳转</li>
+<li>可以有条件的传送数据</li>
+</ul>
+<p>以下指令并不是满足条件时设置值，而是根据条件码<strong>设置</strong>出一个条件，如果设置条件为真则D为1，设置条件为假则D为0</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>同意名</th>
+<th>效果</th>
+<th>设置条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sete  D</td>
+<td>setz</td>
+<td>D &lt;- ZF</td>
+<td>相等</td>
+</tr>
+<tr>
+<td>setne  D</td>
+<td>setnz</td>
+<td>D &lt;- ～ZF</td>
+<td>不等</td>
+</tr>
+<tr>
+<td>sets  D</td>
+<td></td>
+<td>D &lt;- SF</td>
+<td>负数</td>
+</tr>
+<tr>
+<td>setns  D</td>
+<td></td>
+<td>D &lt;- ～SF</td>
+<td>非负数</td>
+</tr>
+<tr>
+<td>setg  D</td>
+<td>setnle</td>
+<td>D &lt;- ~(SF^OF)&amp; ~ZF</td>
+<td>大于（有符号）</td>
+</tr>
+<tr>
+<td>setge  D</td>
+<td>setnl</td>
+<td>D &lt;- ~(SF^OF)</td>
+<td>大于等于（有符号）</td>
+</tr>
+<tr>
+<td>setl  D</td>
+<td>setnge</td>
+<td>D &lt;- ~(SF ^ OF)</td>
+<td>小于（有符号）</td>
+</tr>
+<tr>
+<td>setle  D</td>
+<td>setng</td>
+<td>D &lt;- (SF^OF) \</td>
+<td>ZF</td>
+<td>小于等于（有符号）</td>
+</tr>
+<tr>
+<td>seta  D</td>
+<td>setnbe</td>
+<td>D &lt;- ~CF &amp; ~ZF</td>
+<td>超过（无符号）</td>
+</tr>
+<tr>
+<td>setae  D</td>
+<td>setnb</td>
+<td>D &lt;- ~CF</td>
+<td>超过或相等（无符号）</td>
+</tr>
+<tr>
+<td>setb  D</td>
+<td>setnae</td>
+<td>D &lt;- CF</td>
+<td>低于（无符号）</td>
+</tr>
+<tr>
+<td>setbe   D</td>
+<td>setna</td>
+<td>D &lt;- CF \</td>
+<td>ZF</td>
+<td>低于或相等（无符号）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>条件跳转</strong></p>
+<p>跳转条件为1则跳转</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>同义名</th>
+<th>跳转条件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jmp Label</td>
+<td></td>
+<td>1</td>
+<td>直接跳转</td>
+</tr>
+<tr>
+<td>jmp  *Label</td>
+<td></td>
+<td>1</td>
+<td>间接跳转</td>
+</tr>
+<tr>
+<td>je  Label</td>
+<td>jz</td>
+<td>ZF</td>
+<td>相等</td>
+</tr>
+<tr>
+<td>jne  Label</td>
+<td>jnz</td>
+<td>~ZF</td>
+<td>不相等</td>
+</tr>
+<tr>
+<td>js  Label</td>
+<td></td>
+<td>SF</td>
+<td>负数</td>
+</tr>
+<tr>
+<td>jns  Label</td>
+<td></td>
+<td>~SF</td>
+<td>非负数</td>
+</tr>
+<tr>
+<td>jg  Label</td>
+<td>jnle</td>
+<td>~(SF^OF)&amp; ~ZF</td>
+<td>大于（有符号）</td>
+</tr>
+<tr>
+<td>jge  Label</td>
+<td>Jul</td>
+<td>D &lt;- ~(SF^OF)</td>
+<td>大于等于（有符号）</td>
+</tr>
+<tr>
+<td>jl  Label</td>
+<td>jnge</td>
+<td>D &lt;- ~(SF ^ OF)</td>
+<td>小于（有符号）</td>
+</tr>
+<tr>
+<td>jle  Label</td>
+<td>jng</td>
+<td>D &lt;- (SF^OF) \</td>
+<td>ZF</td>
+<td>小于等于（有符号）</td>
+</tr>
+<tr>
+<td>ja  Label</td>
+<td>jnbe</td>
+<td>D &lt;- ~CF &amp; ~ZF</td>
+<td>超过（无符号）</td>
+</tr>
+<tr>
+<td>jae  Label</td>
+<td>jnb</td>
+<td>D &lt;- ~CF</td>
+<td>超过或相等（无符号）</td>
+</tr>
+<tr>
+<td>jb  Label</td>
+<td>jnae</td>
+<td>D &lt;- CF</td>
+<td>低于（无符号）</td>
+</tr>
+<tr>
+<td>jbe  Label</td>
+<td>Jan</td>
+<td>D &lt;- CF \</td>
+<td>ZF</td>
+<td>低于或相等（无符号）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>call  Label</td>
+<td>过程调用</td>
+</tr>
+<tr>
+<td>call  *Operand</td>
+<td>过程调用</td>
+</tr>
+<tr>
+<td>ret</td>
+<td>从过程调用中返回</td>
+</tr>
+</tbody>
+</table>
 
         
 
@@ -351,7 +907,7 @@ end start
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.1.</span> <span class="toc-text">汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">4.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过程"><span class="toc-number">3.2.1.</span> <span class="toc-text">过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">4.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -462,6 +1018,10 @@ end start
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -474,10 +1034,6 @@ end start
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -486,15 +1042,19 @@ end start
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

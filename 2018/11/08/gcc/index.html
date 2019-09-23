@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>gcc | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="gccgcc命令参数 gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换  编译相关 gcc -E hello.c//激活预处理 gcc -S hello.c//激活预处理，编译中的第一步 gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码） gcc hello.c//生成可执行">
+  <meta name="description" content="gccgcc命令参数 gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换  编译相关 gcc -E hello.c//激活预处理 gcc -S hello.c//激活预处理，编译中的第一步，翻译成汇编语言 gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码） gcc hello.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gcc">
 <meta property="og:url" content="https://xixfeng.github.io/2018/11/08/gcc/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="gccgcc命令参数 gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换  编译相关 gcc -E hello.c//激活预处理 gcc -S hello.c//激活预处理，编译中的第一步 gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码） gcc hello.c//生成可执行">
+<meta property="og:description" content="gccgcc命令参数 gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换  编译相关 gcc -E hello.c//激活预处理 gcc -S hello.c//激活预处理，编译中的第一步，翻译成汇编语言 gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码） gcc hello.">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/C的生命.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15560841028132.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15560841208356.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15560843492783.jpg">
-<meta property="og:updated_time" content="2019-08-15T05:12:16.984Z">
+<meta property="og:updated_time" content="2019-09-21T03:52:10.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gcc">
-<meta name="twitter:description" content="gccgcc命令参数 gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换  编译相关 gcc -E hello.c//激活预处理 gcc -S hello.c//激活预处理，编译中的第一步 gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码） gcc hello.c//生成可执行">
+<meta name="twitter:description" content="gccgcc命令参数 gcc-&amp;gt;预处理-&amp;gt;编译（包括汇编）-&amp;gt;链接每一步都有一个命令，每一步都可以从上一步转换，也可以直接从源代码转换  编译相关 gcc -E hello.c//激活预处理 gcc -S hello.c//激活预处理，编译中的第一步，翻译成汇编语言 gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码） gcc hello.">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/C的生命.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -173,11 +173,12 @@
 </ul>
 <p>编译相关</p>
 <pre><code>gcc -E hello.c//激活预处理
-</code></pre><pre><code>gcc -S hello.c//激活预处理，编译中的第一步
+</code></pre><pre><code>gcc -S hello.c//激活预处理，编译中的第一步，翻译成汇编语言
 </code></pre><pre><code>gcc -c hello.c//激活预处理,编译,也就是他只把程序做成obj文件（机器代码）
 </code></pre><pre><code>gcc hello.c//生成可执行文件
 </code></pre><a id="more"></a>
-<p>一些操作<br>-x</p>
+<pre><code>gcc -Og -S hell.c //指定编译的优化等级
+</code></pre><p>一些操作<br>-x</p>
 <pre><code>gcc -x c hello.ly//更改某种语言的后缀名
 </code></pre><p>-o</p>
 <pre><code>gcc hello.c -o hello//制定目标名称, 缺省的时候, gcc 编译出来的文件是 a.out
@@ -418,6 +419,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -430,10 +435,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -442,15 +443,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

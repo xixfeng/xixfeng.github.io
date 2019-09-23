@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15605972701512.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15605976949441.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15605977409535.jpg">
-<meta property="og:updated_time" content="2019-08-15T05:11:35.418Z">
+<meta property="og:updated_time" content="2019-09-21T03:52:08.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库">
 <meta name="twitter:description" content="数据库三大范式  第一范式（1NF）：字段（列）不可再分 第二范式（2NF）：满足1NF,非主属性完全依赖于候选键 第三范式（3NF）：满足2NF,非主属性对候选键没有传递依赖 BCNF：满足3NF，且所有函数依赖对左边都有候选键  五大约束  primary KEY：设置主键 NOT NULL：不为NULL FOREIGN key：设置外键约束 unique：设计唯一性约束 default：默认">
@@ -256,7 +256,9 @@ excepts
 (select * from student as s2 where s1=s2)
 ) and not(student_id=1)
 </code></pre>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<h2 id="时间比较"><a href="#时间比较" class="headerlink" title="时间比较"></a>时间比较</h2><p>时间戳比较</p>
+<pre><code>select sum(real_fee)/100 from `order` where type_uid = &#39;ot0005&#39; and status = &#39;paid&#39; and date &gt; &#39;2019-8-25 0:0:0&#39;
+</code></pre><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
 <li>注意select选择字段时，不管后面是什么样子必须要加表名。</li>
 <li>变为大小写不敏感<pre><code class="sql">select *
 from department
@@ -531,7 +533,7 @@ select company name from works where avg_salary(company_name) &gt; avg salary(&q
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL"><span class="toc-number">2.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自然连接"><span class="toc-number">2.1.</span> <span class="toc-text">自然连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部连接"><span class="toc-number">2.2.</span> <span class="toc-text">内部连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外部连接"><span class="toc-number">2.3.</span> <span class="toc-text">外部连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#左连接"><span class="toc-number">2.3.1.</span> <span class="toc-text">左连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全连接"><span class="toc-number">2.3.2.</span> <span class="toc-text">全连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#in-exists"><span class="toc-number">2.4.</span> <span class="toc-text">in exists</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点"><span class="toc-number">2.4.1.</span> <span class="toc-text">注意点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关系代数"><span class="toc-number">3.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-R图"><span class="toc-number">4.</span> <span class="toc-text">E-R图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数与存储过程"><span class="toc-number">5.</span> <span class="toc-text">函数与存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建存储过程和函数"><span class="toc-number">5.1.</span> <span class="toc-text">创建存储过程和函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程和修改函数"><span class="toc-number">5.2.</span> <span class="toc-text">存储过程和修改函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#声明变量"><span class="toc-number">5.3.</span> <span class="toc-text">声明变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制语句"><span class="toc-number">5.4.</span> <span class="toc-text">流程控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光标"><span class="toc-number">5.5.</span> <span class="toc-text">光标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栗子"><span class="toc-number">6.</span> <span class="toc-text">栗子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#触发器"><span class="toc-number">7.</span> <span class="toc-text">触发器</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL"><span class="toc-number">2.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自然连接"><span class="toc-number">2.1.</span> <span class="toc-text">自然连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部连接"><span class="toc-number">2.2.</span> <span class="toc-text">内部连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外部连接"><span class="toc-number">2.3.</span> <span class="toc-text">外部连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#左连接"><span class="toc-number">2.3.1.</span> <span class="toc-text">左连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全连接"><span class="toc-number">2.3.2.</span> <span class="toc-text">全连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#in-exists"><span class="toc-number">2.4.</span> <span class="toc-text">in exists</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间比较"><span class="toc-number">2.5.</span> <span class="toc-text">时间比较</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点"><span class="toc-number">2.5.1.</span> <span class="toc-text">注意点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关系代数"><span class="toc-number">3.</span> <span class="toc-text">关系代数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-R图"><span class="toc-number">4.</span> <span class="toc-text">E-R图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数与存储过程"><span class="toc-number">5.</span> <span class="toc-text">函数与存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建存储过程和函数"><span class="toc-number">5.1.</span> <span class="toc-text">创建存储过程和函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程和修改函数"><span class="toc-number">5.2.</span> <span class="toc-text">存储过程和修改函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#声明变量"><span class="toc-number">5.3.</span> <span class="toc-text">声明变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程控制语句"><span class="toc-number">5.4.</span> <span class="toc-text">流程控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#光标"><span class="toc-number">5.5.</span> <span class="toc-text">光标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栗子"><span class="toc-number">6.</span> <span class="toc-text">栗子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#触发器"><span class="toc-number">7.</span> <span class="toc-text">触发器</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -642,6 +644,10 @@ select company name from works where avg_salary(company_name) &gt; avg salary(&q
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -654,10 +660,6 @@ select company name from works where avg_salary(company_name) &gt; avg salary(&q
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -666,15 +668,19 @@ select company name from works where avg_salary(company_name) &gt; avg salary(&q
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

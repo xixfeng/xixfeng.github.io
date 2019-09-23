@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-17T00:31:58.650Z">
+<meta property="og:updated_time" content="2019-09-22T05:01:41.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java虚拟机">
 <meta name="twitter:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
@@ -694,6 +694,7 @@ E --&gt; C
 <li>最重要的优化技术之一：方法内联</li>
 <li>最前沿的优化技术之一：逃逸分析</li>
 </ul>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p><a href="https://www.cnblogs.com/dqrcsc/p/4671879.html" target="_blank" rel="noopener">虚拟机内部详细讲解</a></p>
 <h1 id="Q"><a href="#Q" class="headerlink" title="Q"></a>Q</h1><p>虚拟机栈中每一个栈帧所使用的内存大小是基本确定了的？<br>因为栈帧中的局部变量和操作数是可以大致确定的<br>FULL GC / Major GC 区别</p>
 <p>类静态方法不可被继承？</p>
 <p>java私有方法</p>
@@ -814,7 +815,7 @@ E --&gt; C
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java虚拟机"><span class="toc-number">1.</span> <span class="toc-text">java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java内存区域与内存溢出异常"><span class="toc-number">1.1.</span> <span class="toc-text">java内存区域与内存溢出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-number">2.</span> <span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集"><span class="toc-number">2.1.</span> <span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存分配"><span class="toc-number">2.2.</span> <span class="toc-text">内存分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-number">3.</span> <span class="toc-text">虚拟机性能监控与故障处理工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number">4.</span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class类文件结构"><span class="toc-number">4.1.</span> <span class="toc-text">Class类文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-number">5.</span> <span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载过程"><span class="toc-number">5.1.</span> <span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器🍃"><span class="toc-number">5.2.</span> <span class="toc-text">类加载器🍃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-number">6.</span> <span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时虚拟机栈-栈帧结构"><span class="toc-number">6.1.</span> <span class="toc-text">运行时虚拟机栈 栈帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-number">6.2.</span> <span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分派"><span class="toc-number">6.3.</span> <span class="toc-text">分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-number">6.4.</span> <span class="toc-text">基于栈的字节码解释执行引擎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#早期（编译器）优化"><span class="toc-number">7.</span> <span class="toc-text">早期（编译器）优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#javac编译过程"><span class="toc-number">7.1.</span> <span class="toc-text">javac编译过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java语法糖"><span class="toc-number">7.2.</span> <span class="toc-text">java语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入式注解处理器"><span class="toc-number">7.3.</span> <span class="toc-text">插入式注解处理器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#晚期（运行期）优化"><span class="toc-number">8.</span> <span class="toc-text">晚期（运行期）优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q"><span class="toc-number">9.</span> <span class="toc-text">Q</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java虚拟机"><span class="toc-number">1.</span> <span class="toc-text">java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java内存区域与内存溢出异常"><span class="toc-number">1.1.</span> <span class="toc-text">java内存区域与内存溢出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-number">2.</span> <span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集"><span class="toc-number">2.1.</span> <span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存分配"><span class="toc-number">2.2.</span> <span class="toc-text">内存分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-number">3.</span> <span class="toc-text">虚拟机性能监控与故障处理工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number">4.</span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class类文件结构"><span class="toc-number">4.1.</span> <span class="toc-text">Class类文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-number">5.</span> <span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载过程"><span class="toc-number">5.1.</span> <span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器🍃"><span class="toc-number">5.2.</span> <span class="toc-text">类加载器🍃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-number">6.</span> <span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时虚拟机栈-栈帧结构"><span class="toc-number">6.1.</span> <span class="toc-text">运行时虚拟机栈 栈帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-number">6.2.</span> <span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分派"><span class="toc-number">6.3.</span> <span class="toc-text">分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-number">6.4.</span> <span class="toc-text">基于栈的字节码解释执行引擎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#早期（编译器）优化"><span class="toc-number">7.</span> <span class="toc-text">早期（编译器）优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#javac编译过程"><span class="toc-number">7.1.</span> <span class="toc-text">javac编译过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java语法糖"><span class="toc-number">7.2.</span> <span class="toc-text">java语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入式注解处理器"><span class="toc-number">7.3.</span> <span class="toc-text">插入式注解处理器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#晚期（运行期）优化"><span class="toc-number">8.</span> <span class="toc-text">晚期（运行期）优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-number">9.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q"><span class="toc-number">10.</span> <span class="toc-text">Q</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -925,6 +926,10 @@ E --&gt; C
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -937,10 +942,6 @@ E --&gt; C
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -949,15 +950,19 @@ E --&gt; C
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
