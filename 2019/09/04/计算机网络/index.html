@@ -18,7 +18,8 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
-<meta property="og:updated_time" content="2019-09-19T09:50:53.256Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
+<meta property="og:updated_time" content="2019-09-25T12:31:28.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="IntroductionModel of communicationData Transmission Mode  Baseband(基带) Transmission Passband(通带) Transmission Broadband(宽带) Transmission    Signal Encoding  analog data digital signalPCM 脉冲调制编码简单的说，模拟">
@@ -379,6 +380,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </li>
 </ul>
 <h2 id="Socket-programming-with-TCP"><a href="#Socket-programming-with-TCP" class="headerlink" title="Socket programming with TCP"></a>Socket programming with TCP</h2><p><u>socket是基于TCP或者UDP的</u></p>
+<p><img src="http://api.xixfeng.cn/mweb/Application Layer.jpg" alt="Application Layer"></p>
 <h1 id="Transport-Layer"><a href="#Transport-Layer" class="headerlink" title="Transport Layer"></a>Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
 <p>传输层负责不同程序之间数据的传输，Port</p>
 <h2 id="Multiplexing-and-demultiplexing"><a href="#Multiplexing-and-demultiplexing" class="headerlink" title="Multiplexing and demultiplexing"></a>Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用</p>
@@ -417,9 +419,104 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 <p>使用</p>
 <ul>
 <li>流媒体</li>
-<li>DNS、SNMP</li>
+<li><strong>DNS</strong>、SNMP</li>
 <li>建立在UDP上的可靠传输，在头中加入长度字段和checksum检验字段（checksum字段如何求）</li>
 </ul>
+<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p><u><strong>引入</strong></u></p>
+<p>rdt1.0：没有位错误，没有分组丢失</p>
+<p>rdt2.0：有位错误，没有分组丢失</p>
+<p>rdt3.0：有位错误，有分组丢失</p>
+<ul>
+<li>rdt3.0效率十分的低，因为它是一个停止等待的协议</li>
+</ul>
+<p>希望通过<u><strong>流水线</strong></u>方式提高效率（pipeline），由此诞生了GBN和SR算法</p>
+<p><u><strong>Go-back-N</strong></u>算法：</p>
+<p>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包，第4个包失败了就会返回ACK3）</p>
+<p>发送方有一个缓存，缓存需要发送的N个分组</p>
+<p>发送方</p>
+<p><u><strong>Selective Repeat</strong></u>算法</p>
+<hr>
+<p><u><strong>TCP</strong></u></p>
+<ul>
+<li><p>可靠的、有序的字节流</p>
+</li>
+<li><p>流水线</p>
+</li>
+<li><p>全双工</p>
+<p>MSS: maximum segment size，因为链路层不同而导致最大段大小不同</p>
+</li>
+<li><p>面向连接的</p>
+</li>
+<li><p>流控制 （flow control）：发送者不会压倒接收者（buffer）</p>
+</li>
+</ul>
+<p>捎带（piggyback）：将数据和控制信息放在一个带里面</p>
+<p>TCP控制头</p>
+<ul>
+<li>seq：当前这段字节流数据的开始位置（这个位置是相对于整个TCP连接过程的传输流）</li>
+<li>ack：下一次需要的字节流位置（和GBN、SR以及rdt不同）</li>
+</ul>
+<p>如何设置TCP连接的过期时间（防止分组丢失）</p>
+<ul>
+<li>要比RTT长</li>
+<li>不能太长不能太短</li>
+</ul>
+<p>TCP-可靠的传输</p>
+<ul>
+<li><p>TCP creates rdt service on top of IP’s unreliable service</p>
+</li>
+<li><p>pipelined segments</p>
+</li>
+<li><p>cumulative acks 累积的ack</p>
+</li>
+<li><p>TCP uses single retransmission timer 一个重传计时</p>
+</li>
+<li><p>retransmissions are triggered by</p>
+<p>timeout event</p>
+<p>duplicate acks 重复的ack返回</p>
+</li>
+</ul>
+<p>TCP 发送端事项</p>
+<ul>
+<li><p>创建seq</p>
+</li>
+<li><p>如果没有启动计时器则启动，⚠️当超时后，发送最老的未被确认（unacked）段</p>
+</li>
+<li><p>⚠️如果确认了之前未确认的字段</p>
+<p>更新发送方的确认字段</p>
+</li>
+</ul>
+<p>TCP接收端事项</p>
+<table>
+<thead>
+<tr>
+<th>EVENT AT RECIVER</th>
+<th>TCP RECIVER ACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>到达了一个有序序列 且 这个有序序列之前的所有段都已经被确认</td>
+<td>停500ms等待下一个segment，超时后发送ACK</td>
+</tr>
+<tr>
+<td>到达了一个有序序列 且 之前有一个字段正在被确认</td>
+<td>立马发送ACK</td>
+</tr>
+<tr>
+<td>到达一个乱序序列（不是期望的seq）</td>
+<td>发送之前的ACK</td>
+</tr>
+<tr>
+<td>Arrival of segment that partially or completely fills gap</td>
+<td>Immediate send ACK, provided that segment starts at lower end of gap？？？</td>
+</tr>
+</tbody>
+</table>
+<p>TCP 流控制</p>
+<p>由于接收端的app从buffer读的速度会比较慢，所以接收端buffer可能会装满溢出</p>
+<p>所以在TCP的控制信息中有一个 Receive window 字段，标示buffer还能接受的字节大小</p>
+<p>当buffer充满时，可能会发生愚笨窗口综合症。</p>
 <p>socket属于传输层？</p>
 <p>text book:</p>
 <ul>
@@ -538,7 +635,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.1.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet"><span class="toc-number">1.2.</span> <span class="toc-text">Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">internet layer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-transport-protocols-services"><span class="toc-number">2.1.</span> <span class="toc-text">Internet transport protocols services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.2.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.3.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.4.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">2.5.</span> <span class="toc-text">Application layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.6.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.1.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet"><span class="toc-number">1.2.</span> <span class="toc-text">Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">internet layer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-transport-protocols-services"><span class="toc-number">2.1.</span> <span class="toc-text">Internet transport protocols services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.2.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.3.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.4.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">2.5.</span> <span class="toc-text">Application layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.6.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-number">3.3.</span> <span class="toc-text">TCP</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

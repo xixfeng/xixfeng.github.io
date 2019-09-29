@@ -17,7 +17,8 @@
 <meta property="og:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
-<meta property="og:updated_time" content="2019-09-23T13:59:13.894Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15693709225722.png">
+<meta property="og:updated_time" content="2019-09-25T00:22:25.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
@@ -479,6 +480,166 @@
 <li>Publisher类：向上下文发布我们自定义的事件</li>
 <li>Listener类：坚定我们自定义的事情</li>
 </ul>
+<h1 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h1><h2 id="基于Xml"><a href="#基于Xml" class="headerlink" title="基于Xml"></a>基于Xml</h2><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; 
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd &quot;&gt;
+
+   &lt;aop:config&gt;
+      &lt;aop:aspect id=&quot;log&quot; ref=&quot;logging&quot;&gt; &lt;!--指名这个切面的函数来自logging bean--&gt;
+         &lt;aop:pointcut id=&quot;selectAll&quot; 
+         expression=&quot;execution(* com.tutorialspoint.*.*(..))&quot;/&gt; &lt;!--指名selectAll切面作用的范围--&gt;
+         &lt;aop:before pointcut-ref=&quot;selectAll&quot; method=&quot;beforeAdvice&quot;/&gt;&lt;!--使用selectAll切面--&gt;
+         &lt;aop:after pointcut-ref=&quot;selectAll&quot; method=&quot;afterAdvice&quot;/&gt;
+         &lt;aop:after-returning pointcut-ref=&quot;selectAll&quot; 
+                              returning=&quot;retVal&quot;
+                              method=&quot;afterReturningAdvice&quot;/&gt;
+         &lt;aop:after-throwing pointcut-ref=&quot;selectAll&quot; 
+                             throwing=&quot;ex&quot;
+                             method=&quot;AfterThrowingAdvice&quot;/&gt;
+      &lt;/aop:aspect&gt;
+   &lt;/aop:config&gt;
+
+   &lt;!-- Definition for student bean --&gt;
+   &lt;bean id=&quot;student&quot; class=&quot;com.tutorialspoint.Student&quot;&gt;
+      &lt;property name=&quot;name&quot;  value=&quot;Zara&quot; /&gt;
+      &lt;property name=&quot;age&quot;  value=&quot;11&quot;/&gt;      
+   &lt;/bean&gt;
+
+   &lt;!-- Definition for logging aspect --&gt;
+   &lt;bean id=&quot;logging&quot; class=&quot;com.tutorialspoint.Logging&quot;/&gt; 
+
+&lt;/beans&gt;
+</code></pre>
+<h2 id="基于-AspectJ"><a href="#基于-AspectJ" class="headerlink" title="基于@AspectJ"></a>基于@AspectJ</h2><p>下面两个类似</p>
+<pre><code class="java">package org.xyz;
+import org.aspectj.lang.annotation.Aspect;
+@Aspect
+public class AspectModule {
+}
+</code></pre>
+<pre><code class="xml">&lt;bean id=&quot;myAspect&quot; class=&quot;org.xyz.AspectModule&quot;&gt;
+   &lt;!-- configure properties of aspect here as normal --&gt;
+&lt;/bean&gt;
+</code></pre>
+<pre><code class="java">package com.tutorialspoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+@Aspect
+public class Logging {
+   /** Following is the definition for a pointcut to select
+    *  all the methods available. So advice will be called
+    *  for all the methods.
+    */
+   @Pointcut(&quot;execution(* com.tutorialspoint.*.*(..))&quot;)
+   private void selectAll(){}
+   /** 
+    * This is the method which I would like to execute
+    * before a selected method execution.
+    */
+   @Before(&quot;selectAll()&quot;)
+   public void beforeAdvice(){
+      System.out.println(&quot;Going to setup student profile.&quot;);
+   }
+   /** 
+    * This is the method which I would like to execute
+    * after a selected method execution.
+    */
+   @After(&quot;selectAll()&quot;)
+   public void afterAdvice(){
+      System.out.println(&quot;Student profile has been setup.&quot;);
+   }
+   /** 
+    * This is the method which I would like to execute
+    * when any method returns.
+    */
+   @AfterReturning(pointcut = &quot;selectAll()&quot;, returning=&quot;retVal&quot;)
+   public void afterReturningAdvice(Object retVal){
+      System.out.println(&quot;Returning:&quot; + retVal.toString() );
+   }
+   /**
+    * This is the method which I would like to execute
+    * if there is an exception raised by any method.
+    */
+   @AfterThrowing(pointcut = &quot;selectAll()&quot;, throwing = &quot;ex&quot;)
+   public void AfterThrowingAdvice(IllegalArgumentException ex){
+      System.out.println(&quot;There has been an exception: &quot; + ex.toString());   
+   }  
+}
+</code></pre>
+<h1 id="Spring-JDBC"><a href="#Spring-JDBC" class="headerlink" title="Spring JDBC"></a>Spring JDBC</h1><p><a href="https://www.w3cschool.cn/wkspring/zjs51h9z.html" target="_blank" rel="noopener">Spring JDBC框架</a></p>
+<p>Student  《-》 StudentMapper  《-》DAO层</p>
+<ul>
+<li>Student为数据库的相似类</li>
+<li>StudentMapper用于将查询结果集映射为Student</li>
+<li>DAO层负责sql语句的执行和返回结果</li>
+</ul>
+<h1 id="Spring事务管理"><a href="#Spring事务管理" class="headerlink" title="Spring事务管理"></a>Spring事务管理</h1><p>Spring事务性质与数据库中事务性质相似，ACID</p>
+<ul>
+<li>原子性</li>
+<li>一致性</li>
+<li>隔离性</li>
+<li>持久性</li>
+</ul>
+<p>Spring支持两种类型事务管理</p>
+<ul>
+<li>编程式：这意味着你在编程的帮助下有管理事务。这给了你极大的灵活性，但却很难维护。</li>
+<li>声明式：这意味着你从业务代码中分离事务管理。你仅仅使用注释或 XML 配置来管理事务。</li>
+</ul>
+<p><u><strong>编程式</strong></u></p>
+<p>用 PlatformTransactionManager 管理所有 TransactionDefinition，Manager负责所有事务的提交和回滚（根据不同事务的状态来识别事务）</p>
+<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="http://api.xixfeng.cn/mweb/15693709225722.png" alt></p>
+<p>在controller与view之间有一层view resovler负责将controller的数据映射到view中去</p>
+<pre><code class="xml">&lt;web-app id=&quot;WebApp_ID&quot; version=&quot;2.4&quot;
+   xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot; 
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+   xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee 
+   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;&gt;
+
+   &lt;display-name&gt;Spring MVC Application&lt;/display-name&gt;
+
+   &lt;servlet&gt;这是DispatcherServlet
+      &lt;servlet-name&gt;HelloWeb&lt;/servlet-name&gt;
+      &lt;servlet-class&gt;
+         org.springframework.web.servlet.DispatcherServlet
+      &lt;/servlet-class&gt;
+      &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+   &lt;/servlet&gt;
+
+   &lt;servlet-mapping&gt;这是handler Mapping，一个Mapping对应一个controller
+      &lt;servlet-name&gt;HelloWeb&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre>
+<pre><code class="xml">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+   xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+   xsi:schemaLocation=&quot;
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;
+
+   &lt;context:component-scan base-package=&quot;com.tutorialspoint&quot; /&gt;
+
+   &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+      &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot; /&gt;
+      &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;配置view Resolver
+   &lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre>
 
         
 
@@ -583,7 +744,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-AOP"><span class="toc-number">6.</span> <span class="toc-text">Spring AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于Xml"><span class="toc-number">6.1.</span> <span class="toc-text">基于Xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于-AspectJ"><span class="toc-number">6.2.</span> <span class="toc-text">基于@AspectJ</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-JDBC"><span class="toc-number">7.</span> <span class="toc-text">Spring JDBC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring事务管理"><span class="toc-number">8.</span> <span class="toc-text">Spring事务管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC"><span class="toc-number">9.</span> <span class="toc-text">SpringMVC</span></a></li></ol>
                     </div>
                 </span>
             </div>

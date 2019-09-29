@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>leetcode-排序 | xixfeng</title>
+  <title>HTTP | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二分查找 二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目  二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找         l,r = 0,len(nums)-1         while l &amp;lt;= r:             mid = (l+r)/2             if target == nums[mid">
-<meta name="keywords" content="leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-排序">
-<meta property="og:url" content="https://xixfeng.github.io/2019/09/22/leetcode-排序/index.html">
+  <meta name="description" content="HTTP报文格式  请求行 请求头 请求体  POST协议规定 POST 提交的数据必须放在请求体（entity-body）中，但协议并没有规定数据必须 使用什么编码方式。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。 三种常见的post请求格式 🌿其实不同格式的区别就是如何划分想要传送的字段 (1) application/x-www-for">
+<meta name="keywords" content="后端,协议">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HTTP">
+<meta property="og:url" content="https://xixfeng.github.io/False/HTTP.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="二分查找 二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目  二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找         l,r = 0,len(nums)-1         while l &amp;lt;= r:             mid = (l+r)/2             if target == nums[mid">
+<meta property="og:description" content="HTTP报文格式  请求行 请求头 请求体  POST协议规定 POST 提交的数据必须放在请求体（entity-body）中，但协议并没有规定数据必须 使用什么编码方式。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。 三种常见的post请求格式 🌿其实不同格式的区别就是如何划分想要传送的字段 (1) application/x-www-for">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-23T13:59:08.166Z">
+<meta property="og:updated_time" content="2019-09-25T12:57:57.130Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-排序">
-<meta name="twitter:description" content="二分查找 二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目  二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找         l,r = 0,len(nums)-1         while l &amp;lt;= r:             mid = (l+r)/2             if target == nums[mid">
+<meta name="twitter:title" content="HTTP">
+<meta name="twitter:description" content="HTTP报文格式  请求行 请求头 请求体  POST协议规定 POST 提交的数据必须放在请求体（entity-body）中，但协议并没有规定数据必须 使用什么编码方式。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。 三种常见的post请求格式 🌿其实不同格式的区别就是如何划分想要传送的字段 (1) application/x-www-for">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -143,20 +143,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-排序" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode-排序
+      HTTP
     </h1>
   
 
         
-        <a href="/2019/09/22/leetcode-排序/" class="archive-article-date">
-  	<time datetime="2019-09-22T12:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+        <a href="/False/HTTP.html" class="archive-article-date">
+  	<time datetime="2018-11-14T09:54:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-14</time>
 </a>
         
       </header>
@@ -164,48 +164,55 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><blockquote>
-<p>二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目</p>
-</blockquote>
-<p>二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找</p>
-<pre><code class="python">        l,r = 0,len(nums)-1
-        while l &lt;= r:
-            mid = (l+r)/2
-            if target == nums[mid]:return mid
-            elif target &gt; nums[mid]:l = mid + 1
-            elif target &lt; nums[mid]:r = mid - 1
-        return -1
-</code></pre>
+          <p>HTTP报文格式</p>
 <ul>
-<li>左、右半区区域是否包含mid</li>
-<li>l &lt;= r 还是 l &lt; r 停止</li>
+<li>请求行</li>
+<li>请求头</li>
+<li>请求体</li>
 </ul>
-<p>278 第一个错误版本</p>
-<p>在该题中，左半区要包含mid，右半区不包含mid。当l==r时停止</p>
-<pre><code class="python">    def firstBadVersion(self, n):
-        &quot;&quot;&quot;
-        :type n: int
-        :rtype: int
-        &quot;&quot;&quot;
-        l,r = 1,n
-        while l &lt; r:
-            mid = (l+r)/2
-            if isBadVersion(mid):r = mid
-            if not isBadVersion(mid):l = mid + 1
-        return l
-</code></pre>
-<p>69 平方根</p>
-<p> 当l == r时停止</p>
-<pre><code class="python">        left = 0
-        right = x
-        while left &lt; right:#除了x，其他的值都能取到
-            mid = (right+left)/2
-            if mid ** 2 &lt; x:left = mid + 1
-            elif mid ** 2 &gt; x :right = mid - 1
-            elif mid ** 2 == x:return mid
-        return left if left ** 2 &lt;= x else left - 1#最后会返回r或者r-1，取决于r**2&lt;=x
-</code></pre>
+<h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><p>协议规定 POST 提交的数据必须放在请求体（entity-body）中，但协议并没有规定数据必须 <strong>使用什么编码方式</strong>。实际上，开发者完全可以自己决定消息主体的格式，只要最后发送的 HTTP 请求满足上面的格式就可以。</p>
+<p><u><strong>三种常见的post请求格式</strong></u></p>
+<p>🌿其实不同格式的区别就是如何划分想要传送的字段</p>
+<p>(1) application/x-www-form-urlencoded</p>
+<p>字段之间以&amp;分割</p>
+<pre><code>POST /MiniP/Administrators/addGoodsByExcel HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+cache-control: no-cache
+Postman-Token: fa79e5f7-73dd-4403-bc64-98a75fad9380
 
+name=LiYang&amp;keyWord=794
+</code></pre><p>(2)  multipart/form-data</p>
+<p>以生成的 ${Boundary} 为界限，划分请求体中不同的字段</p>
+<pre><code>POST /MiniP/Administrators/addGoodsByExcel HTTP/1.1
+Host: localhost:8080
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+cache-control: no-cache
+Postman-Token: bfd3eb92-397a-435d-acac-101b6a67e495
+
+
+Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;/Users/xixfeng/Downloads/新建 Microsoft Office Excel 2007 工作表.xlsx
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--,
+Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;/Users/xixfeng/Downloads/新建 Microsoft Office Excel 2007 工作表.xlsx
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+Content-Disposition: form-data; name=&quot;from&quot;
+
+LiYang
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+</code></pre><p>(3)application/json</p>
+<p>请求体为序列化的json格式</p>
+<pre><code>POST /MiniP/OnlineMall/payCart HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+cache-control: no-cache
+Postman-Token: cbb9d43b-ff8a-4573-8076-3553296b8f77
+
+{&quot;userId&quot;:2595, &quot;goodsInfo&quot;:[{&quot;goodsId&quot;:29, &quot;amount&quot;:1}], &quot;orderTypeUid&quot;:&quot;ot0002&quot;, &quot;deliveryTypeUid&quot;:&quot;&quot;}
+</code></pre>
         
 
       
@@ -262,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/09/22/leetcode-排序/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/HTTP.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,16 +281,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2019/09/08/leetcode-二叉树/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode-二叉树</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -305,7 +302,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二分查找"><span class="toc-number">1.</span> <span class="toc-text">二分查找</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST"><span class="toc-number">1.</span> <span class="toc-text">POST</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -330,7 +327,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2019/09/22/leetcode-排序/",
+  id: "https://xixfeng.github.io/False/HTTP.html",
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {
@@ -363,7 +360,7 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
