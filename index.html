@@ -177,36 +177,9 @@
             elif target &lt; nums[mid]:r = mid - 1
         return -1
 </code></pre>
-<ul>
-<li>左、右半区区域是否包含mid</li>
-<li>l &lt;= r 还是 l &lt; r 停止</li>
-</ul>
-<p>278 第一个错误版本</p>
-<p>在该题中，左半区要包含mid，右半区不包含mid。当l==r时停止</p>
-<pre><code class="python">    def firstBadVersion(self, n):
-        &quot;&quot;&quot;
-        :type n: int
-        :rtype: int
-        &quot;&quot;&quot;
-        l,r = 1,n
-        while l &lt; r:
-            mid = (l+r)/2
-            if isBadVersion(mid):r = mid
-            if not isBadVersion(mid):l = mid + 1
-        return l
-</code></pre>
-<p>69 平方根</p>
-<p> 当l == r时停止</p>
-<pre><code class="python">        left = 0
-        right = x
-        while left &lt; right:#除了x，其他的值都能取到
-            mid = (right+left)/2
-            if mid ** 2 &lt; x:left = mid + 1
-            elif mid ** 2 &gt; x :right = mid - 1
-            elif mid ** 2 == x:return mid
-        return left if left ** 2 &lt;= x else left - 1#最后会返回r或者r-1，取决于r**2&lt;=x
-</code></pre>
-
+          
+            <a class="article-more-a" href="/2019/09/22/leetcode-二分查找/#more">more >></a>
+          
         
 
       
