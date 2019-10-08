@@ -15,10 +15,12 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-24T02:03:43.517Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/A5406AD8-15E0-48B6-8F79-03DCB9F062C5.png">
+<meta property="og:updated_time" content="2019-10-08T03:07:13.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
+<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/A5406AD8-15E0-48B6-8F79-03DCB9F062C5.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -207,12 +209,13 @@
 <li>EBX</li>
 <li>ECX：一般用于加减法</li>
 <li>EDX</li>
-<li>EBP：栈帧的基地址指针 base pointer of stack frame</li>
+<li>EBP：栈帧的基地址指针 base pointer of stack frame，即某一栈帧<strong>起始地址</strong>指针</li>
 <li>ESP：栈顶指针，就是栈最上面栈帧的指针</li>
 <li>ESI</li>
 <li>EDI</li>
+<li><strong>EIP</strong>：存储下一条指令的地址</li>
 </ul>
-<p>16位寄存器：它们事实上是上面8个32-bit寄存器的低16位<br>%ax，%bx，%cx，%dx，%di，%si，%bp，%sp； </p>
+<p>16位寄存器：它们事实上是上面8个32-bit寄存器的低16位<br>%ax，%bx，%cx，%dx，%di，%si，%bp，%sp； //作用详情在函数调用部分</p>
 <p>8位寄存器，它们事实上是寄存器%ax，%bx，%cx，%dx的高8位和低8位；<br>%ah，%al，%bh，%bl，%ch，%cl，%dh，%dl。</p>
 <p><strong>条件码寄存器</strong></p>
 <p>CF：进位标志，最近的操作使最高位产生了进位，可以用来检查无符号操作的溢出</p>
@@ -255,6 +258,101 @@ end start
 </ul>
 <h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>C语言使用栈数据结构实现函数调用</p>
 <p>每次进入函数之前，会修改%rsp寄存器的值以记录本函数内下一条指令的位置</p>
+<h1 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h1><table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Callee Save</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%rax</td>
+<td></td>
+<td>结果寄存器</td>
+</tr>
+<tr>
+<td>%rbx</td>
+<td>yes</td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td>%rcx</td>
+<td></td>
+<td>第四参数寄存器</td>
+</tr>
+<tr>
+<td>%rdx</td>
+<td></td>
+<td>第三参数寄存器</td>
+</tr>
+<tr>
+<td>%rsp</td>
+<td></td>
+<td>指向栈顶位置</td>
+</tr>
+<tr>
+<td>%rpb</td>
+<td>yes</td>
+<td>用于标识当前栈帧的起始位置</td>
+</tr>
+<tr>
+<td>%rsi</td>
+<td></td>
+<td>第二参数寄存器</td>
+</tr>
+<tr>
+<td>%rdi</td>
+<td></td>
+<td>第一参数寄存器</td>
+</tr>
+<tr>
+<td>%r8</td>
+<td></td>
+<td>第五参数寄存器</td>
+</tr>
+<tr>
+<td>%r9</td>
+<td></td>
+<td>第六参数寄存器</td>
+</tr>
+<tr>
+<td>%r10-r11</td>
+<td></td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td>%r12-%r15</td>
+<td>yes</td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复</p>
+<p><u><strong>栈帧表示</strong></u></p>
+<ul>
+<li>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</li>
+</ul>
+<p><img src="http://api.xixfeng.cn/mweb/A5406AD8-15E0-48B6-8F79-03DCB9F062C5.png" alt="A5406AD8-15E0-48B6-8F79-03DCB9F062C5"></p>
+<p>调用步骤：执行的操作有：父函数将调用参数从后向前压栈 -&gt; 将返回地址压栈保存 -&gt; 跳转到子函数起始地址执行 -&gt; 子函数将父函数栈帧起始地址（%rpb） 压栈 -&gt; 将 %rbp 的值设置为当前 %rsp 的值，即将 %rbp 指向子函数栈帧的起始地址。</p>
+<pre><code class="C"># 参数压栈
+call FUNC  # 将返回地址压栈，并跳转到子函数 FUNC 处执行
+# 函数调用的返回位置
+
+FUNC:  # 子函数入口
+pushq %rbp  # 保存旧的帧指针，相当于创建新的栈帧
+movq  %rsp, %rbp  # 让 %rbp 指向新栈帧的起始位置
+subq  $N, %rsp  # 在新栈帧中预留一些空位，供子程序使用，用 (%rsp+K) 或 (%rbp-K) 的形式引用空位
+</code></pre>
+<p>恢复步骤</p>
+<pre><code class="C">movq %rbp, %rsp    # 使 %rsp 和 %rbp 指向同一位置，即子栈帧的起始处
+popq %rbp # 将栈中保存的父栈帧的 %rbp 的值赋值给 %rbp，并且 %rsp 上移一个位置指向父栈帧的结尾处
+</code></pre>
 <h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p><u><strong>变量</strong></u></p>
 <p>全局变量：</p>
 <ul>
@@ -290,6 +388,12 @@ int main ()
     return 0;
 }
 
+</code></pre>
+<pre><code class="c">int i;
+int * jp = &amp;i;//jp是i地址的地址
+void main(int i, char * argv[]) {
+  printf(&quot;%d %d\n&quot;, (int) &amp;i, (int) jp);//两个值打出来不一样
+}
 </code></pre>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><p>x86-64 ATT格式</p>
 <p><strong>数据格式</strong></p>
@@ -943,7 +1047,7 @@ int main ()
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过程"><span class="toc-number">3.2.1.</span> <span class="toc-text">过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">4.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">5.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">5.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过程"><span class="toc-number">3.2.1.</span> <span class="toc-text">过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用"><span class="toc-number">4.</span> <span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">5.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">6.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">6.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
