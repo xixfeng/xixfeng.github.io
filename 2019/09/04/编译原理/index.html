@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705808355606.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705808893103.jpg">
-<meta property="og:updated_time" content="2019-10-09T00:28:39.336Z">
+<meta property="og:updated_time" content="2019-10-09T00:37:31.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -330,11 +330,11 @@
 <p><a href="https://blog.csdn.net/starter_/article/details/89741993" target="_blank" rel="noopener">DFA化简</a></p>
 <p>为什么需要在经过某个字符过后必须在同一个状态集，否则要被拆分？</p>
 <p>因为假如要将一个状态集合并为一个状态，那么对于一个输入就只能到一个状态集，不能到两个状态集。所以需要被拆分</p>
-<h2 id="the-lexical-analyzer-generotr"><a href="#the-lexical-analyzer-generotr" class="headerlink" title="the lexical-analyzer generotr"></a>the lexical-analyzer generotr</h2><p><u><strong>组成部分</strong></u></p>
+<h3 id="flex-语法"><a href="#flex-语法" class="headerlink" title="flex 语法"></a>flex 语法</h3><p><u><strong>组成部分</strong></u></p>
 <ul>
 <li>声明部分：全局变量声明、库函数引入、正规表达式定义等</li>
 </ul>
-<pre><code class="C">%{
+<pre><code class="c">%{
     #include &lt;stdio.h&gt;
     int count = 0;
 %}
@@ -372,9 +372,7 @@ gcc lex.yy.c -ll    //编译文件
 
 control+d            //结束输入 
 
-</code></pre><p><img src="http://api.xixfeng.cn/mweb/15705808355606.jpg" alt></p>
-<p><img src="http://api.xixfeng.cn/mweb/15705808893103.jpg" alt></p>
-<p>注意到在编译的时候，链接了一个库 fl，这个是 flex 提供的一个库，生成的词法分析器里面会用到这个库里面的一些东西。这个里面也包括内置的 main 函数，回头看看，上面的 flex 源文件中，是不是没有 main 函数的？最后的入口 main，就是来自这个库啦！当然，也可以自己写 main 函数，就在用户子程序段，不过得调用词法分析器的入口程序才行哦！这个入口函数就是 yylex()。</p>
+</code></pre><p>注意到在编译的时候，链接了一个库 ll，这个是 flex 提供的一个库，生成的词法分析器里面会用到这个库里面的一些东西。这个里面也包括内置的 main 函数，最后的入口 main，就是来自这个库。当然，也可以自己写 main 函数，就在用户子程序段，不过得调用词法分析器的入口程序才行。这个入口函数就是 yylex()。</p>
 <pre><code class="c">%{
 int chars = 0;
 int words = 0;
@@ -394,6 +392,8 @@ int main(int argc, char **argv){
    printf(&quot;%8d%8d%8d\n&quot;, lines, words, chars);
 }
 </code></pre>
+<p><img src="http://api.xixfeng.cn/mweb/15705808355606.jpg" alt></p>
+<p><img src="http://api.xixfeng.cn/mweb/15705808893103.jpg" alt></p>
 <h1 id="Syntax-analyzer"><a href="#Syntax-analyzer" class="headerlink" title="Syntax analyzer"></a>Syntax analyzer</h1><p>三种生成方式</p>
 <ul>
 <li>Universal 通用的</li>
@@ -551,7 +551,7 @@ int main(int argc, char **argv){
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-lexical-analyzer-generotr"><span class="toc-number">2.2.</span> <span class="toc-text">the lexical-analyzer generotr</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.2.1.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
