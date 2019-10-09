@@ -17,7 +17,9 @@
 <meta property="og:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
-<meta property="og:updated_time" content="2019-10-08T08:25:57.847Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15705808355606.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15705808893103.jpg">
+<meta property="og:updated_time" content="2019-10-09T00:28:39.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -357,16 +359,39 @@ number {digit}+             // {}表示引用
 <li>总是选择最长的前缀；比如：&lt;=被识别为LE而不是&lt; 和 =</li>
 <li>如果最长的可能前缀与多个模式匹配，总是选择列在前面的模式（转换规则里）</li>
 </ul>
-<h3 id="flex-实验"><a href="#flex-实验" class="headerlink" title="flex 实验"></a>flex 实验</h3><p>gcc -o scanner lex.yy.c -lfl</p>
+<h3 id="flex-实验"><a href="#flex-实验" class="headerlink" title="flex 实验"></a>flex 实验</h3><p>mac一般自带flex，如果没有可以使用homebrew进行下载，也🉑️去github搜索使用源码安装</p>
+<p>安装homebrew</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><p>使用homebrew安装flex</p>
+<pre><code>brew install flex
+</code></pre><pre><code>flex test.l         //生成目标c文件 
+
+gcc lex.yy.c -ll    //编译文件 
+
+./a.out                //执行 
+
+control+d            //结束输入 
+
+</code></pre><p><img src="http://api.xixfeng.cn/mweb/15705808355606.jpg" alt></p>
+<p><img src="http://api.xixfeng.cn/mweb/15705808893103.jpg" alt></p>
 <p>注意到在编译的时候，链接了一个库 fl，这个是 flex 提供的一个库，生成的词法分析器里面会用到这个库里面的一些东西。这个里面也包括内置的 main 函数，回头看看，上面的 flex 源文件中，是不是没有 main 函数的？最后的入口 main，就是来自这个库啦！当然，也可以自己写 main 函数，就在用户子程序段，不过得调用词法分析器的入口程序才行哦！这个入口函数就是 yylex()。</p>
-<pre><code class="c">main(int argc, char **argv)
+<pre><code class="c">%{
+int chars = 0;
+int words = 0;
+int lines = 0;
+%}
 
-{
+%%
 
-   yylex();                    //调用入口函数
+[a-zA-Z]+ {words++; chars += strlen(yytext);}
+\n  { chars++; lines++; }
+.  { chars++; }
 
+%%
+
+int main(int argc, char **argv){
+   yylex();
    printf(&quot;%8d%8d%8d\n&quot;, lines, words, chars);
-
 }
 </code></pre>
 <h1 id="Syntax-analyzer"><a href="#Syntax-analyzer" class="headerlink" title="Syntax analyzer"></a>Syntax analyzer</h1><p>三种生成方式</p>
