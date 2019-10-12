@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>Spring | xixfeng</title>
+  <title>Archives: 2019/10 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
-<meta name="keywords" content="后端">
+  <meta name="description" content="为了什么而生活">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Spring">
-<meta property="og:url" content="https://xixfeng.github.io/False/Spring.html">
+<meta property="og:title" content="xixfeng">
+<meta property="og:url" content="https://xixfeng.github.io/archives/2019/10/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
+<meta property="og:description" content="为了什么而生活">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
-<meta property="og:updated_time" content="2019-09-23T13:55:16.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring">
-<meta name="twitter:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
-<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
+<meta name="twitter:title" content="xixfeng">
+<meta name="twitter:description" content="为了什么而生活">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,465 +141,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Spring
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/10/12/mac完成SSD6 exercise1/" class="archive-article-date">
+  	<time datetime="2019-10-12T00:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/10/12/mac完成SSD6 exercise1/">mac完成SSD6 exercise1</a>
     </h1>
   
 
-        
-        <a href="/False/Spring.html" class="archive-article-date">
-  	<time datetime="2018-11-14T09:54:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+        <div class="article-info info-on-right">
+          
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-        
-          <p><a href="https://www.cnblogs.com/nwu-edu/p/9542074.html" target="_blank" rel="noopener">Spring maven配置</a></p>
-<h1 id="Spring-IOC容器"><a href="#Spring-IOC容器" class="headerlink" title="Spring IOC容器"></a>Spring IOC容器</h1><p>两种读取Beans.xml的方法</p>
-<ul>
-<li>ApplicationContext</li>
-<li>BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。</li>
-</ul>
-<p>在资源宝贵的移动设备或者基于 applet 的应用当中， BeanFactory 会被优先选择。否则，一般使用的是 ApplicationContext，除非你有更好的理由选择 BeanFactory。</p>
-<p><img src="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png" alt="Bean是如何被加载的"></p>
-<h2 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h2><p>Bean是Spring应用程序的基础，它是被实例化、组装、并通过SpringIOC容器所管理的对象。这bean是由配置元数据所创建的（如Beans.xml）</p>
-<p>SpringIOC容器所需要知道的配置元数据</p>
-<ul>
-<li>bean的创建方法</li>
-<li>bean的生命周期</li>
-<li>bean的依赖关系</li>
-</ul>
-<p>上述配置元数据被细分为以下部分</p>
-<table>
-<thead>
-<tr>
-<th>名字</th>
-<th>属性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>class</td>
-<td>类的名字，具体类的位置</td>
-</tr>
-<tr>
-<td>name</td>
-<td>这个属性指定唯一的 bean 标识符。在基于 XML 的配置元数据中，你可以使用 ID 和/或 name 属性来指定 bean 标识符。</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>这个属性指定由特定的 bean 定义创建的对象的作用域，它将会在 bean 作用域的章节中进行讨论。</td>
-</tr>
-<tr>
-<td>constructor-arg</td>
-<td></td>
-</tr>
-<tr>
-<td>properties</td>
-<td>类函数参数注入值，不是为类变量注入值</td>
-</tr>
-<tr>
-<td>autowiring mode</td>
-<td></td>
-</tr>
-<tr>
-<td>lazy-initialization mode</td>
-<td>延迟初始化的 bean 告诉 IoC 容器在它第一次被请求时，而不是在启动时去创建一个 bean 实例。</td>
-</tr>
-<tr>
-<td>initialization方法</td>
-<td>在 bean 的所有必需的属性被容器设置之后，调用回调方法。它将会在 bean 的生命周期章节中进行讨论</td>
-</tr>
-<tr>
-<td>destruction方法</td>
-<td>当包含该 bean 的容器被销毁时，使用回调方法。它将会在 bean 的生命周期章节中进行讨论。</td>
-</tr>
-</tbody>
-</table>
-<p><strong><u>scope</u></strong></p>
-<table>
-<thead>
-<tr>
-<th>作用域</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>singleton</td>
-<td>在spring IoC容器仅存在一个Bean实例，Bean以单例方式存在，默认值</td>
-</tr>
-<tr>
-<td>prototype</td>
-<td>每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时，相当于执行newXxxBean()</td>
-</tr>
-<tr>
-<td>request</td>
-<td>每次HTTP请求都会创建一个新的Bean，该作用域仅适用于WebApplicationContext环境</td>
-</tr>
-<tr>
-<td>session</td>
-<td>同一个HTTP Session共享一个Bean，不同Session使用不同的Bean，仅适用于WebApplicationContext环境</td>
-</tr>
-<tr>
-<td>global-session</td>
-<td>一般用于Portlet应用环境，该运用域仅适用于WebApplicationContext环境</td>
-</tr>
-</tbody>
-</table>
-<p><u><strong>生命周期</strong></u></p>
-<p>Bean的生命周期可以表达为：Bean的定义——Bean的初始化——Bean的使用——Bean的销毁 </p>
-<p>创建Bean的<strong>初始化函数</strong>可以使用两种方式</p>
-<ul>
-<li>Bean implements InitializingBean 而后实现afterPropertiesSet()方法</li>
-<li>在xml的bean配置中加入  init-method=”init”  选项</li>
-</ul>
-<p>⚠️Bean初始化函数是<strong>创建实例完成</strong>后执行的</p>
-<p>创建Bean的销毁函数可以使用两种方式</p>
-<ul>
-<li>Bean implements DisposableBean 而后实现destroy()方法</li>
-<li>在xml的bean配置中加入   destroy-method=”destroy” 选项</li>
-</ul>
-<p><u><strong>Bean后置处理器</strong></u></p>
-<p>⚠️Bean后置处理器是<strong>创建实例完成</strong>后执行的</p>
-<p>可以通过实现<strong>BeanPostProcessor</strong> 接口，实现在Bean初始化方法前后的额外处理。</p>
-<p>可以配置配置多个BeanPostProcessor接口，通过设置 BeanPostProcessor 实现的 <strong>Ordered</strong> 接口提供的 <strong>order</strong> 属性来控制这些 BeanPostProcessor 接口的执行顺序。</p>
-<p><strong>ApplicationContext</strong> 会自动检测由 <strong>BeanPostProcessor</strong> 接口的实现定义的 bean，注册这些 bean 为后置处理器，然后通过在容器中创建 bean，在适当的时候调用它。</p>
-<p><u><strong>Bean继承</strong></u></p>
-<p>helloIndia会覆盖message1的值，并继承message2的值</p>
-<pre><code class="xml">   &lt;bean id=&quot;helloWorld&quot; class=&quot;com.tutorialspoint.HelloWorld&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello World!&quot;/&gt;
-      &lt;property name=&quot;message2&quot; value=&quot;Hello Second World!&quot;/&gt;
-   &lt;/bean&gt;
 
-   &lt;bean id=&quot;helloIndia&quot; class=&quot;com.tutorialspoint.HelloIndia&quot; parent=&quot;helloWorld&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello India!&quot;/&gt;
-      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
-   &lt;/bean&gt;
-</code></pre>
-<p>使用Bean的Template</p>
-<p>bean的模版本身是抽象的，不能被实例化</p>
-<pre><code class="xml">   &lt;bean id=&quot;beanTeamplate&quot; abstract=&quot;true&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello World!&quot;/&gt;
-      &lt;property name=&quot;message2&quot; value=&quot;Hello Second World!&quot;/&gt;
-      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
-   &lt;/bean&gt;
-
-   &lt;bean id=&quot;helloIndia&quot; class=&quot;com.tutorialspoint.HelloIndia&quot; parent=&quot;beanTeamplate&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello India!&quot;/&gt;
-      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
-   &lt;/bean&gt;
-</code></pre>
-<h1 id="Spring依赖注入"><a href="#Spring依赖注入" class="headerlink" title="Spring依赖注入"></a>Spring依赖注入</h1><p><strong><u>通过构造函数注入</u></strong></p>
-<pre><code class="xml">&lt;beans&gt;
-   &lt;bean id=&quot;foo&quot; class=&quot;x.y.Foo&quot;&gt;
-      &lt;constructor-arg ref=&quot;bar&quot;/&gt; 默认位于构造函数第0个
-      &lt;constructor-arg ref=&quot;baz&quot;/&gt;
-      &lt;constructor-arg type=&quot;int&quot; value=&quot;2019&quot;/&gt;
-      &lt;constructor-arg index=&quot;3&quot; value=&quot;1010&quot;/&gt; 显示指定位于构造函数哪一位
-   &lt;/bean&gt;
-
-   &lt;bean id=&quot;bar&quot; class=&quot;x.y.Bar&quot;/&gt;
-   &lt;bean id=&quot;baz&quot; class=&quot;x.y.Baz&quot;/&gt;
-&lt;/beans&gt;
-</code></pre>
-<p><u><strong>基于设值函数的依赖注入</strong></u></p>
-<p>这里的property可以是</p>
-<ul>
-<li>类函数的参数：为类函数的参数时，会注入值，并调用这个函数</li>
-</ul>
-<pre><code class="xml">   &lt;!-- Definition for textEditor bean --&gt;
-   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot;&gt;
-      &lt;property name=&quot;spellChecker&quot; ref=&quot;spellChecker&quot;/&gt;
-   &lt;/bean&gt;
-
-   &lt;!-- Definition for spellChecker bean --&gt;
-   &lt;bean id=&quot;spellChecker&quot; class=&quot;com.tutorialspoint.SpellChecker&quot;&gt;
-   &lt;/bean&gt;
-</code></pre>
-<p><u><strong>注入集合</strong></u></p>
-<p>也是基于设值函数的依赖注入</p>
-<p>Spring允许四种集合类型的注入</p>
-<table>
-<thead>
-<tr>
-<th>元素</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>list</td>
-<td>它有助于连线，如注入一列值，允许重复。</td>
-</tr>
-<tr>
-<td>set</td>
-<td>它有助于连线一组值，但不能重复。</td>
-</tr>
-<tr>
-<td>map</td>
-<td>它可以用来注入名称-值对的集合，其中名称和值可以是任何类型。</td>
-</tr>
-<tr>
-<td>prop</td>
-<td>它可以用来注入名称-值对的集合，其中名称和值都是字符串类型。</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="xml">&lt;bean id=&quot;javaCollection&quot; class=&quot;com.tutorialspoint.JavaCollection&quot;&gt;
-
-      &lt;!-- results in a setAddressList(java.util.List) call --&gt;
-      &lt;property name=&quot;addressList&quot;&gt;
-         &lt;list&gt;
-            &lt;value&gt;INDIA&lt;/value&gt;
-            &lt;value&gt;Pakistan&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-         &lt;/list&gt;
-      &lt;/property&gt;
-
-      &lt;!-- results in a setAddressSet(java.util.Set) call --&gt;
-      &lt;property name=&quot;addressSet&quot;&gt;
-         &lt;set&gt;
-            &lt;value&gt;INDIA&lt;/value&gt;
-            &lt;value&gt;Pakistan&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-        &lt;/set&gt;
-      &lt;/property&gt;
-
-      &lt;!-- results in a setAddressMap(java.util.Map) call --&gt;
-      &lt;property name=&quot;addressMap&quot;&gt;
-         &lt;map&gt;
-            &lt;entry key=&quot;1&quot; value=&quot;INDIA&quot;/&gt;
-            &lt;entry key=&quot;2&quot; value=&quot;Pakistan&quot;/&gt;
-            &lt;entry key=&quot;3&quot; value=&quot;USA&quot;/&gt;
-            &lt;entry key=&quot;4&quot; value=&quot;USA&quot;/&gt;
-         &lt;/map&gt;
-      &lt;/property&gt;
-
-      &lt;!-- results in a setAddressProp(java.util.Properties) call --&gt;
-      &lt;property name=&quot;addressProp&quot;&gt;
-         &lt;props&gt;
-            &lt;prop key=&quot;one&quot;&gt;INDIA&lt;/prop&gt;
-            &lt;prop key=&quot;two&quot;&gt;Pakistan&lt;/prop&gt;
-            &lt;prop key=&quot;three&quot;&gt;USA&lt;/prop&gt;
-            &lt;prop key=&quot;four&quot;&gt;USA&lt;/prop&gt;
-         &lt;/props&gt;
-      &lt;/property&gt;
-
-   &lt;/bean&gt;
-</code></pre>
-<p><u><strong>注入内部 Beans</strong></u></p>
-<p>在一个bean的xml文件内声明一个bean</p>
-<p>但是个人感觉内部Bean很鸡肋，本来就是为了抛弃依赖关系而引入的IOC，现在又强行搞依赖关系</p>
-<p>也是通过函数注入值</p>
-<pre><code class="xml">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot;&gt;
-      &lt;property name=&quot;spellChecker&quot;&gt;
-         &lt;bean id=&quot;spellChecker&quot; class=&quot;com.tutorialspoint.SpellChecker&quot;/&gt;
-       &lt;/property&gt;
-   &lt;/bean&gt;
-</code></pre>
-<h1 id="Spring-自动装配"><a href="#Spring-自动装配" class="headerlink" title="Spring 自动装配"></a>Spring 自动装配</h1><p>在bean中将<em>autowire</em> 属性设置为 <em>byName</em>，则查找容器中是否有bean的id或者name等于参数名的，假如有，则注入这些bean</p>
-<p>在bean中将<em>auto-wire</em> 属性设置为 <em>byType</em>，则查找容器中是否有bean的class等于参数的class，假如有，则注入这些bean</p>
-<p>在 XML 配置文件中 beans 的 <em>autowire</em> 属性设置为 <em>constructor</em>，这种与byType类似，查找class</p>
-<p>但是当我设置autowire为byName，且参数名称不会bean的id时，依然会自动注入？？？？？？（此时一个class只有一个bean）</p>
-<p>但是当一个class有两个bean时，且参数名称不会bean的id时，依然会自动注入？？？？？？</p>
-<p>那byName和byType有啥子区别？？？？？</p>
-<pre><code class="xml">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot; 
-      autowire=&quot;byType&quot;&gt;
-      &lt;property name=&quot;name&quot; value=&quot;Generic Text Editor&quot; /&gt;
-   &lt;/bean&gt;
-</code></pre>
-<h1 id="Spring-基于注解的配置"><a href="#Spring-基于注解的配置" class="headerlink" title="Spring 基于注解的配置"></a>Spring 基于注解的配置</h1><p><u><strong>@ Required</strong></u></p>
-<p><strong>@Required</strong> 注释应用于 bean 属性的 setter 方法，它表明受影响的 bean 属性在配置时必须放在 XML 配置文件中，否则容器就会抛出一个 BeanInitializationException 异常。</p>
-<p><u><strong>@Autowired</strong></u></p>
-<ul>
-<li>Setter 方法中的 @Autowired：当 Spring遇到一个在 setter 方法中使用的 @Autowired 注释，它会在方法中视图执行 <strong>byType</strong> 自动连接。（对所有setter参数）</li>
-<li>属性中的 @Autowired：ByType自动连接</li>
-<li>构造函数中的@Autowired：与Setter方法类似</li>
-</ul>
-<p>默认情况下，@Autowired 注释意味着依赖是必须的，它类似于 @Required 注释，然而，你可以使用 @Autowired 的 <strong>（required=false）</strong> 选项关闭默认行为。</p>
-<p><u><strong>@Qualifier</strong></u></p>
-<p>当有多个Bean是同一类型的时候，可以使用@Qualifier指定注入bean的id</p>
-<p><u><strong>JSR-250注释</strong></u></p>
-<p>可以使用 <strong>@PostConstruct</strong> 注释作为初始化回调函数的一个替代，<strong>@PreDestroy</strong> 注释作为销毁回调函数的一个替代</p>
-<p><strong>@Resource(name = “youki”)</strong>使用在字段或函数上，与<strong>byName</strong>语义相同，假如没有指定name，就以字段名称或参数名称为默认</p>
-<p><u><strong>基于java的配置</strong></u></p>
-<p>带有 <strong>@Configuration</strong> 的注解类表示这个类作为 bean 定义的来源 被 Spring IoC 容器加载。<strong>@Bean</strong> 注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。⚠️通过这种方法注册config类、获取Bean时，要传入目标类的Class（类型类）</p>
-<p><strong>@import</strong> 注解允许从另一个配置类中加载 @Bean 定义。即一个配置类B使用这个注解引入A后，它就包含了A的bean配置。最后在上下文注册时，只用注册配置类B</p>
-<h1 id="Spring中的事件处理"><a href="#Spring中的事件处理" class="headerlink" title="Spring中的事件处理"></a>Spring中的事件处理</h1><p>除了管理Bean以外，上下文(context)还需要管理事件。通过 <strong>ApplicationEvent</strong> 类和 <strong>ApplicationListener</strong> 接口来提供在 ApplicationContext 中处理事件。如果一个 bean 实现 ApplicationListener，那么每次 ApplicationEvent 被发布到 ApplicationContext 上，那个 bean 会被通知。</p>
-<p>Spring中的事件</p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ContextRefreshedEvent</td>
-<td>ApplicationContext 被初始化或刷新时，该事件被发布。这也可以在 ConfigurableApplicationContext 接口中使用 refresh() 方法来发生。</td>
-</tr>
-<tr>
-<td>ContextStartedEvent</td>
-<td>当使用 ConfigurableApplicationContext 接口中的 start() 方法启动 ApplicationContext 时，该事件被发布。你可以调查你的数据库，或者你可以在接受到这个事件后重启任何停止的应用程序。</td>
-</tr>
-<tr>
-<td>ContextStopEvent</td>
-<td>当使用 ConfigurableApplicationContext 接口中的 stop() 方法停止 ApplicationContext 时，发布这个事件。你可以在接受到这个事件后做必要的清理的工作。</td>
-</tr>
-<tr>
-<td>ContextClosedEvent</td>
-<td>当使用 ConfigurableApplicationContext 接口中的 close() 方法关闭 ApplicationContext 时，该事件被发布。一个已关闭的上下文到达生命周期末端；它不能被刷新或重启。</td>
-</tr>
-<tr>
-<td>RequestHandledEvent</td>
-<td>这是一个 web-specific 事件，告诉所有 bean HTTP 请求已经被服务。</td>
-</tr>
-</tbody>
-</table>
-<p><strong><u>创建一个自己的事件</u></strong></p>
-<ul>
-<li>Event类：<strong>不需要在上下文中注册</strong></li>
-<li>Publisher类：向上下文发布我们自定义的事件</li>
-<li>Listener类：坚定我们自定义的事情</li>
-</ul>
-
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/Spring.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "https://xixfeng.github.io/False/Spring.html",
-  owner: 'xixfeng',
-  repo: 'xixfeng_blog',
-  oauth: {
-    client_id: '7f6c48650bead98652ca',
-    client_secret: '905474ed7e3f0137e5d16ad858012880b9ef767a',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -627,7 +218,7 @@ gitment.render('gitment-ctn')
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

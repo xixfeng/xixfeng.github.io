@@ -19,7 +19,8 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
-<meta property="og:updated_time" content="2019-09-25T12:31:28.556Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
+<meta property="og:updated_time" content="2019-10-12T04:51:45.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="IntroductionModel of communicationData Transmission Mode  Baseband(基带) Transmission Passband(通带) Transmission Broadband(宽带) Transmission    Signal Encoding  analog data digital signalPCM 脉冲调制编码简单的说，模拟">
@@ -219,11 +220,9 @@ circuit-switched network?
 ▪ 500 msec to establish end-to-end circuit
 </code></pre><p>How do loss and delay occur：<br>🌿loss：buffer溢出造成了丢失<br>delay：</p>
 <pre><code>1. nodal processing（检查错误，决定输出节点 &lt;1ms）
-2. queueing delay (排队延迟 由traffic intensity决定 La/R a：average packet arrival rate)、、、
-、
-</code></pre><p>​    </p>
-<pre><code>3. transmission delay（数据变成信号  L/R    packet length/link bandwidth）
-4. propagation delay （传输时间  d/s）
+2. queueing delay (排队延迟 由traffic intensity决定 La/R              a：average packet arrival rate，L*a肯定是小于R的，所以traffic intensity&lt;=1，越接近1网络拥塞越严重)
+</code></pre><p>​    3. transmission delay（数据变成信号  L/R                                       packet length/link bandwidth）</p>
+<pre><code>4. propagation delay （传输时间  d/s）
 </code></pre><p>路由追踪：提供数据从起始地到目的地所经过到路径，但是由于路由算法，每次路径可能不同<br>吞吐量(throughput)：sender/receiver之间bit的传输速率</p>
 <h3 id="internet-layer"><a href="#internet-layer" class="headerlink" title="internet layer"></a>internet layer</h3><p>🌿application: supporting network applications，各种协议的实现<br>▪ FTP, SMTP, HTTP<br>🌿transport: process-process data，控制数据的传输<br>▪ TCP, UDP<br>🌿network: routing of datagrams from source to destination   (packet)<br>▪ IP, routing protocols<br>🌿link: data transfer between neighboring network elements      (frame)<br>▪ Ethernet, 802.111 (WiFi), PPP<br>🌿 physical: bits “on the wire”</p>
 <p><img src="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png" alt="E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0"></p>
@@ -433,14 +432,11 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 <p><u><strong>Go-back-N</strong></u>算法：</p>
 <p>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包，第4个包失败了就会返回ACK3）</p>
 <p>发送方有一个缓存，缓存需要发送的N个分组</p>
-<p>发送方</p>
 <p><u><strong>Selective Repeat</strong></u>算法</p>
-<hr>
-<p><u><strong>TCP</strong></u></p>
+<h3 id="TCP性质与结构"><a href="#TCP性质与结构" class="headerlink" title="TCP性质与结构"></a>TCP性质与结构</h3><p><u><strong>TCP</strong></u></p>
 <ul>
 <li><p>可靠的、有序的字节流</p>
-</li>
-<li><p>流水线</p>
+<p>流水线</p>
 </li>
 <li><p>全双工</p>
 <p>MSS: maximum segment size，因为链路层不同而导致最大段大小不同</p>
@@ -451,10 +447,15 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </li>
 </ul>
 <p>捎带（piggyback）：将数据和控制信息放在一个带里面</p>
-<p>TCP控制头</p>
+<p><strong><u>TCP控制头</u></strong></p>
 <ul>
 <li>seq：当前这段字节流数据的开始位置（这个位置是相对于整个TCP连接过程的传输流）</li>
 <li>ack：下一次需要的字节流位置（和GBN、SR以及rdt不同）</li>
+<li>SYN表示建立连接</li>
+<li>FIN表示关闭连接</li>
+<li>ACK表示响应</li>
+<li>PSH表示有 DATA数据传输</li>
+<li>RST表示连接重置。</li>
 </ul>
 <p>如何设置TCP连接的过期时间（防止分组丢失）</p>
 <ul>
@@ -469,23 +470,32 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </li>
 <li><p>cumulative acks 累积的ack</p>
 </li>
-<li><p>TCP uses single retransmission timer 一个重传计时</p>
+<li><p>⚠️TCP uses <strong>single retransmission timer</strong> 一个重传计时</p>
 </li>
-<li><p>retransmissions are triggered by</p>
+<li><p>⚠️retransmissions are triggered by</p>
 <p>timeout event</p>
 <p>duplicate acks 重复的ack返回</p>
 </li>
 </ul>
-<p>TCP 发送端事项</p>
+<h3 id="TCP发送端、接收端"><a href="#TCP发送端、接收端" class="headerlink" title="TCP发送端、接收端"></a>TCP发送端、接收端</h3><p><u><strong>TCP 发送端事项</strong></u></p>
+<p>TCP只有一个计时器</p>
+<p>初始化</p>
 <ul>
-<li><p>创建seq</p>
-</li>
-<li><p>如果没有启动计时器则启动，⚠️当超时后，发送最老的未被确认（unacked）段</p>
-</li>
-<li><p>⚠️如果确认了之前未确认的字段</p>
-<p>更新发送方的确认字段</p>
-</li>
+<li>创建seq，并发送</li>
+<li>如果没有启动计时器则启动，⚠️当超时后，发送最老的未被确认（unacked）段</li>
 </ul>
+<p>超时</p>
+<ul>
+<li>发送最老的未被确认（unacked）段</li>
+<li>重新启动计时器</li>
+</ul>
+<p>确认了未确认的字段</p>
+<ul>
+<li>更新发送方的确认字段</li>
+<li>如果有未被确认的字段，启动计时器</li>
+</ul>
+<p>⚠️快速重发</p>
+<p>当接收到三次相同的ACK后（说明发送端某一个段丢失，比如1、2、3、4， 1丢失了会重复收到3个1），会重新发送接收方想要的seq</p>
 <p>TCP接收端事项</p>
 <table>
 <thead>
@@ -505,7 +515,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </tr>
 <tr>
 <td>到达一个乱序序列（不是期望的seq）</td>
-<td>发送之前的ACK</td>
+<td>发送之前的ACK（即未被确认的ACK）</td>
 </tr>
 <tr>
 <td>Arrival of segment that partially or completely fills gap</td>
@@ -517,6 +527,43 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 <p>由于接收端的app从buffer读的速度会比较慢，所以接收端buffer可能会装满溢出</p>
 <p>所以在TCP的控制信息中有一个 Receive window 字段，标示buffer还能接受的字节大小</p>
 <p>当buffer充满时，可能会发生愚笨窗口综合症。</p>
+<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><a href="https://www.jianshu.com/p/cd379b79b9be" target="_blank" rel="noopener">【TCP/IP】三次握手过程及原因</a></p>
+<h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>拥塞的原因</p>
+<ul>
+<li>路由的buffer有限</li>
+<li>sender不知道路由的buffer情况</li>
+<li>带宽限制</li>
+</ul>
+<p>拥塞的危害</p>
+<p>more work (retrans) for given “goodput”</p>
+<p>unneeded retransmissions: link carries multiple copies of pkt</p>
+<ul>
+<li>decreasing goodput</li>
+</ul>
+<p>when packet dropped, any “upstream transmission capacity used for that packet was wasted!</p>
+<p><u><strong>解决方法</strong></u></p>
+<ul>
+<li>end-end congestion control，TCP控制拥塞的方法</li>
+<li>network-assisted congestion control，需要节点在传输时增加信息</li>
+</ul>
+<hr>
+<p>拥塞窗口（cwnd）：限制发送端的流水线一次性发送多少段。LastByteSent-LastByteAcked&lt;= cwnd，即目前未被确认段的大小必须小于拥塞窗口</p>
+<p><strong>cwnd的慢启动</strong></p>
+<ul>
+<li>cwnd = 1MSS</li>
+<li>几何增长</li>
+<li>设置ssthresh</li>
+</ul>
+<p><strong>cwnd的状态转换</strong></p>
+<p>cwnd每次收到ACK后增长</p>
+<ul>
+<li>当重复收到3个ack后，cwnd减半；cwnd变为线性增长；记录ssthresh=cwnd/2</li>
+<li>当计时器到达时，cwnd变为1；cwnd变为几何增长；当达到ssthresh=cwnd/2后，cwnd变为线性增长</li>
+</ul>
+<h3 id="TCP-习题"><a href="#TCP-习题" class="headerlink" title="TCP 习题"></a>TCP 习题</h3><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
+<h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><p>子网掩码：用来区分一个ip地址的<strong>网络号</strong>和<strong>主机号</strong>，网络号标明主机属于哪个子网中，主机号标明主机在内网中的位置。</p>
+<p>将子网掩码换成二进制，ip地址中<strong>与1对应</strong>的就是网络号，<strong>与0对应</strong>的就是主机号</p>
+<p>MAC：数据链路层上是没有IP地址概念的，只有发送者与接收者的MAC地址。</p>
 <p>socket属于传输层？</p>
 <p>text book:</p>
 <ul>
@@ -524,7 +571,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 <li>TCP/IP 详解 (vol.1-vol.3)</li>
 <li>TCP/IP Sockets in C 注重实践</li>
 <li>计算机网络(第五版)</li>
-<li>计算机网络教程(第六版) 谢钧</li>
+<li>计算机网络教程(第六版) <strong>谢钧</strong></li>
 </ul>
 
         
@@ -635,7 +682,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.1.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet"><span class="toc-number">1.2.</span> <span class="toc-text">Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">internet layer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-transport-protocols-services"><span class="toc-number">2.1.</span> <span class="toc-text">Internet transport protocols services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.2.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.3.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.4.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">2.5.</span> <span class="toc-text">Application layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.6.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-number">3.3.</span> <span class="toc-text">TCP</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.1.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet"><span class="toc-number">1.2.</span> <span class="toc-text">Internet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.2.1.</span> <span class="toc-text">internet layer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Internet-transport-protocols-services"><span class="toc-number">2.1.</span> <span class="toc-text">Internet transport protocols services</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.2.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.3.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.4.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-layer"><span class="toc-number">2.5.</span> <span class="toc-text">Application layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.6.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-number">3.3.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP性质与结构"><span class="toc-number">3.3.1.</span> <span class="toc-text">TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP发送端、接收端"><span class="toc-number">3.3.2.</span> <span class="toc-text">TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">3.3.3.</span> <span class="toc-text">TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制"><span class="toc-number">3.3.4.</span> <span class="toc-text">TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-习题"><span class="toc-number">3.3.5.</span> <span class="toc-text">TCP 习题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some"><span class="toc-number">3.4.</span> <span class="toc-text">some</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -752,19 +799,15 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,19 +823,7 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,7 +831,23 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

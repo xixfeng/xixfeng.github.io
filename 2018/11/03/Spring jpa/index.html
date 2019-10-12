@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>Spring | xixfeng</title>
+  <title>Jpp、Hibernate | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
-<meta name="keywords" content="后端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Spring">
-<meta property="og:url" content="https://xixfeng.github.io/False/Spring.html">
+  <meta name="description" content="发展JDBC 代表 Java Database Connectivity ，它是提供了一组 Java API 来访问关系数据库的 Java 程序。这些 Java APIs 可以使 Java 应用程序执行 SQL 语句，能够与任何符合 SQL 规范的数据库进行交互。    优点 缺点     干净整洁的sql处理 大项目中很复杂   大数据下有良好的性能 编程成本高   对于小应用特别友好 没有封装">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jpp、Hibernate">
+<meta property="og:url" content="https://xixfeng.github.io/2018/11/03/Spring jpa/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
+<meta property="og:description" content="发展JDBC 代表 Java Database Connectivity ，它是提供了一组 Java API 来访问关系数据库的 Java 程序。这些 Java APIs 可以使 Java 应用程序执行 SQL 语句，能够与任何符合 SQL 规范的数据库进行交互。    优点 缺点     干净整洁的sql处理 大项目中很复杂   大数据下有良好的性能 编程成本高   对于小应用特别友好 没有封装">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
-<meta property="og:updated_time" content="2019-09-23T13:55:16.666Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15706751677136.jpg">
+<meta property="og:updated_time" content="2019-10-10T04:47:53.956Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring">
-<meta name="twitter:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
-<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
+<meta name="twitter:title" content="Jpp、Hibernate">
+<meta name="twitter:description" content="发展JDBC 代表 Java Database Connectivity ，它是提供了一组 Java API 来访问关系数据库的 Java 程序。这些 Java APIs 可以使 Java 应用程序执行 SQL 语句，能够与任何符合 SQL 规范的数据库进行交互。    优点 缺点     干净整洁的sql处理 大项目中很复杂   大数据下有良好的性能 编程成本高   对于小应用特别友好 没有封装">
+<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15706751677136.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,20 +145,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-Spring jpa" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Spring
+      Jpp、Hibernate
     </h1>
   
 
         
-        <a href="/False/Spring.html" class="archive-article-date">
-  	<time datetime="2018-11-14T09:54:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-14</time>
+        <a href="/2018/11/03/Spring jpa/" class="archive-article-date">
+  	<time datetime="2018-11-03T02:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-03</time>
 </a>
         
       </header>
@@ -166,318 +166,197 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <p><a href="https://www.cnblogs.com/nwu-edu/p/9542074.html" target="_blank" rel="noopener">Spring maven配置</a></p>
-<h1 id="Spring-IOC容器"><a href="#Spring-IOC容器" class="headerlink" title="Spring IOC容器"></a>Spring IOC容器</h1><p>两种读取Beans.xml的方法</p>
-<ul>
-<li>ApplicationContext</li>
-<li>BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。</li>
-</ul>
-<p>在资源宝贵的移动设备或者基于 applet 的应用当中， BeanFactory 会被优先选择。否则，一般使用的是 ApplicationContext，除非你有更好的理由选择 BeanFactory。</p>
-<p><img src="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png" alt="Bean是如何被加载的"></p>
-<h2 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h2><p>Bean是Spring应用程序的基础，它是被实例化、组装、并通过SpringIOC容器所管理的对象。这bean是由配置元数据所创建的（如Beans.xml）</p>
-<p>SpringIOC容器所需要知道的配置元数据</p>
-<ul>
-<li>bean的创建方法</li>
-<li>bean的生命周期</li>
-<li>bean的依赖关系</li>
-</ul>
-<p>上述配置元数据被细分为以下部分</p>
+          <h1 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h1><p>JDBC 代表 <strong>Java Database Connectivity</strong> ，它是提供了一组 Java API 来访问关系数据库的 Java 程序。这些 Java APIs 可以使 Java 应用程序执行 SQL 语句，能够与任何符合 SQL 规范的数据库进行交互。</p>
 <table>
 <thead>
 <tr>
-<th>名字</th>
-<th>属性</th>
+<th>优点</th>
+<th>缺点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>class</td>
-<td>类的名字，具体类的位置</td>
+<td>干净整洁的sql处理</td>
+<td>大项目中很复杂</td>
 </tr>
 <tr>
-<td>name</td>
-<td>这个属性指定唯一的 bean 标识符。在基于 XML 的配置元数据中，你可以使用 ID 和/或 name 属性来指定 bean 标识符。</td>
+<td>大数据下有良好的性能</td>
+<td>编程成本高</td>
 </tr>
 <tr>
-<td>scope</td>
-<td>这个属性指定由特定的 bean 定义创建的对象的作用域，它将会在 bean 作用域的章节中进行讨论。</td>
-</tr>
-<tr>
-<td>constructor-arg</td>
-<td></td>
-</tr>
-<tr>
-<td>properties</td>
-<td>类函数参数注入值，不是为类变量注入值</td>
-</tr>
-<tr>
-<td>autowiring mode</td>
-<td></td>
-</tr>
-<tr>
-<td>lazy-initialization mode</td>
-<td>延迟初始化的 bean 告诉 IoC 容器在它第一次被请求时，而不是在启动时去创建一个 bean 实例。</td>
-</tr>
-<tr>
-<td>initialization方法</td>
-<td>在 bean 的所有必需的属性被容器设置之后，调用回调方法。它将会在 bean 的生命周期章节中进行讨论</td>
-</tr>
-<tr>
-<td>destruction方法</td>
-<td>当包含该 bean 的容器被销毁时，使用回调方法。它将会在 bean 的生命周期章节中进行讨论。</td>
+<td>对于小应用特别友好</td>
+<td>没有封装</td>
 </tr>
 </tbody>
 </table>
-<p><strong><u>scope</u></strong></p>
+<p>ORM 表示 Object-Relational Mapping (ORM)，是一个方便在关系数据库和类似于 Java， C# 等面向对象的编程语言中转换数据的技术。<strong>简单来说就是java类到数据库的映射，java数据类型到数据库数据类型到映射</strong></p>
 <table>
 <thead>
 <tr>
-<th>作用域</th>
+<th style="text-align:center">优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">使用业务代码访问对象而不是数据库中的表</td>
+</tr>
+<tr>
+<td style="text-align:center">从面向对象逻辑中隐藏 SQL 查询的细节</td>
+</tr>
+<tr>
+<td style="text-align:center">基于 JDBC 的 ‘under the hood’</td>
+</tr>
+<tr>
+<td style="text-align:center">没有必要去处理数据库实现</td>
+</tr>
+<tr>
+<td style="text-align:center">实体是基于业务的概念而不是数据库的结构</td>
+</tr>
+<tr>
+<td style="text-align:center">事务管理和键的自动生成</td>
+</tr>
+<tr>
+<td style="text-align:center">应用程序的快速开发</td>
+</tr>
+</tbody>
+</table>
+<p>组成</p>
+<ul>
+<li>一个 API 来在持久类的对象上实现基本的 CRUD 操作</li>
+<li>一个语言或 API 来指定引用类和属性的查询</li>
+<li>一个可配置的服务用来指定映射元数据</li>
+<li>一个技术和事务对象交互来执行 dirty checking, lazy association fetching 和其它优化的功能</li>
+</ul>
+<p>在 Java 中有几个持久化的框架和 ORM 选项。一个持久化的框架是 ORM 存储和索引对象到关系型数据库的服务。</p>
+<ul>
+<li>Enterprise JavaBeans Entity Beans</li>
+<li>Java Data Objects</li>
+<li>Castor</li>
+<li>TopLink</li>
+<li>Spring DAO</li>
+<li>Hibernate</li>
+<li>And many more</li>
+</ul>
+<h1 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h1><h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><p><img src="http://api.xixfeng.cn/mweb/15706751677136.jpg" alt></p>
+<p><u><strong>配置对象</strong></u></p>
+<p>配置对象是你在任何 Hibernate 应用程序中创造的第一个 Hibernate 对象，并且经常只在应用程序初始化期间创造。它代表了 Hibernate 所需一个配置或属性文件。配置对象提供了两种基础组件。</p>
+<ul>
+<li><strong>数据库连接</strong>：由 Hibernate 支持的一个或多个配置文件处理。这些文件是 <strong>hibernate.properties</strong> 和 <strong>hibernate.cfg.xml</strong>。</li>
+<li><strong>类映射设置</strong>：这个组件创造了 Java 类和数据库表格之间的联系。</li>
+</ul>
+<p><u><strong>SessionFactory 对象</strong></u></p>
+<p>配置对象被用于创造一个 SessionFactory 对象，使用提供的配置文件为应用程序依次配置 Hibernate，并允许实例化一个会话对象。SessionFactory 是一个线程安全对象并由应用程序所有的线程所使用。</p>
+<p>SessionFactory 是一个重量级对象所以通常它都是在应用程序启动时创造然后留存为以后使用。每个数据库需要一个 SessionFactory 对象使用一个单独的配置文件。所以如果你使用多种数据库那么你要创造多种 SessionFactory 对象。</p>
+<p><u><strong>Session 对象</strong></u></p>
+<p>一个会话被用于与数据库的物理连接。Session 对象是轻量级的，并被设计为<u>每次实例化都需要与数据库的交互</u>。<u>持久对象通过 Session 对象保存和检索。</u></p>
+<p>Session 对象不应该长时间保持开启状态⚠️<strong>因为它们通常情况下并非线程安全</strong>，并且它们应该按照所需创造和销毁。</p>
+<p><u><strong>Transaction 对象</strong></u></p>
+<p>一个事务代表了与数据库工作的一个单元并且大部分 RDBMS 支持事务功能。在 Hibernate 中事务由底层事务管理器和事务（来自 JDBC 或者 JTA）处理。</p>
+<p>这是一个选择性对象，Hibernate 应用程序可能不选择使用这个接口，而是在自己应用程序代码中管理事务。</p>
+<p><u><strong>Query 对象</strong></u></p>
+<p>Query 对象使用 SQL 或者 Hibernate 查询语言（HQL）字符串在数据库中来检索数据并创造对象。一个查询的实例被用于连结查询参数，限制由查询返回的结果数量，并最终执行查询。</p>
+<p><u><strong>Criteria 对象</strong></u></p>
+<p>Criteria 对象被用于创造和执行面向规则查询的对象来检索对象。</p>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>Session 的主要功能是为映射类的实例提供创建，读取和删除操作。这些实例可能在给定时间点时存在于以下三种状态之一：</p>
+<ul>
+<li><strong>瞬时状态</strong>: 一种新的持久性实例，被 Hibernate 认为是瞬时的，它不与 Session 相关联，在数据库中没有与之关联的记录且无标识符值。</li>
+<li><strong>持久状态</strong>：可以将一个瞬时状态实例通过与一个 Session 关联的方式将其转化为持久状态实例。持久状态实例在数据库中没有与之关联的记录，有标识符值，并与一个 Session 关联。</li>
+<li><strong>脱管状态</strong>：一旦关闭 Hibernate Session，持久状态实例将会成为脱管状态实例。</li>
+</ul>
+<h3 id="Session缓存"><a href="#Session缓存" class="headerlink" title="Session缓存"></a>Session缓存</h3><p>session会缓存处于持久状态的实例，我们可以使用flush和clear来刷出、清理缓存。</p>
+<p>flush主要是向数据库中刷出，我们想要<u><strong>增删改</strong></u>的实例</p>
+<h2 id="持久化类"><a href="#持久化类" class="headerlink" title="持久化类"></a>持久化类</h2><p>在 Hibernate 中，其对象或实例将会被存储在数据库表单中的 Java 类被称为持久化类。若该类遵循一些简单的规则或者被大家所熟知的 Plain Old Java Object (POJO) 编程模型，Hibernate 将会处于其最佳运行状态。以下所列就是<u>持久化类的主要规则</u>，然而，在这些规则中，没有一条是硬性要求。</p>
+<ul>
+<li>所有将被持久化的 Java 类都需要一个默认的构造函数。</li>
+<li>为了使对象能够在 Hibernate 和数据库中容易识别，所有类都需要包含一个 ID。此属性映射到数据库表的主键列。</li>
+<li>所有将被持久化的属性都应该声明为 private，并具有由 JavaBean 风格定义的 <strong>getXXX</strong> 和 <strong>setXXX</strong> 方法。</li>
+<li>Hibernate 的一个重要特征为代理，它取决于该持久化类是处于非 final 的，还是处于一个所有方法都声明为 public 的接口。</li>
+<li>所有的类是不可扩展或按 EJB 要求实现的一些特殊的类和接口。</li>
+</ul>
+<p><a href="https://www.w3cschool.cn/hibernate/fzum1iem.html" target="_blank" rel="noopener">Hibernate映射类型</a></p>
+<h2 id="特殊映射"><a href="#特殊映射" class="headerlink" title="特殊映射"></a>特殊映射</h2><p>集合映射</p>
+<table>
+<thead>
+<tr>
+<th>集合类型</th>
+<th>映射和描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>java.util.Set</strong></td>
+<td>它和 \<set> 元素匹配并且用 java.util.HashSet 初始化</set></td>
+</tr>
+<tr>
+<td><strong>java.util.SortedSet</strong></td>
+<td>它和 \<set> 元素匹配并且用 java.util.TreeSet 初始化。<strong>sort</strong> 属性可以设置成比较器或者自然排序。</set></td>
+</tr>
+<tr>
+<td><strong>java.util.List</strong></td>
+<td>它和 \<list> 元素匹配并且用 java.util.ArrayList 初始化。</list></td>
+</tr>
+<tr>
+<td><strong>java.util.Collection</strong></td>
+<td>它和 \<bag> 或者 \<ibag> 元素匹配以及用 java.util.ArrayList 初始化。</ibag></bag></td>
+</tr>
+<tr>
+<td><strong>java.util.Map</strong></td>
+<td>它和 \<map> 元素匹配并且用 java.util.HashMap 初始化。</map></td>
+</tr>
+<tr>
+<td><strong>java.util.SortedMap</strong></td>
+<td>它和 \<map> 元素匹配并且用 java.util.TreeMap 初始化。<strong>sort</strong> 属性可以设置成比较器或者 自然排序。</map></td>
+</tr>
+</tbody>
+</table>
+<p>关联映射</p>
+<table>
+<thead>
+<tr>
+<th>映射类型</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>singleton</td>
-<td>在spring IoC容器仅存在一个Bean实例，Bean以单例方式存在，默认值</td>
+<td><strong>Mang-to-One</strong></td>
+<td>使用 Hibernate 映射多对一关系</td>
 </tr>
 <tr>
-<td>prototype</td>
-<td>每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时，相当于执行newXxxBean()</td>
+<td><strong>One-to-One</strong></td>
+<td>使用 Hibernate 映射一对一关系</td>
 </tr>
 <tr>
-<td>request</td>
-<td>每次HTTP请求都会创建一个新的Bean，该作用域仅适用于WebApplicationContext环境</td>
+<td><strong>One-to-Many</strong></td>
+<td>使用 Hibernate 映射一对多关系</td>
 </tr>
 <tr>
-<td>session</td>
-<td>同一个HTTP Session共享一个Bean，不同Session使用不同的Bean，仅适用于WebApplicationContext环境</td>
-</tr>
-<tr>
-<td>global-session</td>
-<td>一般用于Portlet应用环境，该运用域仅适用于WebApplicationContext环境</td>
+<td><strong>Many-to-Many</strong></td>
+<td>使用 Hibernate 映射多对多关系</td>
 </tr>
 </tbody>
 </table>
-<p><u><strong>生命周期</strong></u></p>
-<p>Bean的生命周期可以表达为：Bean的定义——Bean的初始化——Bean的使用——Bean的销毁 </p>
-<p>创建Bean的<strong>初始化函数</strong>可以使用两种方式</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p><u>@Entity 注释</u></p>
+<p>EJB 3 标准的注释包含在 <strong>javax.persistence</strong> 包，所以我们第一步需要导入这个包。第二步我们对 Employee 类使用 <strong>@Entity 注释</strong>，标志着这个类为一个实体 bean，所以它必须含有一个没有参数的构造函数并且在可保护范围是可见的。</p>
+<p><u>@Table 注释</u></p>
+<p>@table 注释允许您明确表的详细信息保证实体在数据库中持续存在。</p>
+<p>@table 注释提供了四个属性，允许您覆盖的表的名称，目录及其模式,在表中可以对列制定独特的约束。</p>
+<p><u>@Id 和 @GeneratedValue 注释</u></p>
+<p>每一个实体 bean 都有一个主键，你在类中可以用 <strong>@Id</strong> 来进行注释。主键可以是一个字段或者是多个字段的组合，这取决于你的表的结构。</p>
+<p>默认情况下，@Id 注释将自动确定最合适的主键生成策略，但是你可以通过使用 <strong>@GeneratedValue</strong> 注释来覆盖掉它。<strong>strategy</strong> 和 <strong>generator</strong> 这两个参数我不打算在这里讨论，所以我们只使用默认键生成策略。让 Hibernate 确定使用哪些生成器类型来使代码移植于不同的数据库之间。</p>
+<p><u>@Column Annotation</u></p>
+<p>@Column 注释用于指定某一列与某一个字段或是属性映射的细节信息。您可以使用下列注释的最常用的属性:</p>
 <ul>
-<li>Bean implements InitializingBean 而后实现afterPropertiesSet()方法</li>
-<li>在xml的bean配置中加入  init-method=”init”  选项</li>
+<li><strong>name</strong> 属性允许显式地指定列的名称。</li>
+<li><strong>length</strong> 属性为用于映射一个值，特别为一个字符串值的列的大小。</li>
+<li><strong>nullable</strong> 属性允许当生成模式时，一个列可以被标记为非空。</li>
+<li><p><strong>unique</strong> 属性允许列中只能含有唯一的内容</p>
+<h2 id="增删查改"><a href="#增删查改" class="headerlink" title="增删查改"></a>增删查改</h2></li>
 </ul>
-<p>⚠️Bean初始化函数是<strong>创建实例完成</strong>后执行的</p>
-<p>创建Bean的销毁函数可以使用两种方式</p>
-<ul>
-<li>Bean implements DisposableBean 而后实现destroy()方法</li>
-<li>在xml的bean配置中加入   destroy-method=”destroy” 选项</li>
-</ul>
-<p><u><strong>Bean后置处理器</strong></u></p>
-<p>⚠️Bean后置处理器是<strong>创建实例完成</strong>后执行的</p>
-<p>可以通过实现<strong>BeanPostProcessor</strong> 接口，实现在Bean初始化方法前后的额外处理。</p>
-<p>可以配置配置多个BeanPostProcessor接口，通过设置 BeanPostProcessor 实现的 <strong>Ordered</strong> 接口提供的 <strong>order</strong> 属性来控制这些 BeanPostProcessor 接口的执行顺序。</p>
-<p><strong>ApplicationContext</strong> 会自动检测由 <strong>BeanPostProcessor</strong> 接口的实现定义的 bean，注册这些 bean 为后置处理器，然后通过在容器中创建 bean，在适当的时候调用它。</p>
-<p><u><strong>Bean继承</strong></u></p>
-<p>helloIndia会覆盖message1的值，并继承message2的值</p>
-<pre><code class="xml">   &lt;bean id=&quot;helloWorld&quot; class=&quot;com.tutorialspoint.HelloWorld&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello World!&quot;/&gt;
-      &lt;property name=&quot;message2&quot; value=&quot;Hello Second World!&quot;/&gt;
-   &lt;/bean&gt;
-
-   &lt;bean id=&quot;helloIndia&quot; class=&quot;com.tutorialspoint.HelloIndia&quot; parent=&quot;helloWorld&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello India!&quot;/&gt;
-      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
-   &lt;/bean&gt;
-</code></pre>
-<p>使用Bean的Template</p>
-<p>bean的模版本身是抽象的，不能被实例化</p>
-<pre><code class="xml">   &lt;bean id=&quot;beanTeamplate&quot; abstract=&quot;true&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello World!&quot;/&gt;
-      &lt;property name=&quot;message2&quot; value=&quot;Hello Second World!&quot;/&gt;
-      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
-   &lt;/bean&gt;
-
-   &lt;bean id=&quot;helloIndia&quot; class=&quot;com.tutorialspoint.HelloIndia&quot; parent=&quot;beanTeamplate&quot;&gt;
-      &lt;property name=&quot;message1&quot; value=&quot;Hello India!&quot;/&gt;
-      &lt;property name=&quot;message3&quot; value=&quot;Namaste India!&quot;/&gt;
-   &lt;/bean&gt;
-</code></pre>
-<h1 id="Spring依赖注入"><a href="#Spring依赖注入" class="headerlink" title="Spring依赖注入"></a>Spring依赖注入</h1><p><strong><u>通过构造函数注入</u></strong></p>
-<pre><code class="xml">&lt;beans&gt;
-   &lt;bean id=&quot;foo&quot; class=&quot;x.y.Foo&quot;&gt;
-      &lt;constructor-arg ref=&quot;bar&quot;/&gt; 默认位于构造函数第0个
-      &lt;constructor-arg ref=&quot;baz&quot;/&gt;
-      &lt;constructor-arg type=&quot;int&quot; value=&quot;2019&quot;/&gt;
-      &lt;constructor-arg index=&quot;3&quot; value=&quot;1010&quot;/&gt; 显示指定位于构造函数哪一位
-   &lt;/bean&gt;
-
-   &lt;bean id=&quot;bar&quot; class=&quot;x.y.Bar&quot;/&gt;
-   &lt;bean id=&quot;baz&quot; class=&quot;x.y.Baz&quot;/&gt;
-&lt;/beans&gt;
-</code></pre>
-<p><u><strong>基于设值函数的依赖注入</strong></u></p>
-<p>这里的property可以是</p>
-<ul>
-<li>类函数的参数：为类函数的参数时，会注入值，并调用这个函数</li>
-</ul>
-<pre><code class="xml">   &lt;!-- Definition for textEditor bean --&gt;
-   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot;&gt;
-      &lt;property name=&quot;spellChecker&quot; ref=&quot;spellChecker&quot;/&gt;
-   &lt;/bean&gt;
-
-   &lt;!-- Definition for spellChecker bean --&gt;
-   &lt;bean id=&quot;spellChecker&quot; class=&quot;com.tutorialspoint.SpellChecker&quot;&gt;
-   &lt;/bean&gt;
-</code></pre>
-<p><u><strong>注入集合</strong></u></p>
-<p>也是基于设值函数的依赖注入</p>
-<p>Spring允许四种集合类型的注入</p>
-<table>
-<thead>
-<tr>
-<th>元素</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>list</td>
-<td>它有助于连线，如注入一列值，允许重复。</td>
-</tr>
-<tr>
-<td>set</td>
-<td>它有助于连线一组值，但不能重复。</td>
-</tr>
-<tr>
-<td>map</td>
-<td>它可以用来注入名称-值对的集合，其中名称和值可以是任何类型。</td>
-</tr>
-<tr>
-<td>prop</td>
-<td>它可以用来注入名称-值对的集合，其中名称和值都是字符串类型。</td>
-</tr>
-</tbody>
-</table>
-<pre><code class="xml">&lt;bean id=&quot;javaCollection&quot; class=&quot;com.tutorialspoint.JavaCollection&quot;&gt;
-
-      &lt;!-- results in a setAddressList(java.util.List) call --&gt;
-      &lt;property name=&quot;addressList&quot;&gt;
-         &lt;list&gt;
-            &lt;value&gt;INDIA&lt;/value&gt;
-            &lt;value&gt;Pakistan&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-         &lt;/list&gt;
-      &lt;/property&gt;
-
-      &lt;!-- results in a setAddressSet(java.util.Set) call --&gt;
-      &lt;property name=&quot;addressSet&quot;&gt;
-         &lt;set&gt;
-            &lt;value&gt;INDIA&lt;/value&gt;
-            &lt;value&gt;Pakistan&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-            &lt;value&gt;USA&lt;/value&gt;
-        &lt;/set&gt;
-      &lt;/property&gt;
-
-      &lt;!-- results in a setAddressMap(java.util.Map) call --&gt;
-      &lt;property name=&quot;addressMap&quot;&gt;
-         &lt;map&gt;
-            &lt;entry key=&quot;1&quot; value=&quot;INDIA&quot;/&gt;
-            &lt;entry key=&quot;2&quot; value=&quot;Pakistan&quot;/&gt;
-            &lt;entry key=&quot;3&quot; value=&quot;USA&quot;/&gt;
-            &lt;entry key=&quot;4&quot; value=&quot;USA&quot;/&gt;
-         &lt;/map&gt;
-      &lt;/property&gt;
-
-      &lt;!-- results in a setAddressProp(java.util.Properties) call --&gt;
-      &lt;property name=&quot;addressProp&quot;&gt;
-         &lt;props&gt;
-            &lt;prop key=&quot;one&quot;&gt;INDIA&lt;/prop&gt;
-            &lt;prop key=&quot;two&quot;&gt;Pakistan&lt;/prop&gt;
-            &lt;prop key=&quot;three&quot;&gt;USA&lt;/prop&gt;
-            &lt;prop key=&quot;four&quot;&gt;USA&lt;/prop&gt;
-         &lt;/props&gt;
-      &lt;/property&gt;
-
-   &lt;/bean&gt;
-</code></pre>
-<p><u><strong>注入内部 Beans</strong></u></p>
-<p>在一个bean的xml文件内声明一个bean</p>
-<p>但是个人感觉内部Bean很鸡肋，本来就是为了抛弃依赖关系而引入的IOC，现在又强行搞依赖关系</p>
-<p>也是通过函数注入值</p>
-<pre><code class="xml">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot;&gt;
-      &lt;property name=&quot;spellChecker&quot;&gt;
-         &lt;bean id=&quot;spellChecker&quot; class=&quot;com.tutorialspoint.SpellChecker&quot;/&gt;
-       &lt;/property&gt;
-   &lt;/bean&gt;
-</code></pre>
-<h1 id="Spring-自动装配"><a href="#Spring-自动装配" class="headerlink" title="Spring 自动装配"></a>Spring 自动装配</h1><p>在bean中将<em>autowire</em> 属性设置为 <em>byName</em>，则查找容器中是否有bean的id或者name等于参数名的，假如有，则注入这些bean</p>
-<p>在bean中将<em>auto-wire</em> 属性设置为 <em>byType</em>，则查找容器中是否有bean的class等于参数的class，假如有，则注入这些bean</p>
-<p>在 XML 配置文件中 beans 的 <em>autowire</em> 属性设置为 <em>constructor</em>，这种与byType类似，查找class</p>
-<p>但是当我设置autowire为byName，且参数名称不会bean的id时，依然会自动注入？？？？？？（此时一个class只有一个bean）</p>
-<p>但是当一个class有两个bean时，且参数名称不会bean的id时，依然会自动注入？？？？？？</p>
-<p>那byName和byType有啥子区别？？？？？</p>
-<pre><code class="xml">   &lt;bean id=&quot;textEditor&quot; class=&quot;com.tutorialspoint.TextEditor&quot; 
-      autowire=&quot;byType&quot;&gt;
-      &lt;property name=&quot;name&quot; value=&quot;Generic Text Editor&quot; /&gt;
-   &lt;/bean&gt;
-</code></pre>
-<h1 id="Spring-基于注解的配置"><a href="#Spring-基于注解的配置" class="headerlink" title="Spring 基于注解的配置"></a>Spring 基于注解的配置</h1><p><u><strong>@ Required</strong></u></p>
-<p><strong>@Required</strong> 注释应用于 bean 属性的 setter 方法，它表明受影响的 bean 属性在配置时必须放在 XML 配置文件中，否则容器就会抛出一个 BeanInitializationException 异常。</p>
-<p><u><strong>@Autowired</strong></u></p>
-<ul>
-<li>Setter 方法中的 @Autowired：当 Spring遇到一个在 setter 方法中使用的 @Autowired 注释，它会在方法中视图执行 <strong>byType</strong> 自动连接。（对所有setter参数）</li>
-<li>属性中的 @Autowired：ByType自动连接</li>
-<li>构造函数中的@Autowired：与Setter方法类似</li>
-</ul>
-<p>默认情况下，@Autowired 注释意味着依赖是必须的，它类似于 @Required 注释，然而，你可以使用 @Autowired 的 <strong>（required=false）</strong> 选项关闭默认行为。</p>
-<p><u><strong>@Qualifier</strong></u></p>
-<p>当有多个Bean是同一类型的时候，可以使用@Qualifier指定注入bean的id</p>
-<p><u><strong>JSR-250注释</strong></u></p>
-<p>可以使用 <strong>@PostConstruct</strong> 注释作为初始化回调函数的一个替代，<strong>@PreDestroy</strong> 注释作为销毁回调函数的一个替代</p>
-<p><strong>@Resource(name = “youki”)</strong>使用在字段或函数上，与<strong>byName</strong>语义相同，假如没有指定name，就以字段名称或参数名称为默认</p>
-<p><u><strong>基于java的配置</strong></u></p>
-<p>带有 <strong>@Configuration</strong> 的注解类表示这个类作为 bean 定义的来源 被 Spring IoC 容器加载。<strong>@Bean</strong> 注解告诉 Spring，一个带有 @Bean 的注解方法将返回一个对象，该对象应该被注册为在 Spring 应用程序上下文中的 bean。⚠️通过这种方法注册config类、获取Bean时，要传入目标类的Class（类型类）</p>
-<p><strong>@import</strong> 注解允许从另一个配置类中加载 @Bean 定义。即一个配置类B使用这个注解引入A后，它就包含了A的bean配置。最后在上下文注册时，只用注册配置类B</p>
-<h1 id="Spring中的事件处理"><a href="#Spring中的事件处理" class="headerlink" title="Spring中的事件处理"></a>Spring中的事件处理</h1><p>除了管理Bean以外，上下文(context)还需要管理事件。通过 <strong>ApplicationEvent</strong> 类和 <strong>ApplicationListener</strong> 接口来提供在 ApplicationContext 中处理事件。如果一个 bean 实现 ApplicationListener，那么每次 ApplicationEvent 被发布到 ApplicationContext 上，那个 bean 会被通知。</p>
-<p>Spring中的事件</p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ContextRefreshedEvent</td>
-<td>ApplicationContext 被初始化或刷新时，该事件被发布。这也可以在 ConfigurableApplicationContext 接口中使用 refresh() 方法来发生。</td>
-</tr>
-<tr>
-<td>ContextStartedEvent</td>
-<td>当使用 ConfigurableApplicationContext 接口中的 start() 方法启动 ApplicationContext 时，该事件被发布。你可以调查你的数据库，或者你可以在接受到这个事件后重启任何停止的应用程序。</td>
-</tr>
-<tr>
-<td>ContextStopEvent</td>
-<td>当使用 ConfigurableApplicationContext 接口中的 stop() 方法停止 ApplicationContext 时，发布这个事件。你可以在接受到这个事件后做必要的清理的工作。</td>
-</tr>
-<tr>
-<td>ContextClosedEvent</td>
-<td>当使用 ConfigurableApplicationContext 接口中的 close() 方法关闭 ApplicationContext 时，该事件被发布。一个已关闭的上下文到达生命周期末端；它不能被刷新或重启。</td>
-</tr>
-<tr>
-<td>RequestHandledEvent</td>
-<td>这是一个 web-specific 事件，告诉所有 bean HTTP 请求已经被服务。</td>
-</tr>
-</tbody>
-</table>
-<p><strong><u>创建一个自己的事件</u></strong></p>
-<ul>
-<li>Event类：<strong>不需要在上下文中注册</strong></li>
-<li>Publisher类：向上下文发布我们自定义的事件</li>
-<li>Listener类：坚定我们自定义的事情</li>
-</ul>
+<p><a href="https://www.w3cschool.cn/hibernate/ugov1ie8.html" target="_blank" rel="noopener">查询语言（HQL）</a></p>
+<p><a href="https://www.w3cschool.cn/hibernate/ugov1ie8.html" target="_blank" rel="noopener">标准查询 Criteria</a></p>
+<p><a href="https://www.w3cschool.cn/hibernate/wrg81ieb.html" target="_blank" rel="noopener">原生sql</a></p>
+<p>批处理：由于会话层（session）会保存持久化对象，但当缓存过大时会造成内存不足。所以引入批处理，即设置 <strong>hibernate.jdbc.batch_size</strong>，限制缓存大小。这将告诉 hibernate 容器每 X 行为一批插入。</p>
 
         
 
@@ -535,7 +414,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/Spring.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2018/11/03/Spring jpa/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -547,6 +426,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2018/11/08/nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nginx
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/02/Spring/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -568,7 +466,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#发展"><span class="toc-number">1.</span> <span class="toc-text">发展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hibernate"><span class="toc-number">2.</span> <span class="toc-text">Hibernate</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组成"><span class="toc-number">2.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">2.2.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Session缓存"><span class="toc-number">2.2.1.</span> <span class="toc-text">Session缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#持久化类"><span class="toc-number">2.3.</span> <span class="toc-text">持久化类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊映射"><span class="toc-number">2.4.</span> <span class="toc-text">特殊映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">2.5.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增删查改"><span class="toc-number">2.6.</span> <span class="toc-text">增删查改</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -593,7 +491,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/False/Spring.html",
+  id: "https://xixfeng.github.io/2018/11/03/Spring jpa/",
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {
@@ -626,7 +524,7 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

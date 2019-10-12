@@ -15,12 +15,10 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/A5406AD8-15E0-48B6-8F79-03DCB9F062C5.png">
-<meta property="og:updated_time" content="2019-10-08T03:07:13.489Z">
+<meta property="og:updated_time" content="2019-10-12T00:26:54.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
-<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/A5406AD8-15E0-48B6-8F79-03DCB9F062C5.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -256,103 +254,7 @@ end start
 <li>.code  –This is the starting point for the program code. </li>
 <li>_b(%rip)代表变量 _b的值</li>
 </ul>
-<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><p>C语言使用栈数据结构实现函数调用</p>
-<p>每次进入函数之前，会修改%rsp寄存器的值以记录本函数内下一条指令的位置</p>
-<h1 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h1><table>
-<thead>
-<tr>
-<th>Register</th>
-<th>Callee Save</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%rax</td>
-<td></td>
-<td>结果寄存器</td>
-</tr>
-<tr>
-<td>%rbx</td>
-<td>yes</td>
-<td>多功能寄存器</td>
-</tr>
-<tr>
-<td>%rcx</td>
-<td></td>
-<td>第四参数寄存器</td>
-</tr>
-<tr>
-<td>%rdx</td>
-<td></td>
-<td>第三参数寄存器</td>
-</tr>
-<tr>
-<td>%rsp</td>
-<td></td>
-<td>指向栈顶位置</td>
-</tr>
-<tr>
-<td>%rpb</td>
-<td>yes</td>
-<td>用于标识当前栈帧的起始位置</td>
-</tr>
-<tr>
-<td>%rsi</td>
-<td></td>
-<td>第二参数寄存器</td>
-</tr>
-<tr>
-<td>%rdi</td>
-<td></td>
-<td>第一参数寄存器</td>
-</tr>
-<tr>
-<td>%r8</td>
-<td></td>
-<td>第五参数寄存器</td>
-</tr>
-<tr>
-<td>%r9</td>
-<td></td>
-<td>第六参数寄存器</td>
-</tr>
-<tr>
-<td>%r10-r11</td>
-<td></td>
-<td>多功能寄存器</td>
-</tr>
-<tr>
-<td>%r12-%r15</td>
-<td>yes</td>
-<td>多功能寄存器</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复</p>
-<p><u><strong>栈帧表示</strong></u></p>
-<ul>
-<li>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</li>
-</ul>
-<p><img src="http://api.xixfeng.cn/mweb/A5406AD8-15E0-48B6-8F79-03DCB9F062C5.png" alt="A5406AD8-15E0-48B6-8F79-03DCB9F062C5"></p>
-<p>调用步骤：执行的操作有：父函数将调用参数从后向前压栈 -&gt; 将返回地址压栈保存 -&gt; 跳转到子函数起始地址执行 -&gt; 子函数将父函数栈帧起始地址（%rpb） 压栈 -&gt; 将 %rbp 的值设置为当前 %rsp 的值，即将 %rbp 指向子函数栈帧的起始地址。</p>
-<pre><code class="C"># 参数压栈
-call FUNC  # 将返回地址压栈，并跳转到子函数 FUNC 处执行
-# 函数调用的返回位置
-
-FUNC:  # 子函数入口
-pushq %rbp  # 保存旧的帧指针，相当于创建新的栈帧
-movq  %rsp, %rbp  # 让 %rbp 指向新栈帧的起始位置
-subq  $N, %rsp  # 在新栈帧中预留一些空位，供子程序使用，用 (%rsp+K) 或 (%rbp-K) 的形式引用空位
-</code></pre>
-<p>恢复步骤</p>
-<pre><code class="C">movq %rbp, %rsp    # 使 %rsp 和 %rbp 指向同一位置，即子栈帧的起始处
-popq %rbp # 将栈中保存的父栈帧的 %rbp 的值赋值给 %rbp，并且 %rsp 上移一个位置指向父栈帧的结尾处
-</code></pre>
+<h1 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h1><p>参考博客mac完成SSD6 exercise1</p>
 <h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p><u><strong>变量</strong></u></p>
 <p>全局变量：</p>
 <ul>
@@ -610,6 +512,7 @@ void main(int i, char * argv[]) {
 </tr>
 </tbody>
 </table>
+<p>R[%rsp]指rsp寄存器，可以作为地址接收值，也可取出其中的值</p>
 <p><strong>算数和逻辑运算</strong></p>
 <p>leaq 与 mov的差别，mov会将求出来的值进行一次寻址，leaq直接将计算出来的值赋给后面</p>
 <p>下面除了leaq指令，其他都会设置条件码</p>
@@ -1047,7 +950,7 @@ void main(int i, char * argv[]) {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过程"><span class="toc-number">3.2.1.</span> <span class="toc-text">过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用"><span class="toc-number">4.</span> <span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">5.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">6.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">6.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用"><span class="toc-number">4.</span> <span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">5.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">6.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">6.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1164,19 +1067,15 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,19 +1091,7 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1212,7 +1099,23 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

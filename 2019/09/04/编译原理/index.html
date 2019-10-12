@@ -17,10 +17,8 @@
 <meta property="og:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/15705808355606.jpg">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/15705808893103.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705849528702.jpg">
-<meta property="og:updated_time" content="2019-10-09T01:36:28.023Z">
+<meta property="og:updated_time" content="2019-10-09T02:45:52.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -393,8 +391,6 @@ int main(int argc, char **argv){
    printf(&quot;一共有：%8d行\n一共有：%8d个字符\n字符总长：%8d\n&quot;, lines, words, chars);
 }
 </code></pre>
-<p><img src="http://api.xixfeng.cn/mweb/15705808355606.jpg" alt></p>
-<p><img src="http://api.xixfeng.cn/mweb/15705808893103.jpg" alt></p>
 <p>关于文件读写</p>
 <p><img src="http://api.xixfeng.cn/mweb/15705849528702.jpg" alt></p>
 <h1 id="Syntax-analyzer"><a href="#Syntax-analyzer" class="headerlink" title="Syntax analyzer"></a>Syntax analyzer</h1><p>三种生成方式</p>
@@ -436,7 +432,15 @@ int main(int argc, char **argv){
 <li><p>Production 产生式：产生式决定了程序合法的语法结构，每一行（exp -&gt; exp op exp | (exp) | number）就是一个产生式。</p>
 <p>特殊产生式</p>
 <p>| 产生式       | 名字         |<br>| ———— | ———— |<br>| A -&gt; A α| β | 左递归产生式 |<br>| A -&gt; αA| β  | 右递归产生式 |<br>|              |              |</p>
-<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2></li>
+<p>产生式描述的是一个合法的字符串（代表编译器接受这种语法）</p>
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>推导：判断一个字符串能否匹配产生式，推导从一个结构开始，以终结符号结束。</p>
+<ul>
+<li>在推导中一次只替换一个非终结符号</li>
+<li>最左推导：每一次都从最左边推导</li>
+<li>最右推导：每一次都从最右边推导</li>
+</ul>
+<p>句型：推导中每一步得到的表达式就是句型</p>
+</li>
 </ul>
 <p><a href="mailto:yangqiuhui@edu.scu.cn" target="_blank" rel="noopener">yangqiuhui@edu.scu.cn</a><br>教材</p>
 <ul>
@@ -671,19 +675,15 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,19 +699,7 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,7 +707,23 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
