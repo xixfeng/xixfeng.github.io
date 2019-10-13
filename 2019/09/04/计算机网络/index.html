@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-10-12T04:51:45.465Z">
+<meta property="og:updated_time" content="2019-10-13T02:11:12.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="IntroductionModel of communicationData Transmission Mode  Baseband(基带) Transmission Passband(通带) Transmission Broadband(宽带) Transmission    Signal Encoding  analog data digital signalPCM 脉冲调制编码简单的说，模拟">
@@ -261,7 +261,7 @@ circuit-switched network?
 <ul>
 <li>connection-oriented: setup required between client and server processes </li>
 <li>reliable transport between sending and receiving process </li>
-<li>flow control （流量控制）: sender won’t overwhelm receiver，当接收端传输层buffer快溢出的时候，发送端停止发送</li>
+<li>flow control （流量控制）: sender won’t overwhelm receiver，当接收端传输层buffer快溢出的时候，发送端停止发送。”发送方不会压倒接收方”</li>
 <li>congestion control（拥塞控制）: throttle sender when network overloaded ，避免中间节点出现拥塞</li>
 <li>does not provide: timing, minimum throughput guarantees, security</li>
 </ul>
@@ -430,9 +430,43 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </ul>
 <p>希望通过<u><strong>流水线</strong></u>方式提高效率（pipeline），由此诞生了GBN和SR算法</p>
 <p><u><strong>Go-back-N</strong></u>算法：</p>
-<p>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包，第4个包失败了就会返回ACK3）</p>
-<p>发送方有一个缓存，缓存需要发送的N个分组</p>
+<p>只有超时会引起重发</p>
+<p>发送方</p>
+<ul>
+<li>如果下一个seq在window里面，则发送</li>
+</ul>
+<ul>
+<li>为所有段设置定时器，n定时器超时后，重新发送n和窗口中所有大于n的段</li>
+<li>如果window最左边的段被ack，移动窗口</li>
+</ul>
+<p>接收方</p>
+<ul>
+<li>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包和第5个包，第4个包失败了就会返回ACK3</li>
+</ul>
 <p><u><strong>Selective Repeat</strong></u>算法</p>
+<p>发送方</p>
+<ul>
+<li>如果下一个seq在window里面，则发送</li>
+<li>为所有段设置定时器，n计时器超时，重发n</li>
+<li>如果window最左边的段被ack，移动窗口</li>
+</ul>
+<p>接收方</p>
+<p>pkt n in window</p>
+<ul>
+<li>发送ACK(n)</li>
+<li>乱序：缓存</li>
+<li>如果window最左边的段被确认，移动窗口</li>
+</ul>
+<p>pkt n before window</p>
+<ul>
+<li>发送ACK(n)</li>
+</ul>
+<p>GBN和SR算法，会为每一个段设置定时器，但是TCP只会设置一个计时器（发送最老未被确认的段）</p>
+<p>GBN的接收方会发送最老的未被确认的段、SR则只会确认自己接受到的段。</p>
+<p>GBN和SR的区别就是发送方计时器到达后处理方式不同、接收方返回ACK逻辑不同</p>
+<p><u><strong>常见TCP</strong></u></p>
+<p>使用TCP的协议：HTTP、SMTP、FTP</p>
+<p>未使用TCP的协议：流媒体协议</p>
 <h3 id="TCP性质与结构"><a href="#TCP性质与结构" class="headerlink" title="TCP性质与结构"></a>TCP性质与结构</h3><p><u><strong>TCP</strong></u></p>
 <ul>
 <li><p>可靠的、有序的字节流</p>
@@ -548,11 +582,12 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </ul>
 <hr>
 <p>拥塞窗口（cwnd）：限制发送端的流水线一次性发送多少段。LastByteSent-LastByteAcked&lt;= cwnd，即目前未被确认段的大小必须小于拥塞窗口</p>
+<p>threshold就是几何增长、线性增长的界限</p>
 <p><strong>cwnd的慢启动</strong></p>
 <ul>
 <li>cwnd = 1MSS</li>
 <li>几何增长</li>
-<li>设置ssthresh</li>
+<li>设置ssthresh（threshold）</li>
 </ul>
 <p><strong>cwnd的状态转换</strong></p>
 <p>cwnd每次收到ACK后增长</p>
