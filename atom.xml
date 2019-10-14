@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-10-12T02:40:03.267Z</updated>
+  <updated>2019-10-14T11:52:36.025Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xixfeng.github.io/2019/10/12/mac%E5%AE%8C%E6%88%90SSD6%20exercise1/"/>
     <id>https://xixfeng.github.io/2019/10/12/mac完成SSD6 exercise1/</id>
     <published>2019-10-12T00:18:34.000Z</published>
-    <updated>2019-10-12T02:40:03.267Z</updated>
+    <updated>2019-10-14T11:52:36.025Z</updated>
     
     <summary type="html">
     
@@ -130,32 +130,6 @@
   </entry>
   
   <entry>
-    <title>动态规划</title>
-    <link href="https://xixfeng.github.io/2019/09/07/leetcode-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    <id>https://xixfeng.github.io/2019/09/07/leetcode-动态规划/</id>
-    <published>2019-09-07T07:00:57.000Z</published>
-    <updated>2019-09-23T13:57:07.753Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;动态规划&quot;&gt;&lt;a href=&quot;#动态规划&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
     <title>java虚拟机方法调用-分派</title>
     <link href="https://xixfeng.github.io/2019/09/07/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8-%E5%88%86%E6%B4%BE/"/>
     <id>https://xixfeng.github.io/2019/09/07/java虚拟机方法调用-分派/</id>
@@ -182,29 +156,19 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     <id>https://xixfeng.github.io/2019/09/04/计算机网络/</id>
     <published>2019-09-04T05:47:06.000Z</published>
-    <updated>2019-10-13T02:11:12.826Z</updated>
+    <updated>2019-10-14T11:50:05.859Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;h2 id=&quot;Model-of-communication&quot;&gt;&lt;a href=&quot;#Model-of-communication&quot; class=&quot;headerlink&quot; title=&quot;Model of communication&quot;&gt;&lt;/a&gt;Model of communication&lt;/h2&gt;&lt;p&gt;Data Transmission Mode&lt;/p&gt;
+      &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://wps.pearsoned.com/ecs_kurose_compnetw_6/216/55463/14198700.cw/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;自顶向下教程配套的web动画&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Intenet&quot;&gt;&lt;a href=&quot;#Intenet&quot; class=&quot;headerlink&quot; title=&quot;Intenet&quot;&gt;&lt;/a&gt;Intenet&lt;/h2&gt;&lt;p&gt;端系统通过&lt;strong&gt;通信链路（communication link）&lt;/strong&gt;和&lt;strong&gt;分组交换机（packet switch）&lt;/strong&gt;连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做&lt;strong&gt;分组（packet）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;端系统通过&lt;strong&gt;因特网服务提供商（Internet Service Provider，ISP）&lt;/strong&gt;接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组成的网络。&lt;/p&gt;
+&lt;p&gt;端系统、分组交换机和其他因特网部件都要运行一系列&lt;strong&gt;协议（protocal）&lt;/strong&gt;。&lt;strong&gt;TCP（Transmission Control Protocal）和IP（Internet Protocal）&lt;/strong&gt;是因特网中两个最为重要。IP协议定义了在路由器和端系统之间发送和接收的分组格式。&lt;/p&gt;
+&lt;p&gt;分组交换机&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Baseband(基带) Transmission&lt;/li&gt;
-&lt;li&gt;Passband(通带) Transmission&lt;ul&gt;
-&lt;li&gt;Broadband(宽带) Transmission&lt;/li&gt;
+&lt;li&gt;路由器（rooter）：通常用于网络核心中？&lt;/li&gt;
+&lt;li&gt;链路层交换机（link-layer switch）：通常用于接入网中？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Signal Encoding&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;analog data&lt;/li&gt;
-&lt;li&gt;digital signal&lt;br&gt;PCM 脉冲调制编码&lt;br&gt;简单的说，模拟信号是连续的波形信号，就像正弦波形一样；数字信号是断续的幅度波形，是用二进制的1和0来表示信号&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Channel Communitaion Mode&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;half-duplex(半双工) communication：传输、接收不能同时进行&lt;/li&gt;
-&lt;li&gt;full-duplex(全双工) communication：传输、接收同时进行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Transmission&lt;br&gt;Asynchronous Transmission&lt;br&gt;Synchronous Transmission&lt;br&gt;同步传输到底是怎么回事&lt;/p&gt;
     
     </summary>
     
@@ -220,7 +184,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-10-09T02:45:52.044Z</updated>
+    <updated>2019-10-14T01:47:11.967Z</updated>
     
     <summary type="html">
     
@@ -316,7 +280,7 @@
     <link href="https://xixfeng.github.io/2019/09/01/xcode%E8%B0%83%E8%AF%95openjdk%E7%9A%84%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/01/xcode调试openjdk的原理/</id>
     <published>2019-09-01T02:37:13.000Z</published>
-    <updated>2019-09-01T03:45:55.842Z</updated>
+    <updated>2019-10-14T11:53:30.464Z</updated>
     
     <summary type="html">
     
@@ -677,6 +641,32 @@ make all
     
     
       <category term="数据挖掘" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
+    <id>https://xixfeng.github.io/2018/11/20/测试/</id>
+    <published>2018-11-20T02:37:47.000Z</published>
+    <updated>2019-08-15T05:11:00.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转自&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TDD 有三层含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Test-Driven Development，测试&lt;strong&gt;驱动&lt;/strong&gt;开发。&lt;/li&gt;
+&lt;li&gt;Task-Driven Development，任务&lt;strong&gt;驱动&lt;/strong&gt;开发，要对问题进行分析并进行任务分解。&lt;/li&gt;
+&lt;li&gt;Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="测试" scheme="https://xixfeng.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   

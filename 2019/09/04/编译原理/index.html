@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705849528702.jpg">
-<meta property="og:updated_time" content="2019-10-09T02:45:52.044Z">
+<meta property="og:updated_time" content="2019-10-14T01:47:11.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -393,6 +393,16 @@ int main(int argc, char **argv){
 </code></pre>
 <p>关于文件读写</p>
 <p><img src="http://api.xixfeng.cn/mweb/15705849528702.jpg" alt></p>
+<pre><code class="c">    FILE *fp;
+    if (argc != 2){
+    printf(&quot;参数错误！\n&quot;);
+    exit(0);
+    }
+    fp= argv[1];
+    yyin = fopen(fp, &quot;r&quot;);
+    yylex();
+    fclose(yyin);
+</code></pre>
 <h1 id="Syntax-analyzer"><a href="#Syntax-analyzer" class="headerlink" title="Syntax analyzer"></a>Syntax analyzer</h1><p>三种生成方式</p>
 <ul>
 <li>Universal 通用的</li>

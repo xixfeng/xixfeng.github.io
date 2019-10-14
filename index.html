@@ -144,6 +144,188 @@
             
   
     
+      <article id="post-mac完成SSD6 exercise1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/12/mac完成SSD6 exercise1/">mac完成SSD6 exercise1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/12/mac完成SSD6 exercise1/" class="archive-article-date">
+  	<time datetime="2019-10-12T00:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="C程序函数调用栈"><a href="#C程序函数调用栈" class="headerlink" title="C程序函数调用栈"></a>C程序函数调用栈</h1><p><u><strong>函数调用相关寄存器</strong></u></p>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Callee Save</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%rax</td>
+<td></td>
+<td>结果寄存器</td>
+</tr>
+<tr>
+<td>%rbx</td>
+<td>yes</td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td>%rcx</td>
+<td></td>
+<td>第四参数寄存器</td>
+</tr>
+<tr>
+<td>%rdx</td>
+<td></td>
+<td>第三参数寄存器</td>
+</tr>
+<tr>
+<td>%rsp</td>
+<td></td>
+<td>指向栈顶位置</td>
+</tr>
+<tr>
+<td>%rpb</td>
+<td>yes</td>
+<td>用于标识当前栈帧的起始位置</td>
+</tr>
+<tr>
+<td>%rsi</td>
+<td></td>
+<td>第二参数寄存器</td>
+</tr>
+<tr>
+<td>%rdi</td>
+<td></td>
+<td>第一参数寄存器</td>
+</tr>
+<tr>
+<td>%r8</td>
+<td></td>
+<td>第五参数寄存器</td>
+</tr>
+<tr>
+<td>%r9</td>
+<td></td>
+<td>第六参数寄存器</td>
+</tr>
+<tr>
+<td>%r10-r11</td>
+<td></td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td>%r12-%r15</td>
+<td>yes</td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复</p>
+<p><u><strong>栈帧结构</strong></u></p>
+<p><img src="http://api.xixfeng.cn/mweb/15708398260796.png" alt></p>
+<ul>
+<li>以上结构最近帧是在低地址</li>
+<li>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</li>
+</ul>
+<p>调用步骤：执行的操作有：父函数将调用参数从后向前压栈 -&gt; 将返回地址压栈保存 -&gt; 跳转到子函数起始地址执行 -&gt; 子函数将父函数栈帧起始地址（%rpb） 压栈 -&gt; 将 %rbp 的值设置为当前 %rsp 的值，即将 %rbp 指向子函数栈帧的起始地址。</p>
+<pre><code class="c"># 参数压栈
+call FUNC  # 将返回地址压栈，并跳转到子函数 FUNC 处执行
+# 函数调用的返回位置
+
+FUNC:  # 子函数入口
+pushq %rbp  # 保存旧的帧指针，相当于创建新的栈帧
+movq  %rsp, %rbp  # 让 %rbp 指向新栈帧的起始位置，此时%rbp指向调用函数的rbp
+subq  $N, %rsp  # 在新栈帧中预留一些空位，供子程序使用，用 (%rsp+K) 或 (%rbp-K) 的形式引用空位
+</code></pre>
+<p>恢复步骤</p>
+<pre><code class="c">movq %rbp, %rsp    # 使 %rsp 和 %rbp 指向同一位置，即子栈帧的起始处
+popq %rbp # 将栈中保存的父栈帧的 %rbp 的值赋值给 %rbp，并且 %rsp 上移一个位置指向父栈帧的结尾处
+</code></pre>
+<h1 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h1><p>Key1、Key2主要由extract_message1 得出，最后结果为key1=3，key2=777</p>
+<p>由于不能更改程序，如果执行msg1 = extract_message1(start, stride); 就必定无法执行if语句中的msg2 = extract_message2(start, stride); </p>
+<pre><code class="c">    msg1 = extract_message1(start, stride); 
+    if (*msg1 == &#39;\0&#39;) {
+        process_keys34(&amp;key3, &amp;key4);
+        msg2 = extract_message2(start, stride);
+        printf(&quot;%s\n&quot;, msg2);
+    }
+</code></pre>
+<p>所以必须想办法跳过msg1 = extract_message1(start, stride); 语句的执行；由c语言函数调用栈可知，我们可以更改返回地址来修改程序的执行过程；</p>
+<p>而唯一能帮助我们修改返回地址的函数就是process_keys34(&amp;key3, &amp;key4); </p>
+<p><u><strong>key3</strong></u></p>
+<p>此时使用xcode在<strong>void</strong> process_keys34 (<strong>int</strong> <em> key3, <strong>int</strong> </em> key4) 函数位置打点，发现</p>
+<p>⚠️key3<strong>本地变量</strong>的内存位置为0x7ffeefbff438，而key4本地变量内存位置为0x7ffeefbff430</p>
+<p>rbp中数据为0x00007ffeefbff440，而紧跟在0x00007ffeefbff440位置后面是函数返回位置。再后面就是参数key3，参数key4</p>
+<p>读题可知((<strong>int</strong> <em>)&amp;key3) + </em>key3 为返回地址的指针，而此时就发生了分歧。⚠️这个key3可以是本地变量的地址，也可以是函数参数的地址。假如是前者就令key3=4，假如是后者就令key3=-1。</p>
+<p>而mac是令key3=4。</p>
+<p><u><strong>key4</strong></u></p>
+<p>((<strong>int</strong> <em>)&amp;key3) + </em>key3为返回地址的指针</p>
+<p> <em>(((<strong>int</strong> </em>)&amp;key3) + <em>key3) += </em>key4;就是让返回地址 = 返回地址 + key4</p>
+<p><img src="http://api.xixfeng.cn/mweb/15708471653514.jpg" alt></p>
+<p>本来的返回地址 = 0x100000ec3，现在要令返回地址 = 0x100000eef。</p>
+<p>所以 key4 = eef-ec3 = 44</p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/12/mac完成SSD6 exercise1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
   
     
       <article id="post-leetcode-二分查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -378,8 +560,6 @@
     
   
     
-  
-    
       <article id="post-java虚拟机方法调用-分派" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -470,25 +650,15 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Model-of-communication"><a href="#Model-of-communication" class="headerlink" title="Model of communication"></a>Model of communication</h2><p>Data Transmission Mode</p>
+          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p><a href="http://wps.pearsoned.com/ecs_kurose_compnetw_6/216/55463/14198700.cw/index.html" target="_blank" rel="noopener">自顶向下教程配套的web动画</a></p>
+<h2 id="Intenet"><a href="#Intenet" class="headerlink" title="Intenet"></a>Intenet</h2><p>端系统通过<strong>通信链路（communication link）</strong>和<strong>分组交换机（packet switch）</strong>连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做<strong>分组（packet）</strong>。</p>
+<p>端系统通过<strong>因特网服务提供商（Internet Service Provider，ISP）</strong>接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组成的网络。</p>
+<p>端系统、分组交换机和其他因特网部件都要运行一系列<strong>协议（protocal）</strong>。<strong>TCP（Transmission Control Protocal）和IP（Internet Protocal）</strong>是因特网中两个最为重要。IP协议定义了在路由器和端系统之间发送和接收的分组格式。</p>
+<p>分组交换机</p>
 <ul>
-<li>Baseband(基带) Transmission</li>
-<li>Passband(通带) Transmission<ul>
-<li>Broadband(宽带) Transmission</li>
+<li>路由器（rooter）：通常用于网络核心中？</li>
+<li>链路层交换机（link-layer switch）：通常用于接入网中？</li>
 </ul>
-</li>
-</ul>
-<p>Signal Encoding</p>
-<ul>
-<li>analog data</li>
-<li>digital signal<br>PCM 脉冲调制编码<br>简单的说，模拟信号是连续的波形信号，就像正弦波形一样；数字信号是断续的幅度波形，是用二进制的1和0来表示信号</li>
-</ul>
-<p>Channel Communitaion Mode</p>
-<ul>
-<li>half-duplex(半双工) communication：传输、接收不能同时进行</li>
-<li>full-duplex(全双工) communication：传输、接收同时进行</li>
-</ul>
-<p>Transmission<br>Asynchronous Transmission<br>Synchronous Transmission<br>同步传输到底是怎么回事</p>
           
             <a class="article-more-a" href="/2019/09/04/计算机网络/#more">more >></a>
           
@@ -742,6 +912,79 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/03/深入理解计算机系统/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-xcode调试openjdk的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/xcode调试openjdk的原理/">xcode调试openjdk的原理</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/01/xcode调试openjdk的原理/" class="archive-article-date">
+  	<time datetime="2019-09-01T02:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>在编译openjdk后，使用xcode调试hotspot。但是此时引入的是openjdk中hotspot源码，在源码上打断点为什么影响编译的java程序</p>
+<p>首先调试分为软件断点和硬件断点，软件断点主要是通过x86架构中自带的INT 3指令。<br>软件断点的过程</p>
+<ul>
+<li>通过调试信息找到断点行所在的机器代码</li>
+<li>将头一个字节用WriteProcessMemory（）换成0xCC(INT 3)</li>
+<li>程序执行到断点处后，再修改回来</li>
+</ul>
+<p>而这里的调试信息就是通过源码调试的关键，调试信息是在编译器生成机器码的时候一起产生的。它代表着可执行程序和源代码之间的关系。这个信息以预定义的格式进行编码，并同机器码一起存储。许多年以来，针对不同的平台和可执行文件，人们发明了许多这样的编码格式，一种最重要的格式，就是DWARF。作为Linux以及其他类Unix平台上的ELF可执行文件的调试信息格式，如今的DWARF可以说是无处不在。<br>￼<br>在我们编译openjdk时保留了调试信息，而xcode通过编译后openjdk的调试信息将函数名映射为机器码中该函数的起始指令</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p><a href="https://zhuanlan.zhihu.com/p/34003929" target="_blank" rel="noopener">调试原理</a><br><a href="https://www.cnblogs.com/alantu2018/p/8997173.html" target="_blank" rel="noopener">调试原理详解</a></p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/01/xcode调试openjdk的原理/">展开全文 >></a>
         </p>
       
 
