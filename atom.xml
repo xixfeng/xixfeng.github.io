@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-10-14T11:52:36.025Z</updated>
+  <updated>2019-10-14T12:32:26.271Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,17 +21,87 @@
     <link href="https://xixfeng.github.io/2019/10/12/mac%E5%AE%8C%E6%88%90SSD6%20exercise1/"/>
     <id>https://xixfeng.github.io/2019/10/12/mac完成SSD6 exercise1/</id>
     <published>2019-10-12T00:18:34.000Z</published>
-    <updated>2019-10-14T11:52:36.025Z</updated>
+    <updated>2019-10-14T12:32:26.271Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;C程序函数调用栈&quot;&gt;&lt;a href=&quot;#C程序函数调用栈&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;C程序函数调用栈&quot;&gt;&lt;a href=&quot;#C程序函数调用栈&quot; class=&quot;headerlink&quot; title=&quot;C程序函数调用栈&quot;&gt;&lt;/a&gt;C程序函数调用栈&lt;/h1&gt;&lt;p&gt;&lt;u&gt;&lt;strong&gt;函数调用相关寄存器&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Register&lt;/th&gt;
+&lt;th&gt;Callee Save&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%rax&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;结果寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rbx&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;多功能寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rcx&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;第四参数寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rdx&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;第三参数寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rsp&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;指向栈顶位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rpb&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;用于标识当前栈帧的起始位置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rsi&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;第二参数寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%rdi&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;第一参数寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%r8&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;第五参数寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%r9&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;第六参数寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%r10-r11&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;多功能寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%r12-%r15&lt;/td&gt;
+&lt;td&gt;yes&lt;/td&gt;
+&lt;td&gt;多功能寄存器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复&lt;/p&gt;
     
     </summary>
     

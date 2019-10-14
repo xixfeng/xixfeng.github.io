@@ -242,50 +242,9 @@
 </tbody>
 </table>
 <p>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复</p>
-<p><u><strong>栈帧结构</strong></u></p>
-<p><img src="http://api.xixfeng.cn/mweb/15708398260796.png" alt></p>
-<ul>
-<li>以上结构最近帧是在低地址</li>
-<li>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</li>
-</ul>
-<p>调用步骤：执行的操作有：父函数将调用参数从后向前压栈 -&gt; 将返回地址压栈保存 -&gt; 跳转到子函数起始地址执行 -&gt; 子函数将父函数栈帧起始地址（%rpb） 压栈 -&gt; 将 %rbp 的值设置为当前 %rsp 的值，即将 %rbp 指向子函数栈帧的起始地址。</p>
-<pre><code class="c"># 参数压栈
-call FUNC  # 将返回地址压栈，并跳转到子函数 FUNC 处执行
-# 函数调用的返回位置
-
-FUNC:  # 子函数入口
-pushq %rbp  # 保存旧的帧指针，相当于创建新的栈帧
-movq  %rsp, %rbp  # 让 %rbp 指向新栈帧的起始位置，此时%rbp指向调用函数的rbp
-subq  $N, %rsp  # 在新栈帧中预留一些空位，供子程序使用，用 (%rsp+K) 或 (%rbp-K) 的形式引用空位
-</code></pre>
-<p>恢复步骤</p>
-<pre><code class="c">movq %rbp, %rsp    # 使 %rsp 和 %rbp 指向同一位置，即子栈帧的起始处
-popq %rbp # 将栈中保存的父栈帧的 %rbp 的值赋值给 %rbp，并且 %rsp 上移一个位置指向父栈帧的结尾处
-</code></pre>
-<h1 id="解题过程"><a href="#解题过程" class="headerlink" title="解题过程"></a>解题过程</h1><p>Key1、Key2主要由extract_message1 得出，最后结果为key1=3，key2=777</p>
-<p>由于不能更改程序，如果执行msg1 = extract_message1(start, stride); 就必定无法执行if语句中的msg2 = extract_message2(start, stride); </p>
-<pre><code class="c">    msg1 = extract_message1(start, stride); 
-    if (*msg1 == &#39;\0&#39;) {
-        process_keys34(&amp;key3, &amp;key4);
-        msg2 = extract_message2(start, stride);
-        printf(&quot;%s\n&quot;, msg2);
-    }
-</code></pre>
-<p>所以必须想办法跳过msg1 = extract_message1(start, stride); 语句的执行；由c语言函数调用栈可知，我们可以更改返回地址来修改程序的执行过程；</p>
-<p>而唯一能帮助我们修改返回地址的函数就是process_keys34(&amp;key3, &amp;key4); </p>
-<p><u><strong>key3</strong></u></p>
-<p>此时使用xcode在<strong>void</strong> process_keys34 (<strong>int</strong> <em> key3, <strong>int</strong> </em> key4) 函数位置打点，发现</p>
-<p>⚠️key3<strong>本地变量</strong>的内存位置为0x7ffeefbff438，而key4本地变量内存位置为0x7ffeefbff430</p>
-<p>rbp中数据为0x00007ffeefbff440，而紧跟在0x00007ffeefbff440位置后面是函数返回位置。再后面就是参数key3，参数key4</p>
-<p>读题可知((<strong>int</strong> <em>)&amp;key3) + </em>key3 为返回地址的指针，而此时就发生了分歧。⚠️这个key3可以是本地变量的地址，也可以是函数参数的地址。假如是前者就令key3=4，假如是后者就令key3=-1。</p>
-<p>而mac是令key3=4。</p>
-<p><u><strong>key4</strong></u></p>
-<p>((<strong>int</strong> <em>)&amp;key3) + </em>key3为返回地址的指针</p>
-<p> <em>(((<strong>int</strong> </em>)&amp;key3) + <em>key3) += </em>key4;就是让返回地址 = 返回地址 + key4</p>
-<p><img src="http://api.xixfeng.cn/mweb/15708471653514.jpg" alt></p>
-<p>本来的返回地址 = 0x100000ec3，现在要令返回地址 = 0x100000eef。</p>
-<p>所以 key4 = eef-ec3 = 44</p>
-
+          
+            <a class="article-more-a" href="/2019/10/12/mac完成SSD6 exercise1/#more">more >></a>
+          
         
 
       
