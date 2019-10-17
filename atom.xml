@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-10-14T12:32:26.271Z</updated>
+  <updated>2019-10-17T09:09:06.663Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bomb炸弹实验</title>
+    <link href="https://xixfeng.github.io/2019/10/17/bomb%E7%82%B8%E5%BC%B9%E5%AE%9E%E9%AA%8C/"/>
+    <id>https://xixfeng.github.io/2019/10/17/bomb炸弹实验/</id>
+    <published>2019-10-17T02:31:37.000Z</published>
+    <updated>2019-10-17T09:09:06.663Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用命令行得到可执行程序bomb的汇编代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;objdump -d bomb.exe &amp;gt; bomb.s
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>mac完成SSD6 exercise1</title>
@@ -254,7 +274,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-10-14T01:47:11.967Z</updated>
+    <updated>2019-10-16T12:53:04.864Z</updated>
     
     <summary type="html">
     
@@ -278,15 +298,16 @@
   </entry>
   
   <entry>
-    <title>java虚拟机</title>
+    <title></title>
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
-    <published>2019-09-03T12:28:49.000Z</published>
-    <updated>2019-09-22T05:01:41.878Z</updated>
+    <published>2019-09-03T12:28:49.346Z</published>
+    <updated>2019-10-15T02:17:55.268Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
+      &lt;p&gt;title: java虚拟机&lt;br&gt;author: xixfeng&lt;br&gt;avatar: ‘&lt;a href=&quot;https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;&lt;/a&gt;&lt;br&gt;authorLink: xixfeng.cn&lt;br&gt;authorAbout: 一个好奇的人&lt;br&gt;authorDesc: 一个好奇的人&lt;br&gt;categories: 技术&lt;br&gt;comments: true&lt;br&gt;display: true&lt;br&gt;date: 2019-09-03 20:28:49&lt;br&gt;tags: 虚拟机&lt;br&gt;keywords:&lt;br&gt;description:&lt;/p&gt;
+&lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息&lt;/li&gt;
 &lt;li&gt;虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈&lt;/li&gt;
@@ -311,10 +332,6 @@
     
     </summary>
     
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="虚拟机" scheme="https://xixfeng.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
@@ -323,7 +340,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
     <published>2019-09-03T01:10:30.000Z</published>
-    <updated>2019-10-12T00:26:54.177Z</updated>
+    <updated>2019-10-15T09:26:39.538Z</updated>
     
     <summary type="html">
     
@@ -711,32 +728,6 @@ make all
     
     
       <category term="数据挖掘" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试</title>
-    <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
-    <id>https://xixfeng.github.io/2018/11/20/测试/</id>
-    <published>2018-11-20T02:37:47.000Z</published>
-    <updated>2019-08-15T05:11:00.927Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转自&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;TDD 有三层含义：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Test-Driven Development，测试&lt;strong&gt;驱动&lt;/strong&gt;开发。&lt;/li&gt;
-&lt;li&gt;Task-Driven Development，任务&lt;strong&gt;驱动&lt;/strong&gt;开发，要对问题进行分析并进行任务分解。&lt;/li&gt;
-&lt;li&gt;Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="测试" scheme="https://xixfeng.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   

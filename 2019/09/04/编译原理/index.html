@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705849528702.jpg">
-<meta property="og:updated_time" content="2019-10-14T01:47:11.967Z">
+<meta property="og:updated_time" content="2019-10-16T12:53:04.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -403,6 +403,8 @@ int main(int argc, char **argv){
     yylex();
     fclose(yyin);
 </code></pre>
+<p><a href="https://wenku.baidu.com/view/b9ea99be05a1b0717fd5360cba1aa81144318f16.html" target="_blank" rel="noopener">编译原理第三章课后答案</a></p>
+<p>掌握NFA-DFA-优化</p>
 <h1 id="Syntax-analyzer"><a href="#Syntax-analyzer" class="headerlink" title="Syntax analyzer"></a>Syntax analyzer</h1><p>三种生成方式</p>
 <ul>
 <li>Universal 通用的</li>
@@ -428,37 +430,49 @@ int main(int argc, char **argv){
 <p>例：exp -&gt; exp op exp | (exp) | number</p>
 <p>​    op -&gt; + | - | *</p>
 <ul>
-<li>T：终结符号</li>
-<li>N：非终结符号</li>
-<li>P：产生式，A -&gt;  α（A ⊆ N，α ⊆ T ∪ N）</li>
-<li>S：开始符号</li>
-</ul>
-<ul>
 <li><p>Non-terminal 非终结符号：描述程序中的一个结构，代表一个结构还<strong>能</strong>由更小的结构组成。通常写为大写字母或者(<em>exp</em>,<em>stmt</em>)</p>
 <p>Start symbol 开始符号</p>
 </li>
 <li><p>Terminals 终结符号：代表一个结构<strong>不能</strong>由更小的结构组成。通常写为小写字母，运算符、界符、数字</p>
 </li>
-<li><p>Production 产生式：产生式决定了程序合法的语法结构，每一行（exp -&gt; exp op exp | (exp) | number）就是一个产生式。</p>
+<li><p>Production 产生式（<strong>上下文无关文法</strong>）：产生式决定了程序合法的语法结构，每一行（exp -&gt; exp op exp | (exp) | number）就是一个产生式。</p>
 <p>特殊产生式</p>
-<p>| 产生式       | 名字         |<br>| ———— | ———— |<br>| A -&gt; A α| β | 左递归产生式 |<br>| A -&gt; αA| β  | 右递归产生式 |<br>|              |              |</p>
-<p>产生式描述的是一个合法的字符串（代表编译器接受这种语法）</p>
-<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>推导：判断一个字符串能否匹配产生式，推导从一个结构开始，以终结符号结束。</p>
+<p>| 产生式       | 名字         | 等价 |<br>| ———— | ———— | —- |<br>| A -&gt; A α| β | 左递归产生式 | βα<em>  |<br>| A -&gt; αA| β  | 右递归产生式 | α</em>β  |<br>|              |              |      |</p>
+<p><u>产生式描述的是一个合法的字符串</u>（代表编译器接受这种语法）</p>
+</li>
+</ul>
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>  推导：判断一个字符串能否匹配产生式，推导从一个结构开始，以终结符号结束。</p>
 <ul>
 <li>在推导中一次只替换一个非终结符号</li>
 <li>最左推导：每一次都从最左边推导</li>
-<li>最右推导：每一次都从最右边推导</li>
-</ul>
+<li><p>最右推导：每一次都从最右边推导</p>
 <p>句型：推导中每一步得到的表达式就是句型</p>
 </li>
 </ul>
-<p><a href="mailto:yangqiuhui@edu.scu.cn" target="_blank" rel="noopener">yangqiuhui@edu.scu.cn</a><br>教材</p>
+<p>从开始符号推导，即从“0”开始</p>
+<pre><code>exp  -&gt; exp op exp
+     -&gt; exp op num
+     -&gt; exp * num
+     -&gt; (exp) * num
+     -&gt; (exp op exp)* num 
+     -&gt; (exp op num)* num 
+     -&gt; (exp - num)* num 
+     -&gt; (num - num)* num
+</code></pre><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>如何判断一个语法是否具有二义性：</p>
+<p>给一串字符串</p>
 <ul>
-<li>编译原理 赵建华 第二版(本科教学版)</li>
-<li>编译原理与实践</li>
+<li>存在两种最左推导</li>
+<li>存在两种最右推导</li>
+<li>存在两种解析树</li>
 </ul>
-<p>答案</p>
-<p><a href="https://wenku.baidu.com/view/b9ea99be05a1b0717fd5360cba1aa81144318f16.html" target="_blank" rel="noopener">编译原理第三章课后答案</a></p>
+<p><u><strong>优先级、结合方向</strong></u></p>
+<p>优先级低的算符放在离开时符号近的产生式中（即解析树中，优先级低的算符离根节点更近）</p>
+<p><a href="https://wenku.baidu.com/view/b93c5f84ec3a87c24028c437.html" target="_blank" rel="noopener">语法相关作业</a></p>
+<ul>
+<li>2.2.3</li>
+<li>2.2.4</li>
+</ul>
+<p>掌握如何判断二义性、如何写出一个没有二义性的语法</p>
 
         
 
@@ -541,7 +555,7 @@ int main(int argc, char **argv){
   
   
     <a href="/2019/09/03/java虚拟机/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java虚拟机</div>
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -568,7 +582,7 @@ int main(int argc, char **argv){
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">3.2.</span> <span class="toc-text">语法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -685,11 +699,11 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,15 +719,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,11 +735,15 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-12T00:26:54.177Z">
+<meta property="og:updated_time" content="2019-10-15T09:26:39.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader">
@@ -255,6 +255,44 @@ end start
 <li>_b(%rip)代表变量 _b的值</li>
 </ul>
 <h1 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h1><p>参考博客mac完成SSD6 exercise1</p>
+<h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p><u><strong>内存</strong></u></p>
+<p>– Page Zero                                -》地址0被保留且被设置成不可读，当想使用空指针去访问时会报错</p>
+<p>– Program Text                            -》机器指令</p>
+<p>– Inittialized Data</p>
+<p>– Uninitiated Data</p>
+<p>– Heap Memory                            -》用于动态分配的内存块（chunk）</p>
+<p>– Shared Libraries                        -》动态链接共享库</p>
+<p>– Stack</p>
+<p>– Kernel                                    -》在一些系统中，内核会作为程序的一部分</p>
+<p><u><strong>变量生命周期</strong></u></p>
+<p>变量一般存在👇三种情况</p>
+<ul>
+<li>Static：在程序运行期间一直保留绝对地址</li>
+<li>Stack：变量随着入栈、出栈被创建、销毁</li>
+<li>Heap：根据用户需要被创建、销毁</li>
+</ul>
+<p>Stack和Heap用于动态分配（dynamic allocation）</p>
+<h2 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h2><p>被静态分配的参数</p>
+<ul>
+<li>所有的全局变量</li>
+<li>加了static的本地变量</li>
+<li>显示常量（explicit constants）：字符串，数组</li>
+</ul>
+<h2 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h2><p>动态分配：当运行时为参数分配内存空间，修复了静态分配固定内存大小的问题</p>
+<p><u><strong>栈分配</strong></u></p>
+<p><u><strong>堆分配</strong></u></p>
+<pre><code class="c">int *int_ptr = (int*)malloc(sizeof(int));//分配内存并返回指针
+free(int_ptr);//释放内存，但并不会使得int_ptr清0。int_ptr还是会指向那个内存快
+int_ptr = NULL;//清0
+</code></pre>
+<p>不要</p>
+<ul>
+<li>free() Stack上的内存</li>
+<li>失去malloc()分配的内存</li>
+<li>free() 同一个内存块两次</li>
+</ul>
+<h2 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h2><p>静态内存分配：在编译期间就为变量分配内存</p>
+<p>动态内存分配：在运行期间才为变量分配内存</p>
 <h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><p><u><strong>变量</strong></u></p>
 <p>全局变量：</p>
 <ul>
@@ -272,7 +310,7 @@ end start
 <p>函数名本身就是指针</p>
 <p>an [n][m] == （a[n])[m] == *((a[n]+m))  a[n]为第n行的首地址</p>
 <p>传入引用类型参数并不是说通过改变这个参数（比如数组a = 数组b）就能影响原变量，而是通过引用类型参数包含的地址去影响原变量</p>
-<pre><code class="C">#include &lt;stdio.h&gt;
+<pre><code class="c">#include &lt;stdio.h&gt;
 
 char *a[10];
 char *b[10];
@@ -295,6 +333,17 @@ int main ()
 int * jp = &amp;i;//jp是i地址的地址
 void main(int i, char * argv[]) {
   printf(&quot;%d %d\n&quot;, (int) &amp;i, (int) jp);//两个值打出来不一样
+}
+</code></pre>
+<pre><code class="c">char * getMemory(){
+    char* p = &quot;hello world&quot;;//此时能够打印出hello world，此时创建的是全局变量
+      //char p[] = &quot;hello world&quot;; 此时不能够打印出hello world，因为这时创建的是函数栈临时变量
+    return p;
+}
+void main() {
+    char *str = NULL;
+    str = getMemory();
+    printf(str);
 }
 </code></pre>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><p>x86-64 ATT格式</p>
@@ -916,7 +965,7 @@ void main(int i, char * argv[]) {
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          java虚拟机
+          (no title)
         
       </div>
     </a>
@@ -950,7 +999,7 @@ void main(int i, char * argv[]) {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用"><span class="toc-number">4.</span> <span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">5.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">6.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">6.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算机总览"><span class="toc-number">1.</span> <span class="toc-text">计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息存储"><span class="toc-number">2.</span> <span class="toc-text">信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用"><span class="toc-number">4.</span> <span class="toc-text">函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#内存管理"><span class="toc-number">5.</span> <span class="toc-text">内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态分配"><span class="toc-number">5.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态分配"><span class="toc-number">5.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存管理机制"><span class="toc-number">5.3.</span> <span class="toc-text">内存管理机制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C"><span class="toc-number">6.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">7.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">7.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1067,11 +1116,11 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1087,15 +1136,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1107,11 +1152,15 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>java虚拟机 | xixfeng</title>
+  <title>xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
-<meta name="keywords" content="虚拟机">
+  <meta name="description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java虚拟机">
+<meta property="og:title" content="xixfeng">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/03/java虚拟机/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
+<meta property="og:description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-22T05:01:41.878Z">
+<meta property="og:updated_time" content="2019-10-15T02:17:55.268Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java虚拟机">
-<meta name="twitter:description" content="java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法栈、程序计算器随线程生灭">
+<meta name="twitter:title" content="xixfeng">
+<meta name="twitter:description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -146,25 +145,11 @@
             <article id="post-java虚拟机" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      java虚拟机
-    </h1>
-  
-
-        
-        <a href="/2019/09/03/java虚拟机/" class="archive-article-date">
-  	<time datetime="2019-09-03T12:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h1><p>组成</p>
+          <p>title: java虚拟机<br>author: xixfeng<br>avatar: ‘<a href="https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&#39;" target="_blank" rel="noopener">https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&#39;</a><br>authorLink: xixfeng.cn<br>authorAbout: 一个好奇的人<br>authorDesc: 一个好奇的人<br>categories: 技术<br>comments: true<br>display: true<br>date: 2019-09-03 20:28:49<br>tags: 虚拟机<br>keywords:<br>description:</p>
+<h1 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h1><p>组成</p>
 <ul>
 <li>方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息</li>
 <li>虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈</li>
@@ -204,13 +189,21 @@
 <li>-XX::PermSize=10M -XX:MaxPermSize=10M限制方法区大小</li>
 <li>String.intern()</li>
 </ul>
-<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><p>基础算法</p>
-<ul>
-<li>标记-清除算法：首先标记出需要清理</li>
-<li>复制算法：将内存分为几个区域，解决空间碎片问题</li>
-<li>标记整理：将存活的对象移动到一起，清理掉其他对象</li>
-<li>分代算法：将java堆分为新生代和老年代，在前者使用复制算法，在后者使用标记-清除或者标记-整理</li>
+<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><ul>
+<li>新生代GC（Minor GC）：发生频率较快</li>
+<li>老年代（Major GC/FULL GC）：发生频率较慢</li>
 </ul>
+<p><a href="https://crowhawk.github.io/2017/08/10/jvm_2/" target="_blank" rel="noopener">基础回收算法</a></p>
+<p>新生代</p>
+<ul>
+<li>标记-清理</li>
+<li>复制</li>
+</ul>
+<p>老年代</p>
+<ul>
+<li>标记-整理</li>
+</ul>
+<p>分代算法</p>
 <p>引用算法</p>
 <p>给对象一个引用计数，当引用计数为0当时候，就回收对象，（python使用该算法）。但存在两个无法访问的对象循环引用的问题</p>
 <p>根搜索算法<br>当一个对象到GC Roots不可达时，则证明此对象是不可用的</p>
@@ -235,39 +228,77 @@
 <blockquote>
 <p>收集器</p>
 </blockquote>
+<p><a href="https://crowhawk.github.io/2017/08/15/jvm_3/" target="_blank" rel="noopener">不同版本GC</a></p>
 <table>
 <thead>
 <tr>
 <th>收集器</th>
-<th>优点</th>
+<th>串行、并行or并发</th>
+<th>新生代/老年代</th>
+<th>算法</th>
+<th>目标</th>
+<th>适用场景</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Serial</td>
-<td>简单、高效</td>
+<td><strong>Serial</strong></td>
+<td>串行</td>
+<td>新生代</td>
+<td>复制算法</td>
+<td>响应速度优先</td>
+<td>单CPU环境下的Client模式</td>
 </tr>
 <tr>
-<td>ParNew</td>
-<td>Serial并行版</td>
+<td><strong>Serial Old</strong></td>
+<td>串行</td>
+<td>老年代</td>
+<td>标记-整理</td>
+<td>响应速度优先</td>
+<td>单CPU环境下的Client模式、CMS的后备预案</td>
 </tr>
 <tr>
-<td>Parallel Scavenge</td>
-<td>更加关注cpu吞吐量 cpu run time/(cpu run time+GC time），其他更关心停顿时间</td>
+<td><strong>ParNew</strong></td>
+<td>并行</td>
+<td>新生代</td>
+<td>复制算法</td>
+<td>响应速度优先</td>
+<td>多CPU环境时在Server模式下与CMS配合</td>
 </tr>
 <tr>
-<td>CMS</td>
-<td>进行GC时基本不影响进程进行</td>
+<td><strong>Parallel Scavenge</strong></td>
+<td>并行</td>
+<td>新生代</td>
+<td>复制算法</td>
+<td>吞吐量优先</td>
+<td>在后台运算而不需要太多交互的任务</td>
 </tr>
 <tr>
-<td></td>
+<td><strong>Parallel Old</strong></td>
+<td>并行</td>
+<td>老年代</td>
+<td>标记-整理</td>
+<td>吞吐量优先</td>
+<td>在后台运算而不需要太多交互的任务</td>
+</tr>
+<tr>
+<td><strong>CMS</strong></td>
+<td>并发</td>
+<td>老年代</td>
+<td>标记-清除</td>
+<td>响应速度优先</td>
+<td>集中在互联网站或B/S系统服务端上的Java应用</td>
+</tr>
+<tr>
+<td><strong>G1</strong></td>
+<td>并发</td>
+<td>both</td>
+<td>标记-整理+复制算法</td>
+<td>响应速度优先</td>
+<td>面向服务端应用，将来替换CMS</td>
 </tr>
 </tbody>
 </table>
-<hr>
-<p>新生代GC（Minor GC）：发生频率较快</p>
-<p>老年代（Major GC/FULL GC）：发生频率较慢</p>
-<hr>
 <h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>大对象直接进入老年代</p>
 <p>长期存活的对象将进入老年代</p>
 <p>空间分配担保：</p>
@@ -932,11 +963,11 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,15 +983,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -972,11 +999,15 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">

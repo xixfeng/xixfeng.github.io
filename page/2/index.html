@@ -144,6 +144,79 @@
             
   
     
+      <article id="post-xcode调试openjdk的原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/01/xcode调试openjdk的原理/">xcode调试openjdk的原理</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/01/xcode调试openjdk的原理/" class="archive-article-date">
+  	<time datetime="2019-09-01T02:37:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>在编译openjdk后，使用xcode调试hotspot。但是此时引入的是openjdk中hotspot源码，在源码上打断点为什么影响编译的java程序</p>
+<p>首先调试分为软件断点和硬件断点，软件断点主要是通过x86架构中自带的INT 3指令。<br>软件断点的过程</p>
+<ul>
+<li>通过调试信息找到断点行所在的机器代码</li>
+<li>将头一个字节用WriteProcessMemory（）换成0xCC(INT 3)</li>
+<li>程序执行到断点处后，再修改回来</li>
+</ul>
+<p>而这里的调试信息就是通过源码调试的关键，调试信息是在编译器生成机器码的时候一起产生的。它代表着可执行程序和源代码之间的关系。这个信息以预定义的格式进行编码，并同机器码一起存储。许多年以来，针对不同的平台和可执行文件，人们发明了许多这样的编码格式，一种最重要的格式，就是DWARF。作为Linux以及其他类Unix平台上的ELF可执行文件的调试信息格式，如今的DWARF可以说是无处不在。<br>￼<br>在我们编译openjdk时保留了调试信息，而xcode通过编译后openjdk的调试信息将函数名映射为机器码中该函数的起始指令</p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p><a href="https://zhuanlan.zhihu.com/p/34003929" target="_blank" rel="noopener">调试原理</a><br><a href="https://www.cnblogs.com/alantu2018/p/8997173.html" target="_blank" rel="noopener">调试原理详解</a></p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/01/xcode调试openjdk的原理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-mac编译openjdk9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -774,79 +847,6 @@ make all
   
     
   
-    
-      <article id="post-测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/20/测试/">测试</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/20/测试/" class="archive-article-date">
-  	<time datetime="2018-11-20T02:37:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p><a href="https://www.jianshu.com/p/62f16cd4fef3" target="_blank" rel="noopener">转自</a></p>
-<p>TDD 有三层含义：</p>
-<ul>
-<li>Test-Driven Development，测试<strong>驱动</strong>开发。</li>
-<li>Task-Driven Development，任务<strong>驱动</strong>开发，要对问题进行分析并进行任务分解。</li>
-<li>Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计。</li>
-</ul>
-          
-            <a class="article-more-a" href="/2018/11/20/测试/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/20/测试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -933,11 +933,11 @@ make all
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -953,15 +953,11 @@ make all
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,11 +969,15 @@ make all
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
