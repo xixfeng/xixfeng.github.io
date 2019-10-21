@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-10-14T11:50:05.859Z">
+<meta property="og:updated_time" content="2019-10-20T12:21:38.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="Introduction自顶向下教程配套的web动画 Intenet端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机">
@@ -639,9 +639,11 @@ dns1.networkxixfeng.com，212.212.212.1，A
 <p><strong>cwnd的状态转换</strong></p>
 <p>cwnd每次收到ACK后增长</p>
 <ul>
-<li>当重复收到3个ack后，cwnd减半；cwnd变为线性增长；记录ssthresh=cwnd/2</li>
+<li>当重复收到3个ack后，cwnd减半+3；cwnd变为线性增长；记录ssthresh=cwnd/2</li>
 <li>当计时器到达时，cwnd变为1；cwnd变为几何增长；当达到ssthresh=cwnd/2后，cwnd变为线性增长</li>
 </ul>
+<p>问题：几何增长能不能超过ssthresh？不能</p>
+<p>3个ack过后，窗口减半会不会加3？</p>
 <h3 id="TCP-习题"><a href="#TCP-习题" class="headerlink" title="TCP 习题"></a>TCP 习题</h3><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
 <h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><p>子网掩码：用来区分一个ip地址的<strong>网络号</strong>和<strong>主机号</strong>，网络号标明主机属于哪个子网中，主机号标明主机在内网中的位置。</p>
 <p>将子网掩码换成二进制，ip地址中<strong>与1对应</strong>的就是网络号，<strong>与0对应</strong>的就是主机号</p>
@@ -865,7 +867,8 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Li Yang
+			&copy; 2019 Li Yang
+			<!-- <a href="http://beian.miit.gov.cn/">蜀ICP备19008604号-1</a> -->
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

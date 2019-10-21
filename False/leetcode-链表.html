@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>leetcode-二分查找 | xixfeng</title>
+  <title>leetcode-链表 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二分查找 二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目  二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找         l,r = 0,len(nums)-1         while l &amp;lt;= r:             mid = (l+r)/2             if target == nums[mid">
-<meta name="keywords" content="leetcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-二分查找">
-<meta property="og:url" content="https://xixfeng.github.io/2019/09/22/leetcode-二分查找/index.html">
+  <meta name="description" content="def isPalindrome(self, head):     fast = slow = head     # find the mid node ⚠️ 速度差在链表中的使用     while fast and fast.next:         fast = fast.next.next         slow = slow.next     # reverse the second">
+<meta property="og:type" content="website">
+<meta property="og:title" content="leetcode-链表">
+<meta property="og:url" content="https://xixfeng.github.io/False/leetcode-链表.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="二分查找 二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目  二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找         l,r = 0,len(nums)-1         while l &amp;lt;= r:             mid = (l+r)/2             if target == nums[mid">
+<meta property="og:description" content="def isPalindrome(self, head):     fast = slow = head     # find the mid node ⚠️ 速度差在链表中的使用     while fast and fast.next:         fast = fast.next.next         slow = slow.next     # reverse the second">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-29T08:09:48.478Z">
+<meta property="og:updated_time" content="2019-09-09T02:11:46.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-二分查找">
-<meta name="twitter:description" content="二分查找 二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目  二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找         l,r = 0,len(nums)-1         while l &amp;lt;= r:             mid = (l+r)/2             if target == nums[mid">
+<meta name="twitter:title" content="leetcode-链表">
+<meta name="twitter:description" content="def isPalindrome(self, head):     fast = slow = head     # find the mid node ⚠️ 速度差在链表中的使用     while fast and fast.next:         fast = fast.next.next         slow = slow.next     # reverse the second">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -143,20 +142,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-二分查找" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode-二分查找
+      leetcode-链表
     </h1>
   
 
         
-        <a href="/2019/09/22/leetcode-二分查找/" class="archive-article-date">
-  	<time datetime="2019-09-22T12:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-22</time>
+        <a href="/False/leetcode-链表.html" class="archive-article-date">
+  	<time datetime="2019-09-08T11:11:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
 </a>
         
       </header>
@@ -164,47 +163,151 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><blockquote>
-<p>二分查找绝对是一个应用性很广泛的算法，它的折半性能帮助我们简化题目</p>
-</blockquote>
-<p>二分查找：每次将目标值与中间值相比较，根据情况在上半区或下半区继续搜索。主要用于有序数据的查找</p>
-<pre><code class="python">        l,r = 0,len(nums)-1
-        while l &lt;= r:
-            mid = (l+r)/2
-            if target == nums[mid]:return mid
-            elif target &gt; nums[mid]:l = mid + 1
-            elif target &lt; nums[mid]:r = mid - 1
-        return -1
+          <pre><code class="python">def isPalindrome(self, head):
+    fast = slow = head
+    # find the mid node ⚠️ 速度差在链表中的使用
+    while fast and fast.next:
+        fast = fast.next.next
+        slow = slow.next
+    # reverse the second half  ⚠️ 将链表反转
+    node = None
+    while slow:
+        nxt = slow.next
+        slow.next = node
+        node = slow
+        slow = nxt
+    # compare the first and second half nodes
+    while node: # while node and head:
+        if node.val != head.val:
+            return False
+        node = node.next
+        head = head.next
+    return True
 </code></pre>
 <a id="more"></a>
-<ul>
-<li>左、右半区区域是否包含mid</li>
-<li>l &lt;= r 还是 l &lt; r 停止</li>
-</ul>
-<p>278 第一个错误版本</p>
-<p>在该题中，左半区要包含mid，右半区不包含mid。当l==r时停止</p>
-<pre><code class="python">    def firstBadVersion(self, n):
+<ol>
+<li>Shortest Unsorted Continuous Subarray 找到数组中最长的无序序列<br>关键点，字串左边点一定大于右边点</li>
+</ol>
+<pre><code class="python">        l = len(nums)
+        r = 0
+        for i in range(len(nums)-1):
+            for j in range(i+1,len(nums)):
+                if nums[i]&gt;nums[j]:
+                    l = self.min(i,l)
+                    r = self.max(j,r)
+        return 0 if r-l&lt;0 else r-l+1
+
+    def max(self,a,b):
+        return a if a&gt;b else b
+    def min(self,a,b):
+        return a if a&lt;b else b
+</code></pre>
+<p>运用插入排序的思想</p>
+<ol>
+<li>如果栈为空，将数字压入栈，否则</li>
+<li>将数字与栈顶数字比较：如果大于等于，则入栈。如果小于，则将栈弹出，重复1</li>
+<li><p>比较弹出位置，记录弹出的最小的索引<br>反转方向，找到弹出的最大的索引</p>
+<pre><code class="python">class Solution(object):
+ def findUnsortedSubarray(self, nums):
+     &quot;&quot;&quot;
+     :type nums: List[int]
+     :rtype: int
+     &quot;&quot;&quot;
+     l = len(nums)
+     r = 0
+     stack = Stack()
+     for i in range(len(nums)):
+         while(not stack.is_empty() and nums[stack.peek()]&gt;nums[i]):
+             l = self.min(l,stack.pop())
+         stack.push(i)
+     stack.clear()
+     for i in range(len(nums)-1,-1,-1):
+         while(not stack.is_empty() and nums[stack.peek()]&lt;nums[i]):
+             r = self.max(r,stack.pop())
+         stack.push(i)
+     return 0 if r-l&lt;0 else r-l+1
+
+ def max(self,a,b):
+     return a if a&gt;b else b
+ def min(self,a,b):
+     return a if a&lt;b else b
+</code></pre>
+</li>
+<li>Intersection of Two Linked Lists</li>
+</ol>
+<pre><code class="python">import sys
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        &quot;&quot;&quot;
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        &quot;&quot;&quot;
+        while headA:
+            if sys.getrefcount(headA)&gt;=5:
+                return headA
+            headA = headA.next
+        return None
+
+</code></pre>
+<ol start="3">
+<li>count and say</li>
+</ol>
+<pre><code class="python">遍历字符，使用链表记录数值和重复数量
+class Solution(object):
+    def countAndSay(self, n):
         &quot;&quot;&quot;
         :type n: int
-        :rtype: int
+        :rtype: str
         &quot;&quot;&quot;
-        l,r = 1,n
-        while l &lt; r:
-            mid = (l+r)/2
-            if isBadVersion(mid):r = mid
-            if not isBadVersion(mid):l = mid + 1
-        return l
+        return self.pas(n)
+
+    def pas(self,n):
+        st = &#39;1&#39;
+        for i in range(n-1):
+
+            head = Node(None)
+            node_tem = head
+            tem = &#39;&#39;            
+            for j in st:
+                if tem != j:
+                    node = Node(j)
+                    node_tem.next = node
+                    node_tem = node
+                    tem = j
+                else:
+                    node_tem.num += 1                   
+            head = head.next
+            st = &#39;&#39;
+            while head:
+                st = st + str(head.num) + head.val
+                head = head.next
+        return st
+class Node(object):
+    def __init__(self,x):
+        self.val = x
+        self.num = 1
+        self.next = None
+        self.next = None
 </code></pre>
-<p>69 平方根</p>
-<p> 当l == r时停止</p>
-<pre><code class="python">        left = 0
-        right = x
-        while left &lt; right:#除了x，其他的值都能取到
-            mid = (right+left)/2
-            if mid ** 2 &lt; x:left = mid + 1
-            elif mid ** 2 &gt; x :right = mid - 1
-            elif mid ** 2 == x:return mid
-        return left if left ** 2 &lt;= x else left - 1#最后会返回r或者r-1，取决于r**2&lt;=x
+<ol start="4">
+<li>length of last word<br>重点是会给出各种奇怪的输入，要考虑清楚，这道题卡了很久<br>记录遇到的单词长短，每遇到一个就覆盖之前的记录</li>
+</ol>
+<pre><code class="java">class Solution {
+    public int lengthOfLastWord(String s) {
+        int last = 0;
+        int tmp = 0;
+        for(int i=0;i&lt;s.length();i++){
+            if(s.charAt(i) != &#39; &#39;){
+                tmp++;
+                last = tmp;
+            }else{
+                if(tmp!=0)last = tmp;
+                tmp = 0;
+            }
+        }
+        return last;
+    }
+}
 </code></pre>
 
         
@@ -263,7 +366,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/09/22/leetcode-二分查找/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/False/leetcode-链表.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,25 +378,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2019/10/12/mac完成SSD6 exercise1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          mac完成SSD6 exercise1
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/09/08/leetcode-二叉树/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode-二叉树</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -315,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二分查找"><span class="toc-number">1.</span> <span class="toc-text">二分查找</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -340,7 +424,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2019/09/22/leetcode-二分查找/",
+  id: "https://xixfeng.github.io/False/leetcode-链表.html",
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {
@@ -360,7 +444,8 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Li Yang
+			&copy; 2019 Li Yang
+			<!-- <a href="http://beian.miit.gov.cn/">蜀ICP备19008604号-1</a> -->
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -373,7 +458,7 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
