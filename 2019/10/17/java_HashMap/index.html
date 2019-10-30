@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>java实现抽象数据结构 | xixfeng</title>
+  <title>Java_HashMap | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="双链表实现class DoubleLink&amp;lt;T&amp;gt;{     private Node&amp;lt;T&amp;gt; hNode;     private int mCount;       class Node&amp;lt;T&amp;gt;{         private Node prev;         private Node next;         private T value;">
-<meta name="keywords" content="数据结构">
+  <meta name="description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布 冲突：key1 !=  key2   -》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java实现抽象数据结构">
-<meta property="og:url" content="https://xixfeng.github.io/2018/11/09/java实现抽象数据结构/index.html">
+<meta property="og:title" content="Java_HashMap">
+<meta property="og:url" content="https://xixfeng.github.io/2019/10/17/java_HashMap/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="双链表实现class DoubleLink&amp;lt;T&amp;gt;{     private Node&amp;lt;T&amp;gt; hNode;     private int mCount;       class Node&amp;lt;T&amp;gt;{         private Node prev;         private Node next;         private T value;">
+<meta property="og:description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布 冲突：key1 !=  key2   -》">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-21T15:00:30.240Z">
+<meta property="og:updated_time" content="2019-10-30T00:43:52.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java实现抽象数据结构">
-<meta name="twitter:description" content="双链表实现class DoubleLink&amp;lt;T&amp;gt;{     private Node&amp;lt;T&amp;gt; hNode;     private int mCount;       class Node&amp;lt;T&amp;gt;{         private Node prev;         private Node next;         private T value;">
+<meta name="twitter:title" content="Java_HashMap">
+<meta name="twitter:description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布 冲突：key1 !=  key2   -》">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -143,20 +142,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java实现抽象数据结构" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java_HashMap" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java实现抽象数据结构
+      Java_HashMap
     </h1>
   
 
         
-        <a href="/2018/11/09/java实现抽象数据结构/" class="archive-article-date">
-  	<time datetime="2018-11-08T16:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-09</time>
+        <a href="/2019/10/17/java_HashMap/" class="archive-article-date">
+  	<time datetime="2019-10-17T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
 </a>
         
       </header>
@@ -164,479 +163,202 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h1><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="java">class DoubleLink&lt;T&gt;{
-    private Node&lt;T&gt; hNode;
-    private int mCount;
+          <h1 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h1><blockquote>
+<p>对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。</p>
+</blockquote>
+<p>Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。</p>
+<p>Hash函数：必须返回(0,n-1)；必须保证均匀分布</p>
+<p>冲突：key1 !=  key2   -》  h(key1) = h(key2)</p>
+<p>解决冲突的方法：</p>
+<p><u><strong>闭域法</strong></u></p>
+<ul>
+<li><p>使用探测函数：即当出现冲突时，散列函数会随着冲突次数而改变</p>
+<p>H 0 = h(key)       </p>
+<p>H i = (H 0 + d i ) % m</p>
+</li>
+<li><p>使用双散列函数：</p>
+<p>H 0 = h(key)       </p>
+<p>H i = (H 0 + P(key,i ) )% m</p>
+</li>
+</ul>
+<p><u><strong>闭域法</strong></u></p>
+<p>将所有哈希地址相同的记录都链接在同一链表中</p>
+<blockquote>
+<p>当散列表中包含的元素过多时，会造成平均搜索长度远大于1。所以需要一个参数来控制数组长度与元素个数的比值</p>
+</blockquote>
+<p>负载因子（load factor）：n/m；n为元素个数、m为数组大小</p>
+<h1 id="Java-HashMap"><a href="#Java-HashMap" class="headerlink" title="Java HashMap"></a>Java HashMap</h1><p><a href="https://www.jianshu.com/p/b0334fb09fcf" target="_blank" rel="noopener">HashMap</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="开域法"><a href="#开域法" class="headerlink" title="开域法"></a>开域法</h2><p>简易版HashSet</p>
+<pre><code class="java">class MyHashSet {
 
+    /** Initialize your data structure here. */
+    private ArrayList&lt;Integer&gt;[] list;//使用一个数组，数组中每一个元素是一个可变数组
+    private final int capacity = 20000;
+    public MyHashSet() {
+        list = new ArrayList[capacity];
+    }
 
-    class Node&lt;T&gt;{
-        private Node prev;
-        private Node next;
-        private T value;
-        public Node(T value,Node prev,Node next){
-            this.prev = prev;
-            this.next = next;
-            this.value = value;
-        }
+    public void add(int key) {
+        int index = key % capacity;
+        if(list[index]==null)list[index] = new ArrayList();
+        ArrayList tem = (ArrayList)list[index];
+        if(!tem.contains(key))tem.add(key);
     }
-    public DoubleLink(){
-        hNode = new Node&lt;T&gt;(null, null, null);       
-        mCount = 0;
+
+    public void remove(int key) {
+        int index = key % capacity;
+        if(list[index]==null)list[index] = new ArrayList();
+        ArrayList tem = (ArrayList)list[index];
+        if(tem.contains(key))tem.remove((Object)key);               //注意这里，需要转换成Object。与编译时重载有关
     }
-    public int size(){
-        return mCount;
-    }
-    public boolean isEmpty(){
-        return mCount == 0;
-    }
-    private Node&lt;T&gt; getNode(int index){
-        if(index&lt;0||index&gt;=mCount)throw new IndexOutOfBoundsException();//******/
-        if(index&lt;=mCount/2){
-            Node iNode = hNode.next;
-            for(int i=0;i&lt;index;i++){
-                iNode = iNode.next;
-            }
-            return iNode;
-        }
-        else{
-            int rindex = mCount-index-1;
-            Node rNode = hNode.prev;
-            for(int i=0;i&lt;rindex;i++){
-                rNode = rNode.prev;
-            }
-            return rNode;
-        }
-    }
-    public T get(int index){
-        return getNode(index).value;
-    }
-    public T getFirst(){
-        return getNode(0).value;
-    }
-    public T getLast(){
-        return getNode(mCount-1).value;
-    }
-    //插入到index节点之前
-    public void insert(int index,T value){
-        if (mCount==0) {
-            Node&lt;T&gt; node = new Node&lt;T&gt;(value, hNode, hNode);
-            hNode.next = node;
-            hNode.prev = node;
-            mCount++;
-            return ;
-        }
-        if(index==mCount-1){
-            //Node&lt;T&gt; tnode = getNode(index);  这一步可以省略
-            Node&lt;T&gt; node = new Node&lt;T&gt;(value,hNode.prev,hNode);
-            hNode.prev.next = node;
-            hNode.prev = node;
-            mCount++;
-            return;
-        }
-        Node&lt;T&gt; node = getNode(index);
-        Node&lt;T&gt; tNode = new Node&lt;T&gt;(value,node,node.next);
-        node.next.prev = tNode;
-        node.next = tNode;
-        mCount++;
-        return;
-    }
-    public void insertFirst(T value){
-        Node&lt;T&gt; node = new Node&lt;T&gt;(value,hNode,hNode.next);
-        hNode.next.prev = node;
-        hNode.next = node; 
-        mCount++;
-    }
-    public void appendLast(T value){
-        insert(mCount-1, value);
-    }
-    public void delete(int index){
-        Node&lt;T&gt; node = getNode(index);
-        node.prev.next = node.next;
-        node.next.prev = node.prev;
-        node = null;//java的辣鸡回收机制，会回收无法访问的内存
-        mCount--;
-    }
-    public void deleteFirst(){
-        delete(0);
-    }
-    public void deleteLast(){
-        delete(mCount-1);
+
+    /** Returns true if this set contains the specified element */
+    public boolean contains(int key) {
+        int index = key % capacity;
+        if(list[index]==null)list[index] = new ArrayList();
+        ArrayList tem = (ArrayList)list[index];
+        return tem.contains(key);
     }
 }
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet obj = new MyHashSet();
+ * obj.add(key);
+ * obj.remove(key);
+ * boolean param_3 = obj.contains(key);
+ */
 </code></pre>
-<a id="more"></a>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code class="java">public class DlinkTest {
+<p>简易版HashMap</p>
+<pre><code class="java">class MyHashMap {
+    /** Initialize your data structure here. */
+    private static final int DEFAULT_CAPACITY = 16;
+    private static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
-    // 双向链表操作int数据
-    private static void int_test() {
+    private int size;
+    private int capacity;
+    private float factor;
+    private int threshold; // threshold表示阈值，当键值对个数size大于等于threshold时考虑进行扩展，一般而言，threshold等于table.length乘以loadFactor
+    Node[] table;
 
-
-        System.out.println(&quot;\n----int_test----&quot;);
-        // 创建双向链表
-        DoubleLink&lt;Integer&gt; dlink = new DoubleLink&lt;Integer&gt;();
-
-        dlink.insert(0, 20);    // 将 20 插入到第一个位置
-        dlink.appendLast(10);    // 将 10 追加到链表末尾
-        dlink.insertFirst(30);    // 将 30 插入到第一个位置
-
-        // 双向链表是否为空
-        System.out.printf(&quot;isEmpty()=%b\n&quot;, dlink.isEmpty());
-        // 双向链表的大小
-        System.out.printf(&quot;size()=%d\n&quot;, dlink.size());
-
-        // 打印出全部的节点
-        for (int i=0; i&lt;dlink.size(); i++)
-            System.out.println(&quot;dlink(&quot;+i+&quot;)=&quot;+ dlink.get(i));
+    public MyHashMap() {
+        size = 0;
+        capacity = DEFAULT_CAPACITY;
+        factor = DEFAULT_LOAD_FACTOR;
+        threshold = (int)(DEFAULT_CAPACITY*DEFAULT_LOAD_FACTOR);
+        table = new Node[capacity];
     }
 
-
-    private static void string_test() {
-        String[] sarr = {&quot;ten&quot;, &quot;twenty&quot;, &quot;thirty&quot;, &quot;forty&quot;};
-
-        System.out.println(&quot;\n----string_test----&quot;);
-        // 创建双向链表
-        DoubleLink&lt;String&gt; dlink = new DoubleLink&lt;String&gt;();
-
-        dlink.insert(0, sarr[1]);    // 将 sarr中第2个元素 插入到第一个位置
-        dlink.appendLast(sarr[0]);    // 将 sarr中第1个元素 追加到链表末尾
-        dlink.insertFirst(sarr[2]);    // 将 sarr中第3个元素 插入到第一个位置
-
-        // 双向链表是否为空
-        System.out.printf(&quot;isEmpty()=%b\n&quot;, dlink.isEmpty());
-        // 双向链表的大小
-        System.out.printf(&quot;size()=%d\n&quot;, dlink.size());
-
-        // 打印出全部的节点
-        for (int i=0; i&lt;dlink.size(); i++)
-            System.out.println(&quot;dlink(&quot;+i+&quot;)=&quot;+ dlink.get(i));
-    }
-
-
-    // 内部类
-    private static class Student {
-        private int id;
-        private String name;
-
-        public Student(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return &quot;[&quot;+id+&quot;, &quot;+name+&quot;]&quot;;
-        }
-    }
-
-    private static Student[] students = new Student[]{
-        new Student(10, &quot;sky&quot;),
-        new Student(20, &quot;jody&quot;),
-        new Student(30, &quot;vic&quot;),
-        new Student(40, &quot;dan&quot;),
-    };
-
-    private static void object_test() {
-        System.out.println(&quot;\n----object_test----&quot;);
-        // 创建双向链表
-        DoubleLink&lt;Student&gt; dlink = new DoubleLink&lt;Student&gt;();
-
-        dlink.insert(0, students[1]);    // 将 students中第2个元素 插入到第一个位置
-        dlink.appendLast(students[0]);    // 将 students中第1个元素 追加到链表末尾
-        dlink.insertFirst(students[2]);    // 将 students中第3个元素 插入到第一个位置
-
-        // 双向链表是否为空
-        System.out.printf(&quot;isEmpty()=%b\n&quot;, dlink.isEmpty());
-        // 双向链表的大小
-        System.out.printf(&quot;size()=%d\n&quot;, dlink.size());
-
-        // 打印出全部的节点
-        for (int i=0; i&lt;dlink.size(); i++) {
-            System.out.println(&quot;dlink(&quot;+i+&quot;)=&quot;+ dlink.get(i));
-        }
-    }
-
-
-    public static void main(String[] args) {
-        int_test();        // 演示向双向链表操作“int数据”。
-        string_test();    // 演示向双向链表操作“字符串数据”。
-        object_test();    // 演示向双向链表操作“对象”。
-    }
-}
-</code></pre>
-<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>java util包里面有Stack类 </p>
-<h2 id="主要方法"><a href="#主要方法" class="headerlink" title="主要方法"></a>主要方法</h2><ol>
-<li><p>push(向栈中添加元素)</p>
-</li>
-<li><p>peek(返回栈顶元素)</p>
-</li>
-<li><p>pop(返回并删除栈顶元素)</p>
-</li>
-</ol>
-<pre><code class="java">import java.lang.reflect.Array;
-
-public class GeneralArrayStack&lt;T&gt; {
-
-    private static final int DEFAULT_SIZE = 12;
-    private T[] mArray;
-    private int count;
-
-    public GeneralArrayStack(Class&lt;T&gt; type) {
-        this(type, DEFAULT_SIZE);
-    }//Class&lt;T&gt; T的类型类，不能通过一般的反射手段得到
-
-    public GeneralArrayStack(Class&lt;T&gt; type, int size) {
-        // 不能直接使用mArray = new T[DEFAULT_SIZE];
-        mArray = (T[]) Array.newInstance(type, size);
-        count = 0;
-    }
-
-    // 将val添加到栈中
-    public void push(T val) {
-        mArray[count++] = val;
-    }
-
-    // 返回“栈顶元素值”
-    public T peek() {
-        return mArray[count-1];
-    }
-
-    // 返回“栈顶元素值”，并删除“栈顶元素”
-    public T pop() {
-        T ret = mArray[count-1];
-        count--;
-        return ret;
-    }
-
-    // 返回“栈”的大小
-    public int size() {
-        return count;
-    }
-
-    // 返回“栈”是否为空
-    public boolean isEmpty() {
-        return size()==0;
-    }
-
-    // 打印“栈”
-    public void PrintArrayStack() {
-        if (isEmpty()) {
-            System.out.printf(&quot;stack is Empty\n&quot;);
-        }
-
-        System.out.printf(&quot;stack size()=%d\n&quot;, size());
-
-        int i=size()-1;
-        while (i&gt;=0) {
-            System.out.println(mArray[i]);
-            i--;
-        }
-    }
-}
-</code></pre>
-<h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><h2 id="主要方法-1"><a href="#主要方法-1" class="headerlink" title="主要方法"></a>主要方法</h2><ol>
-<li>入队列(先进先出)</li>
-<li>出队列</li>
-</ol>
-<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>一些基本定义</p>
-<ol>
-<li>叶子：出度为0的节点</li>
-<li>深度：根节点到当前节点的长度(即线段数)</li>
-<li>高度：最深节点的深度+1</li>
-</ol>
-<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>定义</p>
-<p>所有节点出度小于等于2</p>
-<p>性质</p>
-<ol>
-<li><p>在二叉树的i层上至多有2的i次方个节点</p>
-</li>
-<li><p>高度为k(k&gt;=1)的二叉树上至多含有2的k次方-1个节点</p>
-</li>
-<li><p>二叉树的高度为<br>$$<br>[\log_{2}n]+1<br>$$<br>n为节点数</p>
-</li>
-<li><p>任意二叉树 N0 = N2 +1</p>
-</li>
-</ol>
-<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>深度优先遍历</p>
-<ol>
-<li>NLR 根左右</li>
-<li>LNR 左右根</li>
-<li>RNL 右左根</li>
-</ol>
-<p><strong>广度优先遍历？？？？？？？？？？？？？？？</strong></p>
-<h3 id="1-满二叉树"><a href="#1-满二叉树" class="headerlink" title="1.满二叉树"></a>1.满二叉树</h3><p>定义：所有节点出度为0或者2</p>
-<h3 id="2-完全二叉树"><a href="#2-完全二叉树" class="headerlink" title="2.完全二叉树"></a>2.完全二叉树</h3><p>定义：</p>
-<ol>
-<li>除最后一层，出度都为2，除最后一层，其他层全满</li>
-<li>且最后一层，节点从左往右排</li>
-</ol>
-<p>实现：</p>
-<p>通过数组实现：设当前节点存于 i处，则左孩子位于 2i+1，右孩子位于 2i+2</p>
-<h3 id="3-二叉搜索树"><a href="#3-二叉搜索树" class="headerlink" title="3.二叉搜索树"></a>3.二叉搜索树</h3><p>定义：左孩子 &lt; 双亲 &lt; 右孩子</p>
-<p>实现</p>
-<pre><code class="java">public class BSTree&lt;T extends Comparable&lt;T&gt;&gt; {
-    private BSTNode&lt;T&gt; rNode;
-    class BSTNode&lt;T extends Comparable&lt;T&gt;&gt;{
-        T key;
-        BSTNode&lt;T&gt; parent;
-        BSTNode&lt;T&gt; left;
-        BSTNode&lt;T&gt; right;
-
-        public BSTNode(T key,BSTNode&lt;T&gt; parent,BSTNode&lt;T&gt; left,BSTNode&lt;T&gt; right){
-            this.key = key;
-            this.parent = parent;
-            this.left = left;
-            this.right = right;
-        }
-    }
-    //搜索二叉树，一定是插入到叶节点中
-    private void insert(T key,BSTNode&lt;T&gt; node){
-        BSTNode&lt;T&gt; tNode = rNode;
-        BSTNode&lt;T&gt; tNode2 = null;
-        int tem = 1;
-        while(tNode!=null){
-            tNode2 = tNode;
-            tem = key.compareTo(tNode.key);
-            if(tem==0)return;
-            else if(tem&gt;0)tNode = tNode.right;
-            else if(tem&lt;0)tNode = tNode.left;
-        }
-        node.parent = tNode2;
-        if(tNode2==null)rNode = node;//插入时，如果搜索树为空
-        else{
-            if(tem&gt;0)tNode2.right = node;
-            else tNode2.left = node;
-        }
-    }
-    public void insert(T key){
-        BSTNode node = new BSTNode&lt;T&gt;(key, null, null, null);
-        insert(key, node);
-    }
-    public void delete(T key){
-    //稍后补起
-    }
-    private BSTNode&lt;T&gt; search(BSTNode&lt;T&gt; tNode,T key){
-        if(tNode==null)return null;
-        int tem = key.compareTo(tNode.key);
-        if(tem==0)return tNode;
-        else if(tem&gt;0)tNode = tNode.right;
-        else if(tem&lt;0)tNode = tNode.left;
-        return search(tNode, key);
-    }
-    public BSTNode&lt;T&gt; search(T key){
-        return search(rNode, key);
-    }
-    public void printAll(BSTNode&lt;T&gt; node){
-        if (node==null)return;
-        System.out.println(node.key);
-        printAll(node.left);
-        printAll(node.right);
-    }
-    public void printAll(){
-        printAll(rNode);
-    }
-}
-</code></pre>
-<h3 id="4-堆"><a href="#4-堆" class="headerlink" title="4.堆"></a>4.堆</h3><p>性质：1.是完全二叉树 2.任意节点值永远不小于（不大于）子节点</p>
-<pre><code class="java">import java.util.ArrayList;
-class Main{
-    public static void main(String[] args) {
-        Heap heap = new Heap&lt;Integer&gt;();
-        heap.insert(1);
-        heap.insert(3);
-        heap.insert(2);
-        heap.insert(5);
-        heap.insert(4);
-        heap.insert(0);
-        heap.delete(3);
-        heap.printAll();
-    }
-}
-public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
-    private ArrayList&lt;T&gt; heap;
-
-    public Heap() {
-        heap = new ArrayList&lt;T&gt;();
-    }
-    public void printAll(){
-        for(int i=0;i&lt;heap.size();i++){
-            System.out.println(heap.get(i));
-        }
-    }
-    private void filterup(int start) {
-        int c = start;// current
-        int p = (c - 1) / 2;
-        while (c &gt; 0) {
-            if (heap.get(c).compareTo(heap.get(p)) &gt; 0) {
-                exchange(c, p);
-                c = p;
-                p = (p - 1) / 2;
-            } else
+    /** value will always be non-negative. */
+    public void put(int key, int value) {
+        ensureCapacity();
+        int pos = getPos(key,table);
+        Node head = table[pos];             // 取出头节点
+        Node tmp = head;
+        while (tmp != null) {               //遍目标链表，是否能找到相同key值
+            if (key == tmp.key) {
+                tmp.value = value;
+                System.out.println(value);
                 break;
+            }
+            tmp = tmp.next;
+        }
+        if (tmp == null) {                  // tmp为null说明无相同key值
+            Node node = new Node(key,value,head); // 将新节点插入到链表头部
+            table[pos] = node;
+            size++;
         }
     }
 
-    public void insert(T t) {
-        int size = heap.size();
-        heap.add(t);// 插在末尾
-        filterup(size);// 向上调整
+    /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+    public int get(int key) {
+        int pos = getPos(key,table);
+        Node head = table[pos];             // 取出头节点
+        Node tmp = head;
+        while (tmp != null) {               //遍目标链表，是否能找到相同key值
+            if (key == tmp.key)return tmp.value;
+            tmp = tmp.next;
+        }
+        return -1;
     }
 
-    private void filterdown(int start,int end){
-        int c = start;
-        int l = c*2+1;
-        while(l&lt;=end){
-            int tem = heap.get(l).compareTo(heap.get(l+1));//这里l+1可能越界
-            if(l&lt;end&amp;&amp;tem&lt;0) l++;
-            tem = heap.get(c).compareTo(heap.get(l));
-            if(tem&gt;0)break;
-            else{
-                exchange(c, l);
-                c = l;
-                l = c*2+1;
+    /** Removes the mapping of the specified value key if this map contains a mapping for the key */
+   public void remove(int key) {
+        int pos = getPos(key, table);
+
+        if (table[pos] == null) {               // 没有发现此键
+            return;
+        } else {
+            Node head = table[pos];             // 取出头节点
+            Node preNode = null;
+            while (head != null) {
+                if (key == head.key) {
+                    break;                  
+                }
+                preNode = head;                 //🌿记录前一个节点
+                head = head.next;
+            }
+            if (head != null) {                 // 找到了删除的节点
+                Node next = head.next;
+                head.next = null;
+                if (preNode == null) {          // 删除的节点是头节点的情况
+                    table[pos] = next;
+                } else {
+                    preNode.next = next;
+                }
+                size--;
             }
         }
     }
-    public void delete(T t) {
-        if (heap.isEmpty() == true)
-            return;
 
-        // 获取data在数组中的索引
-        int index = heap.indexOf(t);
-        if (index == -1)
-            return;
-
-        int size = heap.size();
-        heap.set(index, heap.get(size - 1));// 用最后元素填补
-        heap.remove(size - 1); // 删除最后的元素
-        if (heap.size() &gt; 1)filterdown(index, heap.size() - 1); // 从index号位置开始自上向下调整为最小堆
+    private final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
     }
-    // public T search(T t){
 
-    // }
-    // private void seftdown(int index){
-    // T parent = heap.get(index);
-    // T left = heap.get(index*2+1);
-    // T right = heap.get(index*2+2);
-    // if(parent.compareTo(left)&lt;0||parent.compareTo(right)&lt;0){
-    // if(left.compareTo(right)&gt;0)exchange(index, index*2+1);
-    // else exchange(index, index*2+2);
-    // }
-    // }
-    private void exchange(int index, int index1) {
-        T tem = heap.get(index);
-        heap.set(index, heap.get(index1));
-        heap.set(index1, tem);
+    private int getPos(int key, Node[] table) {
+        return hash(key) &amp; (table.length - 1);  //只会返回(0,capacity-1)
     }
+    private void ensureCapacity(){
+        if(size&gt;=threshold){
+            capacity &lt;&lt;= 1;
+            threshold = (int)(capacity*factor);
+            Node[] newTable = new Node[capacity];
+
+            for(Node node: table){                  //遍历数组
+                Node tmp = node;
+                while(tmp != null){                 //遍历链表
+                    int newPos = getPos(tmp.key, newTable);
+                    Node next = tmp.next;
+                    tmp.next = newTable[newPos];    //插入链表头部并放入新数组中
+                    newTable[newPos] = tmp;
+                    tmp = next;
+                }
+            }
+            table = newTable;
+        }
+    }
+
 }
+class Node{
+        final int key;
+        int value;
+        Node next;
+
+        Node(int key, int value, Node next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+}
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap obj = new MyHashMap();
+ * obj.put(key,value);
+ * int param_2 = obj.get(key);
+ * obj.remove(key);
+ */
 </code></pre>
-<h3 id="5-哈夫曼树"><a href="#5-哈夫曼树" class="headerlink" title="5.哈夫曼树"></a>5.哈夫曼树</h3><p><strong>一些定义</strong></p>
-<ol>
-<li>节点间的路径长度：连接两节点的路径上的分支数</li>
-<li>节点的路径长度：根节点到该节点路径上的分支数</li>
-<li>树加权路径长度：所有叶子节点加权路径长度之和</li>
-<li>哈夫曼树（二叉树）：树加权路径长度最小的那种二叉树</li>
-</ol>
-<p>通常用来解决编码问题</p>
 
         
 
@@ -694,7 +416,7 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2018/11/09/java实现抽象数据结构/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/10/17/java_HashMap/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -708,18 +430,18 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
   
 <nav id="article-nav">
   
-    <a href="/2018/11/10/leetcode-排序/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/17/bomb炸弹实验/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          leetcode-排序
+          bomb炸弹实验
         
       </div>
     </a>
   
   
-    <a href="/2018/11/08/C++学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++学习</div>
+    <a href="/2019/10/12/mac完成SSD6 exercise1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mac完成SSD6 exercise1</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -746,7 +468,7 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#双链表"><span class="toc-number">1.</span> <span class="toc-text">双链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">1.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栈"><span class="toc-number">2.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法"><span class="toc-number">2.1.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#队列"><span class="toc-number">3.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法-1"><span class="toc-number">3.1.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#树"><span class="toc-number">4.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">4.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历"><span class="toc-number">4.1.1.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-满二叉树"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.满二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-完全二叉树"><span class="toc-number">4.1.3.</span> <span class="toc-text">2.完全二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-二叉搜索树"><span class="toc-number">4.1.4.</span> <span class="toc-text">3.二叉搜索树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-堆"><span class="toc-number">4.1.5.</span> <span class="toc-text">4.堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-哈夫曼树"><span class="toc-number">4.1.6.</span> <span class="toc-text">5.哈夫曼树</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hash"><span class="toc-number">1.</span> <span class="toc-text">Hash</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-HashMap"><span class="toc-number">2.</span> <span class="toc-text">Java HashMap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">3.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开域法"><span class="toc-number">3.1.</span> <span class="toc-text">开域法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -771,7 +493,7 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2018/11/09/java实现抽象数据结构/",
+  id: "https://xixfeng.github.io/2019/10/17/java_HashMap/",
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-15T02:17:55.268Z">
+<meta property="og:updated_time" content="2019-10-29T01:04:54.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xixfeng">
 <meta name="twitter:description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
@@ -218,7 +218,7 @@
 </ol>
 <p>在JDK1.2之前，对于引用只有两种情况：引用和未引用。在JDK1.2之后，将引用划分为</p>
 <ul>
-<li>强引用</li>
+<li>强引用：GC宁愿抛出内存溢出异常，也不愿意回收强引用对象</li>
 <li>软引用：在将要发生内存溢出的时候才回收</li>
 <li>弱引用：在下一次垃圾收集发生时回收</li>
 <li>虚引用：对类的生命周期无影响，只是这些引用被回收时，需要通知一哈</li>

@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-10-20T12:21:38.894Z">
+<meta property="og:updated_time" content="2019-10-30T08:43:48.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络">
 <meta name="twitter:description" content="Introduction自顶向下教程配套的web动画 Intenet端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机">
@@ -472,9 +472,11 @@ dns1.networkxixfeng.com，212.212.212.1，A
 <li>如果下一个seq在window里面，则发送</li>
 </ul>
 <ul>
-<li>为所有段设置定时器，n定时器超时后，重新发送n和窗口中所有大于n的段</li>
+<li>只有一个计时器，计时器超时后，重新发送n和窗口中所有大于n的段。（n为最大未被确认的段）</li>
+<li>当收到任意一个段，重置计时器</li>
 <li>如果window最左边的段被ack，移动窗口</li>
 </ul>
+<p>⚠️：如果收到的段大于目前未确认的最小段，则确认这个最小段。比如最小未被确认的为5，但是收到一个6，则将5和6都设置为确认</p>
 <p>接收方</p>
 <ul>
 <li>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包和第5个包，第4个包失败了就会返回ACK3</li>
@@ -501,7 +503,7 @@ dns1.networkxixfeng.com，212.212.212.1，A
 <ul>
 <li>忽略</li>
 </ul>
-<p>GBN和SR算法，会为每一个段设置定时器，但是TCP只会设置一个计时器（发送最老未被确认的段）</p>
+<p>SR算法，会为每一个段设置定时器，但是TCP只会设置一个计时器（发送最老未被确认的段）</p>
 <p>GBN的接收方会发送最老的未被确认的段、SR则只会确认自己接受到的段。</p>
 <p>GBN和SR的区别就是发送方计时器到达后处理方式不同、接收方返回ACK逻辑不同</p>
 <h3 id="TCP性质与结构"><a href="#TCP性质与结构" class="headerlink" title="TCP性质与结构"></a>TCP性质与结构</h3><p>任何internet应用必然需要使用TCP、UDP中一种</p>
@@ -640,15 +642,50 @@ dns1.networkxixfeng.com，212.212.212.1，A
 <p>cwnd每次收到ACK后增长</p>
 <ul>
 <li>当重复收到3个ack后，cwnd减半+3；cwnd变为线性增长；记录ssthresh=cwnd/2</li>
-<li>当计时器到达时，cwnd变为1；cwnd变为几何增长；当达到ssthresh=cwnd/2后，cwnd变为线性增长</li>
+<li>当计时器到达时，cwnd变为1；cwnd变为几何增长；记录ssthresh=cwnd/2；当达到ssthresh后，cwnd变为线性增长</li>
 </ul>
 <p>问题：几何增长能不能超过ssthresh？不能</p>
-<p>3个ack过后，窗口减半会不会加3？</p>
+<p>3个ack过后，窗口减半会不会加3？会加3</p>
+<p>超时和三次ACK都会引起ssthresh等于cwnd一半</p>
 <h3 id="TCP-习题"><a href="#TCP-习题" class="headerlink" title="TCP 习题"></a>TCP 习题</h3><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
-<h2 id="some"><a href="#some" class="headerlink" title="some"></a>some</h2><p>子网掩码：用来区分一个ip地址的<strong>网络号</strong>和<strong>主机号</strong>，网络号标明主机属于哪个子网中，主机号标明主机在内网中的位置。</p>
-<p>将子网掩码换成二进制，ip地址中<strong>与1对应</strong>的就是网络号，<strong>与0对应</strong>的就是主机号</p>
-<p>MAC：数据链路层上是没有IP地址概念的，只有发送者与接收者的MAC地址。</p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><u><strong>text book</strong></u></p>
+<h1 id="Network-Layer"><a href="#Network-Layer" class="headerlink" title="Network Layer"></a>Network Layer</h1><h2 id="虚电路网络、数据包网络"><a href="#虚电路网络、数据包网络" class="headerlink" title="虚电路网络、数据包网络"></a>虚电路网络、数据包网络</h2><p>forward：在一个路由器中选择出路</p>
+<p>routing：在很多路由器中选择一条路</p>
+<p>虚电路路由采用Reactive Routing：即需要发送消息之前才建立路由表</p>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><h2 id="IP协议"><a href="#IP协议" class="headerlink" title="IP协议"></a>IP协议</h2><p>ip分片：将一个较大的ip包变为几个较小的ip分组。这是因为链路层规定了MTU（max transfer size）</p>
+<p><a href="http://www.360doc.com/content/18/0921/19/37113458_788584404.shtml" target="_blank" rel="noopener">子网、子网掩码</a></p>
+<p>DHCP：局域网内部协议</p>
+<p>子网掩码两种区分情况</p>
+<ul>
+<li>掩码位数相同：比较<strong>与</strong>出来的网络地址</li>
+<li>掩码位数不同：那肯定他们的子网不同</li>
+</ul>
+<p>NAT（Network Address Translation）</p>
+<p>私有地址</p>
+<ul>
+<li>10.x.x.x</li>
+<li>172.16.x.x-172.32.x.x</li>
+<li>192.168.x.x</li>
+</ul>
+<p>保留地址</p>
+<ul>
+<li>0.0.x.x-127.x.x.x</li>
+<li>169.254.x.x</li>
+</ul>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>LS</p>
+<pre><code>(N为已经确定最短路径的点，D为目前路径映射的集合)
+将初始点加入N
+初始化D
+add min(D) to N
+
+while(N not include all node){
+    for(Node x  in  N){
+        for(Node y not in N){
+            D[y] = min(D[y],d(x,y)+D[x])
+        }
+    }
+    add min(D) to N
+}
+</code></pre><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><u><strong>text book</strong></u></p>
 <ul>
 <li>Computer Networking: A Top Down Approach Featuring the Internet,计算机网络（自顶向下方法)</li>
 <li>TCP/IP 详解 (vol.1-vol.3)</li>
@@ -822,7 +859,7 @@ dns1.networkxixfeng.com，212.212.212.1，A
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intenet"><span class="toc-number">1.1.</span> <span class="toc-text">Intenet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#network-edge"><span class="toc-number">1.2.</span> <span class="toc-text">network edge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#network-core"><span class="toc-number">1.3.</span> <span class="toc-text">network core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.4.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.5.</span> <span class="toc-text">internet layer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.1.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.2.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.3.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2P"><span class="toc-number">2.4.</span> <span class="toc-text">P2P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.5.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-number">3.3.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP性质与结构"><span class="toc-number">3.3.1.</span> <span class="toc-text">TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP发送端、接收端"><span class="toc-number">3.3.2.</span> <span class="toc-text">TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">3.3.3.</span> <span class="toc-text">TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制"><span class="toc-number">3.3.4.</span> <span class="toc-text">TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-习题"><span class="toc-number">3.3.5.</span> <span class="toc-text">TCP 习题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some"><span class="toc-number">3.4.</span> <span class="toc-text">some</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intenet"><span class="toc-number">1.1.</span> <span class="toc-text">Intenet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#network-edge"><span class="toc-number">1.2.</span> <span class="toc-text">network edge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#network-core"><span class="toc-number">1.3.</span> <span class="toc-text">network core</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-of-communication"><span class="toc-number">1.4.</span> <span class="toc-text">Model of communication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#internet-layer"><span class="toc-number">1.5.</span> <span class="toc-text">internet layer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">2.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">2.1.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">2.2.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">2.3.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2P"><span class="toc-number">2.4.</span> <span class="toc-text">P2P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">2.5.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">3.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">3.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">3.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-number">3.3.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP性质与结构"><span class="toc-number">3.3.1.</span> <span class="toc-text">TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP发送端、接收端"><span class="toc-number">3.3.2.</span> <span class="toc-text">TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">3.3.3.</span> <span class="toc-text">TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制"><span class="toc-number">3.3.4.</span> <span class="toc-text">TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-习题"><span class="toc-number">3.3.5.</span> <span class="toc-text">TCP 习题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Network-Layer"><span class="toc-number">4.</span> <span class="toc-text">Network Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚电路网络、数据包网络"><span class="toc-number">4.1.</span> <span class="toc-text">虚电路网络、数据包网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由器"><span class="toc-number">4.2.</span> <span class="toc-text">路由器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP协议"><span class="toc-number">4.3.</span> <span class="toc-text">IP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由"><span class="toc-number">4.4.</span> <span class="toc-text">路由</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">5.</span> <span class="toc-text">附录</span></a></li></ol>
                     </div>
                 </span>
             </div>

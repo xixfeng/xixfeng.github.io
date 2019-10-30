@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="java SE，EE，Web  java SE：Sun公司提供的基础java包 java EE：根据基础java包开发出来的企业级框架 java Web：使用java开发应用类网站  java EE面向对象访问控制修饰符，控制类、方法、变量的访问权限    修饰符 当前类 同一包 子类（同一包） 子类（不同包） 其他包     public Y Y Y Y Y   protected Y Y Y">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-21T10:56:40.596Z">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/01/2243690-9cd9c896e0d512ed.gif">
+<meta property="og:updated_time" content="2019-10-29T01:28:16.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA">
 <meta name="twitter:description" content="java SE，EE，Web  java SE：Sun公司提供的基础java包 java EE：根据基础java包开发出来的企业级框架 java Web：使用java开发应用类网站  java EE面向对象访问控制修饰符，控制类、方法、变量的访问权限    修饰符 当前类 同一包 子类（同一包） 子类（不同包） 其他包     public Y Y Y Y Y   protected Y Y Y">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/01/2243690-9cd9c896e0d512ed.gif">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -267,7 +269,31 @@
 <li>局部内部类：声明在函数中的类</li>
 <li>匿名内部类：比如说创建线程的时候会使用</li>
 </ul>
-<p>Object 的 hashcode 方法是本地方法，也就是用 c 语言或 c++ 实现的，该方法直接返回对象的 内存地址。而默认equals则是比较两个对象的hashcode即内存地址</p>
+<p>Object()默认构造方法。</p>
+<ul>
+<li><p>clone() 创建并返回此对象的一个副本。</p>
+</li>
+<li><p>finalize()当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</p>
+</li>
+<li><p>getClass()返回一个对象的运行时类。</p>
+</li>
+<li><p>hashCode()返回该对象的哈希码值，<strong>默认为对象的内存地址</strong>。</p>
+</li>
+<li><p>equals(Object obj) 指示某个其他对象是否与此对象“相等”，<strong>默认是比较两个对象的hashcode即内存地址</strong></p>
+</li>
+<li><p>toString()返回该对象的字符串表示。</p>
+</li>
+<li><p>wait()导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法。</p>
+</li>
+<li><p>wait(long timeout)导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者超过指定的时间量。</p>
+</li>
+<li><p>wait(long timeout, int nanos) 导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量。</p>
+</li>
+<li><p>notify()唤醒在此对象监视器上等待的单个线程。 </p>
+</li>
+<li><p>notifyAll()唤醒在此对象监视器上等待的所有线程。</p>
+</li>
+</ul>
 <h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><blockquote>
 <p>面试和笔试经常考</p>
 </blockquote>
@@ -286,8 +312,8 @@
 <thead>
 <tr>
 <th></th>
-<th>接口</th>
 <th>抽象类</th>
+<th>接口</th>
 </tr>
 </thead>
 <tbody>
@@ -335,6 +361,7 @@
 <li>Java抽象类中可以包含main方法吗？<br>是的，抽象类可以包含main方法，它只是一个静态方法，你可以使用main方法执行抽象类，但不可以创建任何实例。</li>
 </ol>
 <h2 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h2><p><a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">集合框架</a></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/01/2243690-9cd9c896e0d512ed.gif" alt></p>
 <p>声明数组</p>
 <pre><code class="java">int[] array = new int[10];
 int[] array = {1,2,3};
@@ -347,7 +374,40 @@ ArrayList&lt;String&gt; places = new ArrayList&lt;String&gt;(Arrays.asList(&quot
 </code></pre>
 <p>数组和集合框架的区别？数组算基础数据类型吗</p>
 <p>Java集合类框架的基本接口有哪些？<br>Java集合类提供了一套设计良好的支持对一组对象进行操作的接口和类。Java集合类里面最基本的接口有：<br>• Collection：代表一组对象，每一个对象都是它的子元素。<br>• Set：不包含重复元素的Collection。<br>• List：有顺序的collection，并且可以包含重复元素。<br>• Map：可以把键(key)映射到值(value)的对象，键不能重复。</p>
-<p>Map常用类</p>
+<p><u><strong>List</strong></u></p>
+<p>数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？<br>下面列出了Array和ArrayList的不同点：<br>• Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。<br>• Array大小是固定的，ArrayList的大小是动态变化的。<br>• ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ArrayList</th>
+<th>Vector</th>
+<th>LinkedList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>底层实现</td>
+<td>数组</td>
+<td>数组</td>
+<td>链表</td>
+</tr>
+<tr>
+<td>线程安全</td>
+<td>不安全</td>
+<td>安全</td>
+<td>不安全</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>什么是迭代器(Iterator)？<br>Iterator接口提供了很多对集合元素进行迭代的方法。每一个集合类都包含了可以返回迭代器实例的迭代方法。迭代器可以在迭代的过程中删除底层集合的元素。</p>
+<p>Iterator和ListIterator的区别是什么？<br>下面列出了他们的区别：<br>• Iterator可用来遍历Set和List集合，但是ListIterator只能用来遍历List。<br>• Iterator对集合只能是前向遍历，ListIterator既可以前向也可以后向。<br>• ListIterator实现了Iterator接口，并包含其他的功能，比如：增加元素，替换元素，获取前一个和后一个元素的索引，等等。</p>
+<p><u><strong>Map</strong></u></p>
 <ul>
 <li>Hashmap 是一个最常用的Map,它根据键的HashCode值存储数据,根据键可以直接获取它的值，具有很快的访问速度，遍历时，取得数据的顺序是完全随机的。 HashMap最多只允许一条记录的键为Null;允许多条记录的值为 Null;HashMap不支持线程的同步，即任一时刻可以有多个线程同时写HashMap;可能会导致数据的不一致。如果需要同步，可以用 Collections的synchronizedMap方法使HashMap具有同步的能力，或者使用ConcurrentHashMap。</li>
 <li>LinkedHashMap 是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的.也可以在构造时用带参数，按照应用次数排序。在遍历的时候会比HashMap慢，不过有种情况例外，当HashMap容量很大，实际数据较少时，遍历起来可能会比 LinkedHashMap慢，因为LinkedHashMap的遍历速度只和实际数据有关，和容量无关，而HashMap的遍历速度和他的容量有关。</li>
@@ -355,14 +415,17 @@ ArrayList&lt;String&gt; places = new ArrayList&lt;String&gt;(Arrays.asList(&quot
 <li>TreeMap实现SortMap接口，能够把它保存的记录根据键排序,默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。</li>
 <li>一般认为Hashtable是一个遗留的类。</li>
 </ul>
-<p>什么是迭代器(Iterator)？<br>Iterator接口提供了很多对集合元素进行迭代的方法。每一个集合类都包含了可以返回迭代器实例的迭代方法。迭代器可以在迭代的过程中删除底层集合的元素。</p>
-<p>Iterator和ListIterator的区别是什么？<br>下面列出了他们的区别：<br>• Iterator可用来遍历Set和List集合，但是ListIterator只能用来遍历List。<br>• Iterator对集合只能是前向遍历，ListIterator既可以前向也可以后向。<br>• ListIterator实现了Iterator接口，并包含其他的功能，比如：增加元素，替换元素，获取前一个和后一个元素的索引，等等。</p>
-<p>数组(Array)和列表(ArrayList)有什么区别？什么时候应该使用Array而不是ArrayList？<br>下面列出了Array和ArrayList的不同点：<br>• Array可以包含基本类型和对象类型，ArrayList只能包含对象类型。<br>• Array大小是固定的，ArrayList的大小是动态变化的。<br>• ArrayList提供了更多的方法和特性，比如：addAll()，removeAll()，iterator()等等。<br>• 对于基本类型数据，集合使用自动装箱来减少编码工作量。但是，当处理固定大小的基本数据类型的时候，这种方式相对比较慢。</p>
-<p>ArrayList和LinkedList有什么区别？<br>ArrayList和LinkedList都实现了List接口，他们有以下的不同点：<br>• ArrayList是基于索引的数据接口<strong>，它的底层是数组</strong>。它可以以O(1)时间复杂度对元素进行随机访问。与此对应，LinkedList是以元素链表的形式存储它的数据，每一个元素都和它的前一个和后一个元素链接在一起，在这种情况下，查找某个元素的时间复杂度是O(n)。<br>• 相对于ArrayList，LinkedList的插入，添加，删除操作速度更快，因为当元素被添加到集合任意位置的时候，不需要像数组那样重新计算大小或者是更新索引。<br>• LinkedList比ArrayList更占内存，因为LinkedList为每一个节点存储了两个引用，一个指向前一个元素，一个指向下一个元素。</p>
-<p>List的子类特点<br>        ArrayList:<br>            底层数据结构是数组，查询快，增删慢<br>            线程不安全，效率高<br>        Vector:<br>            底层数据结构是数组，查询快，增删慢<br>            线程安全，效率低<br>        LinkedList:<br>            底层数据结构是链表，查询慢，增删快<br>            线程不安全，效率高</p>
+<p><u><strong>Set</strong></u></p>
 <p>HashSet和TreeSet有什么区别？<br>HashSet是由一个hash表来实现的，因此，它的元素是无序的。add()，remove()，contains()方法的时间复杂度是O(1)。<br>另一方面，<strong>TreeSet是由一个树形的结构来实现的，它里面的元素是有序的。</strong>因此，add()，remove()，contains()方法的时间复杂度是O(logn)。</p>
-<p>swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上?<br>switch（expr1）中，expr1是一个整数表达式。因此传递给switch 和 case 语句的参数应该是 int、 short、 char 或者byte。long,string 都不能作用于swtich(1.7版本之后switch语句支持string类型)。</p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h2 id="多线程、并发"><a href="#多线程、并发" class="headerlink" title="多线程、并发"></a>多线程、并发</h2><p>线程指在程序执行过程中，能够执行程序代码的一个执行单位，每个程序至少都有一个线程，也就是程序本身。<br>Java中的线程有五种状态分别是：新建、就绪、运行、阻塞、结束。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p><u><strong>字符串</strong></u></p>
+<p> StringBuffer线程安全，StringBuilder线程不安全，底层实现上的话，StringBuffer其实就是比StringBuilder多了Synchronized修饰符。</p>
+<p>为什么字符串是不可变的</p>
+<ul>
+<li>不可变的字符串帮助我们实现了字符串池</li>
+<li>帮助我们防止黑客的攻击</li>
+<li>线程安全</li>
+</ul>
+<h2 id="多线程、并发"><a href="#多线程、并发" class="headerlink" title="多线程、并发"></a>多线程、并发</h2><p>线程指在程序执行过程中，能够执行程序代码的一个执行单位，每个程序至少都有一个线程，也就是程序本身。<br>Java中的线程有五种状态分别是：新建、就绪、运行、阻塞、结束。</p>
 <table>
 <thead>
 <tr>
@@ -398,8 +461,30 @@ ArrayList&lt;String&gt; places = new ArrayList&lt;String&gt;(Arrays.asList(&quot
 <li>两个对象相等，hashcode一定相等（equals）。反之不一定</li>
 <li>hashcode不等，两个对象一定不等</li>
 </ul>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><ul>
+<li>throw语句用来明确地抛出一个”异常”。</li>
+<li>throws用来标明一个成员函数可能抛出的各种”异常”</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>运行时异常</th>
+<th>受检异常</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>程序捕捉异常时</td>
+<td>不一定要抛出</td>
+<td>必定要抛出</td>
+</tr>
+</tbody>
+</table>
 <h1 id="java-SE"><a href="#java-SE" class="headerlink" title="java SE"></a>java SE</h1><h1 id="java常用代码"><a href="#java常用代码" class="headerlink" title="java常用代码"></a>java常用代码</h1><pre><code class="java">t instanceof Integer
 t.Class.equals()//判断是否为某个类型
+
+a = min!=Integer.MAX_VALUE?min:-1;//if的简写
 </code></pre>
 
         
@@ -491,7 +576,7 @@ t.Class.equals()//判断是否为某个类型
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java-EE"><span class="toc-number">1.</span> <span class="toc-text">java EE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象"><span class="toc-number">1.1.</span> <span class="toc-text">面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类"><span class="toc-number">1.1.1.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装"><span class="toc-number">1.1.4.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">1.1.5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多态"><span class="toc-number">1.1.6.</span> <span class="toc-text">多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象"><span class="toc-number">1.1.7.</span> <span class="toc-text">抽象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合框架"><span class="toc-number">1.2.</span> <span class="toc-text">集合框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.3.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程、并发"><span class="toc-number">1.4.</span> <span class="toc-text">多线程、并发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式"><span class="toc-number">1.5.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络编程"><span class="toc-number">1.6.</span> <span class="toc-text">网络编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O流"><span class="toc-number">1.7.</span> <span class="toc-text">I/O流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.8.</span> <span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-SE"><span class="toc-number">2.</span> <span class="toc-text">java SE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java常用代码"><span class="toc-number">3.</span> <span class="toc-text">java常用代码</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java-EE"><span class="toc-number">1.</span> <span class="toc-text">java EE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象"><span class="toc-number">1.1.</span> <span class="toc-text">面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类"><span class="toc-number">1.1.1.</span> <span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">1.1.3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装"><span class="toc-number">1.1.4.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">1.1.5.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多态"><span class="toc-number">1.1.6.</span> <span class="toc-text">多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象"><span class="toc-number">1.1.7.</span> <span class="toc-text">抽象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合框架"><span class="toc-number">1.2.</span> <span class="toc-text">集合框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.3.</span> <span class="toc-text">数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程、并发"><span class="toc-number">1.4.</span> <span class="toc-text">多线程、并发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式"><span class="toc-number">1.5.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络编程"><span class="toc-number">1.6.</span> <span class="toc-text">网络编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O流"><span class="toc-number">1.7.</span> <span class="toc-text">I/O流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">1.8.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常"><span class="toc-number">1.9.</span> <span class="toc-text">异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java-SE"><span class="toc-number">2.</span> <span class="toc-text">java SE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#java常用代码"><span class="toc-number">3.</span> <span class="toc-text">java常用代码</span></a></li></ol>
                     </div>
                 </span>
             </div>

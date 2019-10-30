@@ -141,6 +141,93 @@
             
   
     
+      <article id="post-redis学习总结一，简单动态字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/16/redis学习总结一，简单动态字符串/">redis学习总结一，数据结构、对象</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/16/redis学习总结一，简单动态字符串/" class="archive-article-date">
+  	<time datetime="2019-08-16T10:13:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="动态字符串"><a href="#动态字符串" class="headerlink" title="动态字符串"></a>动态字符串</h1><p>redis中使用简单动态字符串(SDS)来表达字符串</p>
+<pre><code class="C">struct sdshdr {
+
+    // buf 中已占用空间的长度，不会计算末尾的\0
+    int len;
+
+    // buf 中剩余可用空间的长度
+    int free;
+
+    // 数据空间
+    char buf[];
+};
+</code></pre>
+<p>SDS与C字符串区别</p>
+<ul>
+<li>常数复杂度获得字符串长度</li>
+<li>C字符串存在字符串溢出的可能(strcat函数)</li>
+<li>减少修改字符时，内存重新分配花的时间(空间换时间)</li>
+<li>SDS预分配：对SDS修改之后，会额外分配空间(sdscat函数)</li>
+<li>惰性空间释放：当缩短SDS字符串时，不会立马释放其多余空间（那不是会造成大量当浪费空间）</li>
+<li>二进制安全，不用/0作为结尾字符，所以可以存储二进制文件
+          
+            <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/#more">more >></a>
+          
+        
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/16/redis学习总结一，简单动态字符串/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-修改hexo主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -716,97 +803,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/17/github后端架构师技术图谱/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-leetcode-排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/10/leetcode-排序/">leetcode-排序</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/10/leetcode-排序/" class="archive-article-date">
-  	<time datetime="2018-11-10T12:58:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h1><p>可以通过 <u>递归树</u>来判断 递归函数的复杂度</p>
-<h1 id="排序类"><a href="#排序类" class="headerlink" title="排序类"></a>排序类</h1><pre><code class="java">public class Sort {
-    public static void main(String[] args) {//测试
-        Integer[] test = {8,7,4,5,111,43,22};
-        long startTime = System.nanoTime();   //获取开始时间 
-        Sort.sort(test);
-        long endTime = System.nanoTime(); //获取结束时间  
-        System.out.println((endTime-startTime)+&quot;ns&quot;);    
-        Sort.show(test);
-    }
-    public static void exchange(Comparable[] a,int i,int j){
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-    public static void show(Comparable[] a){
-        for(int i=0;i&lt;a.length;i++){
-            System.out.println(a[i]);
-        }
-    }
-    public static void sort(Comparable[] a){
-
-    }
-}
-</code></pre>
-          
-            <a class="article-more-a" href="/2018/11/10/leetcode-排序/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/10/leetcode-排序/">展开全文 >></a>
         </p>
       
 

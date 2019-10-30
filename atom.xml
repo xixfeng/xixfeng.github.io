@@ -37,6 +37,30 @@
   </entry>
   
   <entry>
+    <title>Java_HashMap</title>
+    <link href="https://xixfeng.github.io/2019/10/17/java_HashMap/"/>
+    <id>https://xixfeng.github.io/2019/10/17/java_HashMap/</id>
+    <published>2019-10-17T02:31:37.000Z</published>
+    <updated>2019-10-30T00:43:52.124Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Hash&quot;&gt;&lt;a href=&quot;#Hash&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>mac完成SSD6 exercise1</title>
     <link href="https://xixfeng.github.io/2019/10/12/mac%E5%AE%8C%E6%88%90SSD6%20exercise1/"/>
     <id>https://xixfeng.github.io/2019/10/12/mac完成SSD6 exercise1/</id>
@@ -157,7 +181,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     <id>https://xixfeng.github.io/2019/09/04/计算机网络/</id>
     <published>2019-09-04T05:47:06.000Z</published>
-    <updated>2019-10-20T12:21:38.894Z</updated>
+    <updated>2019-10-30T08:43:48.676Z</updated>
     
     <summary type="html">
     
@@ -185,7 +209,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-10-16T12:53:04.864Z</updated>
+    <updated>2019-10-30T11:21:34.456Z</updated>
     
     <summary type="html">
     
@@ -213,7 +237,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
     <published>2019-09-03T12:28:49.346Z</published>
-    <updated>2019-10-15T02:17:55.268Z</updated>
+    <updated>2019-10-29T01:04:54.534Z</updated>
     
     <summary type="html">
     
@@ -251,7 +275,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
     <published>2019-09-03T01:10:30.000Z</published>
-    <updated>2019-10-15T09:26:39.538Z</updated>
+    <updated>2019-10-29T01:31:39.456Z</updated>
     
     <summary type="html">
     
@@ -691,52 +715,6 @@ make all
     
     
       <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode-排序</title>
-    <link href="https://xixfeng.github.io/2018/11/10/leetcode-%E6%8E%92%E5%BA%8F/"/>
-    <id>https://xixfeng.github.io/2018/11/10/leetcode-排序/</id>
-    <published>2018-11-10T12:58:16.000Z</published>
-    <updated>2019-09-23T15:10:48.182Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
-&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot; class=&quot;headerlink&quot; title=&quot;排序类&quot;&gt;&lt;/a&gt;排序类&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class Sort {
-    public static void main(String[] args) {//测试
-        Integer[] test = {8,7,4,5,111,43,22};
-        long startTime = System.nanoTime();   //获取开始时间 
-        Sort.sort(test);
-        long endTime = System.nanoTime(); //获取结束时间  
-        System.out.println((endTime-startTime)+&amp;quot;ns&amp;quot;);    
-        Sort.show(test);
-    }
-    public static void exchange(Comparable[] a,int i,int j){
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-    public static void show(Comparable[] a){
-        for(int i=0;i&amp;lt;a.length;i++){
-            System.out.println(a[i]);
-        }
-    }
-    public static void sort(Comparable[] a){
-
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
-    
-      <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
