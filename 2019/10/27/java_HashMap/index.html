@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>theme-sakura | xixfeng</title>
+  <title>Java_HashMap | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo主题Sakura修改自WordPress主题Sakura，感谢原作者Mashiro">
-<meta name="keywords" content="Hexo 主题 Sakura 🌸">
-<meta property="og:type" content="website">
-<meta property="og:title" content="theme-sakura">
-<meta property="og:url" content="https://xixfeng.github.io/theme-sakura/index.html">
+  <meta name="description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java_HashMap">
+<meta property="og:url" content="https://xixfeng.github.io/2019/10/27/java_HashMap/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Hexo主题Sakura修改自WordPress主题Sakura，感谢原作者Mashiro">
+<meta property="og:description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://static.2heng.xin/wp-content/uploads//2018/05/sakura2.jpeg">
-<meta property="og:updated_time" content="2019-05-31T23:21:46.000Z">
+<meta property="og:updated_time" content="2019-10-30T11:29:15.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="theme-sakura">
-<meta name="twitter:description" content="Hexo主题Sakura修改自WordPress主题Sakura，感谢原作者Mashiro">
-<meta name="twitter:image" content="https://static.2heng.xin/wp-content/uploads//2018/05/sakura2.jpeg">
+<meta name="twitter:title" content="Java_HashMap">
+<meta name="twitter:description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,20 +142,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-java_HashMap" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      theme-sakura
+      Java_HashMap
     </h1>
   
 
         
-        <a href="/theme-sakura/index.html" class="archive-article-date">
-  	<time datetime="2019-01-04T14:53:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
+        <a href="/2019/10/27/java_HashMap/" class="archive-article-date">
+  	<time datetime="2019-10-27T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
 </a>
         
       </header>
@@ -166,7 +163,202 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <p>Hexo主题Sakura修改自WordPress主题<a href="https://github.com/mashirozx/Sakura/" target="_blank" rel="noopener">Sakura</a>，感谢原作者<a href="https://2heng.xin/" target="_blank" rel="noopener">Mashiro</a></p>
+          <h1 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h1><blockquote>
+<p>对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。</p>
+</blockquote>
+<p>Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。</p>
+<p>Hash函数：必须返回(0,n-1)；必须保证均匀分布</p>
+<a id="more"></a>
+<p>解决冲突的方法：</p>
+<p><u><strong>闭域法</strong></u></p>
+<ul>
+<li><p>使用探测函数：即当出现冲突时，散列函数会随着冲突次数而改变</p>
+<p>H 0 = h(key)       </p>
+<p>H i = (H 0 + d i ) % m</p>
+</li>
+<li><p>使用双散列函数：</p>
+<p>H 0 = h(key)       </p>
+<p>H i = (H 0 + P(key,i ) )% m</p>
+</li>
+</ul>
+<p><u><strong>闭域法</strong></u></p>
+<p>将所有哈希地址相同的记录都链接在同一链表中</p>
+<blockquote>
+<p>当散列表中包含的元素过多时，会造成平均搜索长度远大于1。所以需要一个参数来控制数组长度与元素个数的比值</p>
+</blockquote>
+<p>负载因子（load factor）：n/m；n为元素个数、m为数组大小</p>
+<h1 id="Java-HashMap"><a href="#Java-HashMap" class="headerlink" title="Java HashMap"></a>Java HashMap</h1><p><a href="https://www.jianshu.com/p/b0334fb09fcf" target="_blank" rel="noopener">HashMap</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="开域法"><a href="#开域法" class="headerlink" title="开域法"></a>开域法</h2><p>简易版HashSet</p>
+<pre><code class="java">class MyHashSet {
+
+    /** Initialize your data structure here. */
+    private ArrayList&lt;Integer&gt;[] list;//使用一个数组，数组中每一个元素是一个可变数组
+    private final int capacity = 20000;
+    public MyHashSet() {
+        list = new ArrayList[capacity];
+    }
+
+    public void add(int key) {
+        int index = key % capacity;
+        if(list[index]==null)list[index] = new ArrayList();
+        ArrayList tem = (ArrayList)list[index];
+        if(!tem.contains(key))tem.add(key);
+    }
+
+    public void remove(int key) {
+        int index = key % capacity;
+        if(list[index]==null)list[index] = new ArrayList();
+        ArrayList tem = (ArrayList)list[index];
+        if(tem.contains(key))tem.remove((Object)key);               //注意这里，需要转换成Object。与编译时重载有关
+    }
+
+    /** Returns true if this set contains the specified element */
+    public boolean contains(int key) {
+        int index = key % capacity;
+        if(list[index]==null)list[index] = new ArrayList();
+        ArrayList tem = (ArrayList)list[index];
+        return tem.contains(key);
+    }
+}
+
+/**
+ * Your MyHashSet object will be instantiated and called as such:
+ * MyHashSet obj = new MyHashSet();
+ * obj.add(key);
+ * obj.remove(key);
+ * boolean param_3 = obj.contains(key);
+ */
+</code></pre>
+<p>简易版HashMap</p>
+<pre><code class="java">class MyHashMap {
+    /** Initialize your data structure here. */
+    private static final int DEFAULT_CAPACITY = 16;
+    private static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
+    private int size;
+    private int capacity;
+    private float factor;
+    private int threshold; // threshold表示阈值，当键值对个数size大于等于threshold时考虑进行扩展，一般而言，threshold等于table.length乘以loadFactor
+    Node[] table;
+
+    public MyHashMap() {
+        size = 0;
+        capacity = DEFAULT_CAPACITY;
+        factor = DEFAULT_LOAD_FACTOR;
+        threshold = (int)(DEFAULT_CAPACITY*DEFAULT_LOAD_FACTOR);
+        table = new Node[capacity];
+    }
+
+    /** value will always be non-negative. */
+    public void put(int key, int value) {
+        ensureCapacity();
+        int pos = getPos(key,table);
+        Node head = table[pos];             // 取出头节点
+        Node tmp = head;
+        while (tmp != null) {               //遍目标链表，是否能找到相同key值
+            if (key == tmp.key) {
+                tmp.value = value;
+                System.out.println(value);
+                break;
+            }
+            tmp = tmp.next;
+        }
+        if (tmp == null) {                  // tmp为null说明无相同key值
+            Node node = new Node(key,value,head); // 将新节点插入到链表头部
+            table[pos] = node;
+            size++;
+        }
+    }
+
+    /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+    public int get(int key) {
+        int pos = getPos(key,table);
+        Node head = table[pos];             // 取出头节点
+        Node tmp = head;
+        while (tmp != null) {               //遍目标链表，是否能找到相同key值
+            if (key == tmp.key)return tmp.value;
+            tmp = tmp.next;
+        }
+        return -1;
+    }
+
+    /** Removes the mapping of the specified value key if this map contains a mapping for the key */
+   public void remove(int key) {
+        int pos = getPos(key, table);
+
+        if (table[pos] == null) {               // 没有发现此键
+            return;
+        } else {
+            Node head = table[pos];             // 取出头节点
+            Node preNode = null;
+            while (head != null) {
+                if (key == head.key) {
+                    break;                  
+                }
+                preNode = head;                 //🌿记录前一个节点
+                head = head.next;
+            }
+            if (head != null) {                 // 找到了删除的节点
+                Node next = head.next;
+                head.next = null;
+                if (preNode == null) {          // 删除的节点是头节点的情况
+                    table[pos] = next;
+                } else {
+                    preNode.next = next;
+                }
+                size--;
+            }
+        }
+    }
+
+    private final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+    }
+
+    private int getPos(int key, Node[] table) {
+        return hash(key) &amp; (table.length - 1);  //只会返回(0,capacity-1)
+    }
+    private void ensureCapacity(){
+        if(size&gt;=threshold){
+            capacity &lt;&lt;= 1;
+            threshold = (int)(capacity*factor);
+            Node[] newTable = new Node[capacity];
+
+            for(Node node: table){                  //遍历数组
+                Node tmp = node;
+                while(tmp != null){                 //遍历链表
+                    int newPos = getPos(tmp.key, newTable);
+                    Node next = tmp.next;
+                    tmp.next = newTable[newPos];    //插入链表头部并放入新数组中
+                    newTable[newPos] = tmp;
+                    tmp = next;
+                }
+            }
+            table = newTable;
+        }
+    }
+
+}
+class Node{
+        final int key;
+        int value;
+        Node next;
+
+        Node(int key, int value, Node next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+}
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * MyHashMap obj = new MyHashMap();
+ * obj.put(key,value);
+ * int param_2 = obj.get(key);
+ * obj.remove(key);
+ */
+</code></pre>
 
         
 
@@ -224,7 +416,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/theme-sakura/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/10/27/java_HashMap/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -236,6 +428,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/17/bomb炸弹实验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bomb炸弹实验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -257,7 +459,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hash"><span class="toc-number">1.</span> <span class="toc-text">Hash</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-HashMap"><span class="toc-number">2.</span> <span class="toc-text">Java HashMap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">3.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开域法"><span class="toc-number">3.1.</span> <span class="toc-text">开域法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -267,6 +469,32 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://xixfeng.github.io/2019/10/27/java_HashMap/",
+  owner: 'xixfeng',
+  repo: 'xixfeng_blog',
+  oauth: {
+    client_id: '7f6c48650bead98652ca',
+    client_secret: '905474ed7e3f0137e5d16ad858012880b9ef767a',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -290,7 +518,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
