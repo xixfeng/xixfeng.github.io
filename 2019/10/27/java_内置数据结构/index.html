@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>Java_HashMap | xixfeng</title>
+  <title>Java_内置数据结构 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java_HashMap">
-<meta property="og:url" content="https://xixfeng.github.io/2019/10/27/java_HashMap/index.html">
+<meta property="og:title" content="Java_内置数据结构">
+<meta property="og:url" content="https://xixfeng.github.io/2019/10/27/java_内置数据结构/index.html">
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-30T11:29:15.854Z">
+<meta property="og:updated_time" content="2019-10-31T12:01:10.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java_HashMap">
+<meta name="twitter:title" content="Java_内置数据结构">
 <meta name="twitter:description" content="Hash 对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。  Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。 Hash函数：必须返回(0,n-1)；必须保证均匀分布">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -142,19 +142,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java_HashMap" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java_内置数据结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java_HashMap
+      Java_内置数据结构
     </h1>
   
 
         
-        <a href="/2019/10/27/java_HashMap/" class="archive-article-date">
+        <a href="/2019/10/27/java_内置数据结构/" class="archive-article-date">
   	<time datetime="2019-10-27T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
 </a>
         
@@ -187,7 +187,94 @@
 <p>当散列表中包含的元素过多时，会造成平均搜索长度远大于1。所以需要一个参数来控制数组长度与元素个数的比值</p>
 </blockquote>
 <p>负载因子（load factor）：n/m；n为元素个数、m为数组大小</p>
-<h1 id="Java-HashMap"><a href="#Java-HashMap" class="headerlink" title="Java HashMap"></a>Java HashMap</h1><p><a href="https://www.jianshu.com/p/b0334fb09fcf" target="_blank" rel="noopener">HashMap</a></p>
+<h2 id="Java-HashMap"><a href="#Java-HashMap" class="headerlink" title="Java HashMap"></a>Java HashMap</h2><p><a href="https://www.jianshu.com/p/b0334fb09fcf" target="_blank" rel="noopener">HashMap</a></p>
+<h1 id="StringBuilder、StringBuffer"><a href="#StringBuilder、StringBuffer" class="headerlink" title="StringBuilder、StringBuffer"></a>StringBuilder、StringBuffer</h1><p>StringBuilder、StringBuffer都是继承自类AbstractStringBuilder。</p>
+<table>
+<thead>
+<tr>
+<th>StringBuilder</th>
+<th>StringBuffer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>速度快</td>
+<td>速度慢</td>
+</tr>
+<tr>
+<td>线程不安全</td>
+<td>线程安全</td>
+</tr>
+<tr>
+<td></td>
+<td>有toString的buffer</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>AbstractStringBuilder（抽象类）</strong></p>
+<p> <u><strong>字段</strong></u></p>
+<ul>
+<li>char[] value：缓存字符的数组</li>
+<li>int count：记录数组中的字符个数</li>
+</ul>
+<p><u><strong>函数</strong></u></p>
+<p><strong>ensureCapacityInternal</strong></p>
+<p>假如需求的最小容量比目前的数组长度大，使用native方法进行扩容</p>
+<pre><code class="java">    private void ensureCapacityInternal(int minimumCapacity) {
+        // overflow-conscious code
+        if (minimumCapacity - value.length &gt; 0) {
+            value = Arrays.copyOf(value,
+                    newCapacity(minimumCapacity));
+        }
+    }
+
+</code></pre>
+<p><strong>append</strong></p>
+<p>首先进行容量判断，满足容量再进行复制</p>
+<pre><code class="java">    public AbstractStringBuilder append(String str) {
+        if (str == null)
+            return appendNull();
+        int len = str.length();
+        ensureCapacityInternal(count + len);
+        str.getChars(0, len, value, count);//将str复制到value数组空白处
+        count += len;
+        return this;
+    }
+</code></pre>
+<p><strong>equals</strong></p>
+<p>只判断引用是否相等或者字符串的值是否相等</p>
+<pre><code class="java">public boolean equals(Object anObject) {
+        if (this == anObject) {
+            return true;
+        }
+        if (anObject instanceof String) {
+            ///////
+            }
+        }
+        return false;
+    }
+</code></pre>
+<p><strong>toString</strong></p>
+<p>并没有实现、交给子类实现</p>
+<p>StringBuilder</p>
+<pre><code class="java">    @Override
+    public String toString() {
+        // Create a copy, don&#39;t share the array
+        return new String(value, 0, count);
+    }
+</code></pre>
+<p>StringBuffer</p>
+<pre><code class="java">    @Override
+    public synchronized String toString() {
+        if (toStringCache == null) {        //这个Cache也是Builder和Buffer的不同
+            toStringCache = Arrays.copyOfRange(value, 0, count);
+        }
+        return new String(toStringCache, true);
+    }
+</code></pre>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="开域法"><a href="#开域法" class="headerlink" title="开域法"></a>开域法</h2><p>简易版HashSet</p>
 <pre><code class="java">class MyHashSet {
 
@@ -416,7 +503,7 @@ class Node{
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/10/27/java_HashMap/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/10/27/java_内置数据结构/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -459,7 +546,7 @@ class Node{
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hash"><span class="toc-number">1.</span> <span class="toc-text">Hash</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java-HashMap"><span class="toc-number">2.</span> <span class="toc-text">Java HashMap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">3.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开域法"><span class="toc-number">3.1.</span> <span class="toc-text">开域法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hash"><span class="toc-number">1.</span> <span class="toc-text">Hash</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-HashMap"><span class="toc-number">1.1.</span> <span class="toc-text">Java HashMap</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StringBuilder、StringBuffer"><span class="toc-number">2.</span> <span class="toc-text">StringBuilder、StringBuffer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">3.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#开域法"><span class="toc-number">3.1.</span> <span class="toc-text">开域法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -484,7 +571,7 @@ class Node{
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2019/10/27/java_HashMap/",
+  id: "https://xixfeng.github.io/2019/10/27/java_内置数据结构/",
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {
