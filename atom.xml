@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-10-31T12:01:10.141Z</updated>
+  <updated>2019-10-31T12:02:33.378Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://xixfeng.github.io/2019/10/27/java_%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>https://xixfeng.github.io/2019/10/27/java_内置数据结构/</id>
     <published>2019-10-27T02:31:37.000Z</published>
-    <updated>2019-10-31T12:01:10.141Z</updated>
+    <updated>2019-10-31T12:02:33.378Z</updated>
     
     <summary type="html">
     
@@ -231,16 +231,15 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>java虚拟机</title>
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
-    <published>2019-09-03T12:28:49.346Z</published>
-    <updated>2019-10-29T01:04:54.534Z</updated>
+    <published>2019-09-03T12:28:49.000Z</published>
+    <updated>2019-11-01T00:46:23.687Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;title: java虚拟机&lt;br&gt;author: xixfeng&lt;br&gt;avatar: ‘&lt;a href=&quot;https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;&lt;/a&gt;&lt;br&gt;authorLink: xixfeng.cn&lt;br&gt;authorAbout: 一个好奇的人&lt;br&gt;authorDesc: 一个好奇的人&lt;br&gt;categories: 技术&lt;br&gt;comments: true&lt;br&gt;display: true&lt;br&gt;date: 2019-09-03 20:28:49&lt;br&gt;tags: 虚拟机&lt;br&gt;keywords:&lt;br&gt;description:&lt;/p&gt;
-&lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
+      &lt;h2 id=&quot;description&quot;&gt;&lt;a href=&quot;#description&quot; class=&quot;headerlink&quot; title=&quot;description:&quot;&gt;&lt;/a&gt;description:&lt;/h2&gt;&lt;h1 id=&quot;java虚拟机&quot;&gt;&lt;a href=&quot;#java虚拟机&quot; class=&quot;headerlink&quot; title=&quot;java虚拟机&quot;&gt;&lt;/a&gt;java虚拟机&lt;/h1&gt;&lt;p&gt;组成&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息&lt;/li&gt;
 &lt;li&gt;虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈&lt;/li&gt;
@@ -265,6 +264,10 @@
     
     </summary>
     
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="虚拟机" scheme="https://xixfeng.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
   </entry>
   
@@ -360,11 +363,11 @@ make all
     <link href="https://xixfeng.github.io/2019/08/16/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80%EF%BC%8C%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>https://xixfeng.github.io/2019/08/16/redis学习总结一，简单动态字符串/</id>
     <published>2019-08-16T10:13:21.000Z</published>
-    <updated>2019-08-22T08:55:22.655Z</updated>
+    <updated>2019-10-31T12:54:06.470Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;动态字符串&quot;&gt;&lt;a href=&quot;#动态字符串&quot; class=&quot;headerlink&quot; title=&quot;动态字符串&quot;&gt;&lt;/a&gt;动态字符串&lt;/h1&gt;&lt;p&gt;redis中使用简单动态字符串(SDS)来表达字符串&lt;/p&gt;
+      &lt;h1 id=&quot;一、动态字符串&quot;&gt;&lt;a href=&quot;#一、动态字符串&quot; class=&quot;headerlink&quot; title=&quot;一、动态字符串&quot;&gt;&lt;/a&gt;一、动态字符串&lt;/h1&gt;&lt;p&gt;redis中使用简单动态字符串(SDS)来表达字符串&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;C&quot;&gt;struct sdshdr {
 
     // buf 中已占用空间的长度，不会计算末尾的\0

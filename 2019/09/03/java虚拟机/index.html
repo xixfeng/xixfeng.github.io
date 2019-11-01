@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>xixfeng</title>
+  <title>java虚拟机 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
+  <meta name="description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法">
+<meta name="keywords" content="虚拟机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xixfeng">
+<meta property="og:title" content="java虚拟机">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/03/java虚拟机/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
+<meta property="og:description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-29T01:04:54.534Z">
+<meta property="og:updated_time" content="2019-11-01T00:46:23.687Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xixfeng">
-<meta name="twitter:description" content="title: java虚拟机author: xixfengavatar: ‘https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&amp;#39;authorLink: xixfeng.cnauthorAbout: 一个好奇的人authorDesc: 一个好奇的人categories: 技术comments: truedispl">
+<meta name="twitter:title" content="java虚拟机">
+<meta name="twitter:description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,11 +146,25 @@
             <article id="post-java虚拟机" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java虚拟机
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/java虚拟机/" class="archive-article-date">
+  	<time datetime="2019-09-03T12:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
 
         
-          <p>title: java虚拟机<br>author: xixfeng<br>avatar: ‘<a href="https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&#39;" target="_blank" rel="noopener">https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg&#39;</a><br>authorLink: xixfeng.cn<br>authorAbout: 一个好奇的人<br>authorDesc: 一个好奇的人<br>categories: 技术<br>comments: true<br>display: true<br>date: 2019-09-03 20:28:49<br>tags: 虚拟机<br>keywords:<br>description:</p>
-<h1 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h1><p>组成</p>
+          <h2 id="description"><a href="#description" class="headerlink" title="description:"></a>description:</h2><h1 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h1><p>组成</p>
 <ul>
 <li>方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息</li>
 <li>虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈</li>
@@ -846,8 +861,8 @@ E --&gt; C
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java虚拟机"><span class="toc-number">1.</span> <span class="toc-text">java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java内存区域与内存溢出异常"><span class="toc-number">1.1.</span> <span class="toc-text">java内存区域与内存溢出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-number">2.</span> <span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集"><span class="toc-number">2.1.</span> <span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存分配"><span class="toc-number">2.2.</span> <span class="toc-text">内存分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-number">3.</span> <span class="toc-text">虚拟机性能监控与故障处理工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number">4.</span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class类文件结构"><span class="toc-number">4.1.</span> <span class="toc-text">Class类文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-number">5.</span> <span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载过程"><span class="toc-number">5.1.</span> <span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器🍃"><span class="toc-number">5.2.</span> <span class="toc-text">类加载器🍃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-number">6.</span> <span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时虚拟机栈-栈帧结构"><span class="toc-number">6.1.</span> <span class="toc-text">运行时虚拟机栈 栈帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-number">6.2.</span> <span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分派"><span class="toc-number">6.3.</span> <span class="toc-text">分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-number">6.4.</span> <span class="toc-text">基于栈的字节码解释执行引擎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#早期（编译器）优化"><span class="toc-number">7.</span> <span class="toc-text">早期（编译器）优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#javac编译过程"><span class="toc-number">7.1.</span> <span class="toc-text">javac编译过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java语法糖"><span class="toc-number">7.2.</span> <span class="toc-text">java语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入式注解处理器"><span class="toc-number">7.3.</span> <span class="toc-text">插入式注解处理器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#晚期（运行期）优化"><span class="toc-number">8.</span> <span class="toc-text">晚期（运行期）优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-number">9.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q"><span class="toc-number">10.</span> <span class="toc-text">Q</span></a></li></ol>
-                    </div>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#description"><span class="toc-number">1.</span> <span class="toc-text">description:</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#java虚拟机"><span class="toc-number"></span> <span class="toc-text">java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java内存区域与内存溢出异常"><span class="toc-number">1.</span> <span class="toc-text">java内存区域与内存溢出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垃圾收集器与内存分配策略"><span class="toc-number"></span> <span class="toc-text">垃圾收集器与内存分配策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾收集"><span class="toc-number">1.</span> <span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存分配"><span class="toc-number">2.</span> <span class="toc-text">内存分配</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机性能监控与故障处理工具"><span class="toc-number"></span> <span class="toc-text">虚拟机性能监控与故障处理工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#类文件结构"><span class="toc-number"></span> <span class="toc-text">类文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Class类文件结构"><span class="toc-number">1.</span> <span class="toc-text">Class类文件结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机类加载机制"><span class="toc-number"></span> <span class="toc-text">虚拟机类加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载过程"><span class="toc-number">1.</span> <span class="toc-text">类加载过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载器🍃"><span class="toc-number">2.</span> <span class="toc-text">类加载器🍃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机字节码执行引擎"><span class="toc-number"></span> <span class="toc-text">虚拟机字节码执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时虚拟机栈-栈帧结构"><span class="toc-number">1.</span> <span class="toc-text">运行时虚拟机栈 栈帧结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法调用"><span class="toc-number">2.</span> <span class="toc-text">方法调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分派"><span class="toc-number">3.</span> <span class="toc-text">分派</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于栈的字节码解释执行引擎"><span class="toc-number">4.</span> <span class="toc-text">基于栈的字节码解释执行引擎</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#早期（编译器）优化"><span class="toc-number"></span> <span class="toc-text">早期（编译器）优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#javac编译过程"><span class="toc-number">1.</span> <span class="toc-text">javac编译过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java语法糖"><span class="toc-number">2.</span> <span class="toc-text">java语法糖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入式注解处理器"><span class="toc-number">3.</span> <span class="toc-text">插入式注解处理器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#晚期（运行期）优化"><span class="toc-number"></span> <span class="toc-text">晚期（运行期）优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接"><span class="toc-number"></span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Q"><span class="toc-number"></span> <span class="toc-text">Q</span></a>
+                    </li></div>
                 </span>
             </div>
         </div>

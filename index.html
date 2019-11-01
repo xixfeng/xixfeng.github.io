@@ -643,6 +643,92 @@
     
   
     
+      <article id="post-java虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/java虚拟机/">java虚拟机</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/java虚拟机/" class="archive-article-date">
+  	<time datetime="2019-09-03T12:28:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h2 id="description"><a href="#description" class="headerlink" title="description:"></a>description:</h2><h1 id="java虚拟机"><a href="#java虚拟机" class="headerlink" title="java虚拟机"></a>java虚拟机</h1><p>组成</p>
+<ul>
+<li>方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息</li>
+<li>虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈</li>
+<li>方法栈</li>
+<li>堆：<ul>
+<li>yang Gen 年轻代 （存放容易dead对象）<ul>
+<li>Eden</li>
+<li>survivor（Two）</li>
+</ul>
+</li>
+<li>Tenured Gen 老年代 （存放不容易dead的对象）</li>
+</ul>
+</li>
+<li>程序计数器<br>其中虚拟机栈、方法栈、程序计算器随线程生灭</li>
+<li>类加载器</li>
+<li>垃圾收集器</li>
+<li><p>执行引擎</p>
+</li>
+<li><p>常量池：编译期被确定，*.class文件中的一部分，包含字面量（Literal）和符号引用（Symbolic Reference）。<br>  JDK1.6之前字符串常量池位于方法区。<br>  JDK1.7字符串常量池已经被移至堆。<br>  JDK1.8字符串常量池位移至元空间。</p>
+</li>
+</ul>
+          
+            <a class="article-more-a" href="/2019/09/03/java虚拟机/#more">more >></a>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/java虚拟机/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
   
     
       <article id="post-深入理解计算机系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
