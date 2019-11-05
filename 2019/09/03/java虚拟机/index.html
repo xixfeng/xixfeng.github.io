@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>java虚拟机 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法">
+  <meta name="description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 本地方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、">
 <meta name="keywords" content="虚拟机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java虚拟机">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/03/java虚拟机/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法">
+<meta property="og:description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 本地方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-01T00:46:23.687Z">
+<meta property="og:updated_time" content="2019-11-01T01:53:19.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java虚拟机">
-<meta name="twitter:description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、方法">
+<meta name="twitter:description" content="description:java虚拟机组成  方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息 虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈 本地方法栈 堆： yang Gen 年轻代 （存放容易dead对象） Eden survivor（Two）   Tenured Gen 老年代 （存放不容易dead的对象）   程序计数器其中虚拟机栈、">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -168,7 +168,7 @@
 <ul>
 <li>方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息</li>
 <li>虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈</li>
-<li>方法栈</li>
+<li>本地方法栈</li>
 <li>堆：<ul>
 <li>yang Gen 年轻代 （存放容易dead对象）<ul>
 <li>Eden</li>

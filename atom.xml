@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-10-31T12:02:33.378Z</updated>
+  <updated>2019-10-17T09:09:06.663Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Java_内置数据结构</title>
-    <link href="https://xixfeng.github.io/2019/10/27/java_%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    <id>https://xixfeng.github.io/2019/10/27/java_内置数据结构/</id>
-    <published>2019-10-27T02:31:37.000Z</published>
-    <updated>2019-10-31T12:02:33.378Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Hash&quot;&gt;&lt;a href=&quot;#Hash&quot; class=&quot;headerlink&quot; title=&quot;Hash&quot;&gt;&lt;/a&gt;Hash&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;对于频繁查找的数据集，不管是使用折半查找还是顺序查找都无法使平均搜索长度变为1，这个时候hash就出现了，建立关键字与记录之间的关系，使得平均搜索长度为1。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Hashing：将关键字映射到数据位置的过程，一个HashTable(散列表、哈希表)通常是使用线性结构来存储，比如数组、链表。&lt;/p&gt;
-&lt;p&gt;Hash函数：必须返回(0,n-1)；必须保证均匀分布&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>bomb炸弹实验</title>
@@ -207,7 +185,7 @@
     <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
     <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-10-30T11:21:34.456Z</updated>
+    <updated>2019-11-05T01:50:21.209Z</updated>
     
     <summary type="html">
     
@@ -219,7 +197,8 @@
 &lt;li&gt;二者都使用 java&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码&lt;/p&gt;
-&lt;p&gt;步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler) → 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)&lt;/p&gt;
+&lt;p&gt;步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler 编译+汇编)→ 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gt1025814447/article/details/80442673&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gcc编译过程&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -235,7 +214,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
     <published>2019-09-03T12:28:49.000Z</published>
-    <updated>2019-11-01T00:46:23.687Z</updated>
+    <updated>2019-11-01T01:53:19.700Z</updated>
     
     <summary type="html">
     
@@ -243,7 +222,7 @@
 &lt;ul&gt;
 &lt;li&gt;方法区 （perm Gen 永久代）：类加载器加载的类信息，类名、引用信息&lt;/li&gt;
 &lt;li&gt;虚拟机栈：存储java虚拟机调用的方法栈，方法栈包括局部变量表以及操作数栈&lt;/li&gt;
-&lt;li&gt;方法栈&lt;/li&gt;
+&lt;li&gt;本地方法栈&lt;/li&gt;
 &lt;li&gt;堆：&lt;ul&gt;
 &lt;li&gt;yang Gen 年轻代 （存放容易dead对象）&lt;ul&gt;
 &lt;li&gt;Eden&lt;/li&gt;
@@ -276,7 +255,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
     <published>2019-09-03T01:10:30.000Z</published>
-    <updated>2019-10-29T01:31:39.456Z</updated>
+    <updated>2019-11-05T00:56:58.169Z</updated>
     
     <summary type="html">
     
@@ -716,6 +695,52 @@ make all
     
     
       <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-排序</title>
+    <link href="https://xixfeng.github.io/2018/11/10/leetcode-%E6%8E%92%E5%BA%8F/"/>
+    <id>https://xixfeng.github.io/2018/11/10/leetcode-排序/</id>
+    <published>2018-11-10T12:58:16.000Z</published>
+    <updated>2019-09-23T15:10:48.182Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
+&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot; class=&quot;headerlink&quot; title=&quot;排序类&quot;&gt;&lt;/a&gt;排序类&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class Sort {
+    public static void main(String[] args) {//测试
+        Integer[] test = {8,7,4,5,111,43,22};
+        long startTime = System.nanoTime();   //获取开始时间 
+        Sort.sort(test);
+        long endTime = System.nanoTime(); //获取结束时间  
+        System.out.println((endTime-startTime)+&amp;quot;ns&amp;quot;);    
+        Sort.show(test);
+    }
+    public static void exchange(Comparable[] a,int i,int j){
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+    public static void show(Comparable[] a){
+        for(int i=0;i&amp;lt;a.length;i++){
+            System.out.println(a[i]);
+        }
+    }
+    public static void sort(Comparable[] a){
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
     
   </entry>
   
