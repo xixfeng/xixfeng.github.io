@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="一些想法可以通过 递归树来判断 递归函数的复杂度 排序类public class Sort {     public static void main(String[] args) {//测试         Integer[] test = {8,7,4,5,111,43,22};         long startTime = System.nanoTime();   //获取开始时间">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-09-23T15:10:48.182Z">
+<meta property="og:updated_time" content="2019-11-05T15:56:51.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-排序">
 <meta name="twitter:description" content="一些想法可以通过 递归树来判断 递归函数的复杂度 排序类public class Sort {     public static void main(String[] args) {//测试         Integer[] test = {8,7,4,5,111,43,22};         long startTime = System.nanoTime();   //获取开始时间">
@@ -226,8 +226,8 @@
 <h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><pre><code class="java">    private static void merge(Comparable[] a,int lo,int mid,int hi){
         int i = lo;
         int j = mid+1;
-        Comparable[] aux = new Comparable[a.length];
-        for(int k=lo;k&lt;=hi;k++)aux[k] = a[k];//这是什么操作?复制
+        Comparable[] aux = new Comparable[a.length];//这里可以使用一个全局变量，防止频繁申请内存空间
+        for(int k=lo;k&lt;=hi;k++)aux[k] = a[k];
         for(int k=lo;k&lt;=hi;k++){
             if(i&gt;mid)                       a[k] = aux[j++];
             else if(j&gt;hi)                   a[k] = aux[i++];      
@@ -258,7 +258,7 @@
             if(i&gt;=j)break;
             exchange(a, i, j);
         }
-        exchange(a, hi, i);
+        exchange(a, hi, i);                //最后和i交换，因为i一定停留在比mid大的地方
         return i;
     }
     public static void sort(Comparable[] a,int lo,int hi){
@@ -267,6 +267,41 @@
         sort(a, lo, mid-1);
         sort(a, mid+1, hi);
     }
+</code></pre>
+<pre><code class="java">import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner cin=new Scanner(System.in);
+        int number=Integer.parseInt(cin.nextLine());
+        String[] data=cin.nextLine().split(&quot; &quot;);
+        int[] array=new int[number];
+        for(int i=0;i&lt;number;i++){
+            array[i]=Integer.parseInt(data[i]);
+        }
+        sort(array,0,number-1);
+        for(int i=0;i&lt;number;i++){
+            System.out.print(array[i]);
+            if(i!=number-1)System.out.print(&quot; &quot;);
+        }
+    }
+    public static void sort(int[] array,int lo,int hi){
+        if(lo&gt;=hi)return;
+        int mid = partition(array,lo,hi);
+        sort(array,lo,mid-1);
+        sort(array,mid+1,hi);
+    }
+    public static int partition(int[] array,int lo,int hi){
+        int key=array[lo];
+        while(lo&lt;hi){                            //每一次循环会移动key左右两个数
+            while(array[hi]&gt;=key&amp;&amp;hi&gt;lo)hi--;
+            array[lo]=array[hi];
+            while(array[lo]&lt;=key&amp;&amp;hi&gt;lo)lo++;
+            array[hi]=array[lo];
+        }
+        array[hi]=key;
+        return hi;
+    }
+ }
 </code></pre>
 
         
@@ -528,10 +563,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
              
               <li class="article-tag-list-item">

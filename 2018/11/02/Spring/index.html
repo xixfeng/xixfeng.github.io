@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15693709225722.png">
-<meta property="og:updated_time" content="2019-10-14T11:53:19.619Z">
+<meta property="og:updated_time" content="2019-11-06T04:29:06.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
@@ -640,6 +640,12 @@ public class Logging {
 
 &lt;/beans&gt;
 </code></pre>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ul>
+<li>依赖倒置原则：使上层建筑从对下层建筑对依赖，变为对下层建筑的控制</li>
+<li>IOC(控制反转)：使上层类从对下层类对依赖，变为对下层类的控制</li>
+<li>依赖注入：将底层类作为参数传递给上层类，实现上层类对底层类对控制</li>
+</ul>
+<p><strong>控制反转（Inversion of Control）</strong> 就是依赖倒置原则的一种代码设计的思路。具体采用的方法就是所谓的<strong>依赖注入（Dependency Injection）</strong>。</p>
 
         
 
@@ -744,7 +750,7 @@ public class Logging {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-AOP"><span class="toc-number">6.</span> <span class="toc-text">Spring AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于Xml"><span class="toc-number">6.1.</span> <span class="toc-text">基于Xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于-AspectJ"><span class="toc-number">6.2.</span> <span class="toc-text">基于@AspectJ</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-JDBC"><span class="toc-number">7.</span> <span class="toc-text">Spring JDBC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring事务管理"><span class="toc-number">8.</span> <span class="toc-text">Spring事务管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC"><span class="toc-number">9.</span> <span class="toc-text">SpringMVC</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-IOC容器"><span class="toc-number">1.</span> <span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.1.</span> <span class="toc-text">Bean</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring依赖注入"><span class="toc-number">2.</span> <span class="toc-text">Spring依赖注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-自动装配"><span class="toc-number">3.</span> <span class="toc-text">Spring 自动装配</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-基于注解的配置"><span class="toc-number">4.</span> <span class="toc-text">Spring 基于注解的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring中的事件处理"><span class="toc-number">5.</span> <span class="toc-text">Spring中的事件处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-AOP"><span class="toc-number">6.</span> <span class="toc-text">Spring AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基于Xml"><span class="toc-number">6.1.</span> <span class="toc-text">基于Xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于-AspectJ"><span class="toc-number">6.2.</span> <span class="toc-text">基于@AspectJ</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-JDBC"><span class="toc-number">7.</span> <span class="toc-text">Spring JDBC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring事务管理"><span class="toc-number">8.</span> <span class="toc-text">Spring事务管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC"><span class="toc-number">9.</span> <span class="toc-text">SpringMVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见问题"><span class="toc-number">10.</span> <span class="toc-text">常见问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -895,10 +901,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
              
               <li class="article-tag-list-item">

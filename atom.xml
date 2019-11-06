@@ -181,35 +181,6 @@
   </entry>
   
   <entry>
-    <title>编译原理</title>
-    <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
-    <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-11-05T01:50:21.209Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;introduce&quot;&gt;&lt;a href=&quot;#introduce&quot; class=&quot;headerlink&quot; title=&quot;introduce&quot;&gt;&lt;/a&gt;introduce&lt;/h1&gt;&lt;p&gt;两个主要策略&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;intercepter 解释器  python&lt;/li&gt;
-&lt;li&gt;compiler 编译器 C&lt;/li&gt;
-&lt;li&gt;编译器与解释器相比做了更多的预处理&lt;/li&gt;
-&lt;li&gt;二者都使用 java&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码&lt;/p&gt;
-&lt;p&gt;步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler 编译+汇编)→ 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gt1025814447/article/details/80442673&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gcc编译过程&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="编译器" scheme="https://xixfeng.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>java虚拟机</title>
     <link href="https://xixfeng.github.io/2019/09/03/java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://xixfeng.github.io/2019/09/03/java虚拟机/</id>
@@ -576,7 +547,7 @@ make all
     <link href="https://xixfeng.github.io/2019/06/01/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <id>https://xixfeng.github.io/2019/06/01/数据库/</id>
     <published>2019-06-01T15:42:08.000Z</published>
-    <updated>2019-09-21T03:52:08.733Z</updated>
+    <updated>2019-10-31T12:43:21.346Z</updated>
     
     <summary type="html">
     
@@ -703,7 +674,7 @@ make all
     <link href="https://xixfeng.github.io/2018/11/10/leetcode-%E6%8E%92%E5%BA%8F/"/>
     <id>https://xixfeng.github.io/2018/11/10/leetcode-排序/</id>
     <published>2018-11-10T12:58:16.000Z</published>
-    <updated>2019-09-23T15:10:48.182Z</updated>
+    <updated>2019-11-05T15:56:51.392Z</updated>
     
     <summary type="html">
     
@@ -741,6 +712,125 @@ make all
       <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java实现数据结构</title>
+    <link href="https://xixfeng.github.io/2018/11/09/java%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>https://xixfeng.github.io/2018/11/09/java实现数据结构/</id>
+    <published>2018-11-08T16:05:27.000Z</published>
+    <updated>2019-10-30T00:44:08.871Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;双链表&quot;&gt;&lt;a href=&quot;#双链表&quot; class=&quot;headerlink&quot; title=&quot;双链表&quot;&gt;&lt;/a&gt;双链表&lt;/h1&gt;&lt;h2 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实现&quot;&gt;&lt;/a&gt;实现&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;class DoubleLink&amp;lt;T&amp;gt;{
+    private Node&amp;lt;T&amp;gt; hNode;
+    private int mCount;
+
+
+    class Node&amp;lt;T&amp;gt;{
+        private Node prev;
+        private Node next;
+        private T value;
+        public Node(T value,Node prev,Node next){
+            this.prev = prev;
+            this.next = next;
+            this.value = value;
+        }
+    }
+    public DoubleLink(){
+        hNode = new Node&amp;lt;T&amp;gt;(null, null, null);       
+        mCount = 0;
+    }
+    public int size(){
+        return mCount;
+    }
+    public boolean isEmpty(){
+        return mCount == 0;
+    }
+    private Node&amp;lt;T&amp;gt; getNode(int index){
+        if(index&amp;lt;0||index&amp;gt;=mCount)throw new IndexOutOfBoundsException();//******/
+        if(index&amp;lt;=mCount/2){
+            Node iNode = hNode.next;
+            for(int i=0;i&amp;lt;index;i++){
+                iNode = iNode.next;
+            }
+            return iNode;
+        }
+        else{
+            int rindex = mCount-index-1;
+            Node rNode = hNode.prev;
+            for(int i=0;i&amp;lt;rindex;i++){
+                rNode = rNode.prev;
+            }
+            return rNode;
+        }
+    }
+    public T get(int index){
+        return getNode(index).value;
+    }
+    public T getFirst(){
+        return getNode(0).value;
+    }
+    public T getLast(){
+        return getNode(mCount-1).value;
+    }
+    //插入到index节点之前
+    public void insert(int index,T value){
+        if (mCount==0) {
+            Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value, hNode, hNode);
+            hNode.next = node;
+            hNode.prev = node;
+            mCount++;
+            return ;
+        }
+        if(index==mCount-1){
+            //Node&amp;lt;T&amp;gt; tnode = getNode(index);  这一步可以省略
+            Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value,hNode.prev,hNode);
+            hNode.prev.next = node;
+            hNode.prev = node;
+            mCount++;
+            return;
+        }
+        Node&amp;lt;T&amp;gt; node = getNode(index);
+        Node&amp;lt;T&amp;gt; tNode = new Node&amp;lt;T&amp;gt;(value,node,node.next);
+        node.next.prev = tNode;
+        node.next = tNode;
+        mCount++;
+        return;
+    }
+    public void insertFirst(T value){
+        Node&amp;lt;T&amp;gt; node = new Node&amp;lt;T&amp;gt;(value,hNode,hNode.next);
+        hNode.next.prev = node;
+        hNode.next = node; 
+        mCount++;
+    }
+    public void appendLast(T value){
+        insert(mCount-1, value);
+    }
+    public void delete(int index){
+        Node&amp;lt;T&amp;gt; node = getNode(index);
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        node = null;//java的辣鸡回收机制，会回收无法访问的内存
+        mCount--;
+    }
+    public void deleteFirst(){
+        delete(0);
+    }
+    public void deleteLast(){
+        delete(mCount-1);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="数据结构" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   

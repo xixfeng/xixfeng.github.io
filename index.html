@@ -497,82 +497,6 @@
     
   
     
-      <article id="post-编译原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/04/编译原理/">编译原理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/04/编译原理/" class="archive-article-date">
-  	<time datetime="2019-09-04T00:18:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h1><p>两个主要策略</p>
-<ul>
-<li>intercepter 解释器  python</li>
-<li>compiler 编译器 C</li>
-<li>编译器与解释器相比做了更多的预处理</li>
-<li>二者都使用 java</li>
-</ul>
-<p>编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码</p>
-<p>步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler 编译+汇编)→ 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)</p>
-<p><a href="https://blog.csdn.net/gt1025814447/article/details/80442673" target="_blank" rel="noopener">gcc编译过程</a></p>
-          
-            <a class="article-more-a" href="/2019/09/04/编译原理/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/04/编译原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
       <article id="post-java虚拟机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -980,6 +904,109 @@ make all
 
     
   
+    
+      <article id="post-修改hexo主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/17/修改hexo主题/">修改hexo主题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/17/修改hexo主题/" class="archive-article-date">
+  	<time datetime="2019-07-17T05:49:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>模版</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index</td>
+<td>主页</td>
+</tr>
+<tr>
+<td>post</td>
+<td>在source/post中的文章</td>
+</tr>
+<tr>
+<td>page</td>
+<td>在source中除post的所有文章</td>
+</tr>
+<tr>
+<td>archive</td>
+<td>归档(主页中所有文章的集合预览)</td>
+</tr>
+<tr>
+<td>category</td>
+<td>分类归档</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>标签分类</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>每个模板都默认使用 <code>layout</code> 布局，您可在 front-matter 指定其他布局，或是设为 <code>false</code> 来关闭布局功能，您甚至可在布局中再使用其他布局来建立嵌套布局。
+          
+            <a class="article-more-a" href="/2019/07/17/修改hexo主题/#more">more >></a>
+          
+        
+
+      
+    </li></ul></div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/17/修改hexo主题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1100,10 +1127,6 @@ make all
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
              
               <li class="article-tag-list-item">
