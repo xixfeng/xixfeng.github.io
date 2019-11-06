@@ -17,7 +17,7 @@
 <meta property="og:description" content="发展JDBC 代表 Java Database Connectivity ，它是提供了一组 Java API 来访问关系数据库的 Java 程序。这些 Java APIs 可以使 Java 应用程序执行 SQL 语句，能够与任何符合 SQL 规范的数据库进行交互。    优点 缺点     干净整洁的sql处理 大项目中很复杂   大数据下有良好的性能 编程成本高   对于小应用特别友好 没有封装">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15706751677136.jpg">
-<meta property="og:updated_time" content="2019-10-14T11:52:50.876Z">
+<meta property="og:updated_time" content="2019-11-06T11:04:59.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jpp、Hibernate">
 <meta name="twitter:description" content="发展JDBC 代表 Java Database Connectivity ，它是提供了一组 Java API 来访问关系数据库的 Java 程序。这些 Java APIs 可以使 Java 应用程序执行 SQL 语句，能够与任何符合 SQL 规范的数据库进行交互。    优点 缺点     干净整洁的sql处理 大项目中很复杂   大数据下有良好的性能 编程成本高   对于小应用特别友好 没有封装">
@@ -357,6 +357,10 @@
 <p><a href="https://www.w3cschool.cn/hibernate/ugov1ie8.html" target="_blank" rel="noopener">标准查询 Criteria</a></p>
 <p><a href="https://www.w3cschool.cn/hibernate/wrg81ieb.html" target="_blank" rel="noopener">原生sql</a></p>
 <p>批处理：由于会话层（session）会保存持久化对象，但当缓存过大时会造成内存不足。所以引入批处理，即设置 <strong>hibernate.jdbc.batch_size</strong>，限制缓存大小。这将告诉 hibernate 容器每 X 行为一批插入。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>极市项目：使用Spring Data Jpa中的Repository作为DAO层，Hibernate作为Entity层 </p>
+<p>Scukonw：SpringBoot+MyBatis</p>
+<p><a href="https://www.jianshu.com/p/cb5a3ab2727e" target="_blank" rel="noopener">Spring Data的模块、Jpa只是其中的一个模块</a></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1602675844799153392&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">Jpa、Spring Data Jpa、Hibernate</a></p>
 
         
 
@@ -466,7 +470,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#发展"><span class="toc-number">1.</span> <span class="toc-text">发展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hibernate"><span class="toc-number">2.</span> <span class="toc-text">Hibernate</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组成"><span class="toc-number">2.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">2.2.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Session缓存"><span class="toc-number">2.2.1.</span> <span class="toc-text">Session缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#持久化类"><span class="toc-number">2.3.</span> <span class="toc-text">持久化类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊映射"><span class="toc-number">2.4.</span> <span class="toc-text">特殊映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">2.5.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增删查改"><span class="toc-number">2.6.</span> <span class="toc-text">增删查改</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#发展"><span class="toc-number">1.</span> <span class="toc-text">发展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hibernate"><span class="toc-number">2.</span> <span class="toc-text">Hibernate</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#组成"><span class="toc-number">2.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session"><span class="toc-number">2.2.</span> <span class="toc-text">Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Session缓存"><span class="toc-number">2.2.1.</span> <span class="toc-text">Session缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#持久化类"><span class="toc-number">2.3.</span> <span class="toc-text">持久化类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊映射"><span class="toc-number">2.4.</span> <span class="toc-text">特殊映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">2.5.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增删查改"><span class="toc-number">2.6.</span> <span class="toc-text">增删查改</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">3.</span> <span class="toc-text">问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -629,6 +633,14 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
             
             <div class="clearfix"></div>

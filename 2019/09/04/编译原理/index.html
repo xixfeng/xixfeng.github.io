@@ -9,7 +9,7 @@
   <title>编译原理 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
-<meta name="keywords" content="编译器">
+<meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/04/编译原理/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705849528702.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15724028759345.jpg">
-<meta property="og:updated_time" content="2019-11-05T01:50:21.209Z">
+<meta property="og:updated_time" content="2019-11-06T12:11:17.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -495,7 +495,7 @@ int main(int argc, char **argv){
 <p>L：从左到右分析</p>
 <p>L：对应最左推导</p>
 <p>1：使用<u>一个</u>预测符号去帮助分析</p>
-<p><strong>两种动作</strong></p>
+<p><strong>动作</strong></p>
 <ul>
 <li>match：将分析栈顶元素替换为终结符号</li>
 <li>output：将分析栈顶元素替换为非终结符号</li>
@@ -518,7 +518,7 @@ int main(int argc, char **argv){
 </li>
 </ul>
 <p>重复上述过程，直至成功或出错（匹配完了、匹配到终结符号、匹配到非终结符号）</p>
-<h2 id="修改文法"><a href="#修改文法" class="headerlink" title="修改文法"></a>修改文法</h2><p><u><strong>消除左递归</strong></u></p>
+<h3 id="修改文法"><a href="#修改文法" class="headerlink" title="修改文法"></a>修改文法</h3><p><u><strong>消除左递归</strong></u></p>
 <ul>
 <li>直接左递归</li>
 <li>间接左递归 (A → Bb |….               B → Aa |….)</li>
@@ -659,7 +659,7 @@ int main(int argc, char **argv){
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">3.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下语法分析"><span class="toc-number">3.3.</span> <span class="toc-text">自顶向下语法分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改文法"><span class="toc-number">3.4.</span> <span class="toc-text">修改文法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">3.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下语法分析"><span class="toc-number">3.3.</span> <span class="toc-text">自顶向下语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文法"><span class="toc-number">3.3.1.</span> <span class="toc-text">修改文法</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -813,10 +813,6 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
@@ -826,6 +822,14 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
             
             <div class="clearfix"></div>
