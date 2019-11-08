@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-11-06T12:11:01.524Z</updated>
+  <updated>2019-11-06T12:23:45.837Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>编译原理-语法分析自底向上</title>
-    <link href="https://xixfeng.github.io/2019/11/06/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A/"/>
-    <id>https://xixfeng.github.io/2019/11/06/编译原理-语法分析自底向上/</id>
-    <published>2019-11-06T01:37:39.000Z</published>
-    <updated>2019-11-06T12:11:01.524Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;自底向上语法分析&quot;&gt;&lt;a href=&quot;#自底向上语法分析&quot; class=&quot;headerlink&quot; title=&quot;自底向上语法分析&quot;&gt;&lt;/a&gt;自底向上语法分析&lt;/h1&gt;&lt;p&gt;跟踪输入字符串的最右推导，但步骤与最右推导的次序相反&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;u&gt;动作&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;shift：将输入字符串移入栈中&lt;/p&gt;
-&lt;p&gt;reduce：将栈顶α-&amp;gt;A，如果存在A-&amp;gt;α&lt;/p&gt;
-&lt;p&gt;增广文法 S’ → S&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Java_HashMap</title>
     <link href="https://xixfeng.github.io/2019/10/27/Java_HashMap/"/>
     <id>https://xixfeng.github.io/2019/10/27/Java_HashMap/</id>
     <published>2019-10-27T02:31:37.000Z</published>
-    <updated>2019-11-06T12:08:34.901Z</updated>
+    <updated>2019-11-06T12:23:45.837Z</updated>
     
     <summary type="html">
     
@@ -262,35 +240,6 @@
     
     
       <category term="计算机网络" scheme="https://xixfeng.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编译原理</title>
-    <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
-    <id>https://xixfeng.github.io/2019/09/04/编译原理/</id>
-    <published>2019-09-04T00:18:40.000Z</published>
-    <updated>2019-11-06T12:11:17.241Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;introduce&quot;&gt;&lt;a href=&quot;#introduce&quot; class=&quot;headerlink&quot; title=&quot;introduce&quot;&gt;&lt;/a&gt;introduce&lt;/h1&gt;&lt;p&gt;两个主要策略&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;intercepter 解释器  python&lt;/li&gt;
-&lt;li&gt;compiler 编译器 C&lt;/li&gt;
-&lt;li&gt;编译器与解释器相比做了更多的预处理&lt;/li&gt;
-&lt;li&gt;二者都使用 java&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码&lt;/p&gt;
-&lt;p&gt;步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler 编译+汇编)→ 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gt1025814447/article/details/80442673&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gcc编译过程&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="编译器" scheme="https://xixfeng.github.io/tags/%E7%BC%96%E8%AF%91%E5%99%A8/"/>
     
   </entry>
   
@@ -729,6 +678,58 @@ make all
     
     
       <category term="数据挖掘" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试</title>
+    <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
+    <id>https://xixfeng.github.io/2018/11/20/测试/</id>
+    <published>2018-11-20T02:37:47.000Z</published>
+    <updated>2019-08-15T05:11:00.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转自&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;TDD 有三层含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Test-Driven Development，测试&lt;strong&gt;驱动&lt;/strong&gt;开发。&lt;/li&gt;
+&lt;li&gt;Task-Driven Development，任务&lt;strong&gt;驱动&lt;/strong&gt;开发，要对问题进行分析并进行任务分解。&lt;/li&gt;
+&lt;li&gt;Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="测试" scheme="https://xixfeng.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github后端架构师技术图谱</title>
+    <link href="https://xixfeng.github.io/2018/11/17/github%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%B8%88%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1/"/>
+    <id>https://xixfeng.github.io/2018/11/17/github后端架构师技术图谱/</id>
+    <published>2018-11-17T04:06:28.000Z</published>
+    <updated>2019-08-15T05:12:23.142Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;压力测试&quot;&gt;&lt;a href=&quot;#压力测试&quot; class=&quot;headerlink&quot; title=&quot;压力测试&quot;&gt;&lt;/a&gt;压力测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/blueheart20/article/details/52170790&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;apache ab&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;并发&quot;&gt;&lt;a href=&quot;#并发&quot; class=&quot;headerlink&quot; title=&quot;并发&quot;&gt;&lt;/a&gt;并发&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CL0610/Java-concurrency&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;并发知识合集&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;1.同步、异步：同步方法调用一开始，调用者必须等待被调用的方法结束后，调用者后面的代码才能执行。而异步调用，指的是，调用者不用管被调用方法是否完成，都会继续执行后面的代码。&lt;/p&gt;
+&lt;p&gt;2.并发并行：并发和并行是十分容易混淆的概念。并发指的是多个任务交替进行，而并行则是指真正意义上的“同时进行”。实际上，如果系统内只有一个CPU，而使用多线程时，那么真实系统环境下不能并行，只能通过切换时间片的方式交替进行，而成为并发执行任务。真正的并行也只能出现在拥有多个CPU的系统中。&lt;/p&gt;
+&lt;p&gt;3.阻塞和非阻塞：阻塞和非阻塞通常用来形容多线程间的相互影响，比如一个线程占有了临界区资源，那么其他线程需要这个资源就必须进行等待该资源的释放，会导致等待的线程挂起，这种情况就是阻塞，而非阻塞就恰好相反，它强调没有一个线程可以阻塞其他线程，所有的线程都会尝试地往前运行。&lt;strong&gt;线程能否阻塞其他线程&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;4.临界区&lt;/p&gt;
+&lt;p&gt;临界区用来表示一种公共资源或者说是共享数据，可以被多个线程使用。但是每个线程使用时，一旦临界区资源被一个线程占有，那么其他线程必须等待&lt;br&gt;
+    
+    </summary>
+    
+      <category term="资源" scheme="https://xixfeng.github.io/categories/%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
     
   </entry>
   
