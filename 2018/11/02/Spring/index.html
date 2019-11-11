@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/2A73905D-5715-4837-93D9-2B5B7D6DC837.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15693709225722.png">
-<meta property="og:updated_time" content="2019-11-06T10:40:50.358Z">
+<meta property="og:updated_time" content="2019-11-11T03:16:37.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="Spring maven配置 Spring IOC容器两种读取Beans.xml的方法  ApplicationContext BeanFactory:这是一个最简单的容器，它主要的功能是为依赖注入 （DI） 提供支持（即提供Bean的读取与注入），这个容器接口在 org.springframework.beans.factory.BeanFactor 中被定义。  在资源宝贵的移动设备或者基于">
@@ -598,6 +598,12 @@ public class Logging {
 <p><u><strong>编程式</strong></u></p>
 <p>用 PlatformTransactionManager 管理所有 TransactionDefinition，Manager负责所有事务的提交和回滚（根据不同事务的状态来识别事务）</p>
 <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="http://api.xixfeng.cn/mweb/15693709225722.png" alt></p>
+<ul>
+<li>DispatcherServlet就相当于一个servlet容器，负责通过socket解析、发送数据</li>
+<li>Handler Mapping负责映射请求与controller，不是servlet</li>
+<li>每一个controller都可以看作很多个servlet的集合</li>
+<li>servlet可以通过架构，变成层级模式</li>
+</ul>
 <p>在controller与view之间有一层view resovler负责将controller的数据映射到view中去</p>
 <pre><code class="xml">&lt;web-app id=&quot;WebApp_ID&quot; version=&quot;2.4&quot;
    xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot; 

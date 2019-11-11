@@ -373,46 +373,6 @@ make all
   </entry>
   
   <entry>
-    <title>redis学习总结一，数据结构、对象</title>
-    <link href="https://xixfeng.github.io/2019/08/16/redis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80%EF%BC%8C%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>https://xixfeng.github.io/2019/08/16/redis学习总结一，简单动态字符串/</id>
-    <published>2019-08-16T10:13:21.000Z</published>
-    <updated>2019-10-31T12:54:06.470Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、动态字符串&quot;&gt;&lt;a href=&quot;#一、动态字符串&quot; class=&quot;headerlink&quot; title=&quot;一、动态字符串&quot;&gt;&lt;/a&gt;一、动态字符串&lt;/h1&gt;&lt;p&gt;redis中使用简单动态字符串(SDS)来表达字符串&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;C&quot;&gt;struct sdshdr {
-
-    // buf 中已占用空间的长度，不会计算末尾的\0
-    int len;
-
-    // buf 中剩余可用空间的长度
-    int free;
-
-    // 数据空间
-    char buf[];
-};
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;SDS与C字符串区别&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;常数复杂度获得字符串长度&lt;/li&gt;
-&lt;li&gt;C字符串存在字符串溢出的可能(strcat函数)&lt;/li&gt;
-&lt;li&gt;减少修改字符时，内存重新分配花的时间(空间换时间)&lt;/li&gt;
-&lt;li&gt;SDS预分配：对SDS修改之后，会额外分配空间(sdscat函数)&lt;/li&gt;
-&lt;li&gt;惰性空间释放：当缩短SDS字符串时，不会立马释放其多余空间（那不是会造成大量当浪费空间）&lt;/li&gt;
-&lt;li&gt;二进制安全，不用/0作为结尾字符，所以可以存储二进制文件
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="redis" scheme="https://xixfeng.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
     <title>修改hexo主题</title>
     <link href="https://xixfeng.github.io/2019/07/17/%E4%BF%AE%E6%94%B9hexo%E4%B8%BB%E9%A2%98/"/>
     <id>https://xixfeng.github.io/2019/07/17/修改hexo主题/</id>
@@ -730,6 +690,52 @@ make all
     
     
       <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-排序</title>
+    <link href="https://xixfeng.github.io/2018/11/10/leetcode-%E6%8E%92%E5%BA%8F/"/>
+    <id>https://xixfeng.github.io/2018/11/10/leetcode-排序/</id>
+    <published>2018-11-10T12:58:16.000Z</published>
+    <updated>2019-11-05T15:56:51.392Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
+&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot; class=&quot;headerlink&quot; title=&quot;排序类&quot;&gt;&lt;/a&gt;排序类&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class Sort {
+    public static void main(String[] args) {//测试
+        Integer[] test = {8,7,4,5,111,43,22};
+        long startTime = System.nanoTime();   //获取开始时间 
+        Sort.sort(test);
+        long endTime = System.nanoTime(); //获取结束时间  
+        System.out.println((endTime-startTime)+&amp;quot;ns&amp;quot;);    
+        Sort.show(test);
+    }
+    public static void exchange(Comparable[] a,int i,int j){
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+    public static void show(Comparable[] a){
+        for(int i=0;i&amp;lt;a.length;i++){
+            System.out.println(a[i]);
+        }
+    }
+    public static void sort(Comparable[] a){
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
     
   </entry>
   
