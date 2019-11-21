@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705849528702.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15724028759345.jpg">
-<meta property="og:updated_time" content="2019-11-06T12:11:17.000Z">
+<meta property="og:updated_time" content="2019-11-20T02:41:29.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
@@ -550,7 +550,7 @@ int main(int argc, char **argv){
 <p>follow(α)：FOLLOW(α) 紧跟在A右边的终结符号集合。</p>
 <p><img src="http://api.xixfeng.cn/mweb/15724028759345.jpg" alt></p>
 <p><a href="https://blog.csdn.net/qq_40294512/article/details/89397905" target="_blank" rel="noopener">first、follow集合参考</a>(求first的集合的规则有问题)</p>
-
+<h2 id="自底向上语法分析"><a href="#自底向上语法分析" class="headerlink" title="自底向上语法分析"></a>自底向上语法分析</h2>
         
 
       
@@ -640,7 +640,7 @@ int main(int argc, char **argv){
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">3.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下语法分析"><span class="toc-number">3.3.</span> <span class="toc-text">自顶向下语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文法"><span class="toc-number">3.3.1.</span> <span class="toc-text">修改文法</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">3.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">3.1.</span> <span class="toc-text">推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-number">3.2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自顶向下语法分析"><span class="toc-number">3.3.</span> <span class="toc-text">自顶向下语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文法"><span class="toc-number">3.3.1.</span> <span class="toc-text">修改文法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自底向上语法分析"><span class="toc-number">3.4.</span> <span class="toc-text">自底向上语法分析</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -758,6 +758,10 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -775,10 +779,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -803,14 +803,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
             
             <div class="clearfix"></div>

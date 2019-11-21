@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://xixfeng.github.io/False/pics/7c54de21-e2ff-402e-bc42-4037de1c1592.png">
 <meta property="og:image" content="https://xixfeng.github.io/False/pics/485fdf34-ccf8-4185-97c6-17374ee719a0.png">
 <meta property="og:image" content="https://xixfeng.github.io/False/pics/f7d170a3-e446-4a64-ac2d-cb95028f81a8.png">
-<meta property="og:updated_time" content="2019-10-31T14:55:25.022Z">
+<meta property="og:updated_time" content="2019-11-11T13:30:52.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xixfeng">
 <meta name="twitter:description" content="一、概述 二、数据类型 STRING LIST SET HASH ZSET   三、数据结构 字典 跳跃表   四、使用场景 计数器 缓存 查找表 消息队列 会话缓存 分布式锁实现 其它   五、Redis 与 Memcached 数据类型 数据持久化 分布式 内存管理机制   六、键的过期时间 七、数据淘汰策略 八、持久化 RDB 持久化 AOF 持久化   九、事务 十、事件 文件事件 时">
@@ -471,7 +471,7 @@ int dictRehash(dict *d, int n) {
     return 1;
 }
 </code></pre>
-<h2 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h2><p>是有序集合的底层实现之一。</p>
+<h2 id="跳跃表"><a href="#跳跃表" class="headerlink" title="跳跃表"></a>跳跃表</h2><p><strong>是有序集合的底层实现之一。</strong></p>
 <p>跳跃表是基于多指针有序链表实现的，可以看成多个有序链表。</p>
 <p><div align="center"> <img src="pics/beba612e-dc5b-4fc2-869d-0b23408ac90a.png" width="600px"> </div><br></p>
 <p>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。下图演示了查找 22 的过程。</p>
@@ -886,6 +886,10 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -903,10 +907,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,14 +931,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="在编译openjdk后，使用xcode调试hotspot。但是此时引入的是openjdk中hotspot源码，在源码上打断点为什么影响编译的java程序 首先调试分为软件断点和硬件断点，软件断点主要是通过x86架构中自带的INT 3指令。软件断点的过程  通过调试信息找到断点行所在的机器代码 将头一个字节用WriteProcessMemory（）换成0xCC(INT 3) 程序执行到断点处后，再修">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-14T11:53:30.464Z">
+<meta property="og:updated_time" content="2019-10-14T11:53:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xcode调试openjdk的原理">
 <meta name="twitter:description" content="在编译openjdk后，使用xcode调试hotspot。但是此时引入的是openjdk中hotspot源码，在源码上打断点为什么影响编译的java程序 首先调试分为软件断点和硬件断点，软件断点主要是通过x86架构中自带的INT 3指令。软件断点的过程  通过调试信息找到断点行所在的机器代码 将头一个字节用WriteProcessMemory（）换成0xCC(INT 3) 程序执行到断点处后，再修">
@@ -399,6 +399,10 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -416,10 +420,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,14 +444,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
             
             <div class="clearfix"></div>

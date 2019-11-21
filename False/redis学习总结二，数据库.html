@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="我们将非空数据库以及他们的键值对叫做数据库状态  所有的数据库保存在redis/redisServer的db数组中 数据库则是redis/redisDb类  一个键如何被删除（实际使用后两种）  定时删除 惰性删除(bd.c/expireIfNeeded) 定期删除(redis.c/activeExpireCycle): 每当redis的周期性操作redis.c/serverCron 执行时，就会">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-08-22T13:51:18.984Z">
+<meta property="og:updated_time" content="2019-08-22T13:51:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis学习总结二，数据库">
 <meta name="twitter:description" content="我们将非空数据库以及他们的键值对叫做数据库状态  所有的数据库保存在redis/redisServer的db数组中 数据库则是redis/redisDb类  一个键如何被删除（实际使用后两种）  定时删除 惰性删除(bd.c/expireIfNeeded) 定期删除(redis.c/activeExpireCycle): 每当redis的周期性操作redis.c/serverCron 执行时，就会">
@@ -388,6 +388,10 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
@@ -405,10 +409,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -433,14 +433,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">编译器</a>
               </li>
             
             <div class="clearfix"></div>
