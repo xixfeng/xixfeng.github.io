@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-11-06T12:23:45.000Z</updated>
+  <updated>2019-11-21T08:56:15.520Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络-链路层</title>
+    <link href="https://xixfeng.github.io/2019/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+    <id>https://xixfeng.github.io/2019/11/21/计算机网络-链路层/</id>
+    <published>2019-11-21T06:16:56.000Z</published>
+    <updated>2019-11-21T08:56:15.520Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="计算机网络" scheme="https://xixfeng.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Java_HashMap</title>
@@ -690,52 +716,6 @@ make all
     
     
       <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode-排序</title>
-    <link href="https://xixfeng.github.io/2018/11/10/leetcode-%E6%8E%92%E5%BA%8F/"/>
-    <id>https://xixfeng.github.io/2018/11/10/leetcode-排序/</id>
-    <published>2018-11-10T12:58:16.000Z</published>
-    <updated>2019-11-05T15:56:51.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一些想法&quot;&gt;&lt;a href=&quot;#一些想法&quot; class=&quot;headerlink&quot; title=&quot;一些想法&quot;&gt;&lt;/a&gt;一些想法&lt;/h1&gt;&lt;p&gt;可以通过 &lt;u&gt;递归树&lt;/u&gt;来判断 递归函数的复杂度&lt;/p&gt;
-&lt;h1 id=&quot;排序类&quot;&gt;&lt;a href=&quot;#排序类&quot; class=&quot;headerlink&quot; title=&quot;排序类&quot;&gt;&lt;/a&gt;排序类&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class Sort {
-    public static void main(String[] args) {//测试
-        Integer[] test = {8,7,4,5,111,43,22};
-        long startTime = System.nanoTime();   //获取开始时间 
-        Sort.sort(test);
-        long endTime = System.nanoTime(); //获取结束时间  
-        System.out.println((endTime-startTime)+&amp;quot;ns&amp;quot;);    
-        Sort.show(test);
-    }
-    public static void exchange(Comparable[] a,int i,int j){
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-    public static void show(Comparable[] a){
-        for(int i=0;i&amp;lt;a.length;i++){
-            System.out.println(a[i]);
-        }
-    }
-    public static void sort(Comparable[] a){
-
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="算法" scheme="https://xixfeng.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="leetcode" scheme="https://xixfeng.github.io/tags/leetcode/"/>
     
   </entry>
   

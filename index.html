@@ -141,6 +141,256 @@
             
   
     
+      <article id="post-计算机网络-链路层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/21/计算机网络-链路层/">计算机网络-链路层</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/21/计算机网络-链路层/" class="archive-article-date">
+  	<time datetime="2019-11-21T06:16:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>链路层目标</p>
+<ul>
+<li>错误探测、纠正</li>
+<li>共享广播频道：多重访问</li>
+<li>链路层的寻址</li>
+<li>可靠的数据传输、流量控制</li>
+</ul>
+<p>链路层在网卡（network interface card NIC）中实现</p>
+<p>节点（node）：主机、路由器</p>
+<p>链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS）</p>
+<p>frame：封装datagram，添加头部<u>以及尾部</u></p>
+<p>MAC：用在frame中以标示源和目的</p>
+<h1 id="错误探测"><a href="#错误探测" class="headerlink" title="错误探测"></a>错误探测</h1><p>奇偶校验（parity checking）：单奇偶校验位、二维奇偶校验位</p>
+<p>校验和（checksum）</p>
+<p>循环冗余检测（Cyclic Redundancy Check，CRC）</p>
+<h1 id="多访问协议"><a href="#多访问协议" class="headerlink" title="多访问协议"></a>多访问协议</h1><p>两种类型的链路</p>
+<ul>
+<li>点对点<ul>
+<li>拨号接入的PPP</li>
+<li>以太网交换机与主机之间的点对点链路</li>
+</ul>
+</li>
+<li>广播（共享有线或媒体）<ul>
+<li>老版本的以太网</li>
+<li>802.11 无限局域网</li>
+</ul>
+</li>
+</ul>
+<p>多访问协议的起因</p>
+<ul>
+<li>单一共享广播频道</li>
+<li>两个或多个节点同时传输</li>
+<li>当节点同时接收到两个或多个信号时发生冲突（collison）</li>
+</ul>
+<p>多访问控制协议</p>
+<ul>
+<li>决定节点如何共享信道</li>
+<li>关于信道共享的通信必须使用信道本身</li>
+</ul>
+<p>多访问控制协议的分类</p>
+<ul>
+<li>信道划分协议（channel partitiioning）</li>
+<li>随机接入协议（random access protocol）</li>
+<li>轮流协议（taking turns）</li>
+</ul>
+<p><u><strong>信道划分协议</strong></u></p>
+<p>TDMA、FDMA：节点被限制与R/N bps的平均速率，即使当他是唯一一个有frame要发送的节点时</p>
+<p><u><strong>随机接入协议</strong></u></p>
+<p>主要功能点</p>
+<ul>
+<li>如何探测冲突</li>
+<li>如何从冲突中恢复</li>
+</ul>
+<p><strong>时隙ALOHA</strong></p>
+<ul>
+<li>所有帧由L比特组成</li>
+<li>时间被划分为长度为L/R的时隙（也就是说一个时隙等于传输一帧的时间）</li>
+<li>节点是同步的，每个节点都知道时隙何时开始</li>
+<li>如果一个时隙中有两个或者更多个帧碰撞，则所有节点在该时隙结束之前检测到该碰撞事件</li>
+</ul>
+<p>令p为0-1直接的一个概率</p>
+<ul>
+<li>如果有碰撞，该节点在时隙结束之前检测到这次碰撞。该节点以概率p在后续的每个时隙中重传它的帧，知道该帧被无碰撞地传递出去</li>
+</ul>
+<p><strong>纯洁ALOHA</strong></p>
+<p>当发送碰撞时，节点以p的概率重传该帧</p>
+<p><strong>载波侦听多路访问（CSMA    CSMA/CD）</strong></p>
+<ul>
+<li>说话之前先听。如果其他人正在说话，等到他们说完话为止。这被称为载波侦听（carrier sensing）</li>
+<li>如果与他人同时开始说话，停止说话。这被称为碰撞检测</li>
+</ul>
+<p><strong>轮流协议</strong></p>
+<p>轮询协议</p>
+<p>令牌传递协议</p>
+<h1 id="链路层寻址"><a href="#链路层寻址" class="headerlink" title="链路层寻址"></a>链路层寻址</h1><p>MAC（or LAN or physical or Ethernet）地址：</p>
+<ul>
+<li>48 bit MAC 地址：刻录在网卡ROM中，有时也可以通过软件设置</li>
+</ul>
+<p>广播地址：FF-FF-FF-FF-FF-FF</p>
+<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p><u>ARP协议是一个局域网协议</u></p>
+<p>将IP地址转换为MAC地址</p>
+<ul>
+<li>每个IP节点（主机、路由器）都拥有ARP 表</li>
+<li>ARP表：IP address; MAC address; TTL（多少分钟后该地址到期）</li>
+</ul>
+<p>过程</p>
+<ul>
+<li>节点A想要发送给B帧，但是只有IP地址。A<u>广播</u> ARP查询包，该包包含B的IP地址</li>
+<li>节点B接受到该消息，给A发送MAC地址</li>
+</ul>
+<p>当一个节点A想向外部节点B发送请求时</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MAC src</th>
+<th>MAC dest</th>
+<th>IP src</th>
+<th>IP dest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-路由器</td>
+<td>A_MAC</td>
+<td>路由器_MAC</td>
+<td>A_IP</td>
+<td>B_IP</td>
+</tr>
+<tr>
+<td>路由器-B</td>
+<td>路由器_MAC</td>
+<td>B_MAC</td>
+<td>A_IP</td>
+<td>B_IP</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>整个过程中IP都是不变的，MAC地址改变</li>
+<li>但是如果加入NAT协议，IP地址也会改变</li>
+</ul>
+<h1 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h1><p>经过三种拓扑逻辑阶段</p>
+<ul>
+<li>总线</li>
+<li>集线器（hub）</li>
+<li>交换机（switch）</li>
+</ul>
+<p>核心</p>
+<ul>
+<li>非面向连接</li>
+<li>不可靠</li>
+<li>unslotted CSMA/CD</li>
+</ul>
+<h2 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h2><p>过程</p>
+<ul>
+<li>NIC 从上层接收datagram，创建frame</li>
+<li>如果通道空闲，开始传输数据。否则等待通道空闲</li>
+<li>如果传输中探测到冲突，中止并发送干扰信号</li>
+<li>中止后，NIC进入指数退避：m次碰撞后，NIC从{0,1,2，…，2^m-1}中随机选择K。NIC等待K·512bit time，返回步骤2</li>
+</ul>
+<h1 id="链路层-switches、LANs、VLANs"><a href="#链路层-switches、LANs、VLANs" class="headerlink" title="链路层 switches、LANs、VLANs"></a>链路层 switches、LANs、VLANs</h1><p><strong>集线器</strong></p>
+<ul>
+<li>来自于一个link的bits会传输到到所有其他link</li>
+<li>所有连接集线器的节点都可能会和其他节点冲突</li>
+<li>没有frame 缓存</li>
+<li>没有 CSMA/CD</li>
+</ul>
+<h2 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h2><p>交换机没有IP地址</p>
+<p>交换机拥有一张switch table：MAC addr，interface，TIME（当前时间）</p>
+<ul>
+<li>存储转发frames</li>
+<li>检查传入帧的MAC地址，当帧要在段上转发时，有选择地将帧转发到一个或多个传出链路，使用CSMA/CD访问段</li>
+</ul>
+<p>当交换机接收到frames</p>
+<ul>
+<li>记录下传入帧的MAC地址与接口//学习算法</li>
+<li>在switch table中 寻找dest address</li>
+</ul>
+<pre><code>if entry found for destination
+ then{
+     if dest on segment from which frame arrived//转发接口是否等于进入接口
+      then drop the frame    //过滤算法
+      else forward the frame on interface indicated
+ }
+ else flood
+</code></pre><p>交换机与路由器</p>
+<table>
+<thead>
+<tr>
+<th>交换机</th>
+<th>路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>链路层</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>保存switches table，实现过滤、学习算法</td>
+<td>保存routing table，实现路由算法</td>
+</tr>
+</tbody>
+</table>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>为什么链路层和传输层都要提供可靠的传输？</p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/21/计算机网络-链路层/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-Java_HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -861,90 +1111,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/01/xcode调试openjdk的原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-mac编译openjdk9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/mac编译openjdk9/">mac编译openjdk9</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/30/mac编译openjdk9/" class="archive-article-date">
-  	<time datetime="2019-08-30T11:28:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><ul>
-<li>homebrew</li>
-<li>freetype</li>
-<li>Mercurial</li>
-<li>xcode-select</li>
-<li>源码</li>
-</ul>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><pre><code>bash ./configure \
-    --with-target-bits=64 \
---with-debug-level=slowdebug \
---with-freetype-include=/usr/local/include/freetype2 \
---with-freetype-lib=/usr/local/Cellar/freetype/2.10.0/lib \
---disable-warnings-as-errors 
-//注意把freetype版本换为本机安装的
-
-make all
-</code></pre><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>Q1 </p>
-<p>#include<new> 头文件缺失<br>这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可<br><a href="https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA" target="_blank" rel="noopener">https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA</a></new></p>
-          
-            <a class="article-more-a" href="/2019/08/30/mac编译openjdk9/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/30/mac编译openjdk9/">展开全文 >></a>
         </p>
       
 
