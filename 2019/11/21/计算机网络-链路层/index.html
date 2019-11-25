@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-21T08:56:15.520Z">
+<meta property="og:updated_time" content="2019-11-25T02:16:17.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络-链路层">
 <meta name="twitter:description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
@@ -176,10 +176,8 @@
 <p>链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS）</p>
 <p>frame：封装datagram，添加头部<u>以及尾部</u></p>
 <p>MAC：用在frame中以标示源和目的</p>
-<h1 id="错误探测"><a href="#错误探测" class="headerlink" title="错误探测"></a>错误探测</h1><p>奇偶校验（parity checking）：单奇偶校验位、二维奇偶校验位</p>
-<p>校验和（checksum）</p>
-<p>循环冗余检测（Cyclic Redundancy Check，CRC）</p>
-<h1 id="多访问协议"><a href="#多访问协议" class="headerlink" title="多访问协议"></a>多访问协议</h1><p>两种类型的链路</p>
+<a id="more"></a>
+<p>两种类型的链路</p>
 <ul>
 <li>点对点<ul>
 <li>拨号接入的PPP</li>
@@ -192,7 +190,10 @@
 </ul>
 </li>
 </ul>
-<p>多访问协议的起因</p>
+<h1 id="错误探测"><a href="#错误探测" class="headerlink" title="错误探测"></a>错误探测</h1><p>奇偶校验（parity checking）：单奇偶校验位、二维奇偶校验位</p>
+<p>校验和（checksum）</p>
+<p>循环冗余检测（Cyclic Redundancy Check，CRC）</p>
+<h1 id="多访问协议"><a href="#多访问协议" class="headerlink" title="多访问协议"></a>多访问协议</h1><p>多访问协议的起因</p>
 <ul>
 <li>单一共享广播频道</li>
 <li>两个或多个节点同时传输</li>
@@ -349,6 +350,18 @@
 </tr>
 </tbody>
 </table>
+<h1 id="PPP"><a href="#PPP" class="headerlink" title="PPP"></a>PPP</h1><p>点对点的传输，singel sender、single receiver、one link</p>
+<ul>
+<li>封装datagram</li>
+<li>错误探测</li>
+</ul>
+<ul>
+<li>没有多访问控制协议</li>
+<li>不需要显式的MAC地址</li>
+<li>没有错误恢复</li>
+<li>没有流控制</li>
+<li>允许乱序</li>
+</ul>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>为什么链路层和传输层都要提供可靠的传输？</p>
 
         
@@ -450,7 +463,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#错误探测"><span class="toc-number">2.</span> <span class="toc-text">错误探测</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多访问协议"><span class="toc-number">3.</span> <span class="toc-text">多访问协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链路层寻址"><span class="toc-number">4.</span> <span class="toc-text">链路层寻址</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议"><span class="toc-number">4.1.</span> <span class="toc-text">ARP协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以太网"><span class="toc-number">5.</span> <span class="toc-text">以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-CD"><span class="toc-number">5.1.</span> <span class="toc-text">CSMA/CD</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链路层-switches、LANs、VLANs"><span class="toc-number">6.</span> <span class="toc-text">链路层 switches、LANs、VLANs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机"><span class="toc-number">6.1.</span> <span class="toc-text">交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">7.</span> <span class="toc-text">问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#错误探测"><span class="toc-number">2.</span> <span class="toc-text">错误探测</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多访问协议"><span class="toc-number">3.</span> <span class="toc-text">多访问协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链路层寻址"><span class="toc-number">4.</span> <span class="toc-text">链路层寻址</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议"><span class="toc-number">4.1.</span> <span class="toc-text">ARP协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以太网"><span class="toc-number">5.</span> <span class="toc-text">以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-CD"><span class="toc-number">5.1.</span> <span class="toc-text">CSMA/CD</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链路层-switches、LANs、VLANs"><span class="toc-number">6.</span> <span class="toc-text">链路层 switches、LANs、VLANs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机"><span class="toc-number">6.1.</span> <span class="toc-text">交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PPP"><span class="toc-number">7.</span> <span class="toc-text">PPP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">8.</span> <span class="toc-text">问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -572,15 +585,19 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,10 +626,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
