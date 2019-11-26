@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-11-25T02:16:17.228Z</updated>
+  <updated>2019-11-26T12:59:38.909Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -17,11 +17,112 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>计算机网络-链路层</title>
-    <link href="https://xixfeng.github.io/2019/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
-    <id>https://xixfeng.github.io/2019/11/21/计算机网络-链路层/</id>
+    <title>计算机网络（四）-网络层</title>
+    <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89-%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
+    <id>https://xixfeng.github.io/2019/11/26/计算机网络（四）-网络层/</id>
+    <published>2019-11-26T12:56:54.000Z</published>
+    <updated>2019-11-26T12:59:38.909Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Network-Layer&quot;&gt;&lt;a href=&quot;#Network-Layer&quot; class=&quot;headerlink&quot; title=&quot;Network Layer&quot;&gt;&lt;/a&gt;Network Layer&lt;/h1&gt;&lt;p&gt;传输层：程序之间的数据传输&lt;/p&gt;
+&lt;p&gt;网络层：主机之间的数据传输&lt;/p&gt;
+&lt;p&gt;forward：在一个路由器中选择出路&lt;/p&gt;
+&lt;p&gt;routing：在很多路由器中选择一条路&lt;/p&gt;
+&lt;h2 id=&quot;虚电路网络、数据报网络&quot;&gt;&lt;a href=&quot;#虚电路网络、数据报网络&quot; class=&quot;headerlink&quot; title=&quot;虚电路网络、数据报网络&quot;&gt;&lt;/a&gt;虚电路网络、数据报网络&lt;/h2&gt;&lt;p&gt;虚电路：提供面向连接的服务&lt;/p&gt;
+&lt;p&gt;数据报：提供非面向连接的服务&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络（三）-传输层</title>
+    <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
+    <id>https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/</id>
+    <published>2019-11-26T12:56:16.000Z</published>
+    <updated>2019-11-26T12:59:26.322Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Transport-Layer&quot;&gt;&lt;a href=&quot;#Transport-Layer&quot; class=&quot;headerlink&quot; title=&quot;Transport Layer&quot;&gt;&lt;/a&gt;Transport Layer&lt;/h1&gt;&lt;p&gt;网络层负责不同主机之间数据的传输，IP&lt;/p&gt;
+&lt;p&gt;传输层负责不同程序之间数据的传输，Port&lt;/p&gt;
+&lt;h2 id=&quot;Multiplexing-and-demultiplexing&quot;&gt;&lt;a href=&quot;#Multiplexing-and-demultiplexing&quot; class=&quot;headerlink&quot; title=&quot;Multiplexing and demultiplexing&quot;&gt;&lt;/a&gt;Multiplexing and demultiplexing&lt;/h2&gt;&lt;p&gt;多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用&lt;/p&gt;
+&lt;p&gt;多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字&lt;/p&gt;
+&lt;p&gt;多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块，并为每个数据块封装上首部信息从而生成报文段&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络（二）-应用层</title>
+    <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%BA%94%E7%94%A8%E5%B1%82/"/>
+    <id>https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/</id>
+    <published>2019-11-26T12:55:32.000Z</published>
+    <updated>2019-11-26T12:59:20.780Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Application-Layer&quot;&gt;&lt;a href=&quot;#Application-Layer&quot; class=&quot;headerlink&quot; title=&quot;Application Layer&quot;&gt;&lt;/a&gt;Application Layer&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;client-server &lt;/p&gt;
+&lt;p&gt;server farms：cluster，cloud，SPN，LoadBalance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;peer-to-peer (P2P) &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;hybrid of client-server and P2P&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进程间通信：&lt;/p&gt;
+&lt;p&gt;标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;为什么不使用PID作为identifier？因为一个主机中程序的PID每次启动都不相同
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络（一）-介绍</title>
+    <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89-%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://xixfeng.github.io/2019/11/26/计算机网络（一）-介绍/</id>
+    <published>2019-11-26T12:54:38.000Z</published>
+    <updated>2019-11-26T12:58:26.753Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://wps.pearsoned.com/ecs_kurose_compnetw_6/216/55463/14198700.cw/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;自顶向下教程配套的web动画&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Intenet&quot;&gt;&lt;a href=&quot;#Intenet&quot; class=&quot;headerlink&quot; title=&quot;Intenet&quot;&gt;&lt;/a&gt;Intenet&lt;/h2&gt;&lt;p&gt;端系统通过&lt;strong&gt;通信链路（communication link）&lt;/strong&gt;和&lt;strong&gt;分组交换机（packet switch）&lt;/strong&gt;连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做&lt;strong&gt;分组（packet）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;端系统通过&lt;strong&gt;因特网服务提供商（Internet Service Provider，ISP）&lt;/strong&gt;接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组成的网络。&lt;/p&gt;
+&lt;p&gt;端系统、分组交换机和其他因特网部件都要运行一系列&lt;strong&gt;协议（protocal）&lt;/strong&gt;。&lt;strong&gt;TCP（Transmission Control Protocal）和IP（Internet Protocal）&lt;/strong&gt;是因特网中两个最为重要。IP协议定义了在路由器和端系统之间发送和接收的分组格式。&lt;/p&gt;
+&lt;p&gt;分组交换机&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路由器（rooter）：通常用于网络核心中？&lt;/li&gt;
+&lt;li&gt;链路层交换机（link-layer switch）：通常用于接入网中？&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络（五）-链路层</title>
+    <link href="https://xixfeng.github.io/2019/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%94%EF%BC%89-%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+    <id>https://xixfeng.github.io/2019/11/21/计算机网络（五）-链路层/</id>
     <published>2019-11-21T06:16:56.000Z</published>
-    <updated>2019-11-25T02:16:17.228Z</updated>
+    <updated>2019-11-26T12:58:56.943Z</updated>
     
     <summary type="html">
     
@@ -243,34 +344,6 @@
     
     
       <category term="虚拟机" scheme="https://xixfeng.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络</title>
-    <link href="https://xixfeng.github.io/2019/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    <id>https://xixfeng.github.io/2019/09/04/计算机网络/</id>
-    <published>2019-09-04T05:47:06.000Z</published>
-    <updated>2019-11-21T06:16:12.647Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;http://wps.pearsoned.com/ecs_kurose_compnetw_6/216/55463/14198700.cw/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;自顶向下教程配套的web动画&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Intenet&quot;&gt;&lt;a href=&quot;#Intenet&quot; class=&quot;headerlink&quot; title=&quot;Intenet&quot;&gt;&lt;/a&gt;Intenet&lt;/h2&gt;&lt;p&gt;端系统通过&lt;strong&gt;通信链路（communication link）&lt;/strong&gt;和&lt;strong&gt;分组交换机（packet switch）&lt;/strong&gt;连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做&lt;strong&gt;分组（packet）&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;端系统通过&lt;strong&gt;因特网服务提供商（Internet Service Provider，ISP）&lt;/strong&gt;接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组成的网络。&lt;/p&gt;
-&lt;p&gt;端系统、分组交换机和其他因特网部件都要运行一系列&lt;strong&gt;协议（protocal）&lt;/strong&gt;。&lt;strong&gt;TCP（Transmission Control Protocal）和IP（Internet Protocal）&lt;/strong&gt;是因特网中两个最为重要。IP协议定义了在路由器和端系统之间发送和接收的分组格式。&lt;/p&gt;
-&lt;p&gt;分组交换机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;路由器（rooter）：通常用于网络核心中？&lt;/li&gt;
-&lt;li&gt;链路层交换机（link-layer switch）：通常用于接入网中？&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="计算机网络" scheme="https://xixfeng.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -647,80 +720,6 @@ make all
     
       <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>数据挖掘</title>
-    <link href="https://xixfeng.github.io/2018/11/28/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    <id>https://xixfeng.github.io/2018/11/28/数据挖掘/</id>
-    <published>2018-11-28T04:00:38.000Z</published>
-    <updated>2019-09-05T11:30:54.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;数据挖掘-机器学习-大数据之间的关系&quot;&gt;&lt;a href=&quot;#数据挖掘-机器学习-大数据之间的关系&quot; class=&quot;headerlink&quot; title=&quot;数据挖掘 机器学习 大数据之间的关系&quot;&gt;&lt;/a&gt;数据挖掘 机器学习 大数据之间的关系&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;大数据&lt;/strong&gt;是媒体炒热的一个概念：总的来说就是数据量大，结构复杂，数据更新快&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;机器学习&lt;/strong&gt;方法在&lt;strong&gt;大型数据库中的应用&lt;/strong&gt;称为数据挖掘(Data Mining)&lt;/p&gt;
-&lt;h1 id=&quot;数据挖掘&quot;&gt;&lt;a href=&quot;#数据挖掘&quot; class=&quot;headerlink&quot; title=&quot;数据挖掘&quot;&gt;&lt;/a&gt;数据挖掘&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Data_mining&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;数据挖掘&lt;/a&gt;：从大量的数据中获取知识，模式&lt;br&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="数据挖掘" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试</title>
-    <link href="https://xixfeng.github.io/2018/11/20/%E6%B5%8B%E8%AF%95/"/>
-    <id>https://xixfeng.github.io/2018/11/20/测试/</id>
-    <published>2018-11-20T02:37:47.000Z</published>
-    <updated>2019-08-15T05:11:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/62f16cd4fef3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;转自&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;TDD 有三层含义：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Test-Driven Development，测试&lt;strong&gt;驱动&lt;/strong&gt;开发。&lt;/li&gt;
-&lt;li&gt;Task-Driven Development，任务&lt;strong&gt;驱动&lt;/strong&gt;开发，要对问题进行分析并进行任务分解。&lt;/li&gt;
-&lt;li&gt;Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="测试" scheme="https://xixfeng.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github后端架构师技术图谱</title>
-    <link href="https://xixfeng.github.io/2018/11/17/github%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%B8%88%E6%8A%80%E6%9C%AF%E5%9B%BE%E8%B0%B1/"/>
-    <id>https://xixfeng.github.io/2018/11/17/github后端架构师技术图谱/</id>
-    <published>2018-11-17T04:06:28.000Z</published>
-    <updated>2019-08-15T05:12:23.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;压力测试&quot;&gt;&lt;a href=&quot;#压力测试&quot; class=&quot;headerlink&quot; title=&quot;压力测试&quot;&gt;&lt;/a&gt;压力测试&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/blueheart20/article/details/52170790&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;apache ab&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;并发&quot;&gt;&lt;a href=&quot;#并发&quot; class=&quot;headerlink&quot; title=&quot;并发&quot;&gt;&lt;/a&gt;并发&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CL0610/Java-concurrency&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;并发知识合集&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;1.同步、异步：同步方法调用一开始，调用者必须等待被调用的方法结束后，调用者后面的代码才能执行。而异步调用，指的是，调用者不用管被调用方法是否完成，都会继续执行后面的代码。&lt;/p&gt;
-&lt;p&gt;2.并发并行：并发和并行是十分容易混淆的概念。并发指的是多个任务交替进行，而并行则是指真正意义上的“同时进行”。实际上，如果系统内只有一个CPU，而使用多线程时，那么真实系统环境下不能并行，只能通过切换时间片的方式交替进行，而成为并发执行任务。真正的并行也只能出现在拥有多个CPU的系统中。&lt;/p&gt;
-&lt;p&gt;3.阻塞和非阻塞：阻塞和非阻塞通常用来形容多线程间的相互影响，比如一个线程占有了临界区资源，那么其他线程需要这个资源就必须进行等待该资源的释放，会导致等待的线程挂起，这种情况就是阻塞，而非阻塞就恰好相反，它强调没有一个线程可以阻塞其他线程，所有的线程都会尝试地往前运行。&lt;strong&gt;线程能否阻塞其他线程&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;4.临界区&lt;/p&gt;
-&lt;p&gt;临界区用来表示一种公共资源或者说是共享数据，可以被多个线程使用。但是每个线程使用时，一旦临界区资源被一个线程占有，那么其他线程必须等待&lt;br&gt;
-    
-    </summary>
-    
-      <category term="资源" scheme="https://xixfeng.github.io/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-      <category term="后端" scheme="https://xixfeng.github.io/tags/%E5%90%8E%E7%AB%AF/"/>
     
   </entry>
   
