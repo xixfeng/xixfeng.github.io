@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-11-26T12:59:38.909Z</updated>
+  <updated>2019-11-27T02:24:08.189Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>编译原理（二）-语法分析</title>
+    <link href="https://xixfeng.github.io/2019/11/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    <id>https://xixfeng.github.io/2019/11/27/编译原理（二）-语法分析/</id>
+    <published>2019-11-27T00:31:01.000Z</published>
+    <updated>2019-11-27T02:24:08.189Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Syntax-analyzer&quot;&gt;&lt;a href=&quot;#Syntax-analyzer&quot; class=&quot;headerlink&quot; title=&quot;Syntax analyzer&quot;&gt;&lt;/a&gt;Syntax
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="编译原理" scheme="https://xixfeng.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机网络（四）-网络层</title>
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89-%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（四）-网络层/</id>
     <published>2019-11-26T12:56:54.000Z</published>
-    <updated>2019-11-26T12:59:38.909Z</updated>
+    <updated>2019-12-02T01:57:13.368Z</updated>
     
     <summary type="html">
     
@@ -37,6 +63,8 @@
       <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="计算机网络" scheme="https://xixfeng.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
   </entry>
   
   <entry>
@@ -44,7 +72,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/</id>
     <published>2019-11-26T12:56:16.000Z</published>
-    <updated>2019-11-26T12:59:26.322Z</updated>
+    <updated>2019-12-02T03:45:28.029Z</updated>
     
     <summary type="html">
     
@@ -66,7 +94,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%BA%94%E7%94%A8%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/</id>
     <published>2019-11-26T12:55:32.000Z</published>
-    <updated>2019-11-26T12:59:20.780Z</updated>
+    <updated>2019-11-27T08:16:33.338Z</updated>
     
     <summary type="html">
     
@@ -96,7 +124,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89-%E4%BB%8B%E7%BB%8D/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（一）-介绍/</id>
     <published>2019-11-26T12:54:38.000Z</published>
-    <updated>2019-11-26T12:58:26.753Z</updated>
+    <updated>2019-12-02T05:05:24.367Z</updated>
     
     <summary type="html">
     
@@ -115,6 +143,8 @@
       <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="计算机网络" scheme="https://xixfeng.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
   </entry>
   
   <entry>
@@ -122,7 +152,7 @@
     <link href="https://xixfeng.github.io/2019/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%94%EF%BC%89-%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/21/计算机网络（五）-链路层/</id>
     <published>2019-11-21T06:16:56.000Z</published>
-    <updated>2019-11-26T12:58:56.943Z</updated>
+    <updated>2019-11-27T10:53:36.117Z</updated>
     
     <summary type="html">
     
@@ -344,6 +374,35 @@
     
     
       <category term="虚拟机" scheme="https://xixfeng.github.io/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编译原理（一）词法分析</title>
+    <link href="https://xixfeng.github.io/2019/09/04/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    <id>https://xixfeng.github.io/2019/09/04/编译原理（一）词法分析/</id>
+    <published>2019-09-04T00:18:40.000Z</published>
+    <updated>2019-11-27T00:34:26.810Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;introduce&quot;&gt;&lt;a href=&quot;#introduce&quot; class=&quot;headerlink&quot; title=&quot;introduce&quot;&gt;&lt;/a&gt;introduce&lt;/h1&gt;&lt;p&gt;两个主要策略&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;intercepter 解释器  python&lt;/li&gt;
+&lt;li&gt;compiler 编译器 C&lt;/li&gt;
+&lt;li&gt;编译器与解释器相比做了更多的预处理&lt;/li&gt;
+&lt;li&gt;二者都使用 java&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码&lt;/p&gt;
+&lt;p&gt;步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler 编译+汇编)→ 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/gt1025814447/article/details/80442673&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gcc编译过程&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="编译原理" scheme="https://xixfeng.github.io/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"/>
     
   </entry>
   
@@ -667,59 +726,6 @@ make all
     
     
       <category term="操作系统" scheme="https://xixfeng.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库</title>
-    <link href="https://xixfeng.github.io/2019/06/01/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>https://xixfeng.github.io/2019/06/01/数据库/</id>
-    <published>2019-06-01T15:42:08.000Z</published>
-    <updated>2019-10-31T12:43:21.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;数据库&quot;&gt;&lt;a href=&quot;#数据库&quot; class=&quot;headerlink&quot; title=&quot;数据库&quot;&gt;&lt;/a&gt;数据库&lt;/h1&gt;&lt;p&gt;三大范式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一范式（1NF）：字段（列）不可再分&lt;/li&gt;
-&lt;li&gt;第二范式（2NF）：满足1NF,非主属性完全依赖于候选键&lt;/li&gt;
-&lt;li&gt;第三范式（3NF）：满足2NF,非主属性对候选键没有传递依赖&lt;/li&gt;
-&lt;li&gt;BCNF：满足3NF，且所有函数依赖对左边都有候选键&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;五大约束&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;primary KEY：设置主键&lt;/li&gt;
-&lt;li&gt;NOT NULL：不为NULL&lt;/li&gt;
-&lt;li&gt;FOREIGN key：设置外键约束&lt;/li&gt;
-&lt;li&gt;unique：设计唯一性约束&lt;/li&gt;
-&lt;li&gt;default：默认
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="数据库" scheme="https://xixfeng.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习</title>
-    <link href="https://xixfeng.github.io/2018/12/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://xixfeng.github.io/2018/12/02/机器学习/</id>
-    <published>2018-12-02T07:49:28.000Z</published>
-    <updated>2019-08-15T05:11:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;机器学习定义&quot;&gt;&lt;a href=&quot;#机器学习定义&quot; class=&quot;headerlink&quot; title=&quot;机器学习定义&quot;&gt;&lt;/a&gt;机器学习定义&lt;/h1&gt;&lt;p&gt;definete：A computer program is said to learn from experience E with respect to some task T and some performance measureP, if its performance onT, as measured by P, improves with experienceE&lt;/p&gt;
-&lt;p&gt;例如在象棋机器学习中，E就是下象棋的过程，T就是获得胜利，P就是下一次与人下棋时，胜利的概率&lt;/p&gt;
-&lt;p&gt;邮件分类中，E就是我们把某一个邮件归结为辣鸡，T就是把邮件分类，P就是下一次遇到新邮件时，成功归类的概率&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
     
   </entry>
   

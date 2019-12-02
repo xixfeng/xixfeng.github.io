@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
-<meta property="og:updated_time" content="2019-11-26T12:58:26.753Z">
+<meta property="og:updated_time" content="2019-12-02T05:05:24.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（一）-介绍">
 <meta name="twitter:description" content="Introduction自顶向下教程配套的web动画 Intenet端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机">
@@ -234,7 +234,7 @@ circuit-switched network?
 </tr>
 <tr>
 <td>propagation delay</td>
-<td>传输延迟</td>
+<td>传播延迟</td>
 <td>d/r</td>
 <td>d：节点之间的路径，r：传输速度</td>
 </tr>
@@ -273,8 +273,48 @@ circuit-switched network?
 <p>处理物理层，其他层都拥有 PDU (protocol data unit) </p>
 <p>❑ Data + header = PDU (Protocol Data Unit)</p>
 <p><img src="http://api.xixfeng.cn/mweb/Overview.jpg" alt="Overview"></p>
-<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><p>不考VLAN</p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><u><strong>text book</strong></u></p>
+<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><p>不考</p>
+<ul>
+<li>VLAN</li>
+<li>广播、主播（除广播地址）</li>
+<li>链路层虚拟化</li>
+</ul>
+<p>考</p>
+<ul>
+<li>谁用了FDM技术（接入网）</li>
+<li>四个delay（不会考queue delay）</li>
+</ul>
+<p>线路交换、分组交换；数据报网络、虚电路网络</p>
+<pre><code>1. In ( ) networks, the resources needed along a path to provide for communication between the end system are reserved for the duration of the communication session.
+
+A packet-switched
+
+B data-switched
+
+C circuit-switched
+
+D message-switched
+
+2. In ( ) networks, the resources are not reserved; a session’s messages use the resources on demand, and as a consequence, may have to wait for access to communication link.
+
+A packet-switched
+
+B data-switched
+
+C circuit-switched
+
+D message-switched
+
+3.The network that forwards packets according to host destination addresses is called ( ) network.
+
+A circuit-switched
+
+B packet-switched
+
+C virtual-circuit
+
+D datagram
+</code></pre><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><u><strong>text book</strong></u></p>
 <ul>
 <li>Computer Networking: A Top Down Approach Featuring the Internet,计算机网络（自顶向下方法)</li>
 <li>TCP/IP 详解 (vol.1-vol.3)</li>
@@ -351,6 +391,30 @@ circuit-switched network?
 <tr>
 <td>residential</td>
 <td>住宅</td>
+</tr>
+<tr>
+<td>copper wire</td>
+<td>铜线</td>
+</tr>
+<tr>
+<td>coaxial cable</td>
+<td>同轴电缆</td>
+</tr>
+<tr>
+<td>fiber optics</td>
+<td>光纤</td>
+</tr>
+<tr>
+<td>iterated</td>
+<td>迭代</td>
+</tr>
+<tr>
+<td>recursion</td>
+<td>递归</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -608,6 +672,10 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
@@ -616,11 +684,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
