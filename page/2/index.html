@@ -141,6 +141,149 @@
             
   
     
+      <article id="post-mac完成SSD6 exercise1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/12/mac完成SSD6 exercise1/">mac完成SSD6 exercise1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/12/mac完成SSD6 exercise1/" class="archive-article-date">
+  	<time datetime="2019-10-12T00:18:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="C程序函数调用栈"><a href="#C程序函数调用栈" class="headerlink" title="C程序函数调用栈"></a>C程序函数调用栈</h1><p><u><strong>函数调用相关寄存器</strong></u></p>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Callee Save</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%rax</td>
+<td></td>
+<td>结果寄存器</td>
+</tr>
+<tr>
+<td>%rbx</td>
+<td>yes</td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td>%rcx</td>
+<td></td>
+<td>第四参数寄存器</td>
+</tr>
+<tr>
+<td>%rdx</td>
+<td></td>
+<td>第三参数寄存器</td>
+</tr>
+<tr>
+<td>%rsp</td>
+<td></td>
+<td>指向栈顶位置</td>
+</tr>
+<tr>
+<td>%rpb</td>
+<td>yes</td>
+<td>用于标识当前栈帧的起始位置</td>
+</tr>
+<tr>
+<td>%rsi</td>
+<td></td>
+<td>第二参数寄存器</td>
+</tr>
+<tr>
+<td>%rdi</td>
+<td></td>
+<td>第一参数寄存器</td>
+</tr>
+<tr>
+<td>%r8</td>
+<td></td>
+<td>第五参数寄存器</td>
+</tr>
+<tr>
+<td>%r9</td>
+<td></td>
+<td>第六参数寄存器</td>
+</tr>
+<tr>
+<td>%r10-r11</td>
+<td></td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td>%r12-%r15</td>
+<td>yes</td>
+<td>多功能寄存器</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复</p>
+          
+            <a class="article-more-a" href="/2019/10/12/mac完成SSD6 exercise1/#more">more >></a>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/12/mac完成SSD6 exercise1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-java虚拟机方法调用-分派" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -834,88 +977,6 @@ make all
   
     
   
-    
-      <article id="post-操作系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/13/操作系统/">操作系统</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/13/操作系统/" class="archive-article-date">
-  	<time datetime="2019-06-13T07:33:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="计算机组成"><a href="#计算机组成" class="headerlink" title="计算机组成"></a>计算机组成</h1><ul>
-<li>处理器(CPU)：控制计算机的操作，执行数据处理功能</li>
-<li>内存(memory)：存储数据和程序</li>
-<li>输入/输出模块(I/O modules)：在计算机与外部环境之间移动数据</li>
-<li>系统总线：在处理器、内存和输入/输出模块间提供通信的设施</li>
-</ul>
-<h1 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h1><p>操作系统:控制应用程序执行的程序，是应用程序与计算机硬件之间的接口，负责管理计算机硬件和软件资源<br>目标：</p>
-<ul>
-<li>方便</li>
-<li>有效</li>
-<li>扩展能力<br>主要成就:</li>
-<li>进程</li>
-<li>调度和资源管理</li>
-<li>内存管理</li>
-<li>信息保护和安全</li>
-</ul>
-          
-            <a class="article-more-a" href="/2019/06/13/操作系统/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/13/操作系统/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1035,11 +1096,11 @@ make all
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-12-02T09:29:13.383Z</updated>
+  <updated>2019-12-02T10:27:54.700Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机网络-考试资料</title>
+    <link href="https://xixfeng.github.io/2019/12/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%80%83%E8%AF%95%E8%B5%84%E6%96%99/"/>
+    <id>https://xixfeng.github.io/2019/12/02/计算机网络-考试资料/</id>
+    <published>2019-12-02T10:22:47.000Z</published>
+    <updated>2019-12-02T10:27:54.700Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://pan.baidu.com/s/1sYaAdyMFX-yraKsCTXbYcQ&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="计算机网络" scheme="https://xixfeng.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>编译原理（二）-语法分析</title>
@@ -60,7 +86,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89-%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（四）-网络层/</id>
     <published>2019-11-26T12:56:54.000Z</published>
-    <updated>2019-12-02T01:57:13.368Z</updated>
+    <updated>2019-12-02T09:51:59.990Z</updated>
     
     <summary type="html">
     
@@ -109,7 +135,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%BA%94%E7%94%A8%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/</id>
     <published>2019-11-26T12:55:32.000Z</published>
-    <updated>2019-12-02T09:29:55.257Z</updated>
+    <updated>2019-12-02T09:35:18.471Z</updated>
     
     <summary type="html">
     
@@ -141,7 +167,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89-%E4%BB%8B%E7%BB%8D/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（一）-介绍/</id>
     <published>2019-11-26T12:54:38.000Z</published>
-    <updated>2019-12-02T05:05:24.367Z</updated>
+    <updated>2019-12-02T10:05:10.398Z</updated>
     
     <summary type="html">
     
@@ -708,41 +734,6 @@ make all
     
       <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>操作系统</title>
-    <link href="https://xixfeng.github.io/2019/06/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://xixfeng.github.io/2019/06/13/操作系统/</id>
-    <published>2019-06-13T07:33:33.000Z</published>
-    <updated>2019-08-15T05:10:36.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;计算机组成&quot;&gt;&lt;a href=&quot;#计算机组成&quot; class=&quot;headerlink&quot; title=&quot;计算机组成&quot;&gt;&lt;/a&gt;计算机组成&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;处理器(CPU)：控制计算机的操作，执行数据处理功能&lt;/li&gt;
-&lt;li&gt;内存(memory)：存储数据和程序&lt;/li&gt;
-&lt;li&gt;输入/输出模块(I/O modules)：在计算机与外部环境之间移动数据&lt;/li&gt;
-&lt;li&gt;系统总线：在处理器、内存和输入/输出模块间提供通信的设施&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h1&gt;&lt;p&gt;操作系统:控制应用程序执行的程序，是应用程序与计算机硬件之间的接口，负责管理计算机硬件和软件资源&lt;br&gt;目标：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;方便&lt;/li&gt;
-&lt;li&gt;有效&lt;/li&gt;
-&lt;li&gt;扩展能力&lt;br&gt;主要成就:&lt;/li&gt;
-&lt;li&gt;进程&lt;/li&gt;
-&lt;li&gt;调度和资源管理&lt;/li&gt;
-&lt;li&gt;内存管理&lt;/li&gt;
-&lt;li&gt;信息保护和安全&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="操作系统" scheme="https://xixfeng.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
