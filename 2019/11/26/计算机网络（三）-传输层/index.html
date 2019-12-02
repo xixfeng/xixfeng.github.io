@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>计算机网络（三）-传输层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
+  <meta name="description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络（三）-传输层">
 <meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
+<meta property="og:description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-12-02T09:30:01.714Z">
+<meta property="og:updated_time" content="2019-12-02T11:05:41.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（三）-传输层">
-<meta name="twitter:description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
+<meta name="twitter:description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -169,7 +169,7 @@
         
           <h1 id="Transport-Layer"><a href="#Transport-Layer" class="headerlink" title="Transport Layer"></a>Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
 <p>传输层负责不同程序之间数据的传输，Port</p>
-<h2 id="Multiplexing-and-demultiplexing"><a href="#Multiplexing-and-demultiplexing" class="headerlink" title="Multiplexing and demultiplexing"></a>Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在UDP中使用？NO，UDP也会使用</p>
+<h2 id="Multiplexing-and-demultiplexing"><a href="#Multiplexing-and-demultiplexing" class="headerlink" title="Multiplexing and demultiplexing"></a>Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用</p>
 <p>多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字</p>
 <p>多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块，并为每个数据块封装上首部信息从而生成报文段</p>
 <a id="more"></a>
@@ -600,8 +600,8 @@ var gitment = new Gitment({
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {
-    client_id: '7f6c48650bead98652ca',
-    client_secret: '905474ed7e3f0137e5d16ad858012880b9ef767a',
+    client_id: '7c460f8eee43a63b8d5e',
+    client_secret: '2720bbbbe8232a44640e33dbc8495df207e77d5e',
   },
 })
 gitment.render('gitment-ctn')

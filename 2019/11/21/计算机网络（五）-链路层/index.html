@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-27T10:53:36.117Z">
+<meta property="og:updated_time" content="2019-12-02T10:39:29.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（五）-链路层">
 <meta name="twitter:description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
@@ -374,7 +374,23 @@
 <li>⚠️CSMA/CD</li>
 <li>router、switch、hub、repeater、bridge</li>
 </ul>
-
+<pre><code>Consider the data D is 01110010001, if use even parity checking approach, the parity bit is( ① ), if use odd parity checking approach, the parity bit is( ② ). ( D )  
+A. ①  0  ②  1                            B. ①  0  ②  0
+C. ①  1  ②  1                            D. ①  1  ②  0
+</code></pre><pre><code>In the following four descriptions, which one is not correct? ( B )
+A. Switches can interconnect different LAN technologies.
+B. Hubs can interconnect different LAN technologies.
+C. There is no limit to how large a LAN can be when switches are used to interconnect LAN segments. 隔离了冲突域
+D. There is restriction on the maximum allowable number of nodes in a collision domain when hubs are used to interconnect LAN segments. 无法隔离冲突域
+</code></pre><pre><code> When two or more nodes on the LAN segments transmit at the same time, there will be a collision and all of the transmitting nodes well enter exponential back-off, that is all of the LAN segments belong to the same( A ). 当局域网段上的两个或多个节点同时传输时，会发生冲突，所有的传输节点都会进入指数退避，即所有的局域网段都属于同一个局域网段
+A. collision domain                        B. switch
+C. bridge                                D. hub
+</code></pre><pre><code>In the following four descriptions about PPP, which one is not correct? ( A )
+A. PPP is required to detect and correct errors. 没有纠错功能
+B. PPP is not required to deliver frames to the link receiver in the same order in which they were sent by the link sender.
+C. PPP need only operate over links that have a single sender and a single receiver.
+D. PPP is not required to provide flow control.
+</code></pre>
         
 
       
@@ -512,8 +528,8 @@ var gitment = new Gitment({
   owner: 'xixfeng',
   repo: 'xixfeng_blog',
   oauth: {
-    client_id: '7f6c48650bead98652ca',
-    client_secret: '905474ed7e3f0137e5d16ad858012880b9ef767a',
+    client_id: '7c460f8eee43a63b8d5e',
+    client_secret: '2720bbbbe8232a44640e33dbc8495df207e77d5e',
   },
 })
 gitment.render('gitment-ctn')
