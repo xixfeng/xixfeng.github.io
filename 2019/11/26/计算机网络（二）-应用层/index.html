@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>计算机网络（二）-应用层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使用PI">
+  <meta name="description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络（二）-应用层">
 <meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使用PI">
+<meta property="og:description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
-<meta property="og:updated_time" content="2019-12-02T09:35:18.471Z">
+<meta property="og:updated_time" content="2019-12-03T00:49:39.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（二）-应用层">
-<meta name="twitter:description" content="Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使用PI">
+<meta name="twitter:description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -166,7 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="Application-Layer"><a href="#Application-Layer" class="headerlink" title="Application Layer"></a>Application Layer</h1><ul>
+          <h1 id="1-Application-Layer"><a href="#1-Application-Layer" class="headerlink" title="1. Application Layer"></a>1. Application Layer</h1><ul>
 <li><p>client-server </p>
 <p>server farms：cluster，cloud，SPN，LoadBalance</p>
 </li>
@@ -179,7 +179,7 @@
 <p>标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port）</p>
 <pre><code>为什么不使用PID作为identifier？因为一个主机中程序的PID每次启动都不相同
 </code></pre><a id="more"></a>
-<h2 id="Web-and-HTTP"><a href="#Web-and-HTTP" class="headerlink" title="Web and HTTP"></a>Web and HTTP</h2><p><u><strong>HTTP</strong></u></p>
+<h2 id="1-1-Web-and-HTTP"><a href="#1-1-Web-and-HTTP" class="headerlink" title="1.1 Web and HTTP"></a>1.1 Web and HTTP</h2><p><u><strong>HTTP</strong></u></p>
 <p>HTTP is “stateless”<br>无状态：指每次的请求都是独立的，它的<strong>执行情况</strong>和结果与前面的请求和之后的请求是<strong>无直接关系</strong>的，它不会受前面的请求应答情况直接影响，也不会直接影响后面的请求应答情况<br>连接过程</p>
 <ol>
 <li>client initiates TCP connection (creates socket) to server, port 80</li>
@@ -209,9 +209,9 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 <p>客户端向代理服务器发送请求，假如代理服务器已缓存该内容而直接返回。如果没有缓存则向后面的服务器请求，再转发给客户端</p>
 <p><strong>Condition GET</strong> cache 和server之间</p>
 <p>If-Modified-Since：如果文件没有被修改，不要发送数据 don’t send object if cache has up-to-date cached version</p>
-<h2 id="some-protocal"><a href="#some-protocal" class="headerlink" title="some protocal"></a>some protocal</h2><p><strong><u>FTP</u></strong></p>
+<h2 id="1-2-some-protocal"><a href="#1-2-some-protocal" class="headerlink" title="1.2 some protocal"></a>1.2 some protocal</h2><p><strong><u>FTP</u></strong></p>
 <p>The File Transfer protocal</p>
-<p>control connection: “out of band”：传输信息和控制信息分别位于两个不同的TCP上</p>
+<p>control connection: “out of band”：传输信息和控制信息分别位于两个不同的TCP上，带外传输</p>
 <p><u><strong>Electronic Mail</strong></u></p>
 <p><strong>SMTP</strong> （user agent -&gt; sender’s mail server，sender’s mail server -&gt; sender’s mail server）</p>
 <ul>
@@ -221,7 +221,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </ul>
 <p>SMTP uses TCP to reliably transfer email message from client to server, port 25</p>
 <p><strong>POP3、IMAP、HTTP</strong>（sender’s mail server -&gt; user agent）</p>
-<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p><a href="https://www.cnblogs.com/xiaogan/p/5954678.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaogan/p/5954678.html</a></p>
+<h2 id="1-3-DNS"><a href="#1-3-DNS" class="headerlink" title="1.3 DNS"></a>1.3 DNS</h2><p><a href="https://www.cnblogs.com/xiaogan/p/5954678.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaogan/p/5954678.html</a></p>
 <p>Domain Name System：域名系统</p>
 <p>作用</p>
 <ul>
@@ -238,7 +238,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </ul>
 <p><strong>DNS服务器</strong></p>
 <ul>
-<li><p>Root name servers 根名字服务器：</p>
+<li><p>Root name servers 根域名服务器：</p>
 <p>contacted by local name server that can not resolve name</p>
 <p>gets mapping</p>
 <p>returns mapping to local name server</p>
@@ -252,7 +252,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 </ul>
 <p><strong>两种查询方式</strong></p>
 <p>迭代查询：现代基本上都是迭代查询，假如Local Name Server知道该域名的映射直接访问，反之则向Root name servers 请求，依次向下请求</p>
-<p>递归查询：Local Name Server -&gt; Root name servers -&gt; 。。。</p>
+<p>递归查询：Local Name Server -&gt; Root name servers -&gt; Top-level domain (TLD) servers -&gt; Authoritative DNS servers</p>
 <p><strong>DNS records</strong></p>
 <p>RR format：name，value，type，ttl</p>
 <p>type</p>
@@ -263,7 +263,7 @@ d 保持HTTP，有流水线：3RTT 2 + 1
 <p>假如我注册域名xixfeng.cn，则需要在.cn顶级域名服务器上注册两个RR</p>
 <pre><code>xixfeng.cn，dns1.networkxixfeng.com，NS
 dns1.networkxixfeng.com，212.212.212.1，A
-</code></pre><h2 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h2><p>详细内容在课件 2-75</p>
+</code></pre><h2 id="1-4-P2P"><a href="#1-4-P2P" class="headerlink" title="1.4 P2P"></a>1.4 P2P</h2><p>详细内容在课件 2-75</p>
 <p>自顶向下课本P93</p>
 <p><u><strong>P2P</strong></u></p>
 <p><strong>文件分布式存储</strong></p>
@@ -294,7 +294,7 @@ dns1.networkxixfeng.com，212.212.212.1，A
 <li><p>智能合约：一个节点的所有操作都会被记录下来</p>
 </li>
 </ul>
-<h2 id="Socket-programming-with-TCP"><a href="#Socket-programming-with-TCP" class="headerlink" title="Socket programming with TCP"></a>Socket programming with TCP</h2><p><u>socket是基于TCP或者UDP的</u></p>
+<h2 id="1-5-Socket-programming-with-TCP"><a href="#1-5-Socket-programming-with-TCP" class="headerlink" title="1.5 Socket programming with TCP"></a>1.5 Socket programming with TCP</h2><p><u>socket是基于TCP或者UDP的</u></p>
 <p><img src="http://api.xixfeng.cn/mweb/Application Layer.jpg" alt="Application Layer"></p>
 <h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ul>
 <li>应用层协议使用UDP还是TCP</li>
@@ -415,7 +415,7 @@ C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-number">1.</span> <span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web-and-HTTP"><span class="toc-number">1.1.</span> <span class="toc-text">Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#some-protocal"><span class="toc-number">1.2.</span> <span class="toc-text">some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-number">1.3.</span> <span class="toc-text">DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P2P"><span class="toc-number">1.4.</span> <span class="toc-text">P2P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket-programming-with-TCP"><span class="toc-number">1.5.</span> <span class="toc-text">Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Application-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Web-and-HTTP"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-some-protocal"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-DNS"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-P2P"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 P2P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Socket-programming-with-TCP"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
                     </div>
                 </span>
             </div>

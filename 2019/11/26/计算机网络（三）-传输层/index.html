@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>计算机网络（三）-传输层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
+  <meta name="description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络（三）-传输层">
 <meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
+<meta property="og:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-12-02T11:05:41.886Z">
+<meta property="og:updated_time" content="2019-12-03T01:24:24.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（三）-传输层">
-<meta name="twitter:description" content="Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块">
+<meta name="twitter:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -167,9 +167,9 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="Transport-Layer"><a href="#Transport-Layer" class="headerlink" title="Transport Layer"></a>Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
+          <h1 id="1-Transport-Layer"><a href="#1-Transport-Layer" class="headerlink" title="1. Transport Layer"></a>1. Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
 <p>传输层负责不同程序之间数据的传输，Port</p>
-<h2 id="Multiplexing-and-demultiplexing"><a href="#Multiplexing-and-demultiplexing" class="headerlink" title="Multiplexing and demultiplexing"></a>Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用</p>
+<h2 id="1-1-Multiplexing-and-demultiplexing"><a href="#1-1-Multiplexing-and-demultiplexing" class="headerlink" title="1.1 Multiplexing and demultiplexing"></a>1.1 Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用</p>
 <p>多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字</p>
 <p>多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块，并为每个数据块封装上首部信息从而生成报文段</p>
 <a id="more"></a>
@@ -189,13 +189,13 @@
 <li><p>D_IP</p>
 </li>
 </ul>
-<h2 id="Connectionless-transport-UDP"><a href="#Connectionless-transport-UDP" class="headerlink" title="Connectionless transport: UDP"></a>Connectionless transport: UDP</h2><p>用户数据报协议 UDP（User Datagram protocol）</p>
+<h2 id="1-2-Connectionless-transport-UDP"><a href="#1-2-Connectionless-transport-UDP" class="headerlink" title="1.2 Connectionless transport: UDP"></a>1.2 Connectionless transport: UDP</h2><p>用户数据报协议 UDP（User Datagram protocol）</p>
 <p>优点</p>
 <ul>
 <li>无连接</li>
 <li>简单</li>
 <li>报文头简单</li>
-<li>无网络拥塞</li>
+<li>无网络拥塞控制</li>
 </ul>
 <p>缺点</p>
 <ul>
@@ -221,14 +221,14 @@
 1011 0101 0011 1101 == checksum
 
 接收方将checksum与报文段所有16位比特相加，结果不为1111111111111111则发生传输错误
-</code></pre><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>rdt1.0：没有位错误，没有分组丢失</p>
+</code></pre><h2 id="1-3-引入"><a href="#1-3-引入" class="headerlink" title="1.3 引入"></a>1.3 引入</h2><p>rdt1.0：没有位错误，没有分组丢失</p>
 <p>rdt2.0：有位错误，没有分组丢失</p>
 <p>rdt3.0：有位错误，有分组丢失</p>
 <ul>
 <li>rdt3.0效率十分的低，因为它是一个停止等待的协议</li>
 </ul>
 <p>希望通过<u><strong>流水线</strong></u>方式提高效率（pipeline），由此诞生了GBN和SR算法</p>
-<h2 id="Go-back-N算法："><a href="#Go-back-N算法：" class="headerlink" title="Go-back-N算法："></a>Go-back-N算法：</h2><p>只有超时会引起重发</p>
+<h2 id="1-4-Go-back-N算法："><a href="#1-4-Go-back-N算法：" class="headerlink" title="1.4 Go-back-N算法："></a>1.4 Go-back-N算法：</h2><p>只有超时会引起重发</p>
 <p>发送方</p>
 <ul>
 <li>如果下一个seq在window里面，则发送</li>
@@ -236,12 +236,12 @@
 <li>当收到任意一个段，重置计时器</li>
 <li>如果window最左边的段被ack，移动窗口</li>
 </ul>
-<p>⚠️：如果收到的段大于目前未确认的最小段，则确认这个最小段。比如最小未被确认的为5，但是收到一个6，则将5和6都设置为确认</p>
+<p>⚠️：如果收到的包大于目前未确认的最小包，则确认这个包以及之前的包。比如最小未被确认的为5，但是收到一个6，则将5和6都设置为确认</p>
 <p>接收方</p>
 <ul>
 <li>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包和第5个包，第4个包失败了就会返回ACK3</li>
 </ul>
-<h2 id="Selective-Repeat算法"><a href="#Selective-Repeat算法" class="headerlink" title="Selective Repeat算法"></a>Selective Repeat算法</h2><p>发送方</p>
+<h2 id="1-5-Selective-Repeat算法"><a href="#1-5-Selective-Repeat算法" class="headerlink" title="1.5 Selective Repeat算法"></a>1.5 Selective Repeat算法</h2><p>发送方</p>
 <ul>
 <li>如果下一个seq在window里面，则发送</li>
 <li>为所有段设置定时器，n计时器超时，重发n</li>
@@ -262,10 +262,40 @@
 <ul>
 <li>忽略</li>
 </ul>
-<h2 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h2><p>SR算法，会为每一个段设置定时器，但是TCP只会设置一个计时器（发送最老未被确认的段）</p>
-<p>GBN的接收方会发送最老的未被确认的段、SR则只会确认自己接受到的段。</p>
-<p>GBN和SR的区别就是发送方计时器到达后处理方式不同、接收方返回ACK逻辑不同</p>
-<h3 id="TCP性质与结构"><a href="#TCP性质与结构" class="headerlink" title="TCP性质与结构"></a>TCP性质与结构</h3><p>任何internet应用必然需要使用TCP、UDP中一种</p>
+<h2 id="1-6-TCP"><a href="#1-6-TCP" class="headerlink" title="1.6 TCP"></a>1.6 TCP</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>GBN</th>
+<th>SR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计时器</td>
+<td>一个，超时后发送最老未被确认的包</td>
+<td>一个，超时后发送最老未被确认的包及其之后的包（在发送窗口中）</td>
+<td>每一个未被确认的包都有一个计时器，计时器超时后发送对应包</td>
+</tr>
+<tr>
+<td>发送端</td>
+<td>记录乱序到达的ack</td>
+<td>收到ack后，确认该包及其之前未被确认的包（因为接收方不会接受乱序包，所以可以这样做）</td>
+<td>记录乱序到达的ack</td>
+</tr>
+<tr>
+<td>接收端</td>
+<td>根据实现判断是否缓存乱序包，但是一定会立马返回之前最新确认的包（配合发送方的三次重传）</td>
+<td>丢弃乱序包</td>
+<td>缓存乱序包，发送该包ack</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>以上说的ack，与TCP中的ack不同，指的是被确认的包</li>
+</ul>
+<h3 id="1-6-1-TCP性质与结构"><a href="#1-6-1-TCP性质与结构" class="headerlink" title="1.6.1 TCP性质与结构"></a>1.6.1 TCP性质与结构</h3><p>任何internet应用必然需要使用TCP、UDP中一种</p>
 <p><u><strong>TCP</strong></u></p>
 <p>面向连接的可靠数据传输，带有流量控制、拥塞控制</p>
 <ul>
@@ -275,7 +305,7 @@
 <li><p>拥塞控制（congestion control）: throttle sender when network overloaded ，避免中间节点出现拥塞</p>
 </li>
 <li><p>全双工</p>
-<p>MSS: maximum segment size，因为链路层不同而导致最大段大小不同</p>
+<p>MSS: maximum segment size，因为链路层不同（MTU）而导致最大段大小不同。MSS指包内容大小，所以其实是限制了应用层的包大小（内容+头）</p>
 </li>
 <li><p>不提供: timing, minimum throughput guarantees, security</p>
 </li>
@@ -303,7 +333,12 @@
 <li>要比RTT长</li>
 <li>不能太长不能太短</li>
 </ul>
-<p>TCP-可靠的传输</p>
+<pre><code>Provided α=0.125, current value of Estimated-RTT is 0.4s, Sample-RTT is 0.8s, then the new value of Estimated-RTT is __A__s. EstimatedRTT = (1- )*EstimatedRTT + *SampleRTT
+A. 0.45
+B. 0.6
+C. 0.7
+D. 0.8
+</code></pre><p>TCP-可靠的传输</p>
 <ul>
 <li><p>TCP creates rdt service on top of IP’s unreliable service</p>
 </li>
@@ -318,14 +353,14 @@
 <p>duplicate acks 重复的ack返回</p>
 </li>
 </ul>
-<h3 id="TCP发送端、接收端"><a href="#TCP发送端、接收端" class="headerlink" title="TCP发送端、接收端"></a>TCP发送端、接收端</h3><p><u><strong>TCP 发送端事项</strong></u></p>
+<h3 id="1-6-2-TCP发送端、接收端"><a href="#1-6-2-TCP发送端、接收端" class="headerlink" title="1.6.2 TCP发送端、接收端"></a>1.6.2 TCP发送端、接收端</h3><p><u><strong>TCP 发送端事项</strong></u></p>
 <p>TCP只有一个计时器</p>
 <p>初始化</p>
 <ul>
 <li>创建seq，并发送</li>
-<li>如果没有启动计时器则启动，⚠️当超时后，发送最老的未被确认（unacked）段</li>
+<li>如果没有启动计时器则启动，</li>
 </ul>
-<p>超时</p>
+<p>⚠️超时</p>
 <ul>
 <li>发送最老的未被确认（unacked）段</li>
 <li>重新启动计时器</li>
@@ -333,7 +368,7 @@
 <p>确认了未确认的字段</p>
 <ul>
 <li>更新发送方的确认字段</li>
-<li>如果有未被确认的字段，启动计时器</li>
+<li>如果有未被确认的字段，<strong>重启</strong>计时器</li>
 </ul>
 <p>⚠️快速重发</p>
 <p>当接收到三次相同的ACK后（说明发送端某一个段丢失，比如1、2、3、4， 1丢失了会重复收到3个1），会重新发送接收方想要的seq</p>
@@ -368,14 +403,14 @@
 <p>Q：接收方如何处理乱序到达的segement？</p>
 <p>这个TCP规范里面没有规定，有TCP的实现者决定</p>
 </blockquote>
-<p>TCP 流控制</p>
+<h3 id="1-6-3-TCP三次握手"><a href="#1-6-3-TCP三次握手" class="headerlink" title="1.6.3 TCP三次握手"></a>1.6.3 TCP三次握手</h3><p><a href="https://www.jianshu.com/p/cd379b79b9be" target="_blank" rel="noopener">【TCP/IP】三次握手过程及原因</a></p>
+<h3 id="1-6-4-TCP流控"><a href="#1-6-4-TCP流控" class="headerlink" title="1.6.4 TCP流控"></a>1.6.4 TCP流控</h3><p>TCP 流控制</p>
 <p>由于接收端的app从buffer读的速度会比较慢，所以接收端buffer可能会装满溢出</p>
 <p>所以在TCP的控制信息中有一个 Receive window 字段，标示buffer还能接受的字节大小</p>
 <p>当buffer充满时，可能会发生愚笨窗口综合症。</p>
-<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><a href="https://www.jianshu.com/p/cd379b79b9be" target="_blank" rel="noopener">【TCP/IP】三次握手过程及原因</a></p>
-<h3 id="TCP流控"><a href="#TCP流控" class="headerlink" title="TCP流控"></a>TCP流控</h3><p>RecWindow = RecBuffer - [lastbyteRec - lastbyteRead]，⚠️这里的RecWindow不是接收方确认接收顺序的那个window</p>
+<p>RecWindow = RecBuffer - [lastbyteRec - lastbyteRead]，⚠️这里的RecWindow不是接收方确认接收顺序的那个window</p>
 <p><img src="http://api.xixfeng.cn/mweb/15752582144089.jpg" alt></p>
-<h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>拥塞的原因</p>
+<h3 id="1-6-5-TCP拥塞控制"><a href="#1-6-5-TCP拥塞控制" class="headerlink" title="1.6.5 TCP拥塞控制"></a>1.6.5 TCP拥塞控制</h3><p>拥塞的原因</p>
 <ul>
 <li>路由的buffer有限</li>
 <li>sender不知道路由的buffer情况</li>
@@ -405,13 +440,24 @@
 <p><strong>cwnd的状态转换</strong></p>
 <p>cwnd每次收到ACK后增长</p>
 <ul>
-<li>当重复收到3个ack后，cwnd减半+3；cwnd变为线性增长；记录ssthresh=cwnd/2</li>
-<li>当计时器到达时，cwnd变为1；cwnd变为几何增长；记录ssthresh=cwnd/2；当达到ssthresh后，cwnd变为线性增长</li>
+<li>当重复收到3个ack后<ul>
+<li>记录ssthresh=cwnd/2</li>
+<li>cwnd减半+3</li>
+<li>cwnd变为线性增长</li>
+</ul>
+</li>
+<li>当计时器到达时<ul>
+<li>记录ssthresh=cwnd/2</li>
+<li>cwnd变为1</li>
+<li>cwnd变为几何增长</li>
+<li>当达到ssthresh后，cwnd变为线性增长</li>
+</ul>
+</li>
 </ul>
 <p>问题：几何增长能不能超过ssthresh？不能</p>
 <p>3个ack过后，窗口减半会不会加3？会加3</p>
 <p>超时和三次ACK都会引起ssthresh等于cwnd一半</p>
-<h3 id="TCP-习题"><a href="#TCP-习题" class="headerlink" title="TCP 习题"></a>TCP 习题</h3><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
+<h3 id="1-6-6-TCP-习题"><a href="#1-6-6-TCP-习题" class="headerlink" title="1.6.6 TCP 习题"></a>1.6.6 TCP 习题</h3><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
 <h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ul>
 <li>什么是多路分解、多路复用</li>
 <li>UDP</li>
@@ -571,7 +617,7 @@ D. safe start and congestion abandon
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multiplexing-and-demultiplexing"><span class="toc-number">1.1.</span> <span class="toc-text">Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connectionless-transport-UDP"><span class="toc-number">1.2.</span> <span class="toc-text">Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入"><span class="toc-number">1.3.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go-back-N算法："><span class="toc-number">1.4.</span> <span class="toc-text">Go-back-N算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selective-Repeat算法"><span class="toc-number">1.5.</span> <span class="toc-text">Selective Repeat算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP"><span class="toc-number">1.6.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP性质与结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP发送端、接收端"><span class="toc-number">1.6.2.</span> <span class="toc-text">TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">1.6.3.</span> <span class="toc-text">TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP流控"><span class="toc-number">1.6.4.</span> <span class="toc-text">TCP流控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP拥塞控制"><span class="toc-number">1.6.5.</span> <span class="toc-text">TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-习题"><span class="toc-number">1.6.6.</span> <span class="toc-text">TCP 习题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Multiplexing-and-demultiplexing"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Connectionless-transport-UDP"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-引入"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Go-back-N算法："><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Go-back-N算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Selective-Repeat算法"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Selective Repeat算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-TCP"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-TCP性质与结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-TCP发送端、接收端"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2 TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-TCP三次握手"><span class="toc-number">1.6.3.</span> <span class="toc-text">1.6.3 TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-4-TCP流控"><span class="toc-number">1.6.4.</span> <span class="toc-text">1.6.4 TCP流控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-5-TCP拥塞控制"><span class="toc-number">1.6.5.</span> <span class="toc-text">1.6.5 TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-6-TCP-习题"><span class="toc-number">1.6.6.</span> <span class="toc-text">1.6.6 TCP 习题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
                     </div>
                 </span>
             </div>
