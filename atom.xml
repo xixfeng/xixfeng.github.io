@@ -86,15 +86,15 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E5%9B%9B%EF%BC%89-%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（四）-网络层/</id>
     <published>2019-11-26T12:56:54.000Z</published>
-    <updated>2019-12-02T09:51:59.990Z</updated>
+    <updated>2019-12-03T01:33:57.454Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Network-Layer&quot;&gt;&lt;a href=&quot;#Network-Layer&quot; class=&quot;headerlink&quot; title=&quot;Network Layer&quot;&gt;&lt;/a&gt;Network Layer&lt;/h1&gt;&lt;p&gt;传输层：程序之间的数据传输&lt;/p&gt;
+      &lt;h1 id=&quot;1-Network-Layer&quot;&gt;&lt;a href=&quot;#1-Network-Layer&quot; class=&quot;headerlink&quot; title=&quot;1. Network Layer&quot;&gt;&lt;/a&gt;1. Network Layer&lt;/h1&gt;&lt;p&gt;传输层：程序之间的数据传输&lt;/p&gt;
 &lt;p&gt;网络层：主机之间的数据传输&lt;/p&gt;
 &lt;p&gt;forward：在一个路由器中选择出路&lt;/p&gt;
 &lt;p&gt;routing：在很多路由器中选择一条路&lt;/p&gt;
-&lt;h2 id=&quot;虚电路网络、数据报网络&quot;&gt;&lt;a href=&quot;#虚电路网络、数据报网络&quot; class=&quot;headerlink&quot; title=&quot;虚电路网络、数据报网络&quot;&gt;&lt;/a&gt;虚电路网络、数据报网络&lt;/h2&gt;&lt;p&gt;虚电路：提供面向连接的服务&lt;/p&gt;
+&lt;h2 id=&quot;1-1-虚电路网络、数据报网络&quot;&gt;&lt;a href=&quot;#1-1-虚电路网络、数据报网络&quot; class=&quot;headerlink&quot; title=&quot;1.1 虚电路网络、数据报网络&quot;&gt;&lt;/a&gt;1.1 虚电路网络、数据报网络&lt;/h2&gt;&lt;p&gt;虚电路：提供面向连接的服务&lt;/p&gt;
 &lt;p&gt;数据报：提供非面向连接的服务&lt;/p&gt;
     
     </summary>
@@ -111,7 +111,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/</id>
     <published>2019-11-26T12:56:16.000Z</published>
-    <updated>2019-12-03T01:24:24.108Z</updated>
+    <updated>2019-12-03T01:30:57.542Z</updated>
     
     <summary type="html">
     
@@ -195,11 +195,11 @@
     <link href="https://xixfeng.github.io/2019/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%94%EF%BC%89-%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/21/计算机网络（五）-链路层/</id>
     <published>2019-11-21T06:16:56.000Z</published>
-    <updated>2019-12-02T14:11:22.742Z</updated>
+    <updated>2019-12-03T01:47:37.147Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;链路层目标&lt;/p&gt;
+      &lt;h1 id=&quot;1-链路层&quot;&gt;&lt;a href=&quot;#1-链路层&quot; class=&quot;headerlink&quot; title=&quot;1. 链路层&quot;&gt;&lt;/a&gt;1. 链路层&lt;/h1&gt;&lt;h2 id=&quot;1-1-介绍&quot;&gt;&lt;a href=&quot;#1-1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 1 介绍&quot;&gt;&lt;/a&gt;1. 1 介绍&lt;/h2&gt;&lt;p&gt;链路层目标&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;错误探测、纠正&lt;/li&gt;
 &lt;li&gt;共享广播频道：多重访问&lt;/li&gt;
@@ -211,6 +211,7 @@
 &lt;p&gt;链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS）&lt;/p&gt;
 &lt;p&gt;frame：封装datagram，添加头部&lt;u&gt;以及尾部&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;MAC：用在frame中以标示源和目的&lt;/p&gt;
+&lt;p&gt;冲突域：可以互相探测到冲突的节点组成一个冲突域（在CSMA/CD处引入，trans_delay&amp;gt;=2*propagtaion_delay），即满足这个不等式的节点集合&lt;/p&gt;
     
     </summary>
     

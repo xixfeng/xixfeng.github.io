@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>计算机网络（五）-链路层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
+  <meta name="description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络（五）-链路层">
 <meta property="og:url" content="https://xixfeng.github.io/2019/11/21/计算机网络（五）-链路层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
+<meta property="og:description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-12-02T14:11:22.742Z">
+<meta property="og:updated_time" content="2019-12-03T01:47:37.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（五）-链路层">
-<meta name="twitter:description" content="介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在frame中以标示源和目">
+<meta name="twitter:description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -164,7 +164,7 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>链路层目标</p>
+          <h1 id="1-链路层"><a href="#1-链路层" class="headerlink" title="1. 链路层"></a>1. 链路层</h1><h2 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1. 1 介绍"></a>1. 1 介绍</h2><p>链路层目标</p>
 <ul>
 <li>错误探测、纠正</li>
 <li>共享广播频道：多重访问</li>
@@ -176,6 +176,7 @@
 <p>链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS）</p>
 <p>frame：封装datagram，添加头部<u>以及尾部</u></p>
 <p>MAC：用在frame中以标示源和目的</p>
+<p>冲突域：可以互相探测到冲突的节点组成一个冲突域（在CSMA/CD处引入，trans_delay&gt;=2*propagtaion_delay），即满足这个不等式的节点集合</p>
 <a id="more"></a>
 <p>两种类型的链路</p>
 <ul>
@@ -190,10 +191,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="错误探测"><a href="#错误探测" class="headerlink" title="错误探测"></a>错误探测</h1><p>奇偶校验（parity checking）：单奇偶校验位、二维奇偶校验位</p>
+<h2 id="1-1-错误探测"><a href="#1-1-错误探测" class="headerlink" title="1.1 错误探测"></a>1.1 错误探测</h2><p>奇偶校验（parity checking）：单奇偶校验位、二维奇偶校验位</p>
 <p>校验和（checksum）</p>
 <p>循环冗余检测（Cyclic Redundancy Check，CRC）：R = 余式[ D*2^r / G]，这里的r = G的位数-1。注意这个除法不借位（等效于异或）</p>
-<h1 id="多访问协议"><a href="#多访问协议" class="headerlink" title="多访问协议"></a>多访问协议</h1><p>多访问协议的起因</p>
+<h2 id="1-2-多访问协议"><a href="#1-2-多访问协议" class="headerlink" title="1.2 多访问协议"></a>1.2 多访问协议</h2><p>多访问协议的起因</p>
 <ul>
 <li>单一共享广播频道</li>
 <li>两个或多个节点同时传输</li>
@@ -218,6 +219,8 @@
 <li>如何探测冲突</li>
 <li>如何从冲突中恢复</li>
 </ul>
+<p><strong>纯洁ALOHA</strong></p>
+<p>当发送碰撞时，节点以p的概率重传该帧</p>
 <p><strong>时隙ALOHA</strong></p>
 <ul>
 <li>所有帧由L比特组成</li>
@@ -229,8 +232,6 @@
 <ul>
 <li>如果有碰撞，该节点在时隙结束之前检测到这次碰撞。该节点以概率p在后续的每个时隙中重传它的帧，知道该帧被无碰撞地传递出去</li>
 </ul>
-<p><strong>纯洁ALOHA</strong></p>
-<p>当发送碰撞时，节点以p的概率重传该帧</p>
 <p><strong>载波侦听多路访问（CSMA    CSMA/CD）</strong></p>
 <ul>
 <li>说话之前先听。如果其他人正在说话，等到他们说完话为止。这被称为载波侦听（carrier sensing）</li>
@@ -239,20 +240,20 @@
 <p><strong>轮流协议</strong></p>
 <p>轮询协议</p>
 <p>令牌传递协议</p>
-<h1 id="链路层寻址"><a href="#链路层寻址" class="headerlink" title="链路层寻址"></a>链路层寻址</h1><p>MAC（or LAN or physical or Ethernet）地址：</p>
+<h2 id="1-3-链路层寻址"><a href="#1-3-链路层寻址" class="headerlink" title="1.3 链路层寻址"></a>1.3 链路层寻址</h2><p>MAC（or LAN or physical or Ethernet）地址：</p>
 <ul>
 <li>48 bit MAC 地址：刻录在网卡ROM中，有时也可以通过软件设置</li>
 </ul>
 <p>广播地址：FF-FF-FF-FF-FF-FF</p>
-<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p><u>ARP协议是一个局域网协议</u></p>
+<h2 id="1-4-ARP协议"><a href="#1-4-ARP协议" class="headerlink" title="1.4 ARP协议"></a>1.4 ARP协议</h2><p><u>ARP协议是一个局域网协议</u></p>
 <p>将IP地址转换为MAC地址</p>
 <ul>
 <li>每个IP节点（主机、路由器）都拥有ARP 表</li>
 <li>ARP表：IP address; MAC address; TTL（多少分钟后该地址到期）</li>
 </ul>
-<p>过程</p>
+<p>查询过程</p>
 <ul>
-<li>节点A想要发送给B帧，但是只有IP地址。A<u>广播</u> ARP查询包，该包包含B的IP地址</li>
+<li>节点A想要发送给B帧，但是只有IP地址。A<u>广播</u> ARP查询包，该包包含B的IP地址。MAC地址为广播地址</li>
 <li>节点B接受到该消息，给A发送MAC地址</li>
 </ul>
 <p>当一个节点A想向外部节点B发送请求时</p>
@@ -268,14 +269,14 @@
 </thead>
 <tbody>
 <tr>
-<td>A-路由器</td>
+<td>A -&gt; 路由器</td>
 <td>A_MAC</td>
 <td>路由器_MAC</td>
 <td>A_IP</td>
 <td>B_IP</td>
 </tr>
 <tr>
-<td>路由器-B</td>
+<td>路由器 -&gt; B</td>
 <td>路由器_MAC</td>
 <td>B_MAC</td>
 <td>A_IP</td>
@@ -287,7 +288,7 @@
 <li>整个过程中IP都是不变的，MAC地址改变</li>
 <li>但是如果加入NAT协议，IP地址也会改变</li>
 </ul>
-<h1 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h1><p>经过三种拓扑逻辑阶段</p>
+<h2 id="1-5-以太网"><a href="#1-5-以太网" class="headerlink" title="1.5 以太网"></a>1.5 以太网</h2><p>经过三种拓扑逻辑阶段</p>
 <ul>
 <li>总线</li>
 <li>集线器（hub）</li>
@@ -299,7 +300,7 @@
 <li>不可靠</li>
 <li>unslotted CSMA/CD</li>
 </ul>
-<h2 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h2><blockquote>
+<h3 id="1-5-1-CSMA-CD"><a href="#1-5-1-CSMA-CD" class="headerlink" title="1.5.1 CSMA/CD"></a>1.5.1 CSMA/CD</h3><blockquote>
 <p>边发边听，不发不听</p>
 </blockquote>
 <p>过程</p>
@@ -307,18 +308,22 @@
 <li>NIC 从上层接收datagram，创建frame</li>
 <li>如果通道空闲，开始传输数据。否则等待通道空闲</li>
 <li>如果传输中探测到冲突，中止并发送干扰信号（JAM signal的 传输时间就是propagation delay）</li>
-<li>中止后，NIC进入指数退避：m次碰撞后，NIC从{0,1,2，…，2^m-1}中随机选择K。NIC等待K·512bit time，返回步骤2。（如果题意没有说明，这里需要等待一个96 bit time）</li>
+<li>中止后，NIC进入指数退避：m次碰撞后，NIC从{0,1,2，…，2^m-1}中随机选择K。NIC等待K·512bit time，返回步骤2。（如果题意没有说明，等待完K*512bit time后还需要等待一个96 bit time）</li>
 </ul>
 <p>冲突域：一个可检测到冲突的物理范围，根据transmission delay &gt;= 2 * propagation delay可知，带宽越大冲突域范围越小（包长度确定时）</p>
-<h1 id="链路层-switches、LANs、VLANs"><a href="#链路层-switches、LANs、VLANs" class="headerlink" title="链路层 switches、LANs、VLANs"></a>链路层 switches、LANs、VLANs</h1><h2 id="集线器"><a href="#集线器" class="headerlink" title="集线器"></a>集线器</h2><p><strong>集线器工作在物理层</strong></p>
+<h2 id="1-6-switches、LANs、VLANs"><a href="#1-6-switches、LANs、VLANs" class="headerlink" title="1.6 switches、LANs、VLANs"></a>1.6 switches、LANs、VLANs</h2><h3 id="1-6-1-集线器"><a href="#1-6-1-集线器" class="headerlink" title="1.6.1 集线器"></a>1.6.1 集线器</h3><p><strong>集线器工作在物理层</strong></p>
 <ul>
-<li>来自于一个link的bits会传输到到所有其他link</li>
+<li><u>来自于一个link的bits会传输到到所有其他link</u></li>
 <li>所有连接集线器的节点都可能会和其他节点冲突</li>
 <li>没有frame 缓存</li>
 <li>没有 CSMA/CD</li>
+<li>无法隔离冲突域（）</li>
 </ul>
-<h2 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h2><p>交换机没有IP地址</p>
-<p><strong>交换机在frame上操作</strong></p>
+<h3 id="1-6-2-交换机"><a href="#1-6-2-交换机" class="headerlink" title="1.6.2 交换机"></a>1.6.2 交换机</h3><p><strong>交换机在frame上操作（链路层）</strong></p>
+<ul>
+<li>交换机没有IP地址</li>
+<li>可以隔离冲突域</li>
+</ul>
 <p>交换机拥有一张switch table：MAC addr，interface，TIME（当前时间）</p>
 <ul>
 <li>存储转发frames</li>
@@ -326,7 +331,7 @@
 </ul>
 <p>当交换机接收到frames</p>
 <ul>
-<li>记录下传入帧的MAC地址与接口//学习算法</li>
+<li>记录下传入帧的MAC地址与接口（学习算法）</li>
 <li>在switch table中 寻找dest address</li>
 </ul>
 <pre><code>if entry found for destination
@@ -355,7 +360,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="PPP"><a href="#PPP" class="headerlink" title="PPP"></a>PPP</h1><p>点对点的传输，singel sender、single receiver、one link</p>
+<h2 id="1-7-PPP"><a href="#1-7-PPP" class="headerlink" title="1.7 PPP"></a>1.7 PPP</h2><p>点对点的传输，singel sender、single receiver、one link</p>
 <ul>
 <li>封装datagram</li>
 <li>错误探测</li>
@@ -367,8 +372,8 @@
 <li>没有流控制</li>
 <li>允许乱序</li>
 </ul>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>为什么链路层和传输层都要提供可靠的传输？</p>
-<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ul>
+<h1 id="2-问题"><a href="#2-问题" class="headerlink" title="2. 问题"></a>2. 问题</h1><p>为什么链路层和传输层都要提供可靠的传输？</p>
+<h1 id="3-考试"><a href="#3-考试" class="headerlink" title="3. 考试"></a>3. 考试</h1><ul>
 <li>例子中的MAC协议属于哪一类，（CSMA对应wifi，CSMA/CD对应以太网）</li>
 <li>交换机、⚠️ARP</li>
 <li>⚠️CSMA/CD</li>
@@ -499,7 +504,7 @@ D. PPP is not required to provide flow control.
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#错误探测"><span class="toc-number">2.</span> <span class="toc-text">错误探测</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多访问协议"><span class="toc-number">3.</span> <span class="toc-text">多访问协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链路层寻址"><span class="toc-number">4.</span> <span class="toc-text">链路层寻址</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP协议"><span class="toc-number">4.1.</span> <span class="toc-text">ARP协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#以太网"><span class="toc-number">5.</span> <span class="toc-text">以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-CD"><span class="toc-number">5.1.</span> <span class="toc-text">CSMA/CD</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链路层-switches、LANs、VLANs"><span class="toc-number">6.</span> <span class="toc-text">链路层 switches、LANs、VLANs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集线器"><span class="toc-number">6.1.</span> <span class="toc-text">集线器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机"><span class="toc-number">6.2.</span> <span class="toc-text">交换机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PPP"><span class="toc-number">7.</span> <span class="toc-text">PPP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-number">8.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">9.</span> <span class="toc-text">考试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-链路层"><span class="toc-number">1.</span> <span class="toc-text">1. 链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-介绍"><span class="toc-number">1.1.</span> <span class="toc-text">1. 1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-错误探测"><span class="toc-number">1.2.</span> <span class="toc-text">1.1 错误探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-多访问协议"><span class="toc-number">1.3.</span> <span class="toc-text">1.2 多访问协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-链路层寻址"><span class="toc-number">1.4.</span> <span class="toc-text">1.3 链路层寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-ARP协议"><span class="toc-number">1.5.</span> <span class="toc-text">1.4 ARP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-以太网"><span class="toc-number">1.6.</span> <span class="toc-text">1.5 以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-1-CSMA-CD"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.5.1 CSMA/CD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-switches、LANs、VLANs"><span class="toc-number">1.7.</span> <span class="toc-text">1.6 switches、LANs、VLANs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-集线器"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.6.1 集线器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-交换机"><span class="toc-number">1.7.2.</span> <span class="toc-text">1.6.2 交换机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-PPP"><span class="toc-number">1.8.</span> <span class="toc-text">1.7 PPP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-问题"><span class="toc-number">2.</span> <span class="toc-text">2. 问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-考试"><span class="toc-number">3.</span> <span class="toc-text">3. 考试</span></a></li></ol>
                     </div>
                 </span>
             </div>

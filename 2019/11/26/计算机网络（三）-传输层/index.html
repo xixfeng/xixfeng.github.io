@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-12-03T01:24:24.108Z">
+<meta property="og:updated_time" content="2019-12-03T01:30:57.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络（三）-传输层">
 <meta name="twitter:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
@@ -429,7 +429,7 @@ D. 0.8
 <li>network-assisted congestion control，需要节点在传输时增加信息</li>
 </ul>
 <hr>
-<p>拥塞窗口（cwnd）：限制发送端的流水线一次性发送多少段。LastByteSent-LastByteAcked&lt;= cwnd，即目前未被确认段的大小必须小于拥塞窗口</p>
+<p>拥塞窗口（cwnd）：限制发送端的流水线一次性发送多少段。<strong><u>LastByteSent-LastByteAcked&lt;= cwnd</u></strong></p>
 <p>threshold就是几何增长、线性增长的界限</p>
 <p><strong>cwnd的慢启动</strong></p>
 <ul>
@@ -458,7 +458,7 @@ D. 0.8
 <p>3个ack过后，窗口减半会不会加3？会加3</p>
 <p>超时和三次ACK都会引起ssthresh等于cwnd一半</p>
 <h3 id="1-6-6-TCP-习题"><a href="#1-6-6-TCP-习题" class="headerlink" title="1.6.6 TCP 习题"></a>1.6.6 TCP 习题</h3><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
-<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ul>
+<h1 id="2-考试"><a href="#2-考试" class="headerlink" title="2. 考试"></a>2. 考试</h1><ul>
 <li>什么是多路分解、多路复用</li>
 <li>UDP</li>
 <li>TCP（seq、ack、SYN、ACK、FIN）：三次握手、四次挥手、GBN、SR、累计确认</li>
@@ -474,7 +474,7 @@ A. the UDP segment, not including the header
 B. the UDP segment, including the header
 C. the UDP segment’s header
 D. the Length field
-</code></pre><p>MSS是网络层（但是它限制了应用层message大小）、MTU是链路层</p>
+</code></pre><p>MSS是传输层（但是它限制了应用层message大小）、MTU是链路层（但是他限制了网络层datagram大小）</p>
 <pre><code>In the following four descriptions about MSS and MTU, which one is not correct? B
 A. The MSS is the maximum amount of application-layer data in the segment
 B. The MSS is the maximum size of the TCP segment including headers
@@ -617,7 +617,7 @@ D. safe start and congestion abandon
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Multiplexing-and-demultiplexing"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Connectionless-transport-UDP"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-引入"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Go-back-N算法："><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Go-back-N算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Selective-Repeat算法"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Selective Repeat算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-TCP"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-TCP性质与结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-TCP发送端、接收端"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2 TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-TCP三次握手"><span class="toc-number">1.6.3.</span> <span class="toc-text">1.6.3 TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-4-TCP流控"><span class="toc-number">1.6.4.</span> <span class="toc-text">1.6.4 TCP流控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-5-TCP拥塞控制"><span class="toc-number">1.6.5.</span> <span class="toc-text">1.6.5 TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-6-TCP-习题"><span class="toc-number">1.6.6.</span> <span class="toc-text">1.6.6 TCP 习题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Multiplexing-and-demultiplexing"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Connectionless-transport-UDP"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-引入"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Go-back-N算法："><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Go-back-N算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Selective-Repeat算法"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Selective Repeat算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-TCP"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-TCP性质与结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-TCP发送端、接收端"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2 TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-TCP三次握手"><span class="toc-number">1.6.3.</span> <span class="toc-text">1.6.3 TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-4-TCP流控"><span class="toc-number">1.6.4.</span> <span class="toc-text">1.6.4 TCP流控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-5-TCP拥塞控制"><span class="toc-number">1.6.5.</span> <span class="toc-text">1.6.5 TCP拥塞控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-6-TCP-习题"><span class="toc-number">1.6.6.</span> <span class="toc-text">1.6.6 TCP 习题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-考试"><span class="toc-number">2.</span> <span class="toc-text">2. 考试</span></a></li></ol>
                     </div>
                 </span>
             </div>
