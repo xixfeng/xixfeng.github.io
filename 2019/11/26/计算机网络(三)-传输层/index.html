@@ -6,23 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>计算机网络（一）-介绍 | xixfeng</title>
+  <title>计算机网络(三)-传输层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.介绍自顶向下教程配套的web动画 1.1 网络端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的 信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组">
+  <meta name="description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络（一）-介绍">
-<meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络（一）-介绍/index.html">
+<meta property="og:title" content="计算机网络(三)-传输层">
+<meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络(三)-传输层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="1.介绍自顶向下教程配套的web动画 1.1 网络端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的 信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组">
+<meta property="og:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
-<meta property="og:updated_time" content="2019-12-03T00:41:08.556Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/Transport Layer.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
+<meta property="og:updated_time" content="2019-12-04T01:27:24.430Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络（一）-介绍">
-<meta name="twitter:description" content="1.介绍自顶向下教程配套的web动画 1.1 网络端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的 信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组">
-<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
+<meta name="twitter:title" content="计算机网络(三)-传输层">
+<meta name="twitter:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
+<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -146,20 +147,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计算机网络（一）-介绍" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机网络(三)-传输层" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      计算机网络（一）-介绍
+      计算机网络(三)-传输层
     </h1>
   
 
         
-        <a href="/2019/11/26/计算机网络（一）-介绍/" class="archive-article-date">
-  	<time datetime="2019-11-26T12:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+        <a href="/2019/11/26/计算机网络(三)-传输层/" class="archive-article-date">
+  	<time datetime="2019-11-26T12:56:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
         
       </header>
@@ -167,270 +168,348 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h1><p><a href="http://wps.pearsoned.com/ecs_kurose_compnetw_6/216/55463/14198700.cw/index.html" target="_blank" rel="noopener">自顶向下教程配套的web动画</a></p>
-<h2 id="1-1-网络"><a href="#1-1-网络" class="headerlink" title="1.1 网络"></a>1.1 网络</h2><p>端系统通过<strong>通信链路（communication link）</strong>和<strong>分组交换机（packet switch）</strong>连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的 信息包叫做<strong>分组（packet）</strong>。</p>
-<p>端系统通过<strong>因特网服务提供商（Internet Service Provider，ISP）</strong>接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组成的网络。</p>
-<p>端系统、分组交换机和其他因特网部件都要运行一系列<strong>协议（protocal）</strong>。<strong>TCP（Transmission Control Protocal）和IP（Internet Protocal）</strong>是因特网中两个最为重要。IP协议定义了在路由器和端系统之间发送和接收的分组格式。</p>
-<p>分组交换机</p>
-<ul>
-<li>路由器（rooter）</li>
-<li>链路层交换机（link-layer switch）</li>
-</ul>
+          <h1 id="1-Transport-Layer"><a href="#1-Transport-Layer" class="headerlink" title="1. Transport Layer"></a>1. Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
+<p>传输层负责不同程序之间数据的传输，Port</p>
+<h2 id="1-1-Multiplexing-and-demultiplexing"><a href="#1-1-Multiplexing-and-demultiplexing" class="headerlink" title="1.1 Multiplexing and demultiplexing"></a>1.1 Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用</p>
+<p>多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字</p>
+<p>多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块，并为每个数据块封装上首部信息从而生成报文段</p>
 <a id="more"></a>
-<h2 id="1-2-网络边界"><a href="#1-2-网络边界" class="headerlink" title="1.2 网络边界"></a>1.2 网络边界</h2><p><u><strong>端系统 end-system</strong></u></p>
-<p>通常把与互联网相连的计算机和其他设备称为端系统。因为它们位于因特网的边缘，故而被称为<strong>网络边缘（network edge）</strong></p>
-<p><u><strong>接入网 access networks</strong></u></p>
-<p>接下来就是考虑<strong>接入网（access networks）</strong>，这是指<strong>将端系统物理连接到其边缘路由器的网络</strong></p>
-<p>包含：DSL（Digital Subscriber Line）、电缆、FTTH、拨号、卫星、4g、wifi</p>
-<p><u><strong>物理媒介 physical medium</strong></u></p>
-<p>引导性媒介：双绞铜线、同轴电缆、光纤、陆地无线电信道、卫星无线电信道</p>
-<p>非引导性媒介：无线局域网、陆地无线电信道、卫星无线电信道</p>
-<h2 id="1-3-网络核心"><a href="#1-3-网络核心" class="headerlink" title="1.3 网络核心"></a>1.3 网络核心</h2><p>交换的两个基本功能：集中、复用</p>
-<p><u><strong>circuit switching（线路交换）</strong></u></p>
-<p>线路交换：在发送方能够发送信息之前，该网络必须在发送方和接收方之间建立一条连接，此时这条路径上的交换机都将维护该连接状态，该连接被称为一条<strong>电路</strong></p>
+<p>在UDP中，头部会包含</p>
 <ul>
-<li>FDM  Frequency-division multiplexing 频分复用：一个线路中含有不同的数据</li>
-<li>TDM Time-division multiplexing 时分复用：一个帧中只有一个数据</li>
+<li>SP</li>
+<li>DP</li>
 </ul>
-<pre><code>How long does it take to send a file of
-640,000 bits from host A to host B over a
-circuit-switched network?
-▪ all link speeds: 1.536 Mbps
-▪ each link uses TDM with 24 slots/sec
-▪ 500 msec to establish end-to-end circuit
-</code></pre><p><u><strong>⚠️packet-switching（分组交换）</strong></u></p>
-<p>端系统彼此交换<strong>报文（message）</strong></p>
-<ol>
-<li>存储转发（store-and-forward transmission）：中转节点需要将数据全部下载再进行转发。数据每经过一次中转节点，都需要进行一次存储转发。</li>
-</ol>
-<p>How do loss and delay occur：<br>🌿loss：buffer溢出造成了丢失<br>delay：</p>
-<table>
+<p>在TCP中，头部会包含</p>
+<ul>
+<li><p>SP</p>
+</li>
+<li><p>DP</p>
+</li>
+<li><p>S_IP</p>
+</li>
+<li><p>D_IP</p>
+</li>
+</ul>
+<h2 id="1-2-Connectionless-transport-UDP"><a href="#1-2-Connectionless-transport-UDP" class="headerlink" title="1.2 Connectionless transport: UDP"></a>1.2 Connectionless transport: UDP</h2><p>用户数据报协议 UDP（User Datagram protocol）</p>
+<p>优点</p>
+<ul>
+<li>无连接</li>
+<li>简单</li>
+<li>报文头简单</li>
+<li>无网络拥塞控制</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>报文存在丢失</li>
+<li>可能会乱序到达</li>
+</ul>
+<p>⚠️但有时候TCP、UDP都不合适，需要找一种中间方式：在应用层使用UDP组包</p>
+<p><u><strong>checksum</strong></u></p>
+<p>发送方的UDP对报文段中的所有16位比特的和（如果两个16位比特<strong>溢出</strong>了，则溢出需要被<strong>反卷</strong>）<strong>进行反码运算</strong></p>
+<p>例子</p>
+<pre><code>发送方报文段一共三个16位比特
+0110 0110 0110 0000
+0101 0101 0101 0101
+1000 1111 0000 1100
+
+前两位相加=
+1011 1011 1011 0101
+
+再将1011 1011 1011 0101与第三位相加=
+0100 1010 1100 0010（这里就发生了溢出，进行了反卷）
+
+最后取反
+1011 0101 0011 1101 == checksum
+
+接收方将checksum与报文段所有16位比特相加，结果不为1111111111111111则发生传输错误
+</code></pre><h2 id="1-3-引入"><a href="#1-3-引入" class="headerlink" title="1.3 引入"></a>1.3 引入</h2><p>rdt1.0：没有位错误，没有分组丢失</p>
+<p>rdt2.0：有位错误，没有分组丢失</p>
+<p>rdt3.0：有位错误，有分组丢失</p>
+<ul>
+<li>rdt3.0效率十分的低，因为它是一个停止等待的协议</li>
+</ul>
+<p>希望通过<u><strong>流水线</strong></u>方式提高效率（pipeline），由此诞生了GBN和SR算法</p>
+<h2 id="1-4-Go-back-N算法："><a href="#1-4-Go-back-N算法：" class="headerlink" title="1.4 Go-back-N算法："></a>1.4 Go-back-N算法：</h2><p>只有超时会引起重发</p>
+<p>发送方</p>
+<ul>
+<li>如果下一个seq在window里面，则发送</li>
+<li>只有一个计时器，计时器超时后，重新发送n和窗口中所有大于n的段。（n为最大未被确认的段）</li>
+<li>当收到任意一个段，重置计时器</li>
+<li>如果window最左边的段被ack，移动窗口</li>
+</ul>
+<p>⚠️：如果收到的包大于目前未确认的最小包，则确认这个包以及之前的包。比如最小未被确认的为5，但是收到一个6，则将5和6都设置为确认</p>
+<p>接收方</p>
+<ul>
+<li>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包和第5个包，第4个包失败了就会返回ACK3</li>
+</ul>
+<h2 id="1-5-Selective-Repeat算法"><a href="#1-5-Selective-Repeat算法" class="headerlink" title="1.5 Selective Repeat算法"></a>1.5 Selective Repeat算法</h2><p>发送方</p>
+<ul>
+<li>如果下一个seq在window里面，则发送</li>
+<li>为所有段设置定时器，n计时器超时，重发n</li>
+<li>如果window最左边的段被ack，移动窗口（⚠️：如果收到的段大于目前未确认的最小段，则确认收到的段）</li>
+</ul>
+<p>接收方</p>
+<p>pkt n in window</p>
+<ul>
+<li>发送ACK(n)</li>
+<li>乱序：缓存</li>
+<li>如果window最左边的段被确认，移动窗口</li>
+</ul>
+<p>pkt n before window</p>
+<ul>
+<li>发送ACK(n)</li>
+</ul>
+<p>其他</p>
+<ul>
+<li>忽略</li>
+</ul>
+<h2 id="1-6-TCP"><a href="#1-6-TCP" class="headerlink" title="1.6 TCP"></a>1.6 TCP</h2><table>
 <thead>
 <tr>
-<th>延迟</th>
-<th>描述</th>
-<th>计算公式</th>
-<th>公式说明</th>
+<th></th>
+<th>TCP</th>
+<th>GBN</th>
+<th>SR</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>nodal processing</td>
-<td>节点处理延迟</td>
-<td></td>
-<td></td>
+<td>计时器</td>
+<td>一个，超时后发送最老未被确认的包</td>
+<td>一个，超时后发送最老未被确认的包及其之后的包（在发送窗口中）</td>
+<td>每一个未被确认的包都有一个计时器，计时器超时后发送对应包</td>
 </tr>
 <tr>
-<td>transmission delay</td>
-<td>传输延迟，路由器推出分组所需要的时间</td>
-<td>L/R</td>
-<td>L：包大小，R：带宽(也可叫做路由器推出速度)</td>
+<td>发送端</td>
+<td>记录乱序到达的ack</td>
+<td>收到ack后，确认该包及其之前未被确认的包（因为接收方不会接受乱序包，所以可以这样做）</td>
+<td>记录乱序到达的ack</td>
 </tr>
 <tr>
-<td>queueing delay</td>
-<td>排队延迟，由traffic intensity决定。当traffic intensity&gt;1时，说明到达速度大于推出速度，队列会无限增加。因此设计中<strong>流量强度</strong>不能大于1</td>
-<td>La/R</td>
-<td>a(pkt/s)：包到达的速度，La：bit到达的速度</td>
-</tr>
-<tr>
-<td>propagation delay</td>
-<td>传播延迟</td>
-<td>d/r</td>
-<td>d：节点之间的路径，r：传输速度</td>
+<td>接收端</td>
+<td>根据实现判断是否缓存乱序包，但是一定会立马返回之前最新确认的包（配合发送方的三次重传）</td>
+<td>丢弃乱序包</td>
+<td>缓存乱序包，发送该包ack</td>
 </tr>
 </tbody>
 </table>
-<p>路由追踪：提供数据从起始地到目的地所经过到路径，但是由于路由算法，每次路径可能不同<br>吞吐量(throughput)：sender/receiver之间bit的传输速率</p>
-<p>吞吐量：发送进程能够向接收进程<strong>交付比特的速率</strong></p>
-<p>瓶颈链路：p30，由于流量强度不能大于1，所以一个节点的传入速度必须小于传出速度。这将导致一个文件在网络上的<strong>传输吞吐量</strong>等于<strong>速度最慢</strong>的链路传输速度</p>
-<h2 id="1-4-传输模型"><a href="#1-4-传输模型" class="headerlink" title="1.4 传输模型"></a>1.4 传输模型</h2><p>Data Transmission Mode</p>
 <ul>
-<li>Baseband(基带) Transmission</li>
-<li>Passband(通带) Transmission<ul>
-<li>Broadband(宽带) Transmission</li>
+<li>以上说的ack，与TCP中的ack不同，指的是被确认的包</li>
+</ul>
+<h3 id="1-6-1-TCP性质与结构"><a href="#1-6-1-TCP性质与结构" class="headerlink" title="1.6.1 TCP性质与结构"></a>1.6.1 TCP性质与结构</h3><p>任何internet应用必然需要使用TCP、UDP中一种</p>
+<p><u><strong>TCP</strong></u></p>
+<p>面向连接的可靠数据传输，带有流量控制、拥塞控制</p>
+<ul>
+<li>面向连接的（connection-oriented）: setup required between client and server processes </li>
+<li>可靠的数据传输</li>
+<li>流量控制 （flow control） : sender won’t overwhelm receiver，当接收端传输层buffer快溢出的时候，发送端停止发送。”发送方不会压倒接收方”</li>
+<li><p>拥塞控制（congestion control）: throttle sender when network overloaded ，避免中间节点出现拥塞</p>
+</li>
+<li><p>全双工</p>
+<p>MSS: maximum segment size，因为链路层不同（MTU）而导致最大段大小不同。MSS指包内容大小，所以其实是限制了应用层的包大小（内容+头）</p>
+</li>
+<li><p>不提供: timing, minimum throughput guarantees, security</p>
+</li>
+</ul>
+<p>捎带（piggyback）：将数据和控制信息放在一个带里面</p>
+<p>在分组交换中缺点</p>
+<ul>
+<li>包的传输是跳跃式的，同一时间来自一个host的包会经过不同的路径</li>
+<li>不同的路径会有不同的延迟</li>
+<li>所以包的传输容易出现乱序和丢失</li>
+</ul>
+<p>但是有些数据我需要它们按序到达，保证到达。所以必须在传输层加入大量的控制信息</p>
+<p><strong><u>TCP控制头</u></strong></p>
+<ul>
+<li>seq：当前这段字节流数据的开始位置（这个位置是相对于整个TCP连接过程的传输流）</li>
+<li>ack：下一次需要的字节流位置（和GBN、SR以及rdt不同）</li>
+<li>SYN表示建立连接</li>
+<li>FIN表示关闭连接</li>
+<li>ACK表示响应</li>
+<li>PSH表示有 DATA数据传输</li>
+<li>RST表示连接重置。</li>
+</ul>
+<p>如何设置TCP连接的过期时间（防止分组丢失）</p>
+<ul>
+<li>要比RTT长</li>
+<li>不能太长不能太短</li>
+</ul>
+<pre><code>Provided α=0.125, current value of Estimated-RTT is 0.4s, Sample-RTT is 0.8s, then the new value of Estimated-RTT is __A__s. EstimatedRTT = (1- )*EstimatedRTT + *SampleRTT
+A. 0.45
+B. 0.6
+C. 0.7
+D. 0.8
+</code></pre><p>TCP-可靠的传输</p>
+<ul>
+<li><p>TCP creates rdt service on top of IP’s unreliable service</p>
+</li>
+<li><p>pipelined segments</p>
+</li>
+<li><p>cumulative acks 累积的ack</p>
+</li>
+<li><p>⚠️TCP uses <strong>single retransmission timer</strong> 一个重传计时</p>
+</li>
+<li><p>⚠️retransmissions are triggered by</p>
+<p>timeout event</p>
+<p>duplicate acks 重复的ack返回</p>
+</li>
+</ul>
+<h3 id="1-6-2-TCP发送端、接收端"><a href="#1-6-2-TCP发送端、接收端" class="headerlink" title="1.6.2 TCP发送端、接收端"></a>1.6.2 TCP发送端、接收端</h3><p><u><strong>TCP 发送端事项</strong></u></p>
+<p>TCP只有一个计时器</p>
+<p>初始化</p>
+<ul>
+<li>创建seq，并发送</li>
+<li>如果没有启动计时器则启动，</li>
+</ul>
+<p>⚠️超时</p>
+<ul>
+<li>发送最老的未被确认（unacked）段</li>
+<li>重新启动计时器</li>
+</ul>
+<p>确认了未确认的字段</p>
+<ul>
+<li>更新发送方的确认字段</li>
+<li>如果有未被确认的字段，<strong>重启</strong>计时器</li>
+</ul>
+<p>⚠️快速重发</p>
+<p>当接收到三次相同的ACK后（说明发送端某一个段丢失，比如1、2、3、4， 1丢失了会重复收到3个1），会重新发送接收方想要的seq</p>
+<p>TCP接收端事项</p>
+<table>
+<thead>
+<tr>
+<th>EVENT AT RECIVER</th>
+<th>TCP RECIVER ACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>到达了一个有序序列 且 这个有序序列之前的所有段都已经被确认</td>
+<td>停500ms等待下一个segment，超时后发送ACK</td>
+</tr>
+<tr>
+<td>到达了一个有序序列 且 之前有一个字段正在被确认</td>
+<td>立马发送ACK</td>
+</tr>
+<tr>
+<td>到达一个乱序序列（不是期望的seq）</td>
+<td>发送之前的ACK（即未被确认的ACK）</td>
+</tr>
+<tr>
+<td>Arrival of segment that partially or completely fills gap</td>
+<td>Immediate send ACK, provided that segment starts at lower end of gap？？？</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Q：接收方如何处理乱序到达的segement？</p>
+<p>这个TCP规范里面没有规定，有TCP的实现者决定</p>
+</blockquote>
+<h3 id="1-6-3-TCP三次握手"><a href="#1-6-3-TCP三次握手" class="headerlink" title="1.6.3 TCP三次握手"></a>1.6.3 TCP三次握手</h3><p><a href="https://www.jianshu.com/p/cd379b79b9be" target="_blank" rel="noopener">【TCP/IP】三次握手过程及原因</a></p>
+<h3 id="1-6-4-TCP流控"><a href="#1-6-4-TCP流控" class="headerlink" title="1.6.4 TCP流控"></a>1.6.4 TCP流控</h3><p>TCP 流控制</p>
+<p>由于接收端的app从buffer读的速度会比较慢，所以接收端buffer可能会装满溢出</p>
+<p>所以在TCP的控制信息中有一个 Receive window 字段，标示buffer还能接受的字节大小</p>
+<p>当buffer充满时，可能会发生愚笨窗口综合症。</p>
+<p>RecWindow = RecBuffer - [lastbyteRec - lastbyteRead]，⚠️这里的RecWindow不是接收方确认接收顺序的那个window</p>
+<p><img src="http://api.xixfeng.cn/mweb/15752582144089.jpg" alt></p>
+<h3 id="1-6-5-TCP拥塞控制"><a href="#1-6-5-TCP拥塞控制" class="headerlink" title="1.6.5 TCP拥塞控制"></a>1.6.5 TCP拥塞控制</h3><p>拥塞的原因</p>
+<ul>
+<li>路由的buffer有限</li>
+<li>sender不知道路由的buffer情况</li>
+<li>带宽限制</li>
+</ul>
+<p>拥塞的危害</p>
+<p>more work (retrans) for given “goodput”</p>
+<p>unneeded retransmissions: link carries multiple copies of pkt</p>
+<ul>
+<li>decreasing goodput</li>
+</ul>
+<p>when packet dropped, any “upstream transmission capacity used for that packet was wasted!</p>
+<p><u><strong>解决方法</strong></u></p>
+<ul>
+<li>end-end congestion control，TCP控制拥塞的方法</li>
+<li>network-assisted congestion control，需要节点在传输时增加信息</li>
+</ul>
+<hr>
+<p>拥塞窗口（cwnd）：限制发送端的流水线一次性发送多少段。<strong><u>LastByteSent-LastByteAcked&lt;= cwnd</u></strong></p>
+<p>threshold就是几何增长、线性增长的界限</p>
+<p><strong>cwnd的慢启动</strong></p>
+<ul>
+<li>cwnd = 1MSS</li>
+<li>几何增长</li>
+<li>设置ssthresh（threshold）</li>
+</ul>
+<p><strong>cwnd的状态转换</strong></p>
+<p>cwnd每次收到ACK后增长</p>
+<ul>
+<li>当重复收到3个ack后<ul>
+<li>记录ssthresh=cwnd/2</li>
+<li>cwnd减半+3</li>
+<li>cwnd变为线性增长</li>
+</ul>
+</li>
+<li>当计时器到达时<ul>
+<li>记录ssthresh=cwnd/2</li>
+<li>cwnd变为1</li>
+<li>cwnd变为几何增长</li>
+<li>当达到ssthresh后，cwnd变为线性增长</li>
 </ul>
 </li>
 </ul>
-<p>Signal Encoding</p>
-<ul>
-<li>analog data</li>
-<li>digital signal<br>PCM 脉冲调制编码<br>简单的说，模拟信号是连续的波形信号，就像正弦波形一样；数字信号是断续的幅度波形，是用二进制的1和0来表示信号</li>
+<p>问题：几何增长能不能超过ssthresh？不能</p>
+<p>3个ack过后，窗口减半会不会加3？会加3</p>
+<p>超时和三次ACK都会引起ssthresh等于cwnd一半</p>
+<p><img src="http://api.xixfeng.cn/mweb/Transport Layer.jpg" alt="Transport Layer"></p>
+<h1 id="2-考试"><a href="#2-考试" class="headerlink" title="2. 考试"></a>2. 考试</h1><ul>
+<li>什么是多路分解、多路复用</li>
+<li>UDP</li>
+<li>TCP（seq、ack、SYN、ACK、FIN）：三次握手、四次挥手、GBN、SR、累计确认</li>
 </ul>
-<p>🌿Channel Communitaion Mode</p>
-<ul>
-<li>half-duplex(半双工) communication：传输、接收不能同时进行</li>
-<li>full-duplex(全双工) communication：传输、接收同时进行</li>
-</ul>
-<h2 id="1-5-TCP-IP-五层模型"><a href="#1-5-TCP-IP-五层模型" class="headerlink" title="1.5 TCP/IP 五层模型"></a>1.5 TCP/IP 五层模型</h2><p>🌿application: supporting network applications，各种协议的实现<br>▪ FTP, SMTP, HTTP<br>🌿transport: process-process data，控制数据的传输                        process to process<br>▪ TCP, UDP<br>🌿network: routing of datagrams from source to destination                 host to host<br>▪ IP, routing protocols<br>🌿link: data transfer between neighboring network elements                 node to node<br>▪ Ethernet, 802.111 (WiFi), PPP<br>🌿 physical: bits “on the wire”</p>
-<p><img src="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png" alt="E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0"></p>
-<ul>
-<li>有网络层的设备才有ip地址，而图中的交换机是没有的</li>
-<li>router和source的frame是不一样的</li>
-<li>每到一个设备都会对数据某些层进行重新封装</li>
-<li>链路层的协议在网卡上</li>
-<li>网络层、传输层的实现都在操作系统内核中</li>
-</ul>
-<p>除物理层，其他层都拥有 PDU (protocol data unit) </p>
-<p>❑ Data + header = PDU (Protocol Data Unit)</p>
-<p><img src="http://api.xixfeng.cn/mweb/Overview.jpg" alt="Overview"></p>
-<h1 id="2-考试"><a href="#2-考试" class="headerlink" title="2. 考试"></a>2. 考试</h1><p>不考</p>
-<ul>
-<li>VLAN</li>
-<li>广播、主播（除广播地址）</li>
-<li>链路层虚拟化</li>
-</ul>
-<p>考</p>
-<ul>
-<li>谁用了FDM技术（接入网）</li>
-<li>四个delay（不会考queue delay）</li>
-</ul>
-<p>线路交换、分组交换；数据报网络、虚电路网络</p>
-<pre><code>1. In ( ) networks, the resources needed along a path to provide for communication between the end system are reserved for the duration of the communication session.
+<p>我觉得C也是正确的</p>
+<pre><code>The following four descriptions about multiplexing and de-multiplexing, which one is correct? B
+A. A UDP socket is identified by a two-tuples consisting of a source port number and a destination port number.
+B. If two UDP segment have different source port number, they may be directed to the same destination process.
+C. If two TCP segments with different source port number, they may be directed to the same destination process.
+D. If two TCP segments with same destination IP address and destination port number, they must be the same TCP connection.
+</code></pre><pre><code>The field of Length in UDP segment specifies the length of __B__. 
+A. the UDP segment, not including the header
+B. the UDP segment, including the header
+C. the UDP segment’s header
+D. the Length field
+</code></pre><p>MSS是传输层（但是它限制了应用层message大小）、MTU是链路层（但是他限制了网络层datagram大小）</p>
+<pre><code>In the following four descriptions about MSS and MTU, which one is not correct? B
+A. The MSS is the maximum amount of application-layer data in the segment
+B. The MSS is the maximum size of the TCP segment including headers
+C. The MSS is typically set by MTU
+D. The MTU means the largest link-layer frame
 
-A packet-switched
+</code></pre><pre><code>Which of the following field is not used for connection setup and teardown?B
+A. Sequence number
+B. TST
+C. SYN
+D. FIN 
+</code></pre><pre><code>In the following four options, which one is correct?A 
+A. The variations in the SampleRTT are smoothed out in the computation of the EstimatedRTT
+B. The timeout should be less than the connection’s RTT
+C. Suppose that the last SampleRTT in a TCP connection is equal to 1 sec. Then the current value of TimeoutInterval will necessarily be≥1 sec
+D. Suppose that the last SampleRTT in a TCP connection is equal to 1 sec. Then the current value of TimeoutInterval will necessarily be≤1 sec
+</code></pre><pre><code>Provided α=0.125, current value of Estimated-RTT is 0.4s, Sample-RTT is 0.8s, then the new value of Estimated-RTT is __A__s. EstimatedRTT = (1- )*EstimatedRTT + *SampleRTT
+A. 0.45
+B. 0.6
+C. 0.7
+D. 0.8
+</code></pre><pre><code>In the following four descriptions about Rcv-Window, which one is correct? C
+A. The size of the TCP RcvWindow never changes throughout the duration of the connection
+B. The size of the TCP RcvWindow will change with the size of the TCP RcvBuffer
+C. The size of the TCP RcvWindow must be less than or equal to the size of the TCP RcvBuffer  防止愚笨窗口综合症
+D. Suppose host A sends a file to host B over a TCP connection, the number of unacknowledged bytes that A sends cannot exceed the size of the size of the RcvWindow.
 
-B data-switched
+</code></pre><pre><code>There are two states in TCP congestion control, which are __A__. 
+A. slow start and congestion avoidance
+B. safe start and congestion avoidance
+C. slow start and congestion abandon
+D. safe start and congestion abandon
 
-C circuit-switched
-
-D message-switched
-
-2. In ( ) networks, the resources are not reserved; a session’s messages use the resources on demand, and as a consequence, may have to wait for access to communication link.
-
-A packet-switched
-
-B data-switched
-
-C circuit-switched
-
-D message-switched
-
-3.The network that forwards packets according to host destination addresses is called ( ) network.
-
-A circuit-switched
-
-B packet-switched
-
-C virtual-circuit
-
-D datagram
-</code></pre><h1 id="3-附录"><a href="#3-附录" class="headerlink" title="3. 附录"></a>3. 附录</h1><p><u><strong>text book</strong></u></p>
-<ul>
-<li>Computer Networking: A Top Down Approach Featuring the Internet,计算机网络（自顶向下方法)</li>
-<li>TCP/IP 详解 (vol.1-vol.3)</li>
-<li>TCP/IP Sockets in C 注重实践</li>
-<li>计算机网络(第五版)</li>
-<li>计算机网络教程(第六版) <strong>谢钧</strong></li>
-</ul>
-<p><strong><u>TCP、UDP应用</u></strong></p>
-<table>
-<thead>
-<tr>
-<th>应用</th>
-<th>应用层协议</th>
-<th>传输层协议</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>电子邮件</td>
-<td>SMTP、POP3、IMAP</td>
-<td>TCP</td>
-</tr>
-<tr>
-<td>远程终端访问</td>
-<td>Talnet</td>
-<td>TCP</td>
-</tr>
-<tr>
-<td>Web</td>
-<td>HTTP</td>
-<td>TCP</td>
-</tr>
-<tr>
-<td>文件传输</td>
-<td>FTP</td>
-<td>TCP</td>
-</tr>
-<tr>
-<td>自治系统间路由协议</td>
-<td>BGP</td>
-<td>TCP</td>
-</tr>
-<tr>
-<td>流式多媒体</td>
-<td>通常专用</td>
-<td>UDP或TCP</td>
-</tr>
-<tr>
-<td>因特网电话</td>
-<td>通常专用</td>
-<td>UDP或TCP</td>
-</tr>
-<tr>
-<td>远程文件服务器</td>
-<td>NFS</td>
-<td>通常UDP</td>
-</tr>
-<tr>
-<td>网络管理</td>
-<td>SNMP</td>
-<td>通常UDP</td>
-</tr>
-<tr>
-<td>名字转换</td>
-<td>DNS</td>
-<td>通常UDP</td>
-</tr>
-</tbody>
-</table>
-<p>单词</p>
-<table>
-<thead>
-<tr>
-<th>单词</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>residential</td>
-<td>住宅</td>
-</tr>
-<tr>
-<td>copper wire</td>
-<td>铜线</td>
-</tr>
-<tr>
-<td>coaxial cable</td>
-<td>同轴电缆</td>
-</tr>
-<tr>
-<td>fiber optics</td>
-<td>光纤</td>
-</tr>
-<tr>
-<td>iterated</td>
-<td>迭代</td>
-</tr>
-<tr>
-<td>recursion</td>
-<td>递归</td>
-</tr>
-<tr>
-<td>intra</td>
-<td>内部</td>
-</tr>
-<tr>
-<td>inter</td>
-<td>之间</td>
-</tr>
-<tr>
-<td>odd</td>
-<td>奇数</td>
-</tr>
-</tbody>
-</table>
+</code></pre><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
 
         
 
@@ -488,7 +567,7 @@ D datagram
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/11/26/计算机网络（一）-介绍/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/11/26/计算机网络(三)-传输层/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -502,18 +581,18 @@ D datagram
   
 <nav id="article-nav">
   
-    <a href="/2019/11/26/计算机网络（二）-应用层/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/26/计算机网络(四)-网络层/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          计算机网络（二）-应用层
+          计算机网络(四)-网络层
         
       </div>
     </a>
   
   
-    <a href="/2019/11/21/计算机网络（五）-链路层/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计算机网络（五）-链路层</div>
+    <a href="/2019/11/26/计算机网络(二)-应用层/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络(二)-应用层</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -540,7 +619,7 @@ D datagram
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.</span> <span class="toc-text">1.介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-网络"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-网络边界"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 网络边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-网络核心"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 网络核心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-传输模型"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 传输模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-TCP-IP-五层模型"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 TCP/IP 五层模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-考试"><span class="toc-number">2.</span> <span class="toc-text">2. 考试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-附录"><span class="toc-number">3.</span> <span class="toc-text">3. 附录</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Multiplexing-and-demultiplexing"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Connectionless-transport-UDP"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-引入"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Go-back-N算法："><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Go-back-N算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Selective-Repeat算法"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Selective Repeat算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-TCP"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-TCP性质与结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-TCP发送端、接收端"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2 TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-TCP三次握手"><span class="toc-number">1.6.3.</span> <span class="toc-text">1.6.3 TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-4-TCP流控"><span class="toc-number">1.6.4.</span> <span class="toc-text">1.6.4 TCP流控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-5-TCP拥塞控制"><span class="toc-number">1.6.5.</span> <span class="toc-text">1.6.5 TCP拥塞控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-考试"><span class="toc-number">2.</span> <span class="toc-text">2. 考试</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -567,7 +646,7 @@ D datagram
 <script src="https://jjeejj.github.io/js/gitment.js"></script> -->
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2019/11/26/计算机网络（一）-介绍/",
+  id: "https://xixfeng.github.io/2019/11/26/计算机网络(三)-传输层/",
   owner: 'xixfeng',
   repo: 'blog_comment',
   oauth: {

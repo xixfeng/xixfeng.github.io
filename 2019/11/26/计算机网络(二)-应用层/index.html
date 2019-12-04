@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>计算机网络（三）-传输层 | xixfeng</title>
+  <title>计算机网络(二)-应用层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
+  <meta name="description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络（三）-传输层">
-<meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/index.html">
+<meta property="og:title" content="计算机网络(二)-应用层">
+<meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络(二)-应用层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
+<meta property="og:description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/Transport Layer.jpg">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-12-03T02:10:18.573Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
+<meta property="og:updated_time" content="2019-12-04T01:26:54.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络（三）-传输层">
-<meta name="twitter:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
-<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
+<meta name="twitter:title" content="计算机网络(二)-应用层">
+<meta name="twitter:description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
+<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -147,20 +145,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计算机网络（三）-传输层" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机网络(二)-应用层" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      计算机网络（三）-传输层
+      计算机网络(二)-应用层
     </h1>
   
 
         
-        <a href="/2019/11/26/计算机网络（三）-传输层/" class="archive-article-date">
-  	<time datetime="2019-11-26T12:56:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+        <a href="/2019/11/26/计算机网络(二)-应用层/" class="archive-article-date">
+  	<time datetime="2019-11-26T12:55:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
 </a>
         
       </header>
@@ -168,349 +166,147 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="1-Transport-Layer"><a href="#1-Transport-Layer" class="headerlink" title="1. Transport Layer"></a>1. Transport Layer</h1><p>网络层负责不同主机之间数据的传输，IP</p>
-<p>传输层负责不同程序之间数据的传输，Port</p>
-<h2 id="1-1-Multiplexing-and-demultiplexing"><a href="#1-1-Multiplexing-and-demultiplexing" class="headerlink" title="1.1 Multiplexing and demultiplexing"></a>1.1 Multiplexing and demultiplexing</h2><p>多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用</p>
-<p>多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字</p>
-<p>多路复用 （multiplexing）：在源主机从不同的套接字中收集数据块，并为每个数据块封装上首部信息从而生成报文段</p>
-<a id="more"></a>
-<p>在UDP中，头部会包含</p>
-<ul>
-<li>SP</li>
-<li>DP</li>
-</ul>
-<p>在TCP中，头部会包含</p>
-<ul>
-<li><p>SP</p>
+          <h1 id="1-Application-Layer"><a href="#1-Application-Layer" class="headerlink" title="1. Application Layer"></a>1. Application Layer</h1><ul>
+<li><p>client-server </p>
+<p>server farms：cluster，cloud，SPN，LoadBalance</p>
 </li>
-<li><p>DP</p>
+<li><p>peer-to-peer (P2P) </p>
 </li>
-<li><p>S_IP</p>
-</li>
-<li><p>D_IP</p>
+<li><p>hybrid of client-server and P2P</p>
 </li>
 </ul>
-<h2 id="1-2-Connectionless-transport-UDP"><a href="#1-2-Connectionless-transport-UDP" class="headerlink" title="1.2 Connectionless transport: UDP"></a>1.2 Connectionless transport: UDP</h2><p>用户数据报协议 UDP（User Datagram protocol）</p>
-<p>优点</p>
+<p>进程间通信：</p>
+<p>标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port）</p>
+<pre><code>为什么不使用PID作为identifier？因为一个主机中程序的PID每次启动都不相同
+</code></pre><a id="more"></a>
+<h2 id="1-1-Web-and-HTTP"><a href="#1-1-Web-and-HTTP" class="headerlink" title="1.1 Web and HTTP"></a>1.1 Web and HTTP</h2><p><u><strong>HTTP</strong></u></p>
+<p>HTTP is “stateless”<br>无状态：指每次的请求都是独立的，它的<strong>执行情况</strong>和结果与前面的请求和之后的请求是<strong>无直接关系</strong>的，它不会受前面的请求应答情况直接影响，也不会直接影响后面的请求应答情况<br>连接过程</p>
+<ol>
+<li>client initiates TCP connection (creates socket) to server, port 80</li>
+<li>server accepts TCP connection from client</li>
+<li>HTTP messages (applicationlayer protocol messages) exchanged between browser (HTTP client) and Web server (HTTP server)</li>
+<li>TCP connection closed</li>
+</ol>
+<p><strong>HTTP分类</strong></p>
 <ul>
-<li>无连接</li>
-<li>简单</li>
-<li>报文头简单</li>
-<li>无网络拥塞控制</li>
+<li>non-persistent HTTP：计算机发展初期，资源有限必须立马释放</li>
+<li>persistent HTTP：资源变多了，允许保持长连接</li>
 </ul>
-<p>缺点</p>
+<p>definition of <strong>RTT</strong>: time for a small packet to travel from client to server and back</p>
+<p>请求速度，计算RTT</p>
 <ul>
-<li>报文存在丢失</li>
-<li>可能会乱序到达</li>
+<li>HTTP Parallel，非保持HTTP：建立TCP 1 RTT+请求HTML文本 1RTT+ 2RTT（同时请求所有RTT）</li>
+<li>HTTP pipeline，保持HTTP：建立TCP 1 RTT+请求HTML文本 1RTT + 1RTT（一次性线性发出所有请求）</li>
 </ul>
-<p>⚠️但有时候TCP、UDP都不合适，需要找一种中间方式：在应用层使用UDP组包</p>
-<p><u><strong>checksum</strong></u></p>
-<p>发送方的UDP对报文段中的所有16位比特的和（如果两个16位比特<strong>溢出</strong>了，则溢出需要被<strong>反卷</strong>）<strong>进行反码运算</strong></p>
-<p>例子</p>
-<pre><code>发送方报文段一共三个16位比特
-0110 0110 0110 0000
-0101 0101 0101 0101
-1000 1111 0000 1100
-
-前两位相加=
-1011 1011 1011 0101
-
-再将1011 1011 1011 0101与第三位相加=
-0100 1010 1100 0010（这里就发生了溢出，进行了反卷）
-
-最后取反
-1011 0101 0011 1101 == checksum
-
-接收方将checksum与报文段所有16位比特相加，结果不为1111111111111111则发生传输错误
-</code></pre><h2 id="1-3-引入"><a href="#1-3-引入" class="headerlink" title="1.3 引入"></a>1.3 引入</h2><p>rdt1.0：没有位错误，没有分组丢失</p>
-<p>rdt2.0：有位错误，没有分组丢失</p>
-<p>rdt3.0：有位错误，有分组丢失</p>
+<pre><code>请求一个http页面，里面有3个object，假设DNS没有消耗时间。
+a 非保持HTTP，没有并行：8RTT 2 + 2*3
+b 非保持HTTP，并行：4RTT  2 + 2
+c 保持HTTP，没有流水线：5RTT  2 + 3
+d 保持HTTP，有流水线：3RTT 2 + 1
+</code></pre><p><strong>Cookies</strong></p>
+<p>cookie file kept on user’s host, managed by user’s browser</p>
+<p><strong>Web caches (proxy server)</strong></p>
+<p>客户端向代理服务器发送请求，假如代理服务器已缓存该内容而直接返回。如果没有缓存则向后面的服务器请求，再转发给客户端</p>
+<p><strong>Condition GET</strong> cache 和server之间</p>
+<p>If-Modified-Since：如果文件没有被修改，不要发送数据 don’t send object if cache has up-to-date cached version</p>
+<h2 id="1-2-some-protocal"><a href="#1-2-some-protocal" class="headerlink" title="1.2 some protocal"></a>1.2 some protocal</h2><p><strong><u>FTP</u></strong></p>
+<p>The File Transfer protocal</p>
+<p>control connection: “out of band”：传输信息和控制信息分别位于两个不同的TCP上，带外传输</p>
+<p><u><strong>Electronic Mail</strong></u></p>
+<p><strong>SMTP</strong> （user agent -&gt; sender’s mail server，sender’s mail server -&gt; sender’s mail server）</p>
 <ul>
-<li>rdt3.0效率十分的低，因为它是一个停止等待的协议</li>
+<li>user agents ：发送、阅读邮件</li>
+<li>mail servers </li>
+<li>simple mail transfer protocol: SMTP</li>
 </ul>
-<p>希望通过<u><strong>流水线</strong></u>方式提高效率（pipeline），由此诞生了GBN和SR算法</p>
-<h2 id="1-4-Go-back-N算法："><a href="#1-4-Go-back-N算法：" class="headerlink" title="1.4 Go-back-N算法："></a>1.4 Go-back-N算法：</h2><p>只有超时会引起重发</p>
-<p>发送方</p>
+<p>SMTP uses TCP to reliably transfer email message from client to server, port 25</p>
+<p><strong>POP3、IMAP、HTTP</strong>（sender’s mail server -&gt; user agent）</p>
+<h2 id="1-3-DNS"><a href="#1-3-DNS" class="headerlink" title="1.3 DNS"></a>1.3 DNS</h2><p><a href="https://www.cnblogs.com/xiaogan/p/5954678.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaogan/p/5954678.html</a></p>
+<p>Domain Name System：域名系统</p>
+<p>作用</p>
 <ul>
-<li>如果下一个seq在window里面，则发送</li>
-<li>只有一个计时器，计时器超时后，重新发送n和窗口中所有大于n的段。（n为最大未被确认的段）</li>
-<li>当收到任意一个段，重置计时器</li>
-<li>如果window最左边的段被ack，移动窗口</li>
+<li>将域名转换为ip地址（hostname-IP）</li>
+<li>主机别名（host aliasing  , alias names）：比如一台主机可能叫做ly.xixfeng.cn，也可能叫做lyx.ly.xixfeng,cn。lyx.ly.xixfeng.cn为规范主机名（canonical hostname）</li>
+<li>邮件服务器别名（mail server aliasing）</li>
+<li>负载分配（load distribution）：一个域名可能对应多个ip地址，DNS服务器也会返回多个ip地址</li>
 </ul>
-<p>⚠️：如果收到的包大于目前未确认的最小包，则确认这个包以及之前的包。比如最小未被确认的为5，但是收到一个6，则将5和6都设置为确认</p>
-<p>接收方</p>
+<p>为什么不采用集中式DNS服务器：</p>
 <ul>
-<li>接受方接受依次分组，假如有一个错误，就会丢弃这个组之后的组，发送目前为止接受到的最高位包的ACK（比如有5个包，接收了前3个包和第5个包，第4个包失败了就会返回ACK3</li>
+<li>单点故障 single point of failure</li>
+<li>通信容量 traffic volume</li>
+<li>维护  maintenance</li>
 </ul>
-<h2 id="1-5-Selective-Repeat算法"><a href="#1-5-Selective-Repeat算法" class="headerlink" title="1.5 Selective Repeat算法"></a>1.5 Selective Repeat算法</h2><p>发送方</p>
+<p><strong>DNS服务器</strong></p>
 <ul>
-<li>如果下一个seq在window里面，则发送</li>
-<li>为所有段设置定时器，n计时器超时，重发n</li>
-<li>如果window最左边的段被ack，移动窗口（⚠️：如果收到的段大于目前未确认的最小段，则确认收到的段）</li>
-</ul>
-<p>接收方</p>
-<p>pkt n in window</p>
-<ul>
-<li>发送ACK(n)</li>
-<li>乱序：缓存</li>
-<li>如果window最左边的段被确认，移动窗口</li>
-</ul>
-<p>pkt n before window</p>
-<ul>
-<li>发送ACK(n)</li>
-</ul>
-<p>其他</p>
-<ul>
-<li>忽略</li>
-</ul>
-<h2 id="1-6-TCP"><a href="#1-6-TCP" class="headerlink" title="1.6 TCP"></a>1.6 TCP</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>TCP</th>
-<th>GBN</th>
-<th>SR</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>计时器</td>
-<td>一个，超时后发送最老未被确认的包</td>
-<td>一个，超时后发送最老未被确认的包及其之后的包（在发送窗口中）</td>
-<td>每一个未被确认的包都有一个计时器，计时器超时后发送对应包</td>
-</tr>
-<tr>
-<td>发送端</td>
-<td>记录乱序到达的ack</td>
-<td>收到ack后，确认该包及其之前未被确认的包（因为接收方不会接受乱序包，所以可以这样做）</td>
-<td>记录乱序到达的ack</td>
-</tr>
-<tr>
-<td>接收端</td>
-<td>根据实现判断是否缓存乱序包，但是一定会立马返回之前最新确认的包（配合发送方的三次重传）</td>
-<td>丢弃乱序包</td>
-<td>缓存乱序包，发送该包ack</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>以上说的ack，与TCP中的ack不同，指的是被确认的包</li>
-</ul>
-<h3 id="1-6-1-TCP性质与结构"><a href="#1-6-1-TCP性质与结构" class="headerlink" title="1.6.1 TCP性质与结构"></a>1.6.1 TCP性质与结构</h3><p>任何internet应用必然需要使用TCP、UDP中一种</p>
-<p><u><strong>TCP</strong></u></p>
-<p>面向连接的可靠数据传输，带有流量控制、拥塞控制</p>
-<ul>
-<li>面向连接的（connection-oriented）: setup required between client and server processes </li>
-<li>可靠的数据传输</li>
-<li>流量控制 （flow control） : sender won’t overwhelm receiver，当接收端传输层buffer快溢出的时候，发送端停止发送。”发送方不会压倒接收方”</li>
-<li><p>拥塞控制（congestion control）: throttle sender when network overloaded ，避免中间节点出现拥塞</p>
+<li><p>Root name servers 根域名服务器：</p>
+<p>contacted by local name server that can not resolve name</p>
+<p>gets mapping</p>
+<p>returns mapping to local name server</p>
 </li>
-<li><p>全双工</p>
-<p>MSS: maximum segment size，因为链路层不同（MTU）而导致最大段大小不同。MSS指包内容大小，所以其实是限制了应用层的包大小（内容+头）</p>
+<li><p>Top-level domain (TLD) servers 顶级域名服务器：com、org</p>
 </li>
-<li><p>不提供: timing, minimum throughput guarantees, security</p>
+<li><p>Authoritative DNS servers 权威域名服务器：解析以baidu.com结尾的域名</p>
+</li>
+<li><p>Local Name Server</p>
 </li>
 </ul>
-<p>捎带（piggyback）：将数据和控制信息放在一个带里面</p>
-<p>在分组交换中缺点</p>
+<p><strong>两种查询方式</strong></p>
+<p>迭代查询：现代基本上都是迭代查询，假如Local Name Server知道该域名的映射直接访问，反之则向Root name servers 请求，依次向下请求</p>
+<p>递归查询：Local Name Server -&gt; Root name servers -&gt; Top-level domain (TLD) servers -&gt; Authoritative DNS servers</p>
+<p><strong>DNS records</strong></p>
+<p>RR format：name，value，type，ttl</p>
+<p>type</p>
+<p>A：name是主机名（hostname），vaule是ip</p>
+<p>CNAME：name是别名 （ <a href="http://www.ibm.com" target="_blank" rel="noopener">www.ibm.com</a> ），value是规范主机名（servereast.backup2.ibm.com）</p>
+<p>NS：name是域名，value是Authoritative DNS servers的主机名</p>
+<p>MX：name是邮件服务器别名，value是邮件服务器的规范主机名</p>
+<p>假如我注册域名xixfeng.cn，则需要在.cn顶级域名服务器上注册两个RR</p>
+<pre><code>xixfeng.cn，dns1.networkxixfeng.com，NS
+dns1.networkxixfeng.com，212.212.212.1，A
+</code></pre><h2 id="1-4-P2P"><a href="#1-4-P2P" class="headerlink" title="1.4 P2P"></a>1.4 P2P</h2><p>详细内容在课件 2-75</p>
+<p>自顶向下课本P93</p>
+<p><u><strong>P2P</strong></u></p>
+<p><strong>文件分布式存储</strong></p>
+<p>tracker：管理和追踪参与Torrent的对等方</p>
+<p>torrent：交换文件块的对等方</p>
+<p>存储目录位置</p>
 <ul>
-<li>包的传输是跳跃式的，同一时间来自一个host的包会经过不同的路径</li>
-<li>不同的路径会有不同的延迟</li>
-<li>所以包的传输容易出现乱序和丢失</li>
+<li>集中目录：定位内容高度集中</li>
+<li>查询泛洪</li>
 </ul>
-<p>但是有些数据我需要它们按序到达，保证到达。所以必须在传输层加入大量的控制信息</p>
-<p><strong><u>TCP控制头</u></strong></p>
+<p>如何存储资源</p>
+<p>分布式的hash表 DHT</p>
 <ul>
-<li>seq：当前这段字节流数据的开始位置（这个位置是相对于整个TCP连接过程的传输流）</li>
-<li>ack：下一次需要的字节流位置（和GBN、SR以及rdt不同）</li>
-<li>SYN表示建立连接</li>
-<li>FIN表示关闭连接</li>
-<li>ACK表示响应</li>
-<li>PSH表示有 DATA数据传输</li>
-<li>RST表示连接重置。</li>
+<li>为每一个对等方赋予id</li>
+<li>将key m映射到 [0,2^n-1]中</li>
+<li>假如该n值处没有节点，则交给最近的后继</li>
 </ul>
-<p>如何设置TCP连接的过期时间（防止分组丢失）</p>
+<p><strong>区块链</strong>（block chain）</p>
 <ul>
-<li>要比RTT长</li>
-<li>不能太长不能太短</li>
-</ul>
-<pre><code>Provided α=0.125, current value of Estimated-RTT is 0.4s, Sample-RTT is 0.8s, then the new value of Estimated-RTT is __A__s. EstimatedRTT = (1- )*EstimatedRTT + *SampleRTT
-A. 0.45
-B. 0.6
-C. 0.7
-D. 0.8
-</code></pre><p>TCP-可靠的传输</p>
-<ul>
-<li><p>TCP creates rdt service on top of IP’s unreliable service</p>
+<li><p>分布式账本</p>
 </li>
-<li><p>pipelined segments</p>
+<li><p>交易按时间顺序记录</p>
 </li>
-<li><p>cumulative acks 累积的ack</p>
+<li><p>共识：如何证明你是个“好人”</p>
+<p>prove of work （POW）：努力工作</p>
+<p>prove of stack（POS）：证明股权（利益）</p>
 </li>
-<li><p>⚠️TCP uses <strong>single retransmission timer</strong> 一个重传计时</p>
-</li>
-<li><p>⚠️retransmissions are triggered by</p>
-<p>timeout event</p>
-<p>duplicate acks 重复的ack返回</p>
-</li>
-</ul>
-<h3 id="1-6-2-TCP发送端、接收端"><a href="#1-6-2-TCP发送端、接收端" class="headerlink" title="1.6.2 TCP发送端、接收端"></a>1.6.2 TCP发送端、接收端</h3><p><u><strong>TCP 发送端事项</strong></u></p>
-<p>TCP只有一个计时器</p>
-<p>初始化</p>
-<ul>
-<li>创建seq，并发送</li>
-<li>如果没有启动计时器则启动，</li>
-</ul>
-<p>⚠️超时</p>
-<ul>
-<li>发送最老的未被确认（unacked）段</li>
-<li>重新启动计时器</li>
-</ul>
-<p>确认了未确认的字段</p>
-<ul>
-<li>更新发送方的确认字段</li>
-<li>如果有未被确认的字段，<strong>重启</strong>计时器</li>
-</ul>
-<p>⚠️快速重发</p>
-<p>当接收到三次相同的ACK后（说明发送端某一个段丢失，比如1、2、3、4， 1丢失了会重复收到3个1），会重新发送接收方想要的seq</p>
-<p>TCP接收端事项</p>
-<table>
-<thead>
-<tr>
-<th>EVENT AT RECIVER</th>
-<th>TCP RECIVER ACTION</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>到达了一个有序序列 且 这个有序序列之前的所有段都已经被确认</td>
-<td>停500ms等待下一个segment，超时后发送ACK</td>
-</tr>
-<tr>
-<td>到达了一个有序序列 且 之前有一个字段正在被确认</td>
-<td>立马发送ACK</td>
-</tr>
-<tr>
-<td>到达一个乱序序列（不是期望的seq）</td>
-<td>发送之前的ACK（即未被确认的ACK）</td>
-</tr>
-<tr>
-<td>Arrival of segment that partially or completely fills gap</td>
-<td>Immediate send ACK, provided that segment starts at lower end of gap？？？</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>Q：接收方如何处理乱序到达的segement？</p>
-<p>这个TCP规范里面没有规定，有TCP的实现者决定</p>
-</blockquote>
-<h3 id="1-6-3-TCP三次握手"><a href="#1-6-3-TCP三次握手" class="headerlink" title="1.6.3 TCP三次握手"></a>1.6.3 TCP三次握手</h3><p><a href="https://www.jianshu.com/p/cd379b79b9be" target="_blank" rel="noopener">【TCP/IP】三次握手过程及原因</a></p>
-<h3 id="1-6-4-TCP流控"><a href="#1-6-4-TCP流控" class="headerlink" title="1.6.4 TCP流控"></a>1.6.4 TCP流控</h3><p>TCP 流控制</p>
-<p>由于接收端的app从buffer读的速度会比较慢，所以接收端buffer可能会装满溢出</p>
-<p>所以在TCP的控制信息中有一个 Receive window 字段，标示buffer还能接受的字节大小</p>
-<p>当buffer充满时，可能会发生愚笨窗口综合症。</p>
-<p>RecWindow = RecBuffer - [lastbyteRec - lastbyteRead]，⚠️这里的RecWindow不是接收方确认接收顺序的那个window</p>
-<p><img src="http://api.xixfeng.cn/mweb/15752582144089.jpg" alt></p>
-<h3 id="1-6-5-TCP拥塞控制"><a href="#1-6-5-TCP拥塞控制" class="headerlink" title="1.6.5 TCP拥塞控制"></a>1.6.5 TCP拥塞控制</h3><p>拥塞的原因</p>
-<ul>
-<li>路由的buffer有限</li>
-<li>sender不知道路由的buffer情况</li>
-<li>带宽限制</li>
-</ul>
-<p>拥塞的危害</p>
-<p>more work (retrans) for given “goodput”</p>
-<p>unneeded retransmissions: link carries multiple copies of pkt</p>
-<ul>
-<li>decreasing goodput</li>
-</ul>
-<p>when packet dropped, any “upstream transmission capacity used for that packet was wasted!</p>
-<p><u><strong>解决方法</strong></u></p>
-<ul>
-<li>end-end congestion control，TCP控制拥塞的方法</li>
-<li>network-assisted congestion control，需要节点在传输时增加信息</li>
-</ul>
-<hr>
-<p>拥塞窗口（cwnd）：限制发送端的流水线一次性发送多少段。<strong><u>LastByteSent-LastByteAcked&lt;= cwnd</u></strong></p>
-<p>threshold就是几何增长、线性增长的界限</p>
-<p><strong>cwnd的慢启动</strong></p>
-<ul>
-<li>cwnd = 1MSS</li>
-<li>几何增长</li>
-<li>设置ssthresh（threshold）</li>
-</ul>
-<p><strong>cwnd的状态转换</strong></p>
-<p>cwnd每次收到ACK后增长</p>
-<ul>
-<li>当重复收到3个ack后<ul>
-<li>记录ssthresh=cwnd/2</li>
-<li>cwnd减半+3</li>
-<li>cwnd变为线性增长</li>
-</ul>
-</li>
-<li>当计时器到达时<ul>
-<li>记录ssthresh=cwnd/2</li>
-<li>cwnd变为1</li>
-<li>cwnd变为几何增长</li>
-<li>当达到ssthresh后，cwnd变为线性增长</li>
-</ul>
+<li><p>智能合约：一个节点的所有操作都会被记录下来</p>
 </li>
 </ul>
-<p>问题：几何增长能不能超过ssthresh？不能</p>
-<p>3个ack过后，窗口减半会不会加3？会加3</p>
-<p>超时和三次ACK都会引起ssthresh等于cwnd一半</p>
-<p><img src="http://api.xixfeng.cn/mweb/Transport Layer.jpg" alt="Transport Layer"></p>
-<h1 id="2-考试"><a href="#2-考试" class="headerlink" title="2. 考试"></a>2. 考试</h1><ul>
-<li>什么是多路分解、多路复用</li>
-<li>UDP</li>
-<li>TCP（seq、ack、SYN、ACK、FIN）：三次握手、四次挥手、GBN、SR、累计确认</li>
+<h2 id="1-5-Socket-programming-with-TCP"><a href="#1-5-Socket-programming-with-TCP" class="headerlink" title="1.5 Socket programming with TCP"></a>1.5 Socket programming with TCP</h2><p><u>socket是基于TCP或者UDP的</u></p>
+<p><img src="http://api.xixfeng.cn/mweb/Application Layer.jpg" alt="Application Layer"></p>
+<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ul>
+<li>应用层协议使用UDP还是TCP</li>
+<li>HTTP</li>
+<li>FTP（带外）</li>
+<li>Email</li>
+<li>DNS（递归查询、迭代查询，别搞错英语单词了弟弟）</li>
 </ul>
-<p>我觉得C也是正确的</p>
-<pre><code>The following four descriptions about multiplexing and de-multiplexing, which one is correct? B
-A. A UDP socket is identified by a two-tuples consisting of a source port number and a destination port number.
-B. If two UDP segment have different source port number, they may be directed to the same destination process.
-C. If two TCP segments with different source port number, they may be directed to the same destination process.
-D. If two TCP segments with same destination IP address and destination port number, they must be the same TCP connection.
-</code></pre><pre><code>The field of Length in UDP segment specifies the length of __B__. 
-A. the UDP segment, not including the header
-B. the UDP segment, including the header
-C. the UDP segment’s header
-D. the Length field
-</code></pre><p>MSS是传输层（但是它限制了应用层message大小）、MTU是链路层（但是他限制了网络层datagram大小）</p>
-<pre><code>In the following four descriptions about MSS and MTU, which one is not correct? B
-A. The MSS is the maximum amount of application-layer data in the segment
-B. The MSS is the maximum size of the TCP segment including headers
-C. The MSS is typically set by MTU
-D. The MTU means the largest link-layer frame
-
-</code></pre><pre><code>Which of the following field is not used for connection setup and teardown?B
-A. Sequence number
-B. TST
-C. SYN
-D. FIN 
-</code></pre><pre><code>In the following four options, which one is correct?A 
-A. The variations in the SampleRTT are smoothed out in the computation of the EstimatedRTT
-B. The timeout should be less than the connection’s RTT
-C. Suppose that the last SampleRTT in a TCP connection is equal to 1 sec. Then the current value of TimeoutInterval will necessarily be≥1 sec
-D. Suppose that the last SampleRTT in a TCP connection is equal to 1 sec. Then the current value of TimeoutInterval will necessarily be≤1 sec
-</code></pre><pre><code>Provided α=0.125, current value of Estimated-RTT is 0.4s, Sample-RTT is 0.8s, then the new value of Estimated-RTT is __A__s. EstimatedRTT = (1- )*EstimatedRTT + *SampleRTT
-A. 0.45
-B. 0.6
-C. 0.7
-D. 0.8
-</code></pre><pre><code>In the following four descriptions about Rcv-Window, which one is correct? C
-A. The size of the TCP RcvWindow never changes throughout the duration of the connection
-B. The size of the TCP RcvWindow will change with the size of the TCP RcvBuffer
-C. The size of the TCP RcvWindow must be less than or equal to the size of the TCP RcvBuffer  防止愚笨窗口综合症
-D. Suppose host A sends a file to host B over a TCP connection, the number of unacknowledged bytes that A sends cannot exceed the size of the size of the RcvWindow.
-
-</code></pre><pre><code>There are two states in TCP congestion control, which are __A__. 
-A. slow start and congestion avoidance
-B. safe start and congestion avoidance
-C. slow start and congestion abandon
-D. safe start and congestion abandon
-
-</code></pre><p><img src="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG" alt="F1DD5B743BBCDB290682903972F33B0F"></p>
-
+<pre><code>Which of the following groups run on the top of UDP? ____C_____
+A. FTP, ARP, SMTP.                        B. IMAP, ARP, DNS
+C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协议都是TCP
+</code></pre>
         
 
       
@@ -567,7 +363,7 @@ D. safe start and congestion abandon
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/11/26/计算机网络(二)-应用层/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -581,18 +377,18 @@ D. safe start and congestion abandon
   
 <nav id="article-nav">
   
-    <a href="/2019/11/26/计算机网络（四）-网络层/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/26/计算机网络(三)-传输层/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          计算机网络（四）-网络层
+          计算机网络(三)-传输层
         
       </div>
     </a>
   
   
-    <a href="/2019/11/26/计算机网络（二）-应用层/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计算机网络（二）-应用层</div>
+    <a href="/2019/11/26/计算机网络(一)-介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">计算机网络(一)-介绍</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -619,7 +415,7 @@ D. safe start and congestion abandon
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Transport-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Transport Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Multiplexing-and-demultiplexing"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Multiplexing and demultiplexing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Connectionless-transport-UDP"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Connectionless transport: UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-引入"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-Go-back-N算法："><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Go-back-N算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Selective-Repeat算法"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Selective Repeat算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-TCP"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-TCP性质与结构"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.6.1 TCP性质与结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-TCP发送端、接收端"><span class="toc-number">1.6.2.</span> <span class="toc-text">1.6.2 TCP发送端、接收端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-3-TCP三次握手"><span class="toc-number">1.6.3.</span> <span class="toc-text">1.6.3 TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-4-TCP流控"><span class="toc-number">1.6.4.</span> <span class="toc-text">1.6.4 TCP流控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-5-TCP拥塞控制"><span class="toc-number">1.6.5.</span> <span class="toc-text">1.6.5 TCP拥塞控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-考试"><span class="toc-number">2.</span> <span class="toc-text">2. 考试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Application-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Web-and-HTTP"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-some-protocal"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-DNS"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-P2P"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 P2P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Socket-programming-with-TCP"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -646,7 +442,7 @@ D. safe start and congestion abandon
 <script src="https://jjeejj.github.io/js/gitment.js"></script> -->
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2019/11/26/计算机网络（三）-传输层/",
+  id: "https://xixfeng.github.io/2019/11/26/计算机网络(二)-应用层/",
   owner: 'xixfeng',
   repo: 'blog_comment',
   oauth: {

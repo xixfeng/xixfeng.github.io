@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
-  <title>计算机网络（二）-应用层 | xixfeng</title>
+  <title>计算机网络(五)-链路层 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
+  <meta name="description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络（二）-应用层">
-<meta property="og:url" content="https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/index.html">
+<meta property="og:title" content="计算机网络(五)-链路层">
+<meta property="og:url" content="https://xixfeng.github.io/2019/11/21/计算机网络(五)-链路层/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
+<meta property="og:description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
-<meta property="og:updated_time" content="2019-12-03T00:49:39.384Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/Link Layer & LAN.jpg">
+<meta property="og:updated_time" content="2019-12-04T01:27:47.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络（二）-应用层">
-<meta name="twitter:description" content="1. Application Layer client-server  server farms：cluster，cloud，SPN，LoadBalance  peer-to-peer (P2P)   hybrid of client-server and P2P   进程间通信： 标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port） 为什么不使">
-<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/Application Layer.jpg">
+<meta name="twitter:title" content="计算机网络(五)-链路层">
+<meta name="twitter:description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
+<meta name="twitter:image" content="http://api.xixfeng.cn/mweb/Link Layer & LAN.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -145,20 +145,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-计算机网络（二）-应用层" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机网络(五)-链路层" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      计算机网络（二）-应用层
+      计算机网络(五)-链路层
     </h1>
   
 
         
-        <a href="/2019/11/26/计算机网络（二）-应用层/" class="archive-article-date">
-  	<time datetime="2019-11-26T12:55:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-26</time>
+        <a href="/2019/11/21/计算机网络(五)-链路层/" class="archive-article-date">
+  	<time datetime="2019-11-21T06:16:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-21</time>
 </a>
         
       </header>
@@ -166,146 +166,238 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="1-Application-Layer"><a href="#1-Application-Layer" class="headerlink" title="1. Application Layer"></a>1. Application Layer</h1><ul>
-<li><p>client-server </p>
-<p>server farms：cluster，cloud，SPN，LoadBalance</p>
-</li>
-<li><p>peer-to-peer (P2P) </p>
-</li>
-<li><p>hybrid of client-server and P2P</p>
-</li>
-</ul>
-<p>进程间通信：</p>
-<p>标示符 identifier：端口 port number，供操作系统来标示一个进程。（IP+port）</p>
-<pre><code>为什么不使用PID作为identifier？因为一个主机中程序的PID每次启动都不相同
-</code></pre><a id="more"></a>
-<h2 id="1-1-Web-and-HTTP"><a href="#1-1-Web-and-HTTP" class="headerlink" title="1.1 Web and HTTP"></a>1.1 Web and HTTP</h2><p><u><strong>HTTP</strong></u></p>
-<p>HTTP is “stateless”<br>无状态：指每次的请求都是独立的，它的<strong>执行情况</strong>和结果与前面的请求和之后的请求是<strong>无直接关系</strong>的，它不会受前面的请求应答情况直接影响，也不会直接影响后面的请求应答情况<br>连接过程</p>
-<ol>
-<li>client initiates TCP connection (creates socket) to server, port 80</li>
-<li>server accepts TCP connection from client</li>
-<li>HTTP messages (applicationlayer protocol messages) exchanged between browser (HTTP client) and Web server (HTTP server)</li>
-<li>TCP connection closed</li>
-</ol>
-<p><strong>HTTP分类</strong></p>
+          <h1 id="1-链路层"><a href="#1-链路层" class="headerlink" title="1. 链路层"></a>1. 链路层</h1><h2 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1. 1 介绍"></a>1. 1 介绍</h2><p>链路层目标</p>
 <ul>
-<li>non-persistent HTTP：计算机发展初期，资源有限必须立马释放</li>
-<li>persistent HTTP：资源变多了，允许保持长连接</li>
+<li>错误探测、纠正</li>
+<li>共享广播频道：多重访问</li>
+<li>链路层的寻址</li>
+<li>可靠的数据传输、流量控制</li>
 </ul>
-<p>definition of <strong>RTT</strong>: time for a small packet to travel from client to server and back</p>
-<p>请求速度，计算RTT</p>
+<p>链路层在网卡（network interface card NIC）中实现</p>
+<p>节点（node）：主机、路由器</p>
+<p>链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS）</p>
+<p>frame：封装datagram，添加头部<u>以及尾部</u></p>
+<p>MAC：用在frame中以标示源和目的</p>
+<p>冲突域：可以互相探测到冲突的节点组成一个冲突域（在CSMA/CD处引入，trans_delay&gt;=2*propagtaion_delay），即满足这个不等式的节点集合</p>
+<a id="more"></a>
+<p>两种类型的链路</p>
 <ul>
-<li>HTTP Parallel，非保持HTTP：建立TCP 1 RTT+请求HTML文本 1RTT+ 2RTT（同时请求所有RTT）</li>
-<li>HTTP pipeline，保持HTTP：建立TCP 1 RTT+请求HTML文本 1RTT + 1RTT（一次性线性发出所有请求）</li>
+<li>点对点<ul>
+<li>拨号接入的PPP</li>
+<li>以太网交换机与主机之间的点对点链路</li>
 </ul>
-<pre><code>请求一个http页面，里面有3个object，假设DNS没有消耗时间。
-a 非保持HTTP，没有并行：8RTT 2 + 2*3
-b 非保持HTTP，并行：4RTT  2 + 2
-c 保持HTTP，没有流水线：5RTT  2 + 3
-d 保持HTTP，有流水线：3RTT 2 + 1
-</code></pre><p><strong>Cookies</strong></p>
-<p>cookie file kept on user’s host, managed by user’s browser</p>
-<p><strong>Web caches (proxy server)</strong></p>
-<p>客户端向代理服务器发送请求，假如代理服务器已缓存该内容而直接返回。如果没有缓存则向后面的服务器请求，再转发给客户端</p>
-<p><strong>Condition GET</strong> cache 和server之间</p>
-<p>If-Modified-Since：如果文件没有被修改，不要发送数据 don’t send object if cache has up-to-date cached version</p>
-<h2 id="1-2-some-protocal"><a href="#1-2-some-protocal" class="headerlink" title="1.2 some protocal"></a>1.2 some protocal</h2><p><strong><u>FTP</u></strong></p>
-<p>The File Transfer protocal</p>
-<p>control connection: “out of band”：传输信息和控制信息分别位于两个不同的TCP上，带外传输</p>
-<p><u><strong>Electronic Mail</strong></u></p>
-<p><strong>SMTP</strong> （user agent -&gt; sender’s mail server，sender’s mail server -&gt; sender’s mail server）</p>
-<ul>
-<li>user agents ：发送、阅读邮件</li>
-<li>mail servers </li>
-<li>simple mail transfer protocol: SMTP</li>
-</ul>
-<p>SMTP uses TCP to reliably transfer email message from client to server, port 25</p>
-<p><strong>POP3、IMAP、HTTP</strong>（sender’s mail server -&gt; user agent）</p>
-<h2 id="1-3-DNS"><a href="#1-3-DNS" class="headerlink" title="1.3 DNS"></a>1.3 DNS</h2><p><a href="https://www.cnblogs.com/xiaogan/p/5954678.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaogan/p/5954678.html</a></p>
-<p>Domain Name System：域名系统</p>
-<p>作用</p>
-<ul>
-<li>将域名转换为ip地址（hostname-IP）</li>
-<li>主机别名（host aliasing  , alias names）：比如一台主机可能叫做ly.xixfeng.cn，也可能叫做lyx.ly.xixfeng,cn。lyx.ly.xixfeng.cn为规范主机名（canonical hostname）</li>
-<li>邮件服务器别名（mail server aliasing）</li>
-<li>负载分配（load distribution）：一个域名可能对应多个ip地址，DNS服务器也会返回多个ip地址</li>
-</ul>
-<p>为什么不采用集中式DNS服务器：</p>
-<ul>
-<li>单点故障 single point of failure</li>
-<li>通信容量 traffic volume</li>
-<li>维护  maintenance</li>
-</ul>
-<p><strong>DNS服务器</strong></p>
-<ul>
-<li><p>Root name servers 根域名服务器：</p>
-<p>contacted by local name server that can not resolve name</p>
-<p>gets mapping</p>
-<p>returns mapping to local name server</p>
 </li>
-<li><p>Top-level domain (TLD) servers 顶级域名服务器：com、org</p>
-</li>
-<li><p>Authoritative DNS servers 权威域名服务器：解析以baidu.com结尾的域名</p>
-</li>
-<li><p>Local Name Server</p>
+<li>广播（共享有线或媒体）<ul>
+<li>老版本的以太网</li>
+<li>802.11 无限局域网</li>
+</ul>
 </li>
 </ul>
-<p><strong>两种查询方式</strong></p>
-<p>迭代查询：现代基本上都是迭代查询，假如Local Name Server知道该域名的映射直接访问，反之则向Root name servers 请求，依次向下请求</p>
-<p>递归查询：Local Name Server -&gt; Root name servers -&gt; Top-level domain (TLD) servers -&gt; Authoritative DNS servers</p>
-<p><strong>DNS records</strong></p>
-<p>RR format：name，value，type，ttl</p>
-<p>type</p>
-<p>A：name是主机名（hostname），vaule是ip</p>
-<p>CNAME：name是别名 （ <a href="http://www.ibm.com" target="_blank" rel="noopener">www.ibm.com</a> ），value是规范主机名（servereast.backup2.ibm.com）</p>
-<p>NS：name是域名，value是Authoritative DNS servers的主机名</p>
-<p>MX：name是邮件服务器别名，value是邮件服务器的规范主机名</p>
-<p>假如我注册域名xixfeng.cn，则需要在.cn顶级域名服务器上注册两个RR</p>
-<pre><code>xixfeng.cn，dns1.networkxixfeng.com，NS
-dns1.networkxixfeng.com，212.212.212.1，A
-</code></pre><h2 id="1-4-P2P"><a href="#1-4-P2P" class="headerlink" title="1.4 P2P"></a>1.4 P2P</h2><p>详细内容在课件 2-75</p>
-<p>自顶向下课本P93</p>
-<p><u><strong>P2P</strong></u></p>
-<p><strong>文件分布式存储</strong></p>
-<p>tracker：管理和追踪参与Torrent的对等方</p>
-<p>torrent：交换文件块的对等方</p>
-<p>存储目录位置</p>
+<h2 id="1-1-错误探测"><a href="#1-1-错误探测" class="headerlink" title="1.1 错误探测"></a>1.1 错误探测</h2><p>奇偶校验（parity checking）：单奇偶校验位、二维奇偶校验位</p>
+<p>校验和（checksum）</p>
+<p>循环冗余检测（Cyclic Redundancy Check，CRC）：R = 余式[ D*2^r / G]，这里的r = G的位数-1。注意这个除法不借位（等效于异或）</p>
+<h2 id="1-2-多访问协议"><a href="#1-2-多访问协议" class="headerlink" title="1.2 多访问协议"></a>1.2 多访问协议</h2><p>多访问协议的起因</p>
 <ul>
-<li>集中目录：定位内容高度集中</li>
-<li>查询泛洪</li>
+<li>单一共享广播频道</li>
+<li>两个或多个节点同时传输</li>
+<li>当节点同时接收到两个或多个信号时发生冲突（collison）</li>
 </ul>
-<p>如何存储资源</p>
-<p>分布式的hash表 DHT</p>
+<p>多访问控制协议</p>
 <ul>
-<li>为每一个对等方赋予id</li>
-<li>将key m映射到 [0,2^n-1]中</li>
-<li>假如该n值处没有节点，则交给最近的后继</li>
+<li>决定节点如何共享信道</li>
+<li>关于信道共享的通信必须使用信道本身</li>
 </ul>
-<p><strong>区块链</strong>（block chain）</p>
+<p>多访问控制协议的分类</p>
 <ul>
-<li><p>分布式账本</p>
-</li>
-<li><p>交易按时间顺序记录</p>
-</li>
-<li><p>共识：如何证明你是个“好人”</p>
-<p>prove of work （POW）：努力工作</p>
-<p>prove of stack（POS）：证明股权（利益）</p>
-</li>
-<li><p>智能合约：一个节点的所有操作都会被记录下来</p>
-</li>
+<li>信道划分协议（channel partitiioning）</li>
+<li>随机接入协议（random access protocol）</li>
+<li>轮流协议（taking turns）</li>
 </ul>
-<h2 id="1-5-Socket-programming-with-TCP"><a href="#1-5-Socket-programming-with-TCP" class="headerlink" title="1.5 Socket programming with TCP"></a>1.5 Socket programming with TCP</h2><p><u>socket是基于TCP或者UDP的</u></p>
-<p><img src="http://api.xixfeng.cn/mweb/Application Layer.jpg" alt="Application Layer"></p>
-<h1 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h1><ul>
-<li>应用层协议使用UDP还是TCP</li>
-<li>HTTP</li>
-<li>FTP（带外）</li>
-<li>Email</li>
-<li>DNS（递归查询、迭代查询，别搞错英语单词了弟弟）</li>
+<p><u><strong>信道划分协议</strong></u></p>
+<p>TDMA、FDMA：节点被限制与R/N bps的平均速率，即使当他是唯一一个有frame要发送的节点时</p>
+<p><u><strong>随机接入协议</strong></u></p>
+<p>主要功能点</p>
+<ul>
+<li>如何探测冲突</li>
+<li>如何从冲突中恢复</li>
 </ul>
-<pre><code>Which of the following groups run on the top of UDP? ____C_____
-A. FTP, ARP, SMTP.                        B. IMAP, ARP, DNS
-C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协议都是TCP
+<p><strong>纯洁ALOHA</strong></p>
+<p>当发送碰撞时，节点以p的概率重传该帧</p>
+<p><strong>时隙ALOHA</strong></p>
+<ul>
+<li>所有帧由L比特组成</li>
+<li>时间被划分为长度为L/R的时隙（也就是说一个时隙等于传输一帧的时间）</li>
+<li>节点是同步的，每个节点都知道时隙何时开始</li>
+<li>如果一个时隙中有两个或者更多个帧碰撞，则所有节点在该时隙结束之前检测到该碰撞事件</li>
+</ul>
+<p>令p为0-1直接的一个概率</p>
+<ul>
+<li>如果有碰撞，该节点在时隙结束之前检测到这次碰撞。该节点以概率p在后续的每个时隙中重传它的帧，知道该帧被无碰撞地传递出去</li>
+</ul>
+<p><strong>载波侦听多路访问（CSMA    CSMA/CD）</strong></p>
+<ul>
+<li>说话之前先听。如果其他人正在说话，等到他们说完话为止。这被称为载波侦听（carrier sensing）</li>
+<li>如果与他人同时开始说话，停止说话。这被称为碰撞检测</li>
+</ul>
+<p><strong>轮流协议</strong></p>
+<p>轮询协议</p>
+<p>令牌传递协议</p>
+<h2 id="1-3-链路层寻址"><a href="#1-3-链路层寻址" class="headerlink" title="1.3 链路层寻址"></a>1.3 链路层寻址</h2><p>MAC（or LAN or physical or Ethernet）地址：</p>
+<ul>
+<li>48 bit MAC 地址：刻录在网卡ROM中，有时也可以通过软件设置</li>
+</ul>
+<p>广播地址：FF-FF-FF-FF-FF-FF</p>
+<h2 id="1-4-ARP协议"><a href="#1-4-ARP协议" class="headerlink" title="1.4 ARP协议"></a>1.4 ARP协议</h2><p><u>ARP协议是一个局域网协议</u></p>
+<p>将IP地址转换为MAC地址</p>
+<ul>
+<li>每个IP节点（主机、路由器）都拥有ARP 表</li>
+<li>ARP表：IP address; MAC address; TTL（多少分钟后该地址到期）</li>
+</ul>
+<p>查询过程</p>
+<ul>
+<li>节点A想要发送给B帧，但是只有IP地址。A<u>广播</u> ARP查询包，该包包含B的IP地址。MAC地址为广播地址</li>
+<li>节点B接受到该消息，给A发送MAC地址</li>
+</ul>
+<p>当一个节点A想向外部节点B发送请求时</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>MAC src</th>
+<th>MAC dest</th>
+<th>IP src</th>
+<th>IP dest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A -&gt; 路由器</td>
+<td>A_MAC</td>
+<td>路由器_MAC</td>
+<td>A_IP</td>
+<td>B_IP</td>
+</tr>
+<tr>
+<td>路由器 -&gt; B</td>
+<td>路由器_MAC</td>
+<td>B_MAC</td>
+<td>A_IP</td>
+<td>B_IP</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>整个过程中IP都是不变的，MAC地址改变</li>
+<li>但是如果加入NAT协议，IP地址也会改变</li>
+</ul>
+<h2 id="1-5-以太网"><a href="#1-5-以太网" class="headerlink" title="1.5 以太网"></a>1.5 以太网</h2><p>经过三种拓扑逻辑阶段</p>
+<ul>
+<li>总线</li>
+<li>集线器（hub）</li>
+<li>交换机（switch）</li>
+</ul>
+<p>核心</p>
+<ul>
+<li>非面向连接</li>
+<li>不可靠</li>
+<li>unslotted CSMA/CD</li>
+</ul>
+<h3 id="1-5-1-CSMA-CD"><a href="#1-5-1-CSMA-CD" class="headerlink" title="1.5.1 CSMA/CD"></a>1.5.1 CSMA/CD</h3><blockquote>
+<p>边发边听，不发不听</p>
+</blockquote>
+<p>过程</p>
+<ul>
+<li>NIC 从上层接收datagram，创建frame</li>
+<li>如果通道空闲，开始传输数据。否则等待通道空闲</li>
+<li>如果传输中探测到冲突，中止并发送干扰信号（JAM signal的 传输时间就是propagation delay）</li>
+<li>中止后，NIC进入指数退避：m次碰撞后，NIC从{0,1,2，…，2^m-1}中随机选择K。NIC等待K·512bit time，返回步骤2。（如果题意没有说明，等待完K*512bit time后还需要等待一个96 bit time）</li>
+</ul>
+<p>冲突域：一个可检测到冲突的物理范围，根据transmission delay &gt;= 2 * propagation delay可知，带宽越大冲突域范围越小（包长度确定时）</p>
+<h2 id="1-6-switches、LANs、VLANs"><a href="#1-6-switches、LANs、VLANs" class="headerlink" title="1.6 switches、LANs、VLANs"></a>1.6 switches、LANs、VLANs</h2><h3 id="1-6-1-集线器"><a href="#1-6-1-集线器" class="headerlink" title="1.6.1 集线器"></a>1.6.1 集线器</h3><p><strong>集线器工作在物理层</strong></p>
+<ul>
+<li><u>来自于一个link的bits会传输到到所有其他link</u></li>
+<li>所有连接集线器的节点都可能会和其他节点冲突</li>
+<li>没有frame 缓存</li>
+<li>没有 CSMA/CD</li>
+<li>无法隔离冲突域（）</li>
+</ul>
+<h3 id="1-6-2-交换机"><a href="#1-6-2-交换机" class="headerlink" title="1.6.2 交换机"></a>1.6.2 交换机</h3><p><strong>交换机在frame上操作（链路层）</strong></p>
+<ul>
+<li>交换机没有IP地址</li>
+<li>可以隔离冲突域</li>
+</ul>
+<p>交换机拥有一张switch table：MAC addr，interface，TIME（当前时间）</p>
+<ul>
+<li>存储转发frames</li>
+<li>检查传入帧的MAC地址，当帧要在段上转发时，有选择地将帧转发到一个或多个传出链路，使用CSMA/CD访问段</li>
+</ul>
+<p>当交换机接收到frames</p>
+<ul>
+<li>记录下传入帧的MAC地址与接口（学习算法）</li>
+<li>在switch table中 寻找dest address</li>
+</ul>
+<pre><code>if entry found for destination
+ then{
+     if dest on segment from which frame arrived//转发接口是否等于进入接口
+      then drop the frame    //过滤算法
+      else forward the frame on interface indicated
+ }
+ else flood
+</code></pre><p>交换机与路由器</p>
+<table>
+<thead>
+<tr>
+<th>交换机</th>
+<th>路由器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>链路层</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>保存switches table，实现过滤、学习算法</td>
+<td>保存routing table，实现路由算法</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-7-PPP"><a href="#1-7-PPP" class="headerlink" title="1.7 PPP"></a>1.7 PPP</h2><p>点对点的传输，singel sender、single receiver、one link</p>
+<ul>
+<li>封装datagram</li>
+<li>错误探测</li>
+</ul>
+<ul>
+<li>没有多访问控制协议</li>
+<li>不需要显式的MAC地址</li>
+<li>没有错误恢复</li>
+<li>没有流控制</li>
+<li>允许乱序</li>
+</ul>
+<p><img src="http://api.xixfeng.cn/mweb/Link Layer &amp; LAN.jpg" alt="Link Layer _ LAN"></p>
+<h1 id="2-问题"><a href="#2-问题" class="headerlink" title="2. 问题"></a>2. 问题</h1><p>为什么链路层和传输层都要提供可靠的传输？</p>
+<h1 id="3-考试"><a href="#3-考试" class="headerlink" title="3. 考试"></a>3. 考试</h1><ul>
+<li>例子中的MAC协议属于哪一类，（CSMA对应wifi，CSMA/CD对应以太网）</li>
+<li>交换机、⚠️ARP</li>
+<li>⚠️CSMA/CD</li>
+<li>router、switch、hub、repeater、bridge</li>
+</ul>
+<pre><code>Consider the data D is 01110010001, if use even parity checking approach, the parity bit is( ① ), if use odd parity checking approach, the parity bit is( ② ). ( D )  
+A. ①  0  ②  1                            B. ①  0  ②  0
+C. ①  1  ②  1                            D. ①  1  ②  0
+</code></pre><pre><code>In the following four descriptions, which one is not correct? ( B )
+A. Switches can interconnect different LAN technologies.
+B. Hubs can interconnect different LAN technologies.
+C. There is no limit to how large a LAN can be when switches are used to interconnect LAN segments. 隔离了冲突域
+D. There is restriction on the maximum allowable number of nodes in a collision domain when hubs are used to interconnect LAN segments. 无法隔离冲突域
+</code></pre><pre><code> When two or more nodes on the LAN segments transmit at the same time, there will be a collision and all of the transmitting nodes well enter exponential back-off, that is all of the LAN segments belong to the same( A ). 当局域网段上的两个或多个节点同时传输时，会发生冲突，所有的传输节点都会进入指数退避，即所有的局域网段都属于同一个局域网段
+A. collision domain                        B. switch
+C. bridge                                D. hub
+</code></pre><pre><code>In the following four descriptions about PPP, which one is not correct? ( A )
+A. PPP is required to detect and correct errors. 没有纠错功能
+B. PPP is not required to deliver frames to the link receiver in the same order in which they were sent by the link sender.
+C. PPP need only operate over links that have a single sender and a single receiver.
+D. PPP is not required to provide flow control.
 </code></pre>
         
 
@@ -363,7 +455,7 @@ C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xixfeng.github.io/2019/11/21/计算机网络(五)-链路层/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -377,18 +469,18 @@ C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协
   
 <nav id="article-nav">
   
-    <a href="/2019/11/26/计算机网络（三）-传输层/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/26/计算机网络(一)-介绍/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          计算机网络（三）-传输层
+          计算机网络(一)-介绍
         
       </div>
     </a>
   
   
-    <a href="/2019/11/26/计算机网络（一）-介绍/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">计算机网络（一）-介绍</div>
+    <a href="/2019/10/27/Java_HashMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java_HashMap</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -415,7 +507,7 @@ C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Application-Layer"><span class="toc-number">1.</span> <span class="toc-text">1. Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Web-and-HTTP"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Web and HTTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-some-protocal"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 some protocal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-DNS"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 DNS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-P2P"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 P2P</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-Socket-programming-with-TCP"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 Socket programming with TCP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试"><span class="toc-number">2.</span> <span class="toc-text">考试</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-链路层"><span class="toc-number">1.</span> <span class="toc-text">1. 链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-介绍"><span class="toc-number">1.1.</span> <span class="toc-text">1. 1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-错误探测"><span class="toc-number">1.2.</span> <span class="toc-text">1.1 错误探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-多访问协议"><span class="toc-number">1.3.</span> <span class="toc-text">1.2 多访问协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-链路层寻址"><span class="toc-number">1.4.</span> <span class="toc-text">1.3 链路层寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-ARP协议"><span class="toc-number">1.5.</span> <span class="toc-text">1.4 ARP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-以太网"><span class="toc-number">1.6.</span> <span class="toc-text">1.5 以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-1-CSMA-CD"><span class="toc-number">1.6.1.</span> <span class="toc-text">1.5.1 CSMA/CD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-switches、LANs、VLANs"><span class="toc-number">1.7.</span> <span class="toc-text">1.6 switches、LANs、VLANs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-集线器"><span class="toc-number">1.7.1.</span> <span class="toc-text">1.6.1 集线器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-交换机"><span class="toc-number">1.7.2.</span> <span class="toc-text">1.6.2 交换机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-PPP"><span class="toc-number">1.8.</span> <span class="toc-text">1.7 PPP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-问题"><span class="toc-number">2.</span> <span class="toc-text">2. 问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-考试"><span class="toc-number">3.</span> <span class="toc-text">3. 考试</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -442,7 +534,7 @@ C. DNS, RTP, RIP                           D. DNS, POP3, ICMP 邮寄相关的协
 <script src="https://jjeejj.github.io/js/gitment.js"></script> -->
 <script>
 var gitment = new Gitment({
-  id: "https://xixfeng.github.io/2019/11/26/计算机网络（二）-应用层/",
+  id: "https://xixfeng.github.io/2019/11/21/计算机网络(五)-链路层/",
   owner: 'xixfeng',
   repo: 'blog_comment',
   oauth: {
