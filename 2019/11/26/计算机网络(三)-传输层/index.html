@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15752582144089.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Transport Layer.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/F1DD5B743BBCDB290682903972F33B0F.JPG">
-<meta property="og:updated_time" content="2019-12-04T01:27:24.430Z">
+<meta property="og:updated_time" content="2019-12-04T08:07:32.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络(三)-传输层">
 <meta name="twitter:description" content="1. Transport Layer网络层负责不同主机之间数据的传输，IP 传输层负责不同程序之间数据的传输，Port 1.1 Multiplexing and demultiplexing多路复用和多路分解，感觉是只在TCP中使用？NO，UDP也会使用 多路分解（demultiplexing）：将运输层报文段中的数据交付到正确的套接字 多路复用 （multiplexing）：在源主机从不同的套接">
@@ -392,11 +392,11 @@ D. 0.8
 </tr>
 <tr>
 <td>到达一个乱序序列（不是期望的seq）</td>
-<td>发送之前的ACK（即未被确认的ACK）</td>
+<td>返回有序数据的最大ack（⚠️ack是期望得到的，假如接收方已经确认了1、2收到了4，就会返回ack=3）</td>
 </tr>
 <tr>
-<td>Arrival of segment that partially or completely fills gap</td>
-<td>Immediate send ACK, provided that segment starts at lower end of gap？？？</td>
+<td>累积确认</td>
+<td>接受方只会返回有序数据的最大ack</td>
 </tr>
 </tbody>
 </table>

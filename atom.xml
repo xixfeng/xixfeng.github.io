@@ -86,7 +86,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E5%9B%9B)-%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络(四)-网络层/</id>
     <published>2019-11-26T12:56:54.000Z</published>
-    <updated>2019-12-04T01:27:30.506Z</updated>
+    <updated>2019-12-04T12:50:31.560Z</updated>
     
     <summary type="html">
     
@@ -96,6 +96,11 @@
 &lt;p&gt;routing：在很多路由器中选择一条路&lt;/p&gt;
 &lt;h2 id=&quot;1-1-虚电路网络、数据报网络&quot;&gt;&lt;a href=&quot;#1-1-虚电路网络、数据报网络&quot; class=&quot;headerlink&quot; title=&quot;1.1 虚电路网络、数据报网络&quot;&gt;&lt;/a&gt;1.1 虚电路网络、数据报网络&lt;/h2&gt;&lt;p&gt;虚电路：提供面向连接的服务&lt;/p&gt;
 &lt;p&gt;数据报：提供非面向连接的服务&lt;/p&gt;
+&lt;p&gt;分组交换包括&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据报网络&lt;/li&gt;
+&lt;li&gt;虚拟网络&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -111,7 +116,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%89)-%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络(三)-传输层/</id>
     <published>2019-11-26T12:56:16.000Z</published>
-    <updated>2019-12-04T01:27:24.430Z</updated>
+    <updated>2019-12-04T08:07:32.279Z</updated>
     
     <summary type="html">
     
@@ -167,7 +172,7 @@
     <link href="https://xixfeng.github.io/2019/11/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)-%E4%BB%8B%E7%BB%8D/"/>
     <id>https://xixfeng.github.io/2019/11/26/计算机网络(一)-介绍/</id>
     <published>2019-11-26T12:54:38.000Z</published>
-    <updated>2019-12-04T01:28:00.471Z</updated>
+    <updated>2019-12-04T12:40:02.529Z</updated>
     
     <summary type="html">
     
@@ -195,7 +200,7 @@
     <link href="https://xixfeng.github.io/2019/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%94)-%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
     <id>https://xixfeng.github.io/2019/11/21/计算机网络(五)-链路层/</id>
     <published>2019-11-21T06:16:56.000Z</published>
-    <updated>2019-12-04T01:27:47.718Z</updated>
+    <updated>2019-12-04T12:46:33.017Z</updated>
     
     <summary type="html">
     

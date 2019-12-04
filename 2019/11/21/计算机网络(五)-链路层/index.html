@@ -17,7 +17,7 @@
 <meta property="og:description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Link Layer & LAN.jpg">
-<meta property="og:updated_time" content="2019-12-04T01:27:47.718Z">
+<meta property="og:updated_time" content="2019-12-04T12:46:33.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络(五)-链路层">
 <meta name="twitter:description" content="1. 链路层1. 1 介绍链路层目标  错误探测、纠正 共享广播频道：多重访问 链路层的寻址 可靠的数据传输、流量控制  链路层在网卡（network interface card NIC）中实现 节点（node）：主机、路由器 链路（link）：两个节点之间的通信通道（wired link、wireless link、LANS） frame：封装datagram，添加头部以及尾部 MAC：用在f">
@@ -309,7 +309,7 @@
 <ul>
 <li>NIC 从上层接收datagram，创建frame</li>
 <li>如果通道空闲，开始传输数据。否则等待通道空闲</li>
-<li>如果传输中探测到冲突，中止并发送干扰信号（JAM signal的 传输时间就是propagation delay）</li>
+<li>如果传输中探测到冲突，中止并发送干扰信号（即大小为48 bit的JAM signal，然后JAM signal的传输时间就是propagation delay）</li>
 <li>中止后，NIC进入指数退避：m次碰撞后，NIC从{0,1,2，…，2^m-1}中随机选择K。NIC等待K·512bit time，返回步骤2。（如果题意没有说明，等待完K*512bit time后还需要等待一个96 bit time）</li>
 </ul>
 <p>冲突域：一个可检测到冲突的物理范围，根据transmission delay &gt;= 2 * propagation delay可知，带宽越大冲突域范围越小（包长度确定时）</p>
@@ -362,6 +362,35 @@
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th>机器</th>
+<th>层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hub</td>
+<td>物理层</td>
+</tr>
+<tr>
+<td>Brige</td>
+<td>物理层</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="1-7-PPP"><a href="#1-7-PPP" class="headerlink" title="1.7 PPP"></a>1.7 PPP</h2><p>点对点的传输，singel sender、single receiver、one link</p>
 <ul>
 <li>封装datagram</li>
@@ -370,7 +399,7 @@
 <ul>
 <li>没有多访问控制协议</li>
 <li>不需要显式的MAC地址</li>
-<li>没有错误恢复</li>
+<li>没有错误恢复星</li>
 <li>没有流控制</li>
 <li>允许乱序</li>
 </ul>

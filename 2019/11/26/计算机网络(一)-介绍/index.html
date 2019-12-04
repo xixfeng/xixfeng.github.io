@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/E3F4094B-5EF4-46E7-AB16-BBCF203D5DF0.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/Overview.jpg">
-<meta property="og:updated_time" content="2019-12-04T01:28:00.471Z">
+<meta property="og:updated_time" content="2019-12-04T12:40:02.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络(一)-介绍">
 <meta name="twitter:description" content="1.介绍自顶向下教程配套的web动画 1.1 网络端系统通过通信链路（communication link）和分组交换机（packet switch）连接到一起。发送端系统将数据分段，并加上头部字节，由此形成的 信息包叫做分组（packet）。 端系统通过因特网服务提供商（Internet Service Provider，ISP）接入因特网。每个ISP本身就是一个由多台分组交换机和多段通信链路组">
@@ -199,6 +199,11 @@ circuit-switched network?
 ▪ each link uses TDM with 24 slots/sec
 ▪ 500 msec to establish end-to-end circuit
 </code></pre><p><u><strong>⚠️packet-switching（分组交换）</strong></u></p>
+<p>分组交换包括</p>
+<ul>
+<li>数据报网络</li>
+<li>虚拟网络</li>
+</ul>
 <p>端系统彼此交换<strong>报文（message）</strong></p>
 <ol>
 <li>存储转发（store-and-forward transmission）：中转节点需要将数据全部下载再进行转发。数据每经过一次中转节点，都需要进行一次存储转发。</li>
@@ -381,6 +386,36 @@ D datagram
 <td>名字转换</td>
 <td>DNS</td>
 <td>通常UDP</td>
+</tr>
+<tr>
+<td>动态IP</td>
+<td>DHCP</td>
+<td>UDP</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>哪一层</th>
+<th>传输层协议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RIP</td>
+<td></td>
+<td>UDP</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
