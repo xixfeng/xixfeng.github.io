@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>编译原理(一)词法分析 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
+  <meta name="description" content="1. introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor)">
 <meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理(一)词法分析">
 <meta property="og:url" content="https://xixfeng.github.io/2019/09/04/编译原理(一)词法分析/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
+<meta property="og:description" content="1. introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor)">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15705849528702.jpg">
-<meta property="og:updated_time" content="2019-12-04T01:23:26.415Z">
+<meta property="og:updated_time" content="2019-12-11T01:19:55.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理(一)词法分析">
-<meta name="twitter:description" content="introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor) →">
+<meta name="twitter:description" content="1. introduce两个主要策略  intercepter 解释器  python compiler 编译器 C 编译器与解释器相比做了更多的预处理 二者都使用 java  编译：将一个语言翻译成另一种语言。翻译成机器代码可以交给计算机直接执行，那汇编语言交给谁执行？CPU会将汇编语言根据指令集翻译成机器代码 步骤：源代码 (source code) → 预处理器 (preprocessor)">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -167,7 +167,7 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h1><p>两个主要策略</p>
+          <h1 id="1-introduce"><a href="#1-introduce" class="headerlink" title="1. introduce"></a>1. introduce</h1><p>两个主要策略</p>
 <ul>
 <li>intercepter 解释器  python</li>
 <li>compiler 编译器 C</li>
@@ -178,7 +178,7 @@
 <p>步骤：源代码 (source code) → 预处理器 (preprocessor) → 编译器 (compiler 编译+汇编)→ 目标代码 (object code) → 链接器 (Linker) → 可执行程序 (executables)</p>
 <p><a href="https://blog.csdn.net/gt1025814447/article/details/80442673" target="_blank" rel="noopener">gcc编译过程</a></p>
 <a id="more"></a>
-<h2 id="the-phases-of-a-compiler"><a href="#the-phases-of-a-compiler" class="headerlink" title="the phases of a compiler"></a>the phases of a compiler</h2><ul>
+<h2 id="1-1the-phases-of-a-compiler"><a href="#1-1the-phases-of-a-compiler" class="headerlink" title="1.1the phases of a compiler"></a>1.1the phases of a compiler</h2><ul>
 <li>lexical analyzer 词法分析 </li>
 <li>syntax analyzer 语法分析</li>
 <li>semantic analyzer 语义分析</li>
@@ -194,7 +194,7 @@
 <li>后端：与目标代码有关</li>
 </ul>
 <p>pass：一般来说编译的一个阶段叫做一次pass(即从头到尾扫描完一次源代码)，但是有些编译器会把某些阶段和并，比如词法、语法分析放在一个pass中<br><img src="http://api.xixfeng.cn/mweb/21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C.png" alt="21B6A6BC-CC13-4E9F-B2C9-43DA5F65C69C"></p>
-<h1 id="lexical-analyzer"><a href="#lexical-analyzer" class="headerlink" title="lexical analyzer"></a>lexical analyzer</h1><p>从源代码中读取字符，并形成最小逻辑单元（tokens 词法单元）</p>
+<h1 id="2-lexical-analyzer"><a href="#2-lexical-analyzer" class="headerlink" title="2. lexical analyzer"></a>2. lexical analyzer</h1><p>从源代码中读取字符，并形成最小逻辑单元（tokens 词法单元）</p>
 <ul>
 <li>token：➡由一个词法单元名和一个可选对属性值组成（词素） &lt;id,2&gt; &lt;number,整数100&gt; &lt;add_op&gt;</li>
 <li>pattern：用于匹配字符串的模式</li>
@@ -283,7 +283,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="RE-gt-DFA"><a href="#RE-gt-DFA" class="headerlink" title="RE -&gt; DFA"></a>RE -&gt; DFA</h2><p><u><strong>有限自动机</strong></u></p>
+<h2 id="2-1-RE-gt-DFA"><a href="#2-1-RE-gt-DFA" class="headerlink" title="2.1 RE -&gt; DFA"></a>2.1 RE -&gt; DFA</h2><p><u><strong>有限自动机</strong></u></p>
 <p>也叫作有限状态自动机：用数学的方式去表达某种算法</p>
 <ul>
 <li><p>非确定有限自动机，NFA</p>
@@ -296,8 +296,7 @@
 <p>每一个状态都需要输入</p>
 </li>
 </ul>
-<p><strong><u>将正则表达式转换为NFA</u></strong></p>
-<p>步骤</p>
+<h2 id="2-2-将正则表达式转换为NFA"><a href="#2-2-将正则表达式转换为NFA" class="headerlink" title="2.2 将正则表达式转换为NFA"></a>2.2 将正则表达式转换为NFA</h2><p>步骤</p>
 <ul>
 <li><p>构建基本REs的NFA</p>
 <ul>
@@ -311,8 +310,7 @@
 <li><p>将各个块合并：将一个块的尾与一个块的头相连接或者直接把尾头合并</p>
 </li>
 </ul>
-<p><u><strong>将NFA转换为DFA</strong></u></p>
-<p>定义</p>
+<h2 id="2-3-将NFA转换为DFA"><a href="#2-3-将NFA转换为DFA" class="headerlink" title="2.3 将NFA转换为DFA"></a>2.3 将NFA转换为DFA</h2><p>定义</p>
 <p>t状态闭包：从t出发能到达的所有状态集合（输入必须为 一铺色龙），包括t。其实就是合并等价点</p>
 <p>move[t,a]：从t出发经过一条a边（跳过a边前的任意条 一铺色龙 ）能到达的状态，不包括t</p>
 <p>Dtran[t,a]：求move[t,a]的闭包</p>
@@ -326,11 +324,15 @@
 <li>继续对于每一行求Dtan[]，并检查求出来的Dtran是否出现第一列</li>
 </ul>
 <p>求出来的表就等效于俺们的状态转换图</p>
-<p><u><strong>将DFA化简</strong></u></p>
-<p><a href="https://blog.csdn.net/starter_/article/details/89741993" target="_blank" rel="noopener">DFA化简</a></p>
+<ul>
+<li>⚠️：通过move[t,a]求出来的状态是核心状态，其实本来只用写核心状态，但是我们需要通过<strong>闭包状态</strong>来判断是否为终结状态（在化简中使用）</li>
+</ul>
+<h2 id="2-4-将DFA化简"><a href="#2-4-将DFA化简" class="headerlink" title="2.4 将DFA化简"></a>2.4 将DFA化简</h2><p><a href="https://blog.csdn.net/starter_/article/details/89741993" target="_blank" rel="noopener">DFA化简</a></p>
+<p>等价状态：对于两个不同状态，给出相同输入，能到同一个结果</p>
+<p>化简就是将DFA中的等价状态合并，可知非终结状态和终结状态肯定为非等价状态。所以从非终结状态和终结状态开始划分</p>
 <p>为什么需要在经过某个字符过后必须在同一个状态集，否则要被拆分？</p>
 <p>因为假如要将一个状态集合并为一个状态，那么对于一个输入就只能到一个状态集，不能到两个状态集。所以需要被拆分</p>
-<h3 id="flex-语法"><a href="#flex-语法" class="headerlink" title="flex 语法"></a>flex 语法</h3><p><u><strong>组成部分</strong></u></p>
+<h1 id="3-flex-语法"><a href="#3-flex-语法" class="headerlink" title="3. flex 语法"></a>3. flex 语法</h1><p><u><strong>组成部分</strong></u></p>
 <ul>
 <li>声明部分：全局变量声明、库函数引入、正规表达式定义等</li>
 </ul>
@@ -359,7 +361,7 @@ number {digit}+             // {}表示引用
 <li>总是选择最长的前缀；比如：&lt;=被识别为LE而不是&lt; 和 =</li>
 <li>如果最长的可能前缀与多个模式匹配，总是选择列在前面的模式（转换规则里）</li>
 </ul>
-<h3 id="flex-实验"><a href="#flex-实验" class="headerlink" title="flex 实验"></a>flex 实验</h3><p>mac一般自带flex，如果没有可以使用homebrew进行下载，也🉑️去github搜索使用源码安装</p>
+<h1 id="4-flex-实验"><a href="#4-flex-实验" class="headerlink" title="4. flex 实验"></a>4. flex 实验</h1><p>mac一般自带flex，如果没有可以使用homebrew进行下载，也🉑️去github搜索使用源码安装</p>
 <p>安装homebrew</p>
 <pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre><p>使用homebrew安装flex</p>
@@ -515,7 +517,7 @@ int main(int argc, char **argv){
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#introduce"><span class="toc-number">1.</span> <span class="toc-text">introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">RE -&gt; DFA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-语法"><span class="toc-number">2.1.1.</span> <span class="toc-text">flex 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-实验"><span class="toc-number">2.1.2.</span> <span class="toc-text">flex 实验</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-introduce"><span class="toc-number">1.</span> <span class="toc-text">1. introduce</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1the-phases-of-a-compiler"><span class="toc-number">1.1.</span> <span class="toc-text">1.1the phases of a compiler</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-lexical-analyzer"><span class="toc-number">2.</span> <span class="toc-text">2. lexical analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-RE-gt-DFA"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 RE -&gt; DFA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-将正则表达式转换为NFA"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 将正则表达式转换为NFA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-将NFA转换为DFA"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 将NFA转换为DFA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-将DFA化简"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 将DFA化简</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-flex-语法"><span class="toc-number">3.</span> <span class="toc-text">3. flex 语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-flex-实验"><span class="toc-number">4.</span> <span class="toc-text">4. flex 实验</span></a></li></ol>
                     </div>
                 </span>
             </div>

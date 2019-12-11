@@ -8,26 +8,27 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>编译原理(二)-语法分析 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模版，如">
+  <meta name="description" content="1. Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模">
 <meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理(二)-语法分析">
 <meta property="og:url" content="https://xixfeng.github.io/2019/11/27/编译原理(二)-语法分析/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模版，如">
+<meta property="og:description" content="1. Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15724028759345.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15760313145100.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748144376557.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748144657911.jpg">
-<meta property="og:image" content="http://api.xixfeng.cn/mweb/15748149989619.jpg">
-<meta property="og:image" content="https://xixfeng.github.io/var/folders/q0/7wcj4phs5j91cskld9cv10xr0000gn/T/abnerworks.Typora/image-20191127082818469.png">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15760317256752.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748145431958.jpg">
-<meta property="og:image" content="https://xixfeng.github.io/var/folders/q0/7wcj4phs5j91cskld9cv10xr0000gn/T/abnerworks.Typora/image-20191127082917126.png">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15760318280962.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748154046768.jpg">
-<meta property="og:updated_time" content="2019-12-04T01:23:06.393Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15760316940039.jpg">
+<meta property="og:updated_time" content="2019-12-11T02:38:22.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理(二)-语法分析">
-<meta name="twitter:description" content="Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模版，如">
+<meta name="twitter:description" content="1. Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15724028759345.jpg">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -173,7 +174,7 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="Syntax-analyzer"><a href="#Syntax-analyzer" class="headerlink" title="Syntax analyzer"></a>Syntax analyzer</h1><p>三种生成方式</p>
+          <h1 id="1-Syntax-analyzer"><a href="#1-Syntax-analyzer" class="headerlink" title="1. Syntax analyzer"></a>1. Syntax analyzer</h1><p>三种生成方式</p>
 <ul>
 <li>Universal 通用的</li>
 <li>Top-Down 自顶向下</li>
@@ -227,7 +228,7 @@
      -&gt; (exp op num)* num 
      -&gt; (exp - num)* num 
      -&gt; (num - num)* num
-</code></pre><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>如何判断一个语法是否具有二义性：</p>
+</code></pre><h1 id="2-语法"><a href="#2-语法" class="headerlink" title="2. 语法"></a>2. 语法</h1><p>如何判断一个语法是否具有二义性：</p>
 <p>给一串字符串</p>
 <ul>
 <li>存在两种最左推导</li>
@@ -242,7 +243,7 @@
 <li>2.2.4</li>
 </ul>
 <p>掌握如何判断二义性、如何写出一个没有二义性的语法</p>
-<h1 id="自顶向下语法分析"><a href="#自顶向下语法分析" class="headerlink" title="自顶向下语法分析"></a>自顶向下语法分析</h1><p>使用最左推导的方法去分析一个被分割了的字符串（对应在分析树上就是<strong>从根到叶子结点分析</strong>）</p>
+<h1 id="3-自顶向下语法分析"><a href="#3-自顶向下语法分析" class="headerlink" title="3. 自顶向下语法分析"></a>3. 自顶向下语法分析</h1><p>使用最左推导的方法去分析一个被分割了的字符串（对应在分析树上就是<strong>从根到叶子结点分析</strong>）</p>
 <ul>
 <li>回溯分析</li>
 <li>预测分析<ul>
@@ -285,7 +286,7 @@
 </li>
 </ul>
 <p>重复上述过程，直至成功或出错（匹配完了、匹配到终结符号、匹配到非终结符号）</p>
-<h3 id="修改文法"><a href="#修改文法" class="headerlink" title="修改文法"></a>修改文法</h3><p><u><strong>消除左递归</strong></u></p>
+<h2 id="3-1-修改文法"><a href="#3-1-修改文法" class="headerlink" title="3.1 修改文法"></a>3.1 修改文法</h2><p><u><strong>消除左递归</strong></u></p>
 <ul>
 <li>直接左递归</li>
 <li>间接左递归 (A → Bb |….               B → Aa |….)</li>
@@ -293,45 +294,50 @@
 <p><strong>消除直接左递归</strong></p>
 <p>P→Pa|b                                                P→ bP’</p>
 <p>​                                                    P’→aP’|无</p>
-<p>P→Pa1 |Pa2 |…|Pam | b1 | b2 |…|bn                P→b1 P’|b2 P’|…|bn P’</p>
+<p>P→Pa1 |Pa2 |…|Pam | b1 | b2 |…|bn                        P→b1 P’|b2 P’|…|bn P’</p>
 <p>​                                                    P’→a1 P’|a2 P’|…|am P’|无</p>
 <p>将表达式分为含有左递归和不含有的，最后全部变为右递归</p>
 <p><u><strong>提左因子</strong></u></p>
 <p> A → δβ1 | δβ2 | δβ3 | …… |δβn | δ</p>
 <p>A → δA’ </p>
 <p>A’ → β1 | β2 | β3 | …… | βn | ε</p>
-<p><u><strong>first、follow集</strong></u></p>
-<p>first(α)：可从α推导得到的串的首符号的集合，其中α是任意的文法符号串。</p>
+<h2 id="3-2-first、follow集"><a href="#3-2-first、follow集" class="headerlink" title="3.2 first、follow集"></a>3.2 first、follow集</h2><p>first(α)：可从α推导得到的串的首符号的集合，其中α是任意的文法符号串。</p>
 <p>常用规则：</p>
 <ul>
 <li><p>如果X是非终结符，且有产生式形如X → a…，则FIRST( X ) = { a }。</p>
 </li>
 <li><p>如果X是非终结符，且有产生式形如X → A|B ，则FIRST( X ) = { FIRST(A),FIRST(B)}</p>
 </li>
-<li><p>如果X是非终结符，且有产生式形如X → ABC</p>
+<li><p>如果X是非终结符，且有产生式形如X → AB</p>
 <p>当空字符不属于First(A)时，则FIRST( X ) = { FIRST(A) }</p>
-<p>当空字符属于First(A)时，则FIRST( X ) = { FIRST(A)、FIRST(B) }</p>
+<p>当空字符属于First(A)时，则FIRST( X ) = { FIRST(A)，FIRST(B) }</p>
 <p>当空字符属于FIRST(A)、FIRST(B) 时，将空字符加入FIRST( X ) </p>
 </li>
 </ul>
 <p>follow(α)：FOLLOW(α) 紧跟在A右边的终结符号集合。</p>
 <p><img src="http://api.xixfeng.cn/mweb/15724028759345.jpg" alt></p>
 <p><a href="https://blog.csdn.net/qq_40294512/article/details/89397905" target="_blank" rel="noopener">first、follow集合参考</a>(求first的集合的规则有问题)</p>
-<h1 id="自底向上语法分析"><a href="#自底向上语法分析" class="headerlink" title="自底向上语法分析"></a>自底向上语法分析</h1><p><u><strong>LR(0)</strong></u></p>
+<ul>
+<li>first没有非终结符号</li>
+<li>follow没有空字</li>
+</ul>
+<h2 id="3-3-构造LL-1"><a href="#3-3-构造LL-1" class="headerlink" title="3.3 构造LL(1)"></a>3.3 构造LL(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15760313145100.jpg" alt></p>
+<ul>
+<li>LL(1)分析表中没有空字，但有终结符号和$符号</li>
+</ul>
+<p>是否为LL(1)文法的判断方法：</p>
+<h1 id="4-自底向上语法分析"><a href="#4-自底向上语法分析" class="headerlink" title="4. 自底向上语法分析"></a>4. 自底向上语法分析</h1><h2 id="4-1-LR-0"><a href="#4-1-LR-0" class="headerlink" title="4.1 LR(0)"></a>4.1 LR(0)</h2><p>构造分析表</p>
 <p><img src="http://api.xixfeng.cn/mweb/15748144376557.jpg" alt><img src="http://api.xixfeng.cn/mweb/15748144657911.jpg" alt></p>
-<p><img src="http://api.xixfeng.cn/mweb/15748149989619.jpg" alt></p>
-<p><u><strong>SLR(1)</strong></u></p>
-<p><img src="/var/folders/q0/7wcj4phs5j91cskld9cv10xr0000gn/T/abnerworks.Typora/image-20191127082818469.png" alt="image-20191127082818469"></p>
-<p><u><strong>LR(1)</strong></u></p>
-<p><img src="http://api.xixfeng.cn/mweb/15748145431958.jpg" alt></p>
-<p><img src="/var/folders/q0/7wcj4phs5j91cskld9cv10xr0000gn/T/abnerworks.Typora/image-20191127082917126.png" alt="image-20191127082917126"></p>
-<p>LALR(1)</p>
-<p><img src="http://api.xixfeng.cn/mweb/15748154046768.jpg" alt></p>
+<h2 id="4-2-SLR-1"><a href="#4-2-SLR-1" class="headerlink" title="4.2 SLR(1)"></a>4.2 SLR(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15760317256752.jpg" alt></p>
+<h2 id="4-3-LR-1"><a href="#4-3-LR-1" class="headerlink" title="4.3 LR(1)"></a>4.3 LR(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15748145431958.jpg" alt></p>
+<p><img src="http://api.xixfeng.cn/mweb/15760318280962.jpg" alt></p>
+<h2 id="4-4-LALR-1"><a href="#4-4-LALR-1" class="headerlink" title="4.4 LALR(1)"></a>4.4 LALR(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15748154046768.jpg" alt></p>
 <p>相同内核是指除去向前的部分（即LR(0)的）</p>
 <ul>
 <li>上面四种方法在构建分析表主要不同的地方就是<u>填规约的地方</u></li>
 </ul>
-<h1 id="上机实验"><a href="#上机实验" class="headerlink" title="上机实验"></a>上机实验</h1><p><a href="https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html</a></p>
+<h2 id="4-5-分析操作"><a href="#4-5-分析操作" class="headerlink" title="4.5 分析操作"></a>4.5 分析操作</h2><p><img src="http://api.xixfeng.cn/mweb/15760316940039.jpg" alt></p>
+<h1 id="5-yacc实验"><a href="#5-yacc实验" class="headerlink" title="5. yacc实验"></a>5. yacc实验</h1><p><a href="https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html</a></p>
 <p><a href="https://blog.csdn.net/zj510/article/details/51629314" target="_blank" rel="noopener">https://blog.csdn.net/zj510/article/details/51629314</a></p>
 <pre><code>
 %{
@@ -490,7 +496,7 @@ printf(&quot;Error : %s \n&quot;, msg);
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Syntax-analyzer"><span class="toc-number">1.</span> <span class="toc-text">Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">1.1.</span> <span class="toc-text">推导</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自顶向下语法分析"><span class="toc-number">3.</span> <span class="toc-text">自顶向下语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改文法"><span class="toc-number">3.0.1.</span> <span class="toc-text">修改文法</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#自底向上语法分析"><span class="toc-number">4.</span> <span class="toc-text">自底向上语法分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#上机实验"><span class="toc-number">5.</span> <span class="toc-text">上机实验</span></a></li>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Syntax-analyzer"><span class="toc-number">1.</span> <span class="toc-text">1. Syntax analyzer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#推导"><span class="toc-number">1.1.</span> <span class="toc-text">推导</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-语法"><span class="toc-number">2.</span> <span class="toc-text">2. 语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-自顶向下语法分析"><span class="toc-number">3.</span> <span class="toc-text">3. 自顶向下语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-修改文法"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 修改文法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-first、follow集"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 first、follow集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-构造LL-1"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 构造LL(1)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-自底向上语法分析"><span class="toc-number">4.</span> <span class="toc-text">4. 自底向上语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-LR-0"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 LR(0)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-SLR-1"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 SLR(1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-LR-1"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 LR(1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-LALR-1"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 LALR(1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-分析操作"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 分析操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-yacc实验"><span class="toc-number">5.</span> <span class="toc-text">5. yacc实验</span></a></li></ol>
                     </div>
                 </span>
             </div>
