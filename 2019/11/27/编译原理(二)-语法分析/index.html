@@ -18,14 +18,18 @@
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15724028759345.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15760313145100.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15764862337591.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15765675222297.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748144376557.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748144657911.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15760317256752.jpg">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15765704712869.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748145431958.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15760318280962.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15748154046768.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15760316940039.jpg">
-<meta property="og:updated_time" content="2019-12-11T02:38:22.392Z">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15765703753324.jpg">
+<meta property="og:updated_time" content="2019-12-17T08:51:57.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理(二)-语法分析">
 <meta name="twitter:description" content="1. Syntax analyzer三种生成方式  Universal 通用的 Top-Down 自顶向下 Donw-Top 自底向上  程序的错误类型  词法错误     语法错误 语义错误 逻辑错误  错误恢复方法  恐慌模式恢复：发现错误后，丢弃后面的输入符号，直到找到同步词法单元（界符；{} ()） 短语层次：在错误后进行局部性纠正，将某个前缀改为可能正确的字符 错误产生式：给出一些错误模">
@@ -323,20 +327,30 @@
 </ul>
 <h2 id="3-3-构造LL-1"><a href="#3-3-构造LL-1" class="headerlink" title="3.3 构造LL(1)"></a>3.3 构造LL(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15760313145100.jpg" alt></p>
 <ul>
-<li>LL(1)分析表中没有空字，但有终结符号和$符号</li>
+<li>⚠️LL(1)分析表中没有空字，但有终结符号和$符号，LR同理</li>
 </ul>
 <p>是否为LL(1)文法的判断方法：</p>
+<p><img src="http://api.xixfeng.cn/mweb/15764862337591.jpg" alt></p>
+<p><img src="http://api.xixfeng.cn/mweb/15765675222297.jpg" alt></p>
 <h1 id="4-自底向上语法分析"><a href="#4-自底向上语法分析" class="headerlink" title="4. 自底向上语法分析"></a>4. 自底向上语法分析</h1><h2 id="4-1-LR-0"><a href="#4-1-LR-0" class="headerlink" title="4.1 LR(0)"></a>4.1 LR(0)</h2><p>构造分析表</p>
 <p><img src="http://api.xixfeng.cn/mweb/15748144376557.jpg" alt><img src="http://api.xixfeng.cn/mweb/15748144657911.jpg" alt></p>
 <h2 id="4-2-SLR-1"><a href="#4-2-SLR-1" class="headerlink" title="4.2 SLR(1)"></a>4.2 SLR(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15760317256752.jpg" alt></p>
+<p><img src="http://api.xixfeng.cn/mweb/15765704712869.jpg" alt></p>
 <h2 id="4-3-LR-1"><a href="#4-3-LR-1" class="headerlink" title="4.3 LR(1)"></a>4.3 LR(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15748145431958.jpg" alt></p>
 <p><img src="http://api.xixfeng.cn/mweb/15760318280962.jpg" alt></p>
 <h2 id="4-4-LALR-1"><a href="#4-4-LALR-1" class="headerlink" title="4.4 LALR(1)"></a>4.4 LALR(1)</h2><p><img src="http://api.xixfeng.cn/mweb/15748154046768.jpg" alt></p>
 <p>相同内核是指除去向前的部分（即LR(0)的）</p>
 <ul>
+<li>合并过后得到的项目集个数，应该与LR(0)的项目集是一样的</li>
+</ul>
+<ul>
 <li>上面四种方法在构建分析表主要不同的地方就是<u>填规约的地方</u></li>
 </ul>
 <h2 id="4-5-分析操作"><a href="#4-5-分析操作" class="headerlink" title="4.5 分析操作"></a>4.5 分析操作</h2><p><img src="http://api.xixfeng.cn/mweb/15760316940039.jpg" alt></p>
+<ul>
+<li>Shift：规约就是将产生式右边替换为左边，所以弹出后需要把产生式左边、新状态压入栈。而新状态根据规约式左边和弹出时顶端状态查GOTO表得出。</li>
+</ul>
+<p><img src="http://api.xixfeng.cn/mweb/15765703753324.jpg" alt></p>
 <h1 id="5-yacc实验"><a href="#5-yacc实验" class="headerlink" title="5. yacc实验"></a>5. yacc实验</h1><p><a href="https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/linux/sdk/lex/index.html</a></p>
 <p><a href="https://blog.csdn.net/zj510/article/details/51629314" target="_blank" rel="noopener">https://blog.csdn.net/zj510/article/details/51629314</a></p>
 <pre><code>
