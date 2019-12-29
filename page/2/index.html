@@ -141,6 +141,160 @@
             
   
     
+      <article id="post-Java_String、StringBuilder、StringPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/27/Java_String、StringBuilder、StringPool/">Java_String</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/27/Java_String、StringBuilder、StringPool/" class="archive-article-date">
+  	<time datetime="2019-10-27T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>String 被声明为 final，因此它不可被继承。(Integer 等包装类也不能被继承）</p>
+<p>在 Java 8 中，String 内部使用 char 数组存储数据。</p>
+<pre><code class="java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+    /** The value is used for character storage. */
+    private final char value[];
+}
+</code></pre>
+<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用了哪种编码。</p>
+<pre><code class="java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+    /** The value is used for character storage. */
+    private final byte[] value;
+
+    /** The identifier of the encoding used to encode the bytes in {@code value}. */
+    private final byte coder;
+}
+</code></pre>
+<p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。</p>
+          
+            <a class="article-more-a" href="/2019/10/27/Java_String、StringBuilder、StringPool/#more">more >></a>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/27/Java_String、StringBuilder、StringPool/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-bomb炸弹实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/17/bomb炸弹实验/">bomb炸弹实验</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/17/bomb炸弹实验/" class="archive-article-date">
+  	<time datetime="2019-10-17T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>使用命令行得到可执行程序bomb的汇编代码</p>
+<pre><code>objdump -d bomb.exe &gt; bomb.s
+</code></pre>
+          
+            <a class="article-more-a" href="/2019/10/17/bomb炸弹实验/#more">more >></a>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/17/bomb炸弹实验/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-mac完成SSD6 exercise1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -162,7 +316,8 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="C程序函数调用栈"><a href="#C程序函数调用栈" class="headerlink" title="C程序函数调用栈"></a>C程序函数调用栈</h1><p><u><strong>函数调用相关寄存器</strong></u></p>
+          <h1 id="C程序函数调用栈"><a href="#C程序函数调用栈" class="headerlink" title="C程序函数调用栈"></a>C程序函数调用栈</h1><p>Activation Record：指栈顶层的栈帧信息，生命周期是call到return</p>
+<p><u><strong>函数调用相关寄存器</strong></u></p>
 <table>
 <thead>
 <tr>
@@ -540,15 +695,16 @@
 
         
           <p>以C语言为例，介绍一种高级语言从编码到执行的所有底层细节</p>
-<h1 id="计算机总览"><a href="#计算机总览" class="headerlink" title="计算机总览"></a>计算机总览</h1><p>C语言运行的6个阶段</p>
+<h1 id="1-计算机总览"><a href="#1-计算机总览" class="headerlink" title="1.计算机总览"></a>1.计算机总览</h1><p>C语言运行的6个阶段</p>
 <ul>
 <li>edit：C使用ASCLL编码，以8位（bit）来表示字符</li>
 <li>preprocess：.i文本文件</li>
 <li>compile：.s文本文件（汇编指令）</li>
 <li>assmbler(汇编)：.o二进制代码</li>
 <li>linker：涉及到地址的重新定位</li>
-<li>loader</li>
+<li>loader：将可执行对象文件从磁盘加载或映射到内存</li>
 </ul>
+<p><img src="http://api.xixfeng.cn/mweb/15774286365075.jpg" alt></p>
           
             <a class="article-more-a" href="/2019/09/03/深入理解计算机系统/#more">more >></a>
           
@@ -853,130 +1009,6 @@ make all
 
     
   
-    
-      <article id="post-前端基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/15/前端基础/">前端基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/15/前端基础/" class="archive-article-date">
-  	<time datetime="2019-07-15T02:48:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><p>块级元素、内联元素</p>
-<ul>
-<li>块级元素会自动跳行，内联元素不会；</li>
-</ul>
-<pre><code class="html">&lt;div&gt; 属于块级元素 用作元素的容器，常用来网页布局
-&lt;span&gt; 属于内联元素 用作文本的容器
-</code></pre>
-<p>块级标签</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">标签</th>
-<th style="text-align:center">意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">center</td>
-<td style="text-align:center">居中对齐块</td>
-<td style="text-align:center">dir</td>
-<td style="text-align:center">目录列表</td>
-</tr>
-<tr>
-<td style="text-align:center">div</td>
-<td style="text-align:center">常用块级元素</td>
-<td style="text-align:center">dl</td>
-<td style="text-align:center">定义列表</td>
-</tr>
-<tr>
-<td style="text-align:center">form</td>
-<td style="text-align:center">交互表单</td>
-<td style="text-align:center">h1-h6</td>
-<td style="text-align:center">标题</td>
-</tr>
-<tr>
-<td style="text-align:center">hr</td>
-<td style="text-align:center">水平分割线</td>
-<td style="text-align:center">menu</td>
-<td style="text-align:center">菜单列表</td>
-</tr>
-<tr>
-<td style="text-align:center">ol</td>
-<td style="text-align:center">排序表单</td>
-<td style="text-align:center">p</td>
-<td style="text-align:center">段落</td>
-</tr>
-<tr>
-<td style="text-align:center">address</td>
-<td style="text-align:center">地址</td>
-<td style="text-align:center">blockquote</td>
-<td style="text-align:center">块应用</td>
-</tr>
-</tbody>
-</table>
-          
-            <a class="article-more-a" href="/2019/07/15/前端基础/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/15/前端基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1064,6 +1096,14 @@ make all
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深入理解计算机系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -1077,10 +1117,6 @@ make all
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1100,19 +1136,23 @@ make all
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>

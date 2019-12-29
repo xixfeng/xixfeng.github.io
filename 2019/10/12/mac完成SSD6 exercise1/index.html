@@ -8,19 +8,20 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>mac完成SSD6 exercise1 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C程序函数调用栈函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的起始位置   %rsi  第二参数寄存器   %rdi  第一参数寄存器   %r8  第">
+  <meta name="description" content="C程序函数调用栈Activation Record：指栈顶层的栈帧信息，生命周期是call到return 函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac完成SSD6 exercise1">
 <meta property="og:url" content="https://xixfeng.github.io/2019/10/12/mac完成SSD6 exercise1/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="C程序函数调用栈函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的起始位置   %rsi  第二参数寄存器   %rdi  第一参数寄存器   %r8  第">
+<meta property="og:description" content="C程序函数调用栈Activation Record：指栈顶层的栈帧信息，生命周期是call到return 函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15708398260796.png">
+<meta property="og:image" content="http://api.xixfeng.cn/mweb/15776014209977.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15708471653514.jpg">
-<meta property="og:updated_time" content="2019-10-14T12:32:26.000Z">
+<meta property="og:updated_time" content="2019-12-29T06:42:05.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac完成SSD6 exercise1">
-<meta name="twitter:description" content="C程序函数调用栈函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的起始位置   %rsi  第二参数寄存器   %rdi  第一参数寄存器   %r8  第">
+<meta name="twitter:description" content="C程序函数调用栈Activation Record：指栈顶层的栈帧信息，生命周期是call到return 函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的">
 <meta name="twitter:image" content="http://api.xixfeng.cn/mweb/15708398260796.png">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
@@ -166,7 +167,8 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="C程序函数调用栈"><a href="#C程序函数调用栈" class="headerlink" title="C程序函数调用栈"></a>C程序函数调用栈</h1><p><u><strong>函数调用相关寄存器</strong></u></p>
+          <h1 id="C程序函数调用栈"><a href="#C程序函数调用栈" class="headerlink" title="C程序函数调用栈"></a>C程序函数调用栈</h1><p>Activation Record：指栈顶层的栈帧信息，生命周期是call到return</p>
+<p><u><strong>函数调用相关寄存器</strong></u></p>
 <table>
 <thead>
 <tr>
@@ -249,7 +251,10 @@
 <ul>
 <li>以上结构最近帧是在低地址</li>
 <li>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</li>
+<li>EBP是指向的当前栈底部（存储的上一栈的栈底），ESP指向当前栈栈顶</li>
+<li>注意local variable后面少了一项register的值</li>
 </ul>
+<p><img src="http://api.xixfeng.cn/mweb/15776014209977.jpg" alt></p>
 <p>调用步骤：执行的操作有：父函数将调用参数从后向前压栈 -&gt; 将返回地址压栈保存 -&gt; 跳转到子函数起始地址执行 -&gt; 子函数将父函数栈帧起始地址（%rpb） 压栈 -&gt; 将 %rbp 的值设置为当前 %rsp 的值，即将 %rbp 指向子函数栈帧的起始地址。</p>
 <pre><code class="c"># 参数压栈
 call FUNC  # 将返回地址压栈，并跳转到子函数 FUNC 处执行
@@ -516,6 +521,14 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深入理解计算机系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -529,10 +542,6 @@ gitment.render('gitment-ctn')
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,19 +561,23 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>

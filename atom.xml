@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2019-12-02T10:27:54.700Z</updated>
+  <updated>2019-12-28T03:29:51.558Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深入理解计算机系统-异常</title>
+    <link href="https://xixfeng.github.io/2019/12/27/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%BC%82%E5%B8%B8/"/>
+    <id>https://xixfeng.github.io/2019/12/27/深入理解计算机系统-异常/</id>
+    <published>2019-12-27T07:58:03.000Z</published>
+    <updated>2019-12-28T03:29:51.558Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;流控：在计算机执行指令的过程中，从一个指令跳转到下一个指令的过程&lt;/p&gt;
+&lt;p&gt;异常：响应在流控过程中，处理器状态的突然改变。&lt;/p&gt;
+&lt;p&gt;异常提供了基本的构建块，允许操作系统提供进程的概念&lt;/p&gt;
+&lt;p&gt;异常的发生层次&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;硬件&lt;/li&gt;
+&lt;li&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="深入理解计算机系统" scheme="https://xixfeng.github.io/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C</title>
+    <link href="https://xixfeng.github.io/2019/12/27/C/"/>
+    <id>https://xixfeng.github.io/2019/12/27/C/</id>
+    <published>2019-12-27T06:59:40.000Z</published>
+    <updated>2019-12-29T07:04:03.046Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;变量&quot;&gt;&lt;a href=&quot;#变量&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h1&gt;&lt;p&gt;全局变量：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初始化：初始化过后的全局变量放在一起&lt;/li&gt;
+&lt;li&gt;未初始化：赋予 ”0“
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="C" scheme="https://xixfeng.github.io/tags/C/"/>
+    
+      <category term="深入理解计算机系统" scheme="https://xixfeng.github.io/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络-考试资料</title>
@@ -47,7 +110,7 @@
     <link href="https://xixfeng.github.io/2019/11/27/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86(%E4%BA%8C)-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90/"/>
     <id>https://xixfeng.github.io/2019/11/27/编译原理(二)-语法分析/</id>
     <published>2019-11-27T00:31:01.000Z</published>
-    <updated>2019-12-17T08:51:57.315Z</updated>
+    <updated>2019-12-18T01:37:11.143Z</updated>
     
     <summary type="html">
     
@@ -315,11 +378,12 @@
     <link href="https://xixfeng.github.io/2019/10/12/mac%E5%AE%8C%E6%88%90SSD6%20exercise1/"/>
     <id>https://xixfeng.github.io/2019/10/12/mac完成SSD6 exercise1/</id>
     <published>2019-10-12T00:18:34.000Z</published>
-    <updated>2019-10-14T12:32:26.000Z</updated>
+    <updated>2019-12-29T06:42:05.850Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;C程序函数调用栈&quot;&gt;&lt;a href=&quot;#C程序函数调用栈&quot; class=&quot;headerlink&quot; title=&quot;C程序函数调用栈&quot;&gt;&lt;/a&gt;C程序函数调用栈&lt;/h1&gt;&lt;p&gt;&lt;u&gt;&lt;strong&gt;函数调用相关寄存器&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;C程序函数调用栈&quot;&gt;&lt;a href=&quot;#C程序函数调用栈&quot; class=&quot;headerlink&quot; title=&quot;C程序函数调用栈&quot;&gt;&lt;/a&gt;C程序函数调用栈&lt;/h1&gt;&lt;p&gt;Activation Record：指栈顶层的栈帧信息，生命周期是call到return&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;函数调用相关寄存器&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -502,25 +566,28 @@
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
     <published>2019-09-03T01:10:30.000Z</published>
-    <updated>2019-11-05T00:56:58.000Z</updated>
+    <updated>2019-12-29T07:03:52.700Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;以C语言为例，介绍一种高级语言从编码到执行的所有底层细节&lt;/p&gt;
-&lt;h1 id=&quot;计算机总览&quot;&gt;&lt;a href=&quot;#计算机总览&quot; class=&quot;headerlink&quot; title=&quot;计算机总览&quot;&gt;&lt;/a&gt;计算机总览&lt;/h1&gt;&lt;p&gt;C语言运行的6个阶段&lt;/p&gt;
+&lt;h1 id=&quot;1-计算机总览&quot;&gt;&lt;a href=&quot;#1-计算机总览&quot; class=&quot;headerlink&quot; title=&quot;1.计算机总览&quot;&gt;&lt;/a&gt;1.计算机总览&lt;/h1&gt;&lt;p&gt;C语言运行的6个阶段&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;edit：C使用ASCLL编码，以8位（bit）来表示字符&lt;/li&gt;
 &lt;li&gt;preprocess：.i文本文件&lt;/li&gt;
 &lt;li&gt;compile：.s文本文件（汇编指令）&lt;/li&gt;
 &lt;li&gt;assmbler(汇编)：.o二进制代码&lt;/li&gt;
 &lt;li&gt;linker：涉及到地址的重新定位&lt;/li&gt;
-&lt;li&gt;loader&lt;/li&gt;
+&lt;li&gt;loader：将可执行对象文件从磁盘加载或映射到内存&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://api.xixfeng.cn/mweb/15774286365075.jpg&quot; alt&gt;&lt;/p&gt;
     
     </summary>
     
       <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="深入理解计算机系统" scheme="https://xixfeng.github.io/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
@@ -634,111 +701,6 @@ make all
     </summary>
     
       <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前端基础</title>
-    <link href="https://xixfeng.github.io/2019/07/15/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"/>
-    <id>https://xixfeng.github.io/2019/07/15/前端基础/</id>
-    <published>2019-07-15T02:48:05.000Z</published>
-    <updated>2019-11-20T05:45:18.353Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h1&gt;&lt;p&gt;块级元素、内联元素&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;块级元素会自动跳行，内联元素不会；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&quot;html&quot;&gt;&amp;lt;div&amp;gt; 属于块级元素 用作元素的容器，常用来网页布局
-&amp;lt;span&amp;gt; 属于内联元素 用作文本的容器
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;块级标签&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;标签&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;意义&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;标签&lt;/th&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;意义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;center&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;居中对齐块&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;dir&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;目录列表&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;div&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;常用块级元素&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;dl&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;定义列表&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;form&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;交互表单&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;h1-h6&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;标题&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;hr&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;水平分割线&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;menu&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;菜单列表&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;ol&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;排序表单&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;p&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;段落&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;address&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;地址&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;blockquote&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;块应用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>软件工程</title>
-    <link href="https://xixfeng.github.io/2019/06/15/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    <id>https://xixfeng.github.io/2019/06/15/软件工程/</id>
-    <published>2019-06-15T12:01:55.000Z</published>
-    <updated>2019-10-21T00:32:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;软件&quot;&gt;&lt;a href=&quot;#软件&quot; class=&quot;headerlink&quot; title=&quot;软件&quot;&gt;&lt;/a&gt;软件&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;软件：1.指令的集合，通过执行这些指令可以完成预期的功能；2.数据结构，帮助程序有效利用数据；3.软件描述信息，描述软件的信息和操作&lt;/li&gt;
-&lt;li&gt;软件的特点：功能性、可靠性、可用性、可维护性、可移植性、效率&lt;/li&gt;
-&lt;li&gt;软件于硬件的不同：软件不会”磨损”&lt;/li&gt;
-&lt;li&gt;软件的改变特性：预期情况，实际情况&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;软件工程&quot;&gt;&lt;a href=&quot;#软件工程&quot; class=&quot;headerlink&quot; title=&quot;软件工程&quot;&gt;&lt;/a&gt;软件工程&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;软件工程：在软件的开发、运行和维护中采用系统的、有纪律的、可量化的方法，即将工程应用于软件。&lt;/li&gt;
-&lt;li&gt;软件神话(myths)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;过程模型&quot;&gt;&lt;a href=&quot;#过程模型&quot; class=&quot;headerlink&quot; title=&quot;过程模型&quot;&gt;&lt;/a&gt;过程模型&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;软件过程：软件过程为一个为建造高质量软件所需完成的任务的框架&lt;/li&gt;
-&lt;li&gt;过程模型：过程模型就是一种开发策略，这种策略针对软件工程的各个阶段提供了一套范形，使工程的进展达到预期的目的&lt;/li&gt;
-&lt;li&gt;过程框架：沟通、策划、建模(需求分析和设计)、构建(实际代码和测试)、部署&lt;/li&gt;
-&lt;li&gt;过程模型分类：步骤模式、任务模式、阶段模式
-    
-    </summary>
-    
-      <category term="基础" scheme="https://xixfeng.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
     
     
   </entry>

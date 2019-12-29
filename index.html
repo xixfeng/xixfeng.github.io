@@ -141,6 +141,319 @@
             
   
     
+      <article id="post-深入理解计算机系统-异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/27/深入理解计算机系统-异常/">深入理解计算机系统-异常</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/27/深入理解计算机系统-异常/" class="archive-article-date">
+  	<time datetime="2019-12-27T07:58:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <p>流控：在计算机执行指令的过程中，从一个指令跳转到下一个指令的过程</p>
+<p>异常：响应在流控过程中，处理器状态的突然改变。</p>
+<p>异常提供了基本的构建块，允许操作系统提供进程的概念</p>
+<p>异常的发生层次</p>
+<ul>
+<li>硬件</li>
+<li>操作系统</li>
+<li>应用程序</li>
+</ul>
+<p>异常的分类</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Cause</th>
+<th>Async/Sync</th>
+<th>Return behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interrupt</td>
+<td>I/O 设备的信号</td>
+<td>Async</td>
+<td>总会回到下一条指令</td>
+</tr>
+<tr>
+<td>Trap</td>
+<td>策划的异常</td>
+<td>Sync</td>
+<td>总会回到下一条指令</td>
+</tr>
+<tr>
+<td>Fault</td>
+<td>潜在的可恢复错误</td>
+<td>Sync</td>
+<td>可能会回到当前指令</td>
+</tr>
+<tr>
+<td>Abort</td>
+<td>不可恢复错误</td>
+<td>Sync</td>
+<td>不回</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://api.xixfeng.cn/mweb/15775036014576.jpg" alt></p>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/27/深入理解计算机系统-异常/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
+      <article id="post-C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/27/C/">C</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/27/C/" class="archive-article-date">
+  	<time datetime="2019-12-27T06:59:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+
+        
+          <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>全局变量：</p>
+<ul>
+<li>初始化：初始化过后的全局变量放在一起</li>
+<li>未初始化：赋予 ”0“ 值后放在一起</li>
+<li>编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节</li>
+</ul>
+<p>局部变量：</p>
+<ul>
+<li>未初始化：赋予0xCCC….值</li>
+</ul>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>有符号整数存储</p>
+<pre><code class="c">int main( )
+{
+    int a = 12;
+    a = ~a+1;
+    printf(&quot;%d\n&quot;,a);//-12
+
+    a = ~a+1;
+    printf(&quot;%d\n&quot;,a);//-12
+    return 0;
+}
+</code></pre>
+<pre><code class="c">    #include &lt;stdio.h&gt;
+    int main()
+    {
+        unsigned int a = 10;
+        a = ~a;
+        printf(&quot;%d\n&quot;, a);//-11,负数对应的正数可以通过取反+1得到
+    }
+</code></pre>
+<h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><p>声明结构体</p>
+<pre><code class="C">typedef struct simple1{
+    int id;
+    struct simple1 *next;//在simple1结构体中就不能直接使用Simple1
+}Simple1;
+
+struct simple2{
+    int id;
+    struct simple2 *next;
+    Simple1 *test;//在simple1结构体中就不能直接使用Simple1
+};
+
+</code></pre>
+<p>结构体与结构体指针的使用</p>
+<pre><code class="C">    Simple1 simple;
+    simple.id = 1;
+    printf(&quot;%d\n&quot;,simple.id);
+
+    Simple1 *ptr = &amp;simple;
+    printf(&quot;%d\n&quot;,ptr-&gt;id);
+    printf(&quot;%d\n&quot;,(*ptr).id);
+</code></pre>
+<ul>
+<li>C语言的结构体是对齐（alignment）的，即结构体中的每个变量占用内存大小一样。</li>
+</ul>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>存放方式</p>
+<ul>
+<li>按行优先存储，在内存当中是按照：1 2 3 4 5 6 ，这样的顺序存放</li>
+<li>按列优先存储，在内存当中是按照：1 4 2 5 3 6 ，的顺序存放</li>
+</ul>
+<p>字符串数组</p>
+<pre><code class="c">char s[] = &quot;string&quot;; //s[6] = &#39;\0&#39;,不管是字符串数组还是字符串都以&#39;\0&#39;结尾
+</code></pre>
+<p>数组名为该行首地址</p>
+<pre><code class="c">a[n][m] == （a[n])[m] == *((a[n]+m))//a[n]为第n行的首地址
+</code></pre>
+<h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><u><strong>指针</strong></u>的三个问题</p>
+<p>p = ？，&amp;p = ?，*p = ?</p>
+<p>指针的加、减法，与指针的类型相关，指针的+，-，++，–，指针的加减运算是指偏移量（根据指针的类型）</p>
+<pre><code class="c">int a = 1;
+int *ptr_a = &amp;a;//假如ptr_a = 0x10000
+ptr_a += 2;//ptr_a = ptr_a + 2*sizeof(int) = 0x10000 + 8 = 0x10008
+</code></pre>
+<p>指针的操作&amp;、*</p>
+<pre><code class="c">char a[100];
+a[99] = *((char *) (((int) &amp;a[0]) + 4))//等价于a[99]=a[4]
+</code></pre>
+<p>函数指针（函数名本身就是指针）</p>
+<pre><code class="c">int factorial(int n) {        //int (*factorialfunc)(int);
+if (n == 1) return n;
+return n * factorial(n -1);
+}
+
+int main( )
+{
+    int (*factorialfunc)(int) = factorial;
+    int n = factorialfunc(3);
+    printf(&quot;%d\n&quot;,n);
+    return 0;
+}
+</code></pre>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>传入参数分为形参（传入指针）、实参（传入具体值）</p>
+<p>传入引用类型参数并不是说通过改变这个参数（比如数组a = 数组b）就能影响原变量，而是通过引用类型参数包含的地址去影响原变量</p>
+<pre><code class="c">#include &lt;stdio.h&gt;
+
+char *a[10];
+char *b[10];
+
+void init(char *a,char *b){
+    a[0] = &#39;a&#39;;
+    b = a;
+    b[0] = &#39;b&#39;;
+}
+
+int main ()
+{
+    init(a,b);
+    printf(&quot;%s\n%s\n&quot;,a,b);//结果为b
+    return 0;
+}
+
+</code></pre>
+<pre><code class="c">int i;
+int * jp = &amp;i;//jp是i地址的地址
+void main(int i, char * argv[]) {
+  printf(&quot;%d %d\n&quot;, (int) &amp;i, (int) jp);//两个值打出来不一样
+}
+</code></pre>
+<pre><code class="c">char * getMemory(){
+    char* p = &quot;hello world&quot;;//此时能够打印出hello world，此时创建的是全局变量
+      //char p[] = &quot;hello world&quot;; 此时不能够打印出hello world，因为这时创建的是函数栈临时变量
+    return p;
+}
+void main() {
+    char *str = NULL;
+    str = getMemory();
+    printf(str);
+}
+</code></pre>
+<h1 id="乱七八糟"><a href="#乱七八糟" class="headerlink" title="乱七八糟"></a>乱七八糟</h1><p>sizeof</p>
+<pre><code class="c">int main( )
+{
+    int x = 97;
+    int y = sizeof(x++);
+    printf(&quot;x is %d&quot;, x);//输出x is 97  sizeof只取()中的变量的类型，所以编译时变成sizeof(int)
+    return 0;
+}
+</code></pre>
+
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!-- - partial('post/tag')-->
+      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/27/C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+    
+  
+    
       <article id="post-计算机网络-考试资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -744,160 +1057,6 @@
 
     
   
-    
-      <article id="post-Java_String、StringBuilder、StringPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/Java_String、StringBuilder、StringPool/">Java_String</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/27/Java_String、StringBuilder、StringPool/" class="archive-article-date">
-  	<time datetime="2019-10-27T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>String 被声明为 final，因此它不可被继承。(Integer 等包装类也不能被继承）</p>
-<p>在 Java 8 中，String 内部使用 char 数组存储数据。</p>
-<pre><code class="java">public final class String
-    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
-    /** The value is used for character storage. */
-    private final char value[];
-}
-</code></pre>
-<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用了哪种编码。</p>
-<pre><code class="java">public final class String
-    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
-    /** The value is used for character storage. */
-    private final byte[] value;
-
-    /** The identifier of the encoding used to encode the bytes in {@code value}. */
-    private final byte coder;
-}
-</code></pre>
-<p>value 数组被声明为 final，这意味着 value 数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。</p>
-          
-            <a class="article-more-a" href="/2019/10/27/Java_String、StringBuilder、StringPool/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/27/Java_String、StringBuilder、StringPool/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
-    
-      <article id="post-bomb炸弹实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/17/bomb炸弹实验/">bomb炸弹实验</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/17/bomb炸弹实验/" class="archive-article-date">
-  	<time datetime="2019-10-17T02:31:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-
-        
-          <p>使用命令行得到可执行程序bomb的汇编代码</p>
-<pre><code>objdump -d bomb.exe &gt; bomb.s
-</code></pre>
-          
-            <a class="article-more-a" href="/2019/10/17/bomb炸弹实验/#more">more >></a>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!-- - partial('post/tag')-->
-      <!-- - partial('post/category')  暂时不知道为啥这里出错了-->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/17/bomb炸弹实验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-    
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -985,6 +1144,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深入理解计算机系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -998,10 +1165,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1021,19 +1184,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>
