@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15774427403683.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119775324.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119843287.jpg">
-<meta property="og:updated_time" content="2019-12-29T07:03:52.700Z">
+<meta property="og:updated_time" content="2019-12-29T08:38:38.451Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 1.计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader：将可执行对象文件从磁盘加载或映射到内存">
@@ -285,7 +285,7 @@ end start
 <p>– Inittialized Data</p>
 <p>– Uninitiated Data</p>
 <p>– Heap Memory                            -》用于动态分配的内存块（chunk）</p>
-<p>– Shared Libraries                        -》动态链接共享库</p>
+<p>– Shared Libraries                                -》动态链接共享库</p>
 <p>– Stack</p>
 <p>– Kernel                                    -》在一些系统中，内核会作为程序的一部分</p>
 <p><u><strong>变量生命周期</strong></u></p>
@@ -296,7 +296,8 @@ end start
 <li>Heap：根据用户需要被创建、销毁</li>
 </ul>
 <p>Stack和Heap用于动态分配（dynamic allocation）</p>
-<h2 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h2><p>被静态分配的参数</p>
+<h2 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h2><p>静态分配：在编译期间就为变量分配内存</p>
+<p>被静态分配的参数</p>
 <ul>
 <li>所有的全局变量</li>
 <li>加了static的本地变量</li>
@@ -304,6 +305,7 @@ end start
 </ul>
 <h2 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h2><p>动态分配：当运行时为参数分配内存空间，修复了静态分配固定内存大小的问题</p>
 <p><u><strong>栈分配</strong></u></p>
+<p>主要涉及到函数的调用过程，参考mac完成ssd6作业</p>
 <p><u><strong>堆分配</strong></u></p>
 <pre><code class="c">int *int_ptr = (int*)malloc(sizeof(int));//分配内存并返回指针
 free(int_ptr);//释放内存，但并不会使得int_ptr清0。int_ptr还是会指向那个内存快
@@ -315,8 +317,6 @@ int_ptr = NULL;//清0
 <li>失去malloc()分配的内存</li>
 <li>free() 同一个内存块两次</li>
 </ul>
-<h2 id="内存管理机制"><a href="#内存管理机制" class="headerlink" title="内存管理机制"></a>内存管理机制</h2><p>静态内存分配：在编译期间就为变量分配内存</p>
-<p>动态内存分配：在运行期间才为变量分配内存</p>
 <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><p><a href="https://crowhawk.github.io/2017/08/10/jvm_2/" target="_blank" rel="noopener">基础回收算法</a></p>
 <h1 id="6-连接、连接器"><a href="#6-连接、连接器" class="headerlink" title="6.连接、连接器"></a>6.连接、连接器</h1><p><a href="https://blog.csdn.net/kang___xi/article/details/80210717" target="_blank" rel="noopener">静态链接、动态链接</a></p>
 <p><img src="http://api.xixfeng.cn/mweb/15774427403683.jpg" alt></p>
@@ -1008,7 +1008,7 @@ int_ptr = NULL;//清0
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-计算机总览"><span class="toc-number">1.</span> <span class="toc-text">1.计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-信息存储"><span class="toc-number">2.</span> <span class="toc-text">2.信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">3.程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-函数调用"><span class="toc-number">4.</span> <span class="toc-text">4.函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-内存管理"><span class="toc-number">5.</span> <span class="toc-text">5.内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态分配"><span class="toc-number">5.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态分配"><span class="toc-number">5.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存管理机制"><span class="toc-number">5.3.</span> <span class="toc-text">内存管理机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">5.4.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-连接、连接器"><span class="toc-number">6.</span> <span class="toc-text">6.连接、连接器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-符号解析"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 符号解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-重定位"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 重定位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-优化"><span class="toc-number">7.</span> <span class="toc-text">7.优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-附录"><span class="toc-number">8.</span> <span class="toc-text">8.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">8.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-计算机总览"><span class="toc-number">1.</span> <span class="toc-text">1.计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-信息存储"><span class="toc-number">2.</span> <span class="toc-text">2.信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">3.程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-函数调用"><span class="toc-number">4.</span> <span class="toc-text">4.函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-内存管理"><span class="toc-number">5.</span> <span class="toc-text">5.内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态分配"><span class="toc-number">5.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态分配"><span class="toc-number">5.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">5.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-连接、连接器"><span class="toc-number">6.</span> <span class="toc-text">6.连接、连接器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-符号解析"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 符号解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-重定位"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 重定位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-优化"><span class="toc-number">7.</span> <span class="toc-text">7.优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-附录"><span class="toc-number">8.</span> <span class="toc-text">8.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">8.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1168,11 +1168,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">

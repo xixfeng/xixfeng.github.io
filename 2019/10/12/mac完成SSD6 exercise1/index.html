@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15708398260796.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15776014209977.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15708471653514.jpg">
-<meta property="og:updated_time" content="2019-12-29T06:42:05.850Z">
+<meta property="og:updated_time" content="2019-12-29T08:31:13.943Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac完成SSD6 exercise1">
 <meta name="twitter:description" content="C程序函数调用栈Activation Record：指栈顶层的栈帧信息，生命周期是call到return 函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的">
@@ -244,17 +244,26 @@
 </tr>
 </tbody>
 </table>
-<p>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由被调用者保存和恢复</p>
+<ul>
+<li>做题时先不要纠结这个寄存器中保存的什么，不填写具体内容，填写描述就可以。</li>
+<li>Callee Save是指这些寄存器的值由被调用者保存和恢复，Caller Save是指由调用者保存和恢复</li>
+</ul>
 <a id="more"></a>
 <p><u><strong>栈帧结构</strong></u></p>
 <p><img src="http://api.xixfeng.cn/mweb/15708398260796.png" alt></p>
 <ul>
-<li>以上结构最近帧是在低地址</li>
-<li>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</li>
-<li>EBP是指向的当前栈底部（存储的上一栈的栈底），ESP指向当前栈栈顶</li>
-<li>注意local variable后面少了一项register的值</li>
+<li><p>以上结构最近帧是在低地址</p>
+</li>
+<li><p>返回地址指向 调用者下一条指令的位置，当调用返回后将该地址赋值给EIP</p>
+</li>
+<li><p>EBP是指向的当前栈底部（存储的上一栈的栈底），ESP指向当前栈栈顶</p>
+</li>
 </ul>
+<p>⚠️注意local variable后面少了一项register的值（这个根据sub后面的汇编指令判断是否填写，下面这个例子就是sub后面跟有push ebx，push esi，push edi，所以要将这三个寄存器加入栈中。）</p>
 <p><img src="http://api.xixfeng.cn/mweb/15776014209977.jpg" alt></p>
+<ul>
+<li>saved register中保存的内容根据汇编代码填写</li>
+</ul>
 <p>调用步骤：执行的操作有：父函数将调用参数从后向前压栈 -&gt; 将返回地址压栈保存 -&gt; 跳转到子函数起始地址执行 -&gt; 子函数将父函数栈帧起始地址（%rpb） 压栈 -&gt; 将 %rbp 的值设置为当前 %rsp 的值，即将 %rbp 指向子函数栈帧的起始地址。</p>
 <pre><code class="c"># 参数压栈
 call FUNC  # 将返回地址压栈，并跳转到子函数 FUNC 处执行
@@ -561,11 +570,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据挖掘</a>
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
