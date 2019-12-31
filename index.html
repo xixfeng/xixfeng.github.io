@@ -283,6 +283,7 @@
 <ul>
 <li>未初始化：赋予0xCCC….值</li>
 </ul>
+<p>一个static变量默认得到0值</p>
 <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>有符号整数存储</p>
 <pre><code class="c">int main( )
 {
@@ -341,6 +342,7 @@ struct simple2{
 </code></pre>
 <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><u><strong>指针</strong></u>的三个问题</p>
 <p>p = ？，&amp;p = ?，*p = ?</p>
+<p>对于未初始化的指针，值是不确定的</p>
 <p>指针的加、减法，与指针的类型相关，指针的+，-，++，–，指针的加减运算是指偏移量（根据指针的类型）</p>
 <pre><code class="c">int a = 1;
 int *ptr_a = &amp;a;//假如ptr_a = 0x10000
@@ -402,6 +404,13 @@ void main() {
     printf(str);
 }
 </code></pre>
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><p>free</p>
+<p>当一个结构体被free时，它内部的指针是不会被自动free的</p>
+<pre><code class="c">int *p = (int *) calloc(100);
+int *q = p;
+free(p);//p、q是相等的，free(p)相当于free(q)，但是这里是释放了100个字节还是4个字节呢？
+</code></pre>
+<p>calloc() differs from malloc() in that calloc() sets the contents of the block to zero before returning. </p>
 <h1 id="乱七八糟"><a href="#乱七八糟" class="headerlink" title="乱七八糟"></a>乱七八糟</h1><p>sizeof</p>
 <pre><code class="c">int main( )
 {
@@ -410,6 +419,11 @@ void main() {
     printf(&quot;x is %d&quot;, x);//输出x is 97  sizeof只取()中的变量的类型，所以编译时变成sizeof(int)
     return 0;
 }
+</code></pre>
+<p>++运算符</p>
+<pre><code class="c">long a[10];
+ptr = a + 5;
+*ptr++ = x;//the last line could be rewritten as   a[5] = x; ptr = ptr + 1;      
 </code></pre>
 
         

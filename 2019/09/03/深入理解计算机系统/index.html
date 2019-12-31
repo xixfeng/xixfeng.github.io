@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15774427403683.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119775324.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119843287.jpg">
-<meta property="og:updated_time" content="2019-12-29T08:38:38.451Z">
+<meta property="og:updated_time" content="2019-12-31T08:34:03.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 1.计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader：将可执行对象文件从磁盘加载或映射到内存">
@@ -326,28 +326,102 @@ int_ptr = NULL;//清0
 <li>Combination （组合）</li>
 <li>Relocation （重定位）</li>
 </ul>
-<h2 id="6-1-符号解析"><a href="#6-1-符号解析" class="headerlink" title="6.1 符号解析"></a>6.1 符号解析</h2><ul>
+<h2 id="6-1-符号解析"><a href="#6-1-符号解析" class="headerlink" title="6.1 符号解析"></a>6.1 符号解析</h2><p>.symtab </p>
+<ul>
 <li><u>Global symbols</u> that are <u>defined</u> by this module and that can be referenced by other modules. </li>
 <li><u>Global symbols</u> that are <u>referenced/used</u> by this module  but defined by some other module</li>
 <li><u>Local symbols</u> that are <u>defined and referenced</u> exclusively by module m. . </li>
 </ul>
-<p>根据.o文件的symbols，找到全局变量和本地变量。并将全局变量区分为强类型和弱类型记录到object的符号表中</p>
+<p>根据.o文件的.symtab ，找到全局变量和本地变量。并将全局变量区分为强类型和弱类型记录到object的符号表中</p>
 <p>强类型、弱类型取值规则</p>
 <ul>
 <li>Rule 1: Multiple strong symbols are not allowed.</li>
 <li>Rule 2: Given a strong symbol and multiple weak symbols, choose the strong symbol.</li>
 <li>Rule 3: Given multiple weak symbols, choose any of the weak symbols. </li>
 </ul>
-<h2 id="6-2-重定位"><a href="#6-2-重定位" class="headerlink" title="6.2 重定位"></a>6.2 重定位</h2><p>当完成符号解析过后，linker将代码中的每个符号引用与一个符号定义相关联</p>
+<h2 id="6-2-重定位"><a href="#6-2-重定位" class="headerlink" title="6.2 重定位"></a>6.2 重定位</h2><p>.rel.text and .rel.data </p>
+<p>当完成符号解析过后，linker将代码中的每个符号引用与一个符号定义相关联</p>
 <p>重定位步骤</p>
 <ul>
 <li>编译器和汇编程序生成从地址0开始的代码和数据段</li>
 <li>链接器通过将为这些符号定义重新分配内存位置</li>
 <li>然后修改对这些符号的所有引用，使它们指向此内存位置。</li>
 </ul>
-<h1 id="7-优化"><a href="#7-优化" class="headerlink" title="7.优化"></a>7.优化</h1><p>算法优化（最佳选择）</p>
-<p>妨碍编译器优化的因素</p>
+<h1 id="7-优化"><a href="#7-优化" class="headerlink" title="7.优化"></a>7.优化</h1><p>优化的第一步是找到热点代码（hotspot）</p>
+<p>阿姆达尔定理：系统优化某部件所获得的系统性能的改善程度，取决于该部件被使用的频率，或所占总执行时间的比例。 </p>
+<h2 id="7-1-测量方法"><a href="#7-1-测量方法" class="headerlink" title="7.1 测量方法"></a>7.1 测量方法</h2><ul>
+<li>计时器</li>
+<li>探查器工具（profiler tool）</li>
+</ul>
+<p>CPU Time</p>
 <ul>
+<li>User Time: time spent executing instructions in the user process </li>
+<li>System Time: time spent executing instructions in the kernel on behalf of the user process </li>
+</ul>
+<p>Wall Time：the total duration of a program’s execution（程序执行的总持续时间）</p>
+<h2 id="7-2-优化方法"><a href="#7-2-优化方法" class="headerlink" title="7.2 优化方法"></a>7.2 优化方法</h2><ul>
+<li>算法优化（最佳选择）</li>
+<li>消除效率低下的循环 Eliminating Loop Inefficiencies  </li>
+<li>减少过程调用（函数调用） Reducing Procedure Calls  </li>
+<li>消除不需要的内存引用（能不用指针就不用） Eliminating Unneeded Memory References  </li>
+</ul>
+<p>其他优化方法</p>
+<ul>
+<li>循环展开（尽量少使用循环）</li>
+<li>使用寄存器</li>
+<li>选择使用无符号整数（当确定一个数字不会为负数时）</li>
+</ul>
+<p>原本的例子</p>
+<pre><code class="c">void combine1(vec_ptr v, int *dest)
+{
+  int i;
+  *dest = 0;
+  for (i = 0; i &lt; vec_length(v); i++) {
+    int val;
+    get_vec_element(v, i, &amp;val);
+    *dest += val;
+  }
+}
+</code></pre>
+<p>消除效率低下的循环</p>
+<pre><code class="c">void combine2(vec_ptr v, int *dest)
+{
+  int i;
+  int length = vec_length(v);
+  *dest = 0;
+  for (i = 0; i &lt; length; i++) {
+    int val;
+    get_vec_element(v, i, &amp;val);
+    *dest += val;
+  }}
+</code></pre>
+<p>减少过程调用</p>
+<pre><code class="c">int* get_vec_start(vec_ptr v)
+{
+    return v-&gt;data;
+} 
+void combine3(vec_ptr v, int *dest)
+{
+  int i;
+  int length = vec_length(v);
+  int *data = get_vec_start(v);
+  *dest = 0;
+  for (i = 0; i &lt; length; i++) {
+    *dest += data[i];
+}
+</code></pre>
+<p>消除不需要的内存引用（能不用指针就不用）</p>
+<pre><code class="c">void combine4(vec_ptr v, int *dest)
+{
+  int i;
+  int length = vec_length(v);
+  int *data = get_vec_start(v);
+  int sum = 0;
+  for (i = 0; i &lt; length; i++)sum += data[i];
+  *dest = sum;
+}
+</code></pre>
+<h2 id="7-3-妨碍编译器优化的因素"><a href="#7-3-妨碍编译器优化的因素" class="headerlink" title="7.3 妨碍编译器优化的因素"></a>7.3 妨碍编译器优化的因素</h2><ul>
 <li>存储器别名使用（memory aliasing）</li>
 </ul>
 <p><img src="http://api.xixfeng.cn/mweb/15775119775324.jpg" alt></p>
@@ -1008,7 +1082,7 @@ int_ptr = NULL;//清0
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-计算机总览"><span class="toc-number">1.</span> <span class="toc-text">1.计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-信息存储"><span class="toc-number">2.</span> <span class="toc-text">2.信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">3.程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-函数调用"><span class="toc-number">4.</span> <span class="toc-text">4.函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-内存管理"><span class="toc-number">5.</span> <span class="toc-text">5.内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态分配"><span class="toc-number">5.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态分配"><span class="toc-number">5.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">5.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-连接、连接器"><span class="toc-number">6.</span> <span class="toc-text">6.连接、连接器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-符号解析"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 符号解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-重定位"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 重定位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-优化"><span class="toc-number">7.</span> <span class="toc-text">7.优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-附录"><span class="toc-number">8.</span> <span class="toc-text">8.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">8.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-计算机总览"><span class="toc-number">1.</span> <span class="toc-text">1.计算机总览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-信息存储"><span class="toc-number">2.</span> <span class="toc-text">2.信息存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-整型的存储"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 整型的存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-浮点数的存储"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 浮点数的存储</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-程序的机器级表示"><span class="toc-number">3.</span> <span class="toc-text">3.程序的机器级表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-寄存器"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-汇编程序"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 汇编程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-函数调用"><span class="toc-number">4.</span> <span class="toc-text">4.函数调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-内存管理"><span class="toc-number">5.</span> <span class="toc-text">5.内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态分配"><span class="toc-number">5.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态分配"><span class="toc-number">5.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">5.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-连接、连接器"><span class="toc-number">6.</span> <span class="toc-text">6.连接、连接器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-符号解析"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 符号解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-重定位"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 重定位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-优化"><span class="toc-number">7.</span> <span class="toc-text">7.优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-测量方法"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 测量方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-优化方法"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 优化方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-妨碍编译器优化的因素"><span class="toc-number">7.3.</span> <span class="toc-text">7.3 妨碍编译器优化的因素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-附录"><span class="toc-number">8.</span> <span class="toc-text">8.附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#汇编指令"><span class="toc-number">8.1.</span> <span class="toc-text">汇编指令</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
