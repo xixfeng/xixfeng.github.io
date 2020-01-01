@@ -9,6 +9,7 @@
   <title>mac完成SSD6 exercise1 | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="C程序函数调用栈Activation Record：指栈顶层的栈帧信息，生命周期是call到return 函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的">
+<meta name="keywords" content="深入理解计算机系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac完成SSD6 exercise1">
 <meta property="og:url" content="https://xixfeng.github.io/2019/10/12/mac完成SSD6 exercise1/index.html">
@@ -18,7 +19,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15708398260796.png">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15776014209977.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15708471653514.jpg">
-<meta property="og:updated_time" content="2019-12-29T08:31:13.943Z">
+<meta property="og:updated_time" content="2020-01-01T07:18:31.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac完成SSD6 exercise1">
 <meta name="twitter:description" content="C程序函数调用栈Activation Record：指栈顶层的栈帧信息，生命周期是call到return 函数调用相关寄存器    Register Callee Save Description     %rax  结果寄存器   %rbx yes 多功能寄存器   %rcx  第四参数寄存器   %rdx  第三参数寄存器   %rsp  指向栈顶位置   %rpb yes 用于标识当前栈帧的">
@@ -258,6 +259,8 @@
 </li>
 <li><p>EBP是指向的当前栈底部（存储的上一栈的栈底），ESP指向当前栈栈顶</p>
 </li>
+<li><p>⚠️local variable的地址一般是由sub指令移动esp获得的</p>
+</li>
 </ul>
 <p>⚠️注意local variable后面少了一项register的值（这个根据sub后面的汇编指令判断是否填写，下面这个例子就是sub后面跟有push ebx，push esi，push edi，所以要将这三个寄存器加入栈中。）</p>
 <p><img src="http://api.xixfeng.cn/mweb/15776014209977.jpg" alt></p>
@@ -457,7 +460,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-			&copy; 2019 Li Yang
+			&copy; 2020 Li Yang
 			<!-- <a href="http://beian.miit.gov.cn/">蜀ICP备19008604号-1</a> -->
     	</div>
       	<div class="footer-right">
