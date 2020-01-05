@@ -53,20 +53,21 @@
     <link href="https://xixfeng.github.io/2019/12/27/C/"/>
     <id>https://xixfeng.github.io/2019/12/27/C/</id>
     <published>2019-12-27T06:59:40.000Z</published>
-    <updated>2020-01-03T07:50:02.730Z</updated>
+    <updated>2020-01-05T07:44:07.524Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;变量&quot;&gt;&lt;a href=&quot;#变量&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h1&gt;&lt;p&gt;全局变量：&lt;/p&gt;
+      &lt;h1 id=&quot;变量&quot;&gt;&lt;a href=&quot;#变量&quot; class=&quot;headerlink&quot; title=&quot;变量&quot;&gt;&lt;/a&gt;变量&lt;/h1&gt;&lt;p&gt;全局变量：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;初始化：初始化过后的全局变量放在一起&lt;/li&gt;
-&lt;li&gt;未初始化：赋予 ”0“
-        
-      
+&lt;li&gt;未初始化：赋予 ”0“ 值后放在一起&lt;/li&gt;
+&lt;li&gt;编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;局部变量：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;未初始化：赋予0xCCC….值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个static变量默认得到0值&lt;/p&gt;
     
     </summary>
     
@@ -571,7 +572,7 @@
     <link href="https://xixfeng.github.io/2019/09/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
     <id>https://xixfeng.github.io/2019/09/03/深入理解计算机系统/</id>
     <published>2019-09-03T01:10:30.000Z</published>
-    <updated>2020-01-04T05:38:12.125Z</updated>
+    <updated>2020-01-05T07:42:20.782Z</updated>
     
     <summary type="html">
     

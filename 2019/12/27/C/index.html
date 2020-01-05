@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xixfeng.github.io">
   <title>C | xixfeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值 数据类型有符号整数存储 int main( ) {     int a = 12;     a = ~a+1;     printf">
+  <meta name="description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值">
 <meta name="keywords" content="C,深入理解计算机系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C">
 <meta property="og:url" content="https://xixfeng.github.io/2019/12/27/C/index.html">
 <meta property="og:site_name" content="xixfeng">
-<meta property="og:description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值 数据类型有符号整数存储 int main( ) {     int a = 12;     a = ~a+1;     printf">
+<meta property="og:description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2020-01-03T07:50:02.730Z">
+<meta property="og:updated_time" content="2020-01-05T07:44:07.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C">
-<meta name="twitter:description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值 数据类型有符号整数存储 int main( ) {     int a = 12;     a = ~a+1;     printf">
+<meta name="twitter:description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值">
   
     <link rel="alternative" href="/atom.xml" title="xixfeng" type="application/atom+xml">
   
@@ -175,6 +175,7 @@
 <li>未初始化：赋予0xCCC….值</li>
 </ul>
 <p>一个static变量默认得到0值</p>
+<a id="more"></a>
 <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>有符号整数存储</p>
 <pre><code class="c">int main( )
 {
