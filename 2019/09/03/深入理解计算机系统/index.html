@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119775324.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119843287.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/9039D284A5D3E492740BD8DEF22CC268.jpg">
-<meta property="og:updated_time" content="2019-12-31T13:49:08.110Z">
+<meta property="og:updated_time" content="2020-01-04T05:38:12.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 1.计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader：将可执行对象文件从磁盘加载或映射到内存">
@@ -206,7 +206,7 @@
 <h2 id="2-1-整型的存储"><a href="#2-1-整型的存储" class="headerlink" title="2.1 整型的存储"></a>2.1 整型的存储</h2><p>在C语言中int是32位，最高位是符号位；<strong>内存中保存数字的补码。</strong></p>
 <ul>
 <li>负数：1s 反码（对应正数的原码1变0，0变1）   2s 补码（反码+1）</li>
-<li>正数：原码 = 反码 = 补码</li>
+<li>正数：原码 = 反码 = 补码，</li>
 </ul>
 <h2 id="2-2-浮点数的存储"><a href="#2-2-浮点数的存储" class="headerlink" title="2.2 浮点数的存储"></a>2.2 浮点数的存储</h2><p>二进制浮点数 10.5 == 1010.1<br>BCD 十进制编码的二进制  127.5 == 0001 0010 0111 . 0101<br>IEEE Standard 754</p>
 <ol>
@@ -515,7 +515,7 @@ void my_function() {
     *dest += val;
   }}
 </code></pre>
-<p>减少过程调用</p>
+<p>减少过程（函数）调用</p>
 <pre><code class="c">int* get_vec_start(vec_ptr v)
 {
     return v-&gt;data;
@@ -555,6 +555,9 @@ void combine3(vec_ptr v, int *dest)
 <li>全关联：乱放？</li>
 </ul>
 <p><img src="http://api.xixfeng.cn/mweb/9039D284A5D3E492740BD8DEF22CC268.jpg" alt="9039D284A5D3E492740BD8DEF22CC268"></p>
+<ul>
+<li>偏移量是指byte的偏移量</li>
+</ul>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><h2 id="汇编指令"><a href="#汇编指令" class="headerlink" title="汇编指令"></a>汇编指令</h2><p>x86-64 ATT格式</p>
 <p><strong>数据格式</strong></p>
 <table>
@@ -1340,10 +1343,6 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1352,7 +1351,7 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1360,11 +1359,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1372,11 +1371,15 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -343,10 +343,16 @@ struct simple2{
 <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><u><strong>指针</strong></u>的三个问题</p>
 <p>p = ？，&amp;p = ?，*p = ?</p>
 <p>对于未初始化的指针，值是不确定的</p>
-<p>指针的加、减法，与指针的类型相关，指针的+，-，++，–，指针的加减运算是指偏移量（根据指针的类型）</p>
+<p>指针的加、减法，与指针的类型相关，指针的+，-，++，–，指针进行加减运算时，需要乘以单位量（sizeof）</p>
 <pre><code class="c">int a = 1;
 int *ptr_a = &amp;a;//假如ptr_a = 0x10000
 ptr_a += 2;//ptr_a = ptr_a + 2*sizeof(int) = 0x10000 + 8 = 0x10008
+</code></pre>
+<p>指针之间的加、减法，指针之间进行加、减过后需要除以单位量（sizeof）</p>
+<pre><code class="c">int a = 1;
+int b = &amp;a;
+int c = b++;
+b-c//答案是1
 </code></pre>
 <p>指针的操作&amp;、*</p>
 <pre><code class="c">char a[100];
@@ -1170,10 +1176,6 @@ ptr = a + 5;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1182,7 +1184,7 @@ ptr = a + 5;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1190,11 +1192,11 @@ ptr = a + 5;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1202,11 +1204,15 @@ ptr = a + 5;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">

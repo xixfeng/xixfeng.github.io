@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值 数据类型有符号整数存储 int main( ) {     int a = 12;     a = ~a+1;     printf">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-12-29T12:17:20.664Z">
+<meta property="og:updated_time" content="2020-01-03T07:50:02.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C">
 <meta name="twitter:description" content="变量全局变量：  初始化：初始化过后的全局变量放在一起 未初始化：赋予 ”0“ 值后放在一起 编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节  局部变量：  未初始化：赋予0xCCC….值  一个static变量默认得到0值 数据类型有符号整数存储 int main( ) {     int a = 12;     a = ~a+1;     printf">
@@ -234,10 +234,16 @@ struct simple2{
 <h1 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h1><p><u><strong>指针</strong></u>的三个问题</p>
 <p>p = ？，&amp;p = ?，*p = ?</p>
 <p>对于未初始化的指针，值是不确定的</p>
-<p>指针的加、减法，与指针的类型相关，指针的+，-，++，–，指针的加减运算是指偏移量（根据指针的类型）</p>
+<p>指针的加、减法，与指针的类型相关，指针的+，-，++，–，指针进行加减运算时，需要乘以单位量（sizeof）</p>
 <pre><code class="c">int a = 1;
 int *ptr_a = &amp;a;//假如ptr_a = 0x10000
 ptr_a += 2;//ptr_a = ptr_a + 2*sizeof(int) = 0x10000 + 8 = 0x10008
+</code></pre>
+<p>指针之间的加、减法，指针之间进行加、减过后需要除以单位量（sizeof）</p>
+<pre><code class="c">int a = 1;
+int b = &amp;a;
+int c = b++;
+b-c//答案是1
 </code></pre>
 <p>指针的操作&amp;、*</p>
 <pre><code class="c">char a[100];
@@ -557,10 +563,6 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -569,7 +571,7 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +579,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,11 +591,15 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
