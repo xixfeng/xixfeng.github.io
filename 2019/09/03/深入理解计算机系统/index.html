@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119775324.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/15775119843287.jpg">
 <meta property="og:image" content="http://api.xixfeng.cn/mweb/9039D284A5D3E492740BD8DEF22CC268.jpg">
-<meta property="og:updated_time" content="2020-01-05T07:42:20.782Z">
+<meta property="og:updated_time" content="2020-01-06T04:25:29.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
 <meta name="twitter:description" content="以C语言为例，介绍一种高级语言从编码到执行的所有底层细节 1.计算机总览C语言运行的6个阶段  edit：C使用ASCLL编码，以8位（bit）来表示字符 preprocess：.i文本文件 compile：.s文本文件（汇编指令） assmbler(汇编)：.o二进制代码 linker：涉及到地址的重新定位 loader：将可执行对象文件从磁盘加载或映射到内存">
@@ -182,12 +182,11 @@
 </ul>
 <p><img src="http://api.xixfeng.cn/mweb/15774286365075.jpg" alt></p>
 <a id="more"></a>
-<p>硬件分层<br>figure1.6<br>figure1.9<br>操作系统分层<br>figure 1.11<br>figure 1.13 !important</p>
 <h1 id="2-信息存储"><a href="#2-信息存储" class="headerlink" title="2.信息存储"></a>2.信息存储</h1><p>内存空间编址：字节、字</p>
 <p>编码</p>
 <ul>
 <li>大端优先</li>
-<li>小端优先</li>
+<li>小端优先（小端位于低地址）</li>
 <li>C语言使用小端优先</li>
 </ul>
 <p>位移动</p>
@@ -232,8 +231,8 @@
 <li>EBX</li>
 <li>ECX：一般用于加减法</li>
 <li>EDX</li>
-<li>EBP：栈帧的基地址指针 base pointer of stack frame，即某一栈帧<strong>起始地址</strong>指针</li>
-<li>ESP：栈顶指针，就是栈最上面栈帧的指针</li>
+<li><strong>EBP</strong>：栈帧的基地址指针 base pointer of stack frame，即某一栈帧<strong>起始地址</strong>指针</li>
+<li><strong>ESP</strong>：栈顶指针，就是栈最上面栈帧的指针</li>
 <li>ESI</li>
 <li>EDI</li>
 <li><strong>EIP</strong>：存储下一条指令的地址</li>
@@ -395,8 +394,6 @@ gets(s);  /* reads “123456789” from stdin 超出了数组范围*/
     strcpy(new_s, s);
     return new_s;
 }
-</code></pre>
-<pre><code class="c">*a--; // decrement the integer --优先级大于*
 </code></pre>
 <h2 id="6-3-两次free"><a href="#6-3-两次free" class="headerlink" title="6.3 两次free"></a>6.3 两次free</h2><pre><code class="c">void my_write(int* x)  {        
           ... use x ...
@@ -1349,6 +1346,10 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1357,7 +1358,7 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1365,11 +1366,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1377,15 +1378,11 @@ gitment.render('gitment-ctn')
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">

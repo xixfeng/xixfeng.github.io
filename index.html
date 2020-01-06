@@ -273,17 +273,19 @@
     <div class="article-entry" itemprop="articleBody">
 
         
-          <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>全局变量：</p>
+          <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p><u><strong>全局变量</strong></u>：</p>
 <ul>
 <li>初始化：初始化过后的全局变量放在一起</li>
 <li>未初始化：赋予 ”0“ 值后放在一起</li>
 <li>编译器有意将全局变量变为4个字节以对齐，比如一个char本来只需要1字节，就会变为4字节</li>
 </ul>
-<p>局部变量：</p>
-<ul>
-<li>未初始化：赋予0xCCC….值</li>
-</ul>
+<p><u><strong>常量</strong></u></p>
+<pre><code class="c">char *a = &quot;abc&quot;;//这里的c就是常量，会在编译时静态分配内存地址
+</code></pre>
+<p><u><strong>静态变量</strong></u></p>
 <p>一个static变量默认得到0值</p>
+<p><u><strong>局部变量</strong></u>：</p>
+<p>未初始化：赋予0xCCC….值（在函数栈中，我们利用sub移动esp为本地变量开辟空间，其中就会以0xCCCCCCCC占位）</p>
           
             <a class="article-more-a" href="/2019/12/27/C/#more">more >></a>
           
@@ -1031,6 +1033,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1039,7 +1045,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1047,11 +1053,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,15 +1065,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">测试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">编译原理</a>
               </li>
              
               <li class="article-tag-list-item">
