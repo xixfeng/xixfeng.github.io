@@ -65,48 +65,6 @@
   </entry>
   
   <entry>
-    <title>Java_OJ的输入与输出</title>
-    <link href="https://xixfeng.github.io/2020/03/19/Java-OJ%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/"/>
-    <id>https://xixfeng.github.io/2020/03/19/Java-OJ的输入与输出/</id>
-    <published>2020-03-19T14:44:59.000Z</published>
-    <updated>2020-03-19T15:27:14.312Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;处理数组输入&quot;&gt;&lt;a href=&quot;#处理数组输入&quot; class=&quot;headerlink&quot; title=&quot;处理数组输入&quot;&gt;&lt;/a&gt;处理数组输入&lt;/h1&gt;&lt;div&gt;&lt;div class=&quot;fold_hider&quot;&gt;&lt;div class=&quot;close
-        
-      
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="java" scheme="https://xixfeng.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-OJ的输入与输出</title>
-    <link href="https://xixfeng.github.io/2020/03/19/Java_OJ%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA/"/>
-    <id>https://xixfeng.github.io/2020/03/19/Java_OJ的输入与输出/</id>
-    <published>2020-03-19T14:44:59.000Z</published>
-    <updated>2020-03-19T14:44:59.102Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>深入理解计算机系统-异常</title>
     <link href="https://xixfeng.github.io/2019/12/27/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F-%E5%BC%82%E5%B8%B8/"/>
     <id>https://xixfeng.github.io/2019/12/27/深入理解计算机系统-异常/</id>
@@ -686,6 +644,66 @@
     
     
       <category term="深入理解计算机系统" scheme="https://xixfeng.github.io/tags/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>xcode调试openjdk的原理</title>
+    <link href="https://xixfeng.github.io/2019/09/01/xcode%E8%B0%83%E8%AF%95openjdk%E7%9A%84%E5%8E%9F%E7%90%86/"/>
+    <id>https://xixfeng.github.io/2019/09/01/xcode调试openjdk的原理/</id>
+    <published>2019-09-01T02:37:13.000Z</published>
+    <updated>2019-10-14T11:53:30.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在编译openjdk后，使用xcode调试hotspot。但是此时引入的是openjdk中hotspot源码，在源码上打断点为什么影响编译的java程序&lt;/p&gt;
+&lt;p&gt;首先调试分为软件断点和硬件断点，软件断点主要是通过x86架构中自带的INT
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mac编译openjdk9</title>
+    <link href="https://xixfeng.github.io/2019/08/30/mac%E7%BC%96%E8%AF%91openjdk9/"/>
+    <id>https://xixfeng.github.io/2019/08/30/mac编译openjdk9/</id>
+    <published>2019-08-30T11:28:35.000Z</published>
+    <updated>2019-08-31T07:28:53.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;homebrew&lt;/li&gt;
+&lt;li&gt;freetype&lt;/li&gt;
+&lt;li&gt;Mercurial&lt;/li&gt;
+&lt;li&gt;xcode-select&lt;/li&gt;
+&lt;li&gt;源码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;bash ./configure \
+    --with-target-bits=64 \
+--with-debug-level=slowdebug \
+--with-freetype-include=/usr/local/include/freetype2 \
+--with-freetype-lib=/usr/local/Cellar/freetype/2.10.0/lib \
+--disable-warnings-as-errors 
+//注意把freetype版本换为本机安装的
+
+make all
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;Q1 &lt;/p&gt;
+&lt;p&gt;#include&lt;new&gt; 头文件缺失&lt;br&gt;这是由于xcode9升级到xcode10过后删除了一些文件导致的，只需要把xcode9中/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++和/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libstdc++.*复制到xcode10相同的目录即可&lt;br&gt;&lt;a href=&quot;https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://pan.baidu.com/s/1W2sGlNs4zHHXriSRJkxhkA&lt;/a&gt;&lt;/new&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xixfeng.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
     
   </entry>
   
