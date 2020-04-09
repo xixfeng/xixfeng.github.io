@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="xixfeng">
 <meta property="og:description" content="双链表实现class DoubleLink&amp;lt;T&amp;gt;{     private Node&amp;lt;T&amp;gt; hNode;     private int mCount;       class Node&amp;lt;T&amp;gt;{         private Node prev;         private Node next;         private T value;">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-11T12:56:06.558Z">
+<meta property="og:updated_time" content="2020-03-24T06:31:29.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java实现数据结构">
 <meta name="twitter:description" content="双链表实现class DoubleLink&amp;lt;T&amp;gt;{     private Node&amp;lt;T&amp;gt; hNode;     private int mCount;       class Node&amp;lt;T&amp;gt;{         private Node prev;         private Node next;         private T value;">
@@ -542,7 +542,7 @@ public class GeneralArrayStack&lt;T&gt; {
     }
 }
 </code></pre>
-<h3 id="5-堆"><a href="#5-堆" class="headerlink" title="5.堆"></a>5.堆</h3><p>性质：1.是完全二叉树 2.任意节点值永远不小于（不大于）子节点</p>
+<h3 id="5-堆"><a href="#5-堆" class="headerlink" title="5.堆"></a>5.堆</h3><h4 id="最小K个数"><a href="#最小K个数" class="headerlink" title="最小K个数"></a><a href="https://leetcode-cn.com/problems/smallest-k-lcci/" target="_blank" rel="noopener">最小K个数</a></h4><p>性质：1.是完全二叉树 2.任意节点值永远不小于（不大于）子节点</p>
 <pre><code class="java">import java.util.ArrayList;
 class Main{
     public static void main(String[] args) {
@@ -645,16 +645,16 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
 </ol>
 <p>通常用来解决编码问题</p>
 <h2 id="B树、B-树"><a href="#B树、B-树" class="headerlink" title="B树、B+树"></a>B树、B+树</h2><p><a href="https://juejin.im/entry/5b0cb64e518825157476b4a9" target="_blank" rel="noopener">B树、B+树</a></p>
-<p>B树</p>
+<p>B树<br>出度 = 关键字数+1</p>
 <ul>
 <li>若根结点不是终端结点，则至少有2棵子树</li>
-<li>除根节点以外的所有非叶结点关键字范围[M/2，M-1]，M/2向下取整</li>
+<li>除根节点以外的所有非叶结点子树范围 [M/2，M]，M/2向上取整（关键字数为子树减一）</li>
 <li>所有的叶子结点都位于同一层</li>
 </ul>
-<p>B+树</p>
+<p>B+树<br>出度 = 关键字数</p>
 <ul>
 <li>若根结点不是终端结点，则至少有2棵子树</li>
-<li>除根节点以外的所有非叶结点关键字范围[M/2，M]，M/2向上取整</li>
+<li>除根节点以外的所有非叶结点子树范围[M/2，M]，M/2向上取整（关键字数与子树相同）</li>
 <li>所有的叶子结点都位于同一层</li>
 <li>非叶子节点仅用作索引，它的关键字和子节点有重复元素</li>
 <li>叶子节点用指针连在一起</li>
@@ -665,7 +665,13 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
 <li>查找性能稳定</li>
 <li>方便范围查找 </li>
 </ul>
-<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p><a href="https://zhuanlan.zhihu.com/p/31805309" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31805309</a></p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>二叉查找树 -&gt; 平衡查找树木 -&gt; 2-3树 -&gt; 红黑树</p>
+<ul>
+<li>平衡二叉树（AVL树）：在符合二叉查找树的条件下，还满足任何节点的两个子树的高度最大差为1。</li>
+<li>2-3树的节点数目等于2^h - 1</li>
+<li>红黑树是抽象化的2-3树</li>
+</ul>
+<p>算法4<br>为什么使用红黑树而不使用2-3树（AVL）<a href="https://blog.csdn.net/zhangvalue/article/details/101483736" target="_blank" rel="noopener">https://blog.csdn.net/zhangvalue/article/details/101483736</a><br><a href="https://zhuanlan.zhihu.com/p/31805309" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31805309</a></p>
 
         
 
@@ -747,8 +753,8 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
     </a>
   
   
-    <a href="/2018/11/08/C++学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++学习</div>
+    <a href="/2018/11/08/gcc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gcc</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -775,7 +781,7 @@ public class Heap&lt;T extends Comparable&lt;T&gt;&gt; {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#双链表"><span class="toc-number">1.</span> <span class="toc-text">双链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">1.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栈"><span class="toc-number">2.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法"><span class="toc-number">2.1.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#队列"><span class="toc-number">3.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法-1"><span class="toc-number">3.1.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#树"><span class="toc-number">4.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">4.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历"><span class="toc-number">4.1.1.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-满二叉树"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.满二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-完全二叉树"><span class="toc-number">4.1.3.</span> <span class="toc-text">2.完全二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-平衡二叉树"><span class="toc-number">4.1.4.</span> <span class="toc-text">3.平衡二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-二叉搜索树"><span class="toc-number">4.1.5.</span> <span class="toc-text">4.二叉搜索树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-堆"><span class="toc-number">4.1.6.</span> <span class="toc-text">5.堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-哈夫曼树"><span class="toc-number">4.1.7.</span> <span class="toc-text">6.哈夫曼树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B树、B-树"><span class="toc-number">4.2.</span> <span class="toc-text">B树、B+树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#红黑树"><span class="toc-number">4.3.</span> <span class="toc-text">红黑树</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#双链表"><span class="toc-number">1.</span> <span class="toc-text">双链表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-number">1.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">1.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#栈"><span class="toc-number">2.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法"><span class="toc-number">2.1.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#队列"><span class="toc-number">3.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要方法-1"><span class="toc-number">3.1.</span> <span class="toc-text">主要方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#树"><span class="toc-number">4.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">4.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历"><span class="toc-number">4.1.1.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-满二叉树"><span class="toc-number">4.1.2.</span> <span class="toc-text">1.满二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-完全二叉树"><span class="toc-number">4.1.3.</span> <span class="toc-text">2.完全二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-平衡二叉树"><span class="toc-number">4.1.4.</span> <span class="toc-text">3.平衡二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-二叉搜索树"><span class="toc-number">4.1.5.</span> <span class="toc-text">4.二叉搜索树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-堆"><span class="toc-number">4.1.6.</span> <span class="toc-text">5.堆</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#最小K个数"><span class="toc-number">4.1.6.1.</span> <span class="toc-text">最小K个数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-哈夫曼树"><span class="toc-number">4.1.7.</span> <span class="toc-text">6.哈夫曼树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B树、B-树"><span class="toc-number">4.2.</span> <span class="toc-text">B树、B+树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#红黑树"><span class="toc-number">4.3.</span> <span class="toc-text">红黑树</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -895,15 +901,15 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深入理解计算机系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">

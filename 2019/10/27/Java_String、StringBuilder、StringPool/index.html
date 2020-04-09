@@ -17,7 +17,7 @@
 <meta property="og:description" content="String概览String 被声明为 final，因此它不可被继承。(Integer 等包装类也不能被继承） 在 Java 8 中，String 内部使用 char 数组存储数据。 public final class String     implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence {">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://xixfeng.github.io/Users/xixfeng/Desktop/CS-Notes/notes/pics/9112288f-23f5-4e53-b222-a46fdbca1603.png">
-<meta property="og:updated_time" content="2019-11-06T12:12:03.000Z">
+<meta property="og:updated_time" content="2020-03-02T13:44:04.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java_String">
 <meta name="twitter:description" content="String概览String 被声明为 final，因此它不可被继承。(Integer 等包装类也不能被继承） 在 Java 8 中，String 内部使用 char 数组存储数据。 public final class String     implements java.io.Serializable, Comparable&amp;lt;String&amp;gt;, CharSequence {">
@@ -283,22 +283,6 @@
         return new String(toStringCache, true);
     }
 </code></pre>
-<h1 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h1><p>字符串常量池（String Pool）保存着所有<strong>字符串字面量</strong>即<strong>字符串对象</strong>（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程中将字符串添加到 String Pool 中。</p>
-<p>当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。</p>
-<p>下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。</p>
-<pre><code class="java">String s1 = new String(&quot;aaa&quot;);
-String s2 = new String(&quot;aaa&quot;);
-System.out.println(s1 == s2);           // false
-String s3 = s1.intern();
-String s4 = s1.intern();
-System.out.println(s3 == s4);           // true
-</code></pre>
-<p>如果是采用 “bbb” 这种字面量的形式创建字符串，会自动地将字符串放入 String Pool 中。</p>
-<pre><code class="java">String s5 = &quot;bbb&quot;;
-String s6 = &quot;bbb&quot;;
-System.out.println(s5 == s6);  // true
-</code></pre>
-<p>⚠️**在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <h1 id="new-String-“abc”"><a href="#new-String-“abc”" class="headerlink" title="new String(“abc”)"></a>new String(“abc”)</h1><p>使用这种方式一共会创建两个字符串对象（前提是 String Pool 中还没有 “abc” 字符串对象）。</p>
 <ul>
 <li>“abc” 属于字符串字面量，因此编译时期会在 String Pool 中创建一个字符串对象，指向这个 “abc” 字符串字面量；</li>
@@ -339,9 +323,26 @@ Constant pool:
 <pre><code class="java">public String(String original) {
     this.value = original.value;
     this.hash = original.hash;
-}
+} 
 </code></pre>
-<p># </p>
+<h1 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h1><p>字符串常量池（String Pool）保存着所有<strong>字符串字面量</strong>即<strong>字符串对象</strong>（literal strings），这些字面量在编译时期就确定。</p>
+<p>当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。</p>
+<p>下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。</p>
+<pre><code class="java">String s1 = new String(&quot;aaa&quot;);
+String s2 = new String(&quot;aaa&quot;);
+System.out.println(s1 == s2);           // false
+String s3 = s1.intern();
+String s4 = s1.intern();
+System.out.println(s3 == s4);           // true
+//通过debug可知，s1、s2的底层值的地址是一样的。
+</code></pre>
+<p>如果是采用 “bbb” 这种字面量的形式创建字符串，会自动地将字符串放入 String Pool 中。</p>
+<pre><code class="java">String s5 = &quot;bbb&quot;;
+String s6 = &quot;bbb&quot;;
+System.out.println(s5 == s6);  // true
+//字符串常量池存的是字符串对象，而不是单纯的字符串。
+</code></pre>
+<p>⚠️**在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 
         
 
@@ -451,7 +452,7 @@ Constant pool:
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概览"><span class="toc-number">1.1.</span> <span class="toc-text">概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不可变的好处"><span class="toc-number">1.2.</span> <span class="toc-text">不可变的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StringBuilder、StringBuffer"><span class="toc-number">2.</span> <span class="toc-text">StringBuilder、StringBuffer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#String-Pool"><span class="toc-number">3.</span> <span class="toc-text">String Pool</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new-String-“abc”"><span class="toc-number">4.</span> <span class="toc-text">new String(“abc”)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概览"><span class="toc-number">1.1.</span> <span class="toc-text">概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不可变的好处"><span class="toc-number">1.2.</span> <span class="toc-text">不可变的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StringBuilder、StringBuffer"><span class="toc-number">2.</span> <span class="toc-text">StringBuilder、StringBuffer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new-String-“abc”"><span class="toc-number">3.</span> <span class="toc-text">new String(“abc”)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#String-Pool"><span class="toc-number">4.</span> <span class="toc-text">String Pool</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -571,15 +572,15 @@ gitment.render('gitment-ctn')
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深入理解计算机系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
