@@ -193,87 +193,9 @@
 <li>DESC:可选。表示降序排列。</li>
 </ul>
 <p>注：索引方法默认使用B+TREE。</p>
-<p><strong>删除索引</strong></p>
-<pre><code class="mysql">DROP INDEX 索引名 ON 表名
-
-ALTER TABLE 表名 DROP INDEX 索引名
-</code></pre>
-<h2 id="组合索引、最左匹配原则"><a href="#组合索引、最左匹配原则" class="headerlink" title="组合索引、最左匹配原则"></a>组合索引、最左匹配原则</h2><pre><code class="mysql">ALTER TABLE corona_question ADD UNIQUE INDEX (lang,question_id)
-</code></pre>
-<p>这里会创建两种索引</p>
-<ul>
-<li>lang、question_id</li>
-<li>lang</li>
-</ul>
-<h2 id="前缀索引"><a href="#前缀索引" class="headerlink" title="前缀索引"></a>前缀索引</h2><p>限制索引字段的大小</p>
-<h1 id="聚集索引、非聚集索引"><a href="#聚集索引、非聚集索引" class="headerlink" title="聚集索引、非聚集索引"></a>聚集索引、非聚集索引</h1><p>聚集索引：以主键创建的索引</p>
-<p>非聚集索引：以非主键创建的索引</p>
-<p>区别：</p>
-<ul>
-<li>聚集索引的叶子结点存储的是表中的数据</li>
-<li>非聚集索引在叶子结点存储的是主键和索引列；比如我在 lang上创建索引，该索引的叶子结点只存储lang和question_id</li>
-<li>使用非聚集索引查询出数据时，拿到叶子上的主键再去查到想要的数据（这个过程叫做<strong>回表</strong>）</li>
-</ul>
-<h2 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h2><p>覆盖索引就是查询的<strong>数据就在索引中</strong>，不用再执行回表操作；比如</p>
-<pre><code class="mysql">select question_id from corona_question where lang = &quot;hi&quot;
-</code></pre>
-<p>此时我的查询只想要question_id，而它已经存在于索引中，所以不需要回表查询</p>
-<h1 id="查询效率"><a href="#查询效率" class="headerlink" title="查询效率"></a>查询效率</h1><pre><code class="mysql">explain select * from corona_question where lang=&#39;hi&#39;
-</code></pre>
-<p><strong>id</strong>：SELECT识别符。这是SELECT的查询序列号。</p>
-<p><strong>select_type</strong>：SELECT类型。</p>
-<ul>
-<li>SIMPLE： 简单SELECT(不使用UNION或子查询)</li>
-<li>PRIMARY： 最外面的SELECT</li>
-<li>UNION：UNION中的第二个或后面的SELECT语句</li>
-<li>DEPENDENT UNION：UNION中的第二个或后面的SELECT语句，取决于外面的查询</li>
-<li>UNION RESULT：UNION的结果</li>
-<li>SUBQUERY：子查询中的第一个SELECT</li>
-<li>DEPENDENT SUBQUERY：子查询中的第一个SELECT，取决于外面的查询</li>
-<li>DERIVED：导出表的SELECT(FROM子句的子查询)</li>
-</ul>
-<p><strong>table</strong>：表名</p>
-<p><strong>type</strong>：联接类型。是SQL性能的非常重要的一个指标，结果值从好到坏依次是：system &gt; const &gt; eq_ref &gt; ref<br>            &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL。<br>            一般来说，得保证查询至少达到range级别。</p>
-<ul>
-<li>system：表仅有一行(=系统表)。这是const联接类型的一个特例。</li>
-<li>const：表最多有一个匹配行，它将在查询开始时被读取。因为仅有一行，在这行的列值可被优化器剩余部分认为是常数。const用于用常数值比较PRIMARY KEY或UNIQUE索引的所有部分时。</li>
-<li>eq_ref：对于每个来自于前面的表的行组合，从该表中读取一行。这可能是最好的联接类型，除了const类型。它用在一个索引的所有部分被联接使用并且索引是UNIQUE或PRIMARY KEY。eq_ref可以用于使用= 操作符比较的带索引的列。比较值可以为常量或一个使用在该表前面所读取的表的列的表达式。</li>
-<li>ref：对于每个来自于前面的表的行组合，所有有匹配索引值的行将从这张表中读取。如果联接只使用键的最左边的前缀，或如果键不是UNIQUE或PRIMARY KEY(换句话说，如果联接不能基于关键字选择单个行的话)，则使用ref。如果使用的键仅仅匹配少量行，该联接类型是不错的。ref可以用于使用=或&lt;=&gt;操作符的带索引的列。</li>
-<li>ref_or_null：该联接类型如同ref，但是添加了MySQL可以专门搜索包含NULL值的行。在解决子查询中经常使用该联接类型的优化。</li>
-<li>index_merge：该联接类型表示使用了索引合并优化方法。在这种情况下，key列包含了使用的索引的清单，key_len包含了使用的索引的最长的关键元素。</li>
-<li>unique_subquery：该类型替换了下面形式的IN子查询的ref：value IN (SELECT primary_key FROMsingle_table WHERE some_expr);unique_subquery是一个索引查找函数，可以完全替换子查询，效率更高。</li>
-<li>index_subquery：该联接类型类似于unique_subquery。可以替换IN子查询，但只适合下列形式的子查询中的非唯一索引：value IN (SELECT key_column FROM single_table WHERE some_expr)</li>
-<li>range：只检索给定范围的行，使用一个索引来选择行。key列显示使用了哪个索引。key_len包含所使用索引的最长关键元素。在该类型中ref列为NULL。当使用=、&lt;&gt;、&gt;、&gt;=、&lt;、&lt;=、IS NULL、&lt;=&gt;、BETWEEN或者IN操作符，用常量比较关键字列时，可以使用range</li>
-<li>index：该联接类型与ALL相同，除了只有索引树被扫描。这通常比ALL快，因为索引文件通常比数据文件小。</li>
-<li>all：对于每个来自于先前的表的行组合，进行完整的表扫描。如果表是第一个没标记const的表，这通常不好，并且通常在它情况下很差。通常可以增加更多的索引而不要使用ALL，使得行能基于前面的表中的常数值或列值被检索出。</li>
-</ul>
-<p><strong>possible_keys</strong>：possible_keys列指出MySQL能使用哪个索引在该表中找到行。注意，该列完全独立于EXPLAIN输出所示的表的次序。这意味着在possible_keys中的某些键实际上不能按生成的表次序使用。</p>
-<p><strong>key</strong>：key列显示MySQL实际决定使用的键(索引)。如果没有选择索引，键是NULL。要想强制MySQL使用或忽视possible_keys列中的索引，在查询中使用FORCE INDEX、USE INDEX或者IGNORE INDEX。</p>
-<p><strong>key_len</strong>：key_len列显示MySQL决定使用的键长度。如果键是NULL，则长度为NULL。注意通过key_len值我们可以确定MySQL将实际使用一个多部关键字的几个部分。</p>
-<p><strong>ref</strong>：ref列显示使用哪个列或常数与key一起从表中选择行。</p>
-<p><strong>rows</strong>：rows列显示MySQL认为它执行查询时必须检查的行数。</p>
-<p><strong>Extra</strong>：该列包含MySQL解决查询的详细信息。</p>
-<ul>
-<li>Using where:不用读取表中所有信息，仅通过索引就可以获取所需数据，这发生在对表的全部的请求列都是同一个索引的部分的时候，表示mysql服务器将在存储引擎检索行后再进行过滤</li>
-<li>Using temporary：表示MySQL需要使用临时表来存储结果集，常见于排序和分组查询，常见 group by ; order by</li>
-<li>Using filesort：当Query中包含 order by 操作，而且无法利用索引完成的排序操作称为“文件排序”</li>
-<li>Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。</li>
-<li>Impossible where：这个值强调了where语句会导致没有符合条件的行（通过收集统计信息不可能存在结果）。</li>
-<li>Select tables optimized away：这个值意味着仅通过使用索引，优化器可能仅从聚合函数结果中返回一行</li>
-<li>No tables used：Query语句中使用from dual 或不含任何from子句</li>
-</ul>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><pre><code class="mysql">CREATE TABLE `corona_question` (
-  `question_id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT comment &#39;自增主键&#39;,
-  `lang` varchar(255) NOT NULL COMMENT &#39;问题所属语言&#39;,
-  `sorted_id` bigint(20) DEFAULT NULL COMMENT &#39;问题排序id&#39;,
-  `question_desc` varchar(255) DEFAULT NULL COMMENT &#39;问题描述&#39;,
-  `heat_count` bigint(20) DEFAULT NULL COMMENT &#39;该问题下所有文章点赞量&#39;,
-  `create_time` BIGINT  NOT NULL DEFAULT 0 COMMENT &#39;创建时间&#39;,
-  `modify_time` BIGINT  NOT NULL DEFAULT 0 COMMENT &#39;更新时间&#39;,
-   INDEX (`lang`)
-)comment=&#39;肺炎Q&amp;A二级页面问题信息&#39; ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-</code></pre>
-
+          
+            <a class="article-more-a" href="/2020/04/09/Mysql索引/#more">more >></a>
+          
         
 
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xixfeng.github.io/"/>
-  <updated>2020-04-09T13:28:22.777Z</updated>
+  <updated>2020-04-09T13:34:25.085Z</updated>
   <id>https://xixfeng.github.io/</id>
   
   <author>
@@ -21,20 +21,41 @@
     <link href="https://xixfeng.github.io/2020/04/09/Mysql%E7%B4%A2%E5%BC%95/"/>
     <id>https://xixfeng.github.io/2020/04/09/Mysql索引/</id>
     <published>2020-04-09T07:11:30.000Z</published>
-    <updated>2020-04-09T13:28:22.777Z</updated>
+    <updated>2020-04-09T13:34:25.085Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;所有例子使用附录中的corona_question表&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;索引CURD&quot;&gt;&lt;a href=&quot;#索引CURD&quot; class=&quot;headerlink&quot;
-        
-      
+&lt;h1 id=&quot;索引CURD&quot;&gt;&lt;a href=&quot;#索引CURD&quot; class=&quot;headerlink&quot; title=&quot;索引CURD&quot;&gt;&lt;/a&gt;索引CURD&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;创建索引&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;mysql&quot;&gt;CREATE TABLE 表名(
+
+字段名 数据类型 [完整性约束条件],
+
+       ……，
+
+[UNIQUE | FULLTEXT | SPATIAL] INDEX | KEY
+
+[索引名](字段名1 [(长度)] [ASC | DESC]) [USING 索引方法]
+
+);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;mysql&quot;&gt;ALTER TABLE 表名 ADD [UNIQUE | FULLTEXT | SPATIAL]  INDEX | KEY  [索引名] (字段名1 [(长度)] [ASC | DESC]) [USING 索引方法]；
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;UNIQUE:可选。表示索引为唯一性索引。&lt;/li&gt;
+&lt;li&gt;FULLTEXT:可选。表示索引为全文索引。（用于key匹配查找，搜索场景）&lt;/li&gt;
+&lt;li&gt;SPATIAL:可选。表示索引为空间索引。&lt;/li&gt;
+&lt;li&gt;INDEX和KEY:用于指定字段为索引，两者选择其中之一就可以了，作用是一样的。&lt;/li&gt;
+&lt;li&gt;索引名:可选。给创建的索引取一个新名称。&lt;/li&gt;
+&lt;li&gt;字段名1:指定索引对应的字段的名称，该字段必须是前面定义好的字段。&lt;/li&gt;
+&lt;li&gt;长度:可选。指索引的长度，必须是字符串类型才可以使用。&lt;/li&gt;
+&lt;li&gt;ASC:可选。表示升序排列。&lt;/li&gt;
+&lt;li&gt;DESC:可选。表示降序排列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注：索引方法默认使用B+TREE。&lt;/p&gt;
     
     </summary>
     
